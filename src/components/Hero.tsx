@@ -2,7 +2,7 @@ import React from 'react';
 import styles from 'scss/components/Hero.module.scss';
 
 interface Props {
-  title: string;
+  title?: string;
   id?: string;
   bgImage?: string;
   buttonText?: string;
@@ -13,7 +13,7 @@ interface Props {
 }
 
 function Hero({
-  title = 'Hero Title',
+  title = '',
   id,
   bgImage,
   buttonText,

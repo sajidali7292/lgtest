@@ -47,4 +47,5 @@ a {
 a:focus,
 a:hover {
 	color: lighten($color-primary, 15);
+	text-decoration: underline;
 }

@@ -32,28 +32,16 @@ export default function Page() {
 
       <main className="content">
         <Hero
-          title="Get Started with Faust.js"
-          buttonText="Developer Docs"
+          buttonText="SCHEDULE YOUR INITIAL CASE ASSESSMENT"
           buttonURL="https://faustjs.org"
-          button2Text="Faust.js on GitHub"
-          button2URL="https://github.com/wpengine/faustjs"
           bgImage="/images/headless_hero_background.jpg"
           id={styles.home_hero}
         >
-          <p>
-            WP&nbsp;Engine’s Faust.js Framework includes this example
-            project, the{' '}
-            <a href="https://wordpress.org/plugins/faustwp/">
-              FaustWP plugin
-            </a>
-            ,{' '}
-            <a href="https://github.com/wpengine/faustjs">headless packages</a>,
-            and{' '}
-            <a href="https://faustjs.org/docs/tutorial/dev-env-setup">
-              tutorials
-            </a>{' '}
-            to make building headless WordPress sites fast and fun.
-          </p>
+          <h1>We <strong>Create</strong> New Beginnings</h1>
+          <span>
+          We are Z Family Law, and we don’t write endings — 
+          we build new beginnings. Together, we can turn your family law matter into the fresh start you deserve. 
+          </span>
         </Hero>
         <section className={styles.explore}>
           <div className="wrap">

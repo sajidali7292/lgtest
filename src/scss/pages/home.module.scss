@@ -11,11 +11,40 @@
 	background-color: $color-light-gray;
 }
 
-@media screen and (min-width: $breakpoint-medium) {
-	#home_hero h1 {
-		max-width: 40%; // Reduced from 80% on the front-page only to wrap the headline.
-	}
+#home_hero div {
+	text-align: center;
+	display: flex;
+    flex-direction: column;
+}
+#home_hero div:first-of-type{
+	width:738px;
+	max-width:100%;
+}
+#home_hero h1 {
+	font-size:42px;
+	margin:0;
+	max-width:100%;
+}
+#home_hero p {
+	place-self: center;
+	max-width:592px;
+}
 
+#home_hero span {
+	place-self: center;
+	max-width:403px;
+	margin: 10px 0 0 0;
+}
+
+#home_hero{
+    padding-right: 25%;
+    padding-top: 22%;
+}
+#home_hero .content .button-secondary {
+	background-color: $color-secondary;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
 	.features {
 		column-gap: 20px;
 		display: grid;
