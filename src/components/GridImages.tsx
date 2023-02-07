@@ -36,7 +36,7 @@ function GridImages({
             {images?.map((image, index) => (
               <div
               key={`${index}$-image`}  className="image_cont basis-1/2 md:basis-1/4 lg:basis-1/7 p-3">
-                <Image src={image.url} alt={image.alt} className="h-24 object-contain"/>
+                <Image src={image.url} alt={image.alt} className="h-24 object-contain" width="170" height="95"/>
               </div>
             ))}
           </div>
