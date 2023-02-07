@@ -44,7 +44,7 @@ export default function Page() {
           </span>
         </Hero>
         
-        {/* <BasicText 
+        <BasicText 
           pt="t6"
           pb="b3"
           descriptions={
@@ -92,7 +92,7 @@ export default function Page() {
             ]
           }
         >
-        </TestimonialsM> */}
+        </TestimonialsM>
 
         <section className={styles.explore}>
           <div className="wrap">
