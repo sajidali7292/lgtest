@@ -2,7 +2,7 @@ import React from 'react';
 import styles from 'scss/components/TestimonialsM.module.scss';
 
 interface Props {
-    title: string;
+    title?: string;
     testimonialsA?: Array<any>;
     pt?: string;
     pb?: string;

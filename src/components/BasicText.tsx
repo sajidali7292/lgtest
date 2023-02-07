@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Heading, { HeadingProps } from './Heading';
 
 interface Props {
-    title: string;
+    title?: string;
     descriptions?: Array<any>;
     headingLevel?: HeadingProps['level'];
     pt?: string;
