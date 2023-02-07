@@ -381,6 +381,8 @@ export enum ContentTypeEnum {
   /** The Type of Content object */
   PROJECT = "PROJECT",
   /** The Type of Content object */
+  SOCIALMEDIA = "SOCIALMEDIA",
+  /** The Type of Content object */
   TESTIMONIAL = "TESTIMONIAL",
 }
 
@@ -628,6 +630,27 @@ export interface CreateProjectInput {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+/** Input for the createSocialMedia mutation */
+export interface CreateSocialMediaInput {
+  /** The userId to assign as the author of the object */
+  authorId?: InputMaybe<Scalars["ID"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  profileLink: Array<InputMaybe<Scalars["String"]>>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the createTag mutation */
 export interface CreateTagInput {
   /** The slug that the post_tag will be an alias of */
@@ -807,6 +830,16 @@ export interface DeleteProjectInput {
   /** Whether the object should be force deleted instead of being moved to the trash */
   forceDelete?: InputMaybe<Scalars["Boolean"]>;
   /** The ID of the project to delete */
+  id: Scalars["ID"];
+}
+
+/** Input for the deleteSocialMedia mutation */
+export interface DeleteSocialMediaInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: InputMaybe<Scalars["Boolean"]>;
+  /** The ID of the socialMedia to delete */
   id: Scalars["ID"];
 }
 
@@ -2528,6 +2561,52 @@ export interface RootQueryToProjectConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+/** Arguments for filtering the RootQueryToSocialMediaConnection connection */
+export interface RootQueryToSocialMediaConnectionWhereArgs {
+  /** The user that's connected as the author of the object. Use the userId for the author object. */
+  author?: InputMaybe<Scalars["Int"]>;
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: InputMaybe<Scalars["String"]>;
+  /** Find objects NOT connected to author(s) in the array of author's userIds */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the RootQueryToTagConnection connection */
 export interface RootQueryToTagConnectionWhereArgs {
   /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
@@ -2706,6 +2785,18 @@ export interface SendPasswordResetEmailInput {
   clientMutationId?: InputMaybe<Scalars["String"]>;
   /** A string that contains the user's username or email address. */
   username: Scalars["String"];
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum SocialMediaIdType {
+  /** Identify a resource by the Database ID. */
+  DATABASE_ID = "DATABASE_ID",
+  /** Identify a resource by the (hashed) Global ID. */
+  ID = "ID",
+  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
+  SLUG = "SLUG",
+  /** Identify a resource by the URI. */
+  URI = "URI",
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is ID. */
@@ -3111,14 +3202,43 @@ export interface UpdateSettingsInput {
   generalSettingsTitle?: InputMaybe<Scalars["String"]>;
   /** Site URL. */
   generalSettingsUrl?: InputMaybe<Scalars["String"]>;
+  /** The ID of the page that should display the latest posts */
+  readingSettingsPageForPosts?: InputMaybe<Scalars["Int"]>;
+  /** The ID of the page that should be displayed on the front page */
+  readingSettingsPageOnFront?: InputMaybe<Scalars["Int"]>;
   /** Blog pages show at most. */
   readingSettingsPostsPerPage?: InputMaybe<Scalars["Int"]>;
+  /** What to show on the front page */
+  readingSettingsShowOnFront?: InputMaybe<Scalars["String"]>;
   /** Default post category. */
   writingSettingsDefaultCategory?: InputMaybe<Scalars["Int"]>;
   /** Default post format. */
   writingSettingsDefaultPostFormat?: InputMaybe<Scalars["String"]>;
   /** Convert emoticons like :-) and :-P to graphics on display. */
   writingSettingsUseSmilies?: InputMaybe<Scalars["Boolean"]>;
+}
+
+/** Input for the updateSocialMedia mutation */
+export interface UpdateSocialMediaInput {
+  /** The userId to assign as the author of the object */
+  authorId?: InputMaybe<Scalars["ID"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  /** The ID of the socialMedia object */
+  id: Scalars["ID"];
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  profileLink?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
 }
 
 /** Input for the UpdateTag mutation */
@@ -3537,6 +3657,52 @@ export interface UserToProjectConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+/** Arguments for filtering the UserToSocialMediaConnection connection */
+export interface UserToSocialMediaConnectionWhereArgs {
+  /** The user that's connected as the author of the object. Use the userId for the author object. */
+  author?: InputMaybe<Scalars["Int"]>;
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: InputMaybe<Scalars["String"]>;
+  /** Find objects NOT connected to author(s) in the array of author's userIds */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the UserToTestimonialConnection connection */
 export interface UserToTestimonialConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -3657,6 +3823,7 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   PostStatusEnum: true,
   ProjectIdType: true,
   RelationEnum: true,
+  SocialMediaIdType: true,
   String: true,
   TagIdType: true,
   TaxonomyEnum: true,
@@ -4353,6 +4520,22 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     project: { __type: "Project" },
   },
+  CreateSocialMediaInput: {
+    authorId: { __type: "ID" },
+    clientMutationId: { __type: "String" },
+    date: { __type: "String" },
+    menuOrder: { __type: "Int" },
+    password: { __type: "String" },
+    profileLink: { __type: "[String]!" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  CreateSocialMediaPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    socialMedia: { __type: "SocialMedia" },
+  },
   CreateTagInput: {
     aliasOf: { __type: "String" },
     clientMutationId: { __type: "String" },
@@ -4510,6 +4693,17 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     deletedId: { __type: "ID" },
     project: { __type: "Project" },
+  },
+  DeleteSocialMediaInput: {
+    clientMutationId: { __type: "String" },
+    forceDelete: { __type: "Boolean" },
+    id: { __type: "ID!" },
+  },
+  DeleteSocialMediaPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
+    socialMedia: { __type: "SocialMedia" },
   },
   DeleteTagInput: {
     clientMutationId: { __type: "String" },
@@ -5908,7 +6102,10 @@ export const generatedSchema = {
   },
   ReadingSettings: {
     __typename: { __type: "String!" },
+    pageForPosts: { __type: "Int" },
+    pageOnFront: { __type: "Int" },
     postsPerPage: { __type: "Int" },
+    showOnFront: { __type: "String" },
   },
   RegisterUserInput: {
     aim: { __type: "String" },
@@ -6353,6 +6550,40 @@ export const generatedSchema = {
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
   },
+  RootQueryToSocialMediaConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToSocialMediaConnectionEdge]" },
+    nodes: { __type: "[SocialMedia]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToSocialMediaConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "SocialMedia" },
+  },
+  RootQueryToSocialMediaConnectionWhereArgs: {
+    author: { __type: "Int" },
+    authorIn: { __type: "[ID]" },
+    authorName: { __type: "String" },
+    authorNotIn: { __type: "[ID]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
   RootQueryToTagConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[RootQueryToTagConnectionEdge]" },
@@ -6540,10 +6771,64 @@ export const generatedSchema = {
     generalSettingsTimezone: { __type: "String" },
     generalSettingsTitle: { __type: "String" },
     generalSettingsUrl: { __type: "String" },
+    readingSettingsPageForPosts: { __type: "Int" },
+    readingSettingsPageOnFront: { __type: "Int" },
     readingSettingsPostsPerPage: { __type: "Int" },
+    readingSettingsShowOnFront: { __type: "String" },
     writingSettingsDefaultCategory: { __type: "Int" },
     writingSettingsDefaultPostFormat: { __type: "String" },
     writingSettingsUseSmilies: { __type: "Boolean" },
+  },
+  SocialMedia: {
+    __typename: { __type: "String!" },
+    author: { __type: "NodeWithAuthorToUserConnectionEdge" },
+    authorDatabaseId: { __type: "Int" },
+    authorId: { __type: "ID" },
+    conditionalTags: { __type: "ConditionalTags" },
+    contentType: { __type: "ContentNodeToContentTypeConnectionEdge" },
+    contentTypeName: { __type: "String!" },
+    databaseId: { __type: "Int!" },
+    date: { __type: "String" },
+    dateGmt: { __type: "String" },
+    desiredSlug: { __type: "String" },
+    editingLockedBy: { __type: "ContentNodeToEditLockConnectionEdge" },
+    enclosure: { __type: "String" },
+    enqueuedScripts: {
+      __type: "ContentNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "ContentNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    guid: { __type: "String" },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isPreview: { __type: "Boolean" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    lastEditedBy: { __type: "ContentNodeToEditLastConnectionEdge" },
+    link: { __type: "String" },
+    modified: { __type: "String" },
+    modifiedGmt: { __type: "String" },
+    preview: { __type: "SocialMediaToPreviewConnectionEdge" },
+    previewRevisionDatabaseId: { __type: "Int" },
+    previewRevisionId: { __type: "ID" },
+    profileLink: { __type: "[String]" },
+    slug: { __type: "String" },
+    socialMediaId: { __type: "Int!" },
+    status: { __type: "String" },
+    template: { __type: "ContentTemplate" },
+    templates: { __type: "[String]" },
+    title: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    uri: { __type: "String" },
+  },
+  SocialMediaToPreviewConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "SocialMedia" },
   },
   Tag: {
     __typename: { __type: "String!" },
@@ -7000,7 +7285,10 @@ export const generatedSchema = {
     generalSettingsTimezone: { __type: "String" },
     generalSettingsTitle: { __type: "String" },
     generalSettingsUrl: { __type: "String" },
+    readingSettingsPageForPosts: { __type: "Int" },
+    readingSettingsPageOnFront: { __type: "Int" },
     readingSettingsPostsPerPage: { __type: "Int" },
+    readingSettingsShowOnFront: { __type: "String" },
     writingSettingsDefaultCategory: { __type: "Int" },
     writingSettingsDefaultPostFormat: { __type: "String" },
     writingSettingsUseSmilies: { __type: "Boolean" },
@@ -7016,6 +7304,23 @@ export const generatedSchema = {
     generalSettings: { __type: "GeneralSettings" },
     readingSettings: { __type: "ReadingSettings" },
     writingSettings: { __type: "WritingSettings" },
+  },
+  UpdateSocialMediaInput: {
+    authorId: { __type: "ID" },
+    clientMutationId: { __type: "String" },
+    date: { __type: "String" },
+    id: { __type: "ID!" },
+    menuOrder: { __type: "Int" },
+    password: { __type: "String" },
+    profileLink: { __type: "[String]" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  UpdateSocialMediaPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    socialMedia: { __type: "SocialMedia" },
   },
   UpdateTagInput: {
     aliasOf: { __type: "String" },
@@ -7174,6 +7479,16 @@ export const generatedSchema = {
       __args: { after: "String", before: "String", first: "Int", last: "Int" },
     },
     slug: { __type: "String" },
+    socialMedias: {
+      __type: "UserToSocialMediaConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "UserToSocialMediaConnectionWhereArgs",
+      },
+    },
     templates: { __type: "[String]" },
     testimonials: {
       __type: "UserToTestimonialConnection",
@@ -7439,6 +7754,40 @@ export const generatedSchema = {
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
   },
+  UserToSocialMediaConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[UserToSocialMediaConnectionEdge]" },
+    nodes: { __type: "[SocialMedia]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  UserToSocialMediaConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "SocialMedia" },
+  },
+  UserToSocialMediaConnectionWhereArgs: {
+    author: { __type: "Int" },
+    authorIn: { __type: "[ID]" },
+    authorName: { __type: "String" },
+    authorNotIn: { __type: "[ID]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
   UserToTestimonialConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[UserToTestimonialConnectionEdge]" },
@@ -7531,6 +7880,10 @@ export const generatedSchema = {
       __type: "CreateProjectPayload",
       __args: { input: "CreateProjectInput!" },
     },
+    createSocialMedia: {
+      __type: "CreateSocialMediaPayload",
+      __args: { input: "CreateSocialMediaInput!" },
+    },
     createTag: {
       __type: "CreateTagPayload",
       __args: { input: "CreateTagInput!" },
@@ -7570,6 +7923,10 @@ export const generatedSchema = {
     deleteProject: {
       __type: "DeleteProjectPayload",
       __args: { input: "DeleteProjectInput!" },
+    },
+    deleteSocialMedia: {
+      __type: "DeleteSocialMediaPayload",
+      __args: { input: "DeleteSocialMediaInput!" },
     },
     deleteTag: {
       __type: "DeleteTagPayload",
@@ -7635,6 +7992,10 @@ export const generatedSchema = {
     updateSettings: {
       __type: "UpdateSettingsPayload",
       __args: { input: "UpdateSettingsInput!" },
+    },
+    updateSocialMedia: {
+      __type: "UpdateSocialMediaPayload",
+      __args: { input: "UpdateSocialMediaInput!" },
     },
     updateTag: {
       __type: "UpdateTagPayload",
@@ -7858,6 +8219,24 @@ export const generatedSchema = {
         where: "RootQueryToContentRevisionUnionConnectionWhereArgs",
       },
     },
+    socialMedia: {
+      __type: "SocialMedia",
+      __args: { asPreview: "Boolean", id: "ID!", idType: "SocialMediaIdType" },
+    },
+    socialMediaBy: {
+      __type: "SocialMedia",
+      __args: { id: "ID", slug: "String", socialMediaId: "Int", uri: "String" },
+    },
+    socialMedias: {
+      __type: "RootQueryToSocialMediaConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToSocialMediaConnectionWhereArgs",
+      },
+    },
     tag: { __type: "Tag", __args: { id: "ID!", idType: "TagIdType" } },
     tags: {
       __type: "RootQueryToTagConnection",
@@ -7952,6 +8331,7 @@ export const generatedSchema = {
       "Post",
       "PostFormat",
       "Project",
+      "SocialMedia",
       "Tag",
       "Testimonial",
       "User",
@@ -7973,6 +8353,7 @@ export const generatedSchema = {
       "Post",
       "PostFormat",
       "Project",
+      "SocialMedia",
       "Tag",
       "Taxonomy",
       "Testimonial",
@@ -7989,6 +8370,7 @@ export const generatedSchema = {
       "Post",
       "PostFormat",
       "Project",
+      "SocialMedia",
       "Tag",
       "Testimonial",
       "User",
@@ -8003,12 +8385,40 @@ export const generatedSchema = {
       "Template_SinglePostNoSeparators",
     ],
     EnqueuedAsset: ["EnqueuedScript", "EnqueuedStylesheet"],
-    ContentNode: ["MediaItem", "Page", "Post", "Project", "Testimonial"],
+    ContentNode: [
+      "MediaItem",
+      "Page",
+      "Post",
+      "Project",
+      "SocialMedia",
+      "Testimonial",
+    ],
     HierarchicalContentNode: ["MediaItem", "Page"],
-    NodeWithAuthor: ["MediaItem", "Page", "Post", "Project", "Testimonial"],
+    NodeWithAuthor: [
+      "MediaItem",
+      "Page",
+      "Post",
+      "Project",
+      "SocialMedia",
+      "Testimonial",
+    ],
     NodeWithComments: ["MediaItem", "Page", "Post"],
-    NodeWithTemplate: ["MediaItem", "Page", "Post", "Project", "Testimonial"],
-    NodeWithTitle: ["MediaItem", "Page", "Post", "Project", "Testimonial"],
+    NodeWithTemplate: [
+      "MediaItem",
+      "Page",
+      "Post",
+      "Project",
+      "SocialMedia",
+      "Testimonial",
+    ],
+    NodeWithTitle: [
+      "MediaItem",
+      "Page",
+      "Post",
+      "Project",
+      "SocialMedia",
+      "Testimonial",
+    ],
     MenuItemObjectUnion: ["Category", "Page", "Post", "Tag"],
     NodeWithContentEditor: ["Page", "Post"],
     NodeWithFeaturedImage: ["Page", "Post", "Project"],
@@ -8850,7 +9260,13 @@ export interface ConditionalTags {
  * Nodes used to manage content
  */
 export interface ContentNode {
-  __typename?: "MediaItem" | "Page" | "Post" | "Project" | "Testimonial";
+  __typename?:
+    | "MediaItem"
+    | "Page"
+    | "Post"
+    | "Project"
+    | "SocialMedia"
+    | "Testimonial";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -9483,6 +9899,21 @@ export interface CreateProjectPayload {
 }
 
 /**
+ * The payload for the createSocialMedia mutation
+ */
+export interface CreateSocialMediaPayload {
+  __typename?: "CreateSocialMediaPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Post object mutation type.
+   */
+  socialMedia?: Maybe<SocialMedia>;
+}
+
+/**
  * The payload for the createTag mutation
  */
 export interface CreateTagPayload {
@@ -9541,6 +9972,7 @@ export interface DatabaseIdentifier {
     | "Post"
     | "PostFormat"
     | "Project"
+    | "SocialMedia"
     | "Tag"
     | "Testimonial"
     | "User";
@@ -9693,6 +10125,25 @@ export interface DeleteProjectPayload {
    * The object before it was deleted
    */
   project?: Maybe<Project>;
+}
+
+/**
+ * The payload for the deleteSocialMedia mutation
+ */
+export interface DeleteSocialMediaPayload {
+  __typename?: "DeleteSocialMediaPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The object before it was deleted
+   */
+  socialMedia?: Maybe<SocialMedia>;
 }
 
 /**
@@ -10916,6 +11367,7 @@ export interface Node {
     | "Post"
     | "PostFormat"
     | "Project"
+    | "SocialMedia"
     | "Tag"
     | "Taxonomy"
     | "Testimonial"
@@ -10933,7 +11385,13 @@ export interface Node {
  * A node that can have an author assigned to it
  */
 export interface NodeWithAuthor {
-  __typename?: "MediaItem" | "Page" | "Post" | "Project" | "Testimonial";
+  __typename?:
+    | "MediaItem"
+    | "Page"
+    | "Post"
+    | "Project"
+    | "SocialMedia"
+    | "Testimonial";
   /**
    * Connection between the NodeWithAuthor type and the User type
    */
@@ -11227,7 +11685,13 @@ export interface NodeWithRevisionsToContentNodeConnectionEdge {
  * A node that can have a template associated with it
  */
 export interface NodeWithTemplate {
-  __typename?: "MediaItem" | "Page" | "Post" | "Project" | "Testimonial";
+  __typename?:
+    | "MediaItem"
+    | "Page"
+    | "Post"
+    | "Project"
+    | "SocialMedia"
+    | "Testimonial";
   /**
    * The template assigned to the node
    */
@@ -11239,7 +11703,13 @@ export interface NodeWithTemplate {
  * A node that NodeWith a title
  */
 export interface NodeWithTitle {
-  __typename?: "MediaItem" | "Page" | "Post" | "Project" | "Testimonial";
+  __typename?:
+    | "MediaItem"
+    | "Page"
+    | "Post"
+    | "Project"
+    | "SocialMedia"
+    | "Testimonial";
   /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
    */
@@ -12926,9 +13396,21 @@ export interface ProjectToPreviewConnectionEdge {
 export interface ReadingSettings {
   __typename?: "ReadingSettings";
   /**
+   * The ID of the page that should display the latest posts
+   */
+  pageForPosts?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The ID of the page that should be displayed on the front page
+   */
+  pageOnFront?: Maybe<ScalarsEnums["Int"]>;
+  /**
    * Blog pages show at most.
    */
   postsPerPage?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * What to show on the front page
+   */
+  showOnFront?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -13491,6 +13973,40 @@ export interface RootQueryToProjectConnectionEdge {
 }
 
 /**
+ * Connection between the RootQuery type and the socialMedia type
+ */
+export interface RootQueryToSocialMediaConnection {
+  __typename?: "RootQueryToSocialMediaConnection";
+  /**
+   * Edges for the RootQueryToSocialMediaConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToSocialMediaConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<SocialMedia>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToSocialMediaConnectionEdge {
+  __typename?: "RootQueryToSocialMediaConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<SocialMedia>;
+}
+
+/**
  * Connection between the RootQuery type and the tag type
  */
 export interface RootQueryToTagConnection {
@@ -13801,7 +14317,19 @@ export interface Settings {
   /**
    * Settings of the the integer Settings Group
    */
+  readingSettingsPageForPosts?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Settings of the the integer Settings Group
+   */
+  readingSettingsPageOnFront?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Settings of the the integer Settings Group
+   */
   readingSettingsPostsPerPage?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Settings of the the string Settings Group
+   */
+  readingSettingsShowOnFront?: Maybe<ScalarsEnums["String"]>;
   /**
    * Settings of the the integer Settings Group
    */
@@ -13814,6 +14342,198 @@ export interface Settings {
    * Settings of the the boolean Settings Group
    */
   writingSettingsUseSmilies?: Maybe<ScalarsEnums["Boolean"]>;
+}
+
+/**
+ * The socialMedia type
+ */
+export interface SocialMedia {
+  __typename?: "SocialMedia";
+  /**
+   * Connection between the NodeWithAuthor type and the User type
+   */
+  author?: Maybe<NodeWithAuthorToUserConnectionEdge>;
+  /**
+   * The database identifier of the author of the node
+   */
+  authorDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The globally unique identifier of the author of the node
+   */
+  authorId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums["String"];
+  /**
+   * The unique identifier stored in the database
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The globally unique identifier of the socialmedia object.
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the socialMedia type and the socialMedia type
+   */
+  preview?: Maybe<SocialMediaToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
+  profileLink?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  socialMediaId: ScalarsEnums["Int"];
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The template assigned to the node
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Connection between the socialMedia type and the socialMedia type
+ */
+export interface SocialMediaToPreviewConnectionEdge {
+  __typename?: "SocialMediaToPreviewConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<SocialMedia>;
 }
 
 /**
@@ -14681,6 +15401,7 @@ export interface UniformResourceIdentifiable {
     | "Post"
     | "PostFormat"
     | "Project"
+    | "SocialMedia"
     | "Tag"
     | "Testimonial"
     | "User";
@@ -14850,6 +15571,21 @@ export interface UpdateSettingsPayload {
    * Update the WritingSettings setting.
    */
   writingSettings?: Maybe<WritingSettings>;
+}
+
+/**
+ * The payload for the updateSocialMedia mutation
+ */
+export interface UpdateSocialMediaPayload {
+  __typename?: "UpdateSocialMediaPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Post object mutation type.
+   */
+  socialMedia?: Maybe<SocialMedia>;
 }
 
 /**
@@ -15209,6 +15945,31 @@ export interface User {
    * The slug for the user. This field is equivalent to WP_User-&gt;user_nicename
    */
   slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the User type and the socialMedia type
+   */
+  socialMedias: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<UserToSocialMediaConnectionWhereArgs>;
+  }) => Maybe<UserToSocialMediaConnection>;
   templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
   /**
    * Connection between the User type and the testimonial type
@@ -15554,6 +16315,40 @@ export interface UserToProjectConnectionEdge {
 }
 
 /**
+ * Connection between the User type and the socialMedia type
+ */
+export interface UserToSocialMediaConnection {
+  __typename?: "UserToSocialMediaConnection";
+  /**
+   * Edges for the UserToSocialMediaConnection connection
+   */
+  edges?: Maybe<Array<Maybe<UserToSocialMediaConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<SocialMedia>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface UserToSocialMediaConnectionEdge {
+  __typename?: "UserToSocialMediaConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<SocialMedia>;
+}
+
+/**
  * Connection between the User type and the testimonial type
  */
 export interface UserToTestimonialConnection {
@@ -15682,6 +16477,9 @@ export interface Mutation {
   createProject: (args: {
     input: CreateProjectInput;
   }) => Maybe<CreateProjectPayload>;
+  createSocialMedia: (args: {
+    input: CreateSocialMediaInput;
+  }) => Maybe<CreateSocialMediaPayload>;
   createTag: (args: { input: CreateTagInput }) => Maybe<CreateTagPayload>;
   createTestimonial: (args: {
     input: CreateTestimonialInput;
@@ -15704,6 +16502,9 @@ export interface Mutation {
   deleteProject: (args: {
     input: DeleteProjectInput;
   }) => Maybe<DeleteProjectPayload>;
+  deleteSocialMedia: (args: {
+    input: DeleteSocialMediaInput;
+  }) => Maybe<DeleteSocialMediaPayload>;
   deleteTag: (args: { input: DeleteTagInput }) => Maybe<DeleteTagPayload>;
   deleteTestimonial: (args: {
     input: DeleteTestimonialInput;
@@ -15747,6 +16548,9 @@ export interface Mutation {
   updateSettings: (args: {
     input: UpdateSettingsInput;
   }) => Maybe<UpdateSettingsPayload>;
+  updateSocialMedia: (args: {
+    input: UpdateSocialMediaInput;
+  }) => Maybe<UpdateSocialMediaPayload>;
   updateTag: (args: { input: UpdateTagInput }) => Maybe<UpdateTagPayload>;
   updateTestimonial: (args: {
     input: UpdateTestimonialInput;
@@ -15938,6 +16742,24 @@ export interface Query {
     last?: Maybe<Scalars["Int"]>;
     where?: Maybe<RootQueryToContentRevisionUnionConnectionWhereArgs>;
   }) => Maybe<RootQueryToContentRevisionUnionConnection>;
+  socialMedia: (args: {
+    asPreview?: Maybe<Scalars["Boolean"]>;
+    id: Scalars["ID"];
+    idType?: Maybe<SocialMediaIdType>;
+  }) => Maybe<SocialMedia>;
+  socialMediaBy: (args?: {
+    id?: Maybe<Scalars["ID"]>;
+    slug?: Maybe<Scalars["String"]>;
+    socialMediaId?: Maybe<Scalars["Int"]>;
+    uri?: Maybe<Scalars["String"]>;
+  }) => Maybe<SocialMedia>;
+  socialMedias: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToSocialMediaConnectionWhereArgs>;
+  }) => Maybe<RootQueryToSocialMediaConnection>;
   tag: (args: { id: Scalars["ID"]; idType?: Maybe<TagIdType> }) => Maybe<Tag>;
   tags: (args?: {
     after?: Maybe<Scalars["String"]>;
@@ -16060,6 +16882,7 @@ export interface SchemaObjectTypes {
   CreatePostFormatPayload: CreatePostFormatPayload;
   CreatePostPayload: CreatePostPayload;
   CreateProjectPayload: CreateProjectPayload;
+  CreateSocialMediaPayload: CreateSocialMediaPayload;
   CreateTagPayload: CreateTagPayload;
   CreateTestimonialPayload: CreateTestimonialPayload;
   CreateUserPayload: CreateUserPayload;
@@ -16071,6 +16894,7 @@ export interface SchemaObjectTypes {
   DeletePostFormatPayload: DeletePostFormatPayload;
   DeletePostPayload: DeletePostPayload;
   DeleteProjectPayload: DeleteProjectPayload;
+  DeleteSocialMediaPayload: DeleteSocialMediaPayload;
   DeleteTagPayload: DeleteTagPayload;
   DeleteTestimonialPayload: DeleteTestimonialPayload;
   DeleteUserPayload: DeleteUserPayload;
@@ -16167,6 +16991,8 @@ export interface SchemaObjectTypes {
   RootQueryToPostFormatConnectionEdge: RootQueryToPostFormatConnectionEdge;
   RootQueryToProjectConnection: RootQueryToProjectConnection;
   RootQueryToProjectConnectionEdge: RootQueryToProjectConnectionEdge;
+  RootQueryToSocialMediaConnection: RootQueryToSocialMediaConnection;
+  RootQueryToSocialMediaConnectionEdge: RootQueryToSocialMediaConnectionEdge;
   RootQueryToTagConnection: RootQueryToTagConnection;
   RootQueryToTagConnectionEdge: RootQueryToTagConnectionEdge;
   RootQueryToTaxonomyConnection: RootQueryToTaxonomyConnection;
@@ -16183,6 +17009,8 @@ export interface SchemaObjectTypes {
   RootQueryToUserRoleConnectionEdge: RootQueryToUserRoleConnectionEdge;
   SendPasswordResetEmailPayload: SendPasswordResetEmailPayload;
   Settings: Settings;
+  SocialMedia: SocialMedia;
+  SocialMediaToPreviewConnectionEdge: SocialMediaToPreviewConnectionEdge;
   Subscription: Subscription;
   Tag: Tag;
   TagToContentNodeConnection: TagToContentNodeConnection;
@@ -16212,6 +17040,7 @@ export interface SchemaObjectTypes {
   UpdatePostPayload: UpdatePostPayload;
   UpdateProjectPayload: UpdateProjectPayload;
   UpdateSettingsPayload: UpdateSettingsPayload;
+  UpdateSocialMediaPayload: UpdateSocialMediaPayload;
   UpdateTagPayload: UpdateTagPayload;
   UpdateTestimonialPayload: UpdateTestimonialPayload;
   UpdateUserPayload: UpdateUserPayload;
@@ -16233,6 +17062,8 @@ export interface SchemaObjectTypes {
   UserToPostConnectionEdge: UserToPostConnectionEdge;
   UserToProjectConnection: UserToProjectConnection;
   UserToProjectConnectionEdge: UserToProjectConnectionEdge;
+  UserToSocialMediaConnection: UserToSocialMediaConnection;
+  UserToSocialMediaConnectionEdge: UserToSocialMediaConnectionEdge;
   UserToTestimonialConnection: UserToTestimonialConnection;
   UserToTestimonialConnectionEdge: UserToTestimonialConnectionEdge;
   UserToUserRoleConnection: UserToUserRoleConnection;
@@ -16281,6 +17112,7 @@ export type SchemaObjectTypesNames =
   | "CreatePostFormatPayload"
   | "CreatePostPayload"
   | "CreateProjectPayload"
+  | "CreateSocialMediaPayload"
   | "CreateTagPayload"
   | "CreateTestimonialPayload"
   | "CreateUserPayload"
@@ -16292,6 +17124,7 @@ export type SchemaObjectTypesNames =
   | "DeletePostFormatPayload"
   | "DeletePostPayload"
   | "DeleteProjectPayload"
+  | "DeleteSocialMediaPayload"
   | "DeleteTagPayload"
   | "DeleteTestimonialPayload"
   | "DeleteUserPayload"
@@ -16388,6 +17221,8 @@ export type SchemaObjectTypesNames =
   | "RootQueryToPostFormatConnectionEdge"
   | "RootQueryToProjectConnection"
   | "RootQueryToProjectConnectionEdge"
+  | "RootQueryToSocialMediaConnection"
+  | "RootQueryToSocialMediaConnectionEdge"
   | "RootQueryToTagConnection"
   | "RootQueryToTagConnectionEdge"
   | "RootQueryToTaxonomyConnection"
@@ -16404,6 +17239,8 @@ export type SchemaObjectTypesNames =
   | "RootQueryToUserRoleConnectionEdge"
   | "SendPasswordResetEmailPayload"
   | "Settings"
+  | "SocialMedia"
+  | "SocialMediaToPreviewConnectionEdge"
   | "Subscription"
   | "Tag"
   | "TagToContentNodeConnection"
@@ -16433,6 +17270,7 @@ export type SchemaObjectTypesNames =
   | "UpdatePostPayload"
   | "UpdateProjectPayload"
   | "UpdateSettingsPayload"
+  | "UpdateSocialMediaPayload"
   | "UpdateTagPayload"
   | "UpdateTestimonialPayload"
   | "UpdateUserPayload"
@@ -16454,6 +17292,8 @@ export type SchemaObjectTypesNames =
   | "UserToPostConnectionEdge"
   | "UserToProjectConnection"
   | "UserToProjectConnectionEdge"
+  | "UserToSocialMediaConnection"
+  | "UserToSocialMediaConnectionEdge"
   | "UserToTestimonialConnection"
   | "UserToTestimonialConnectionEdge"
   | "UserToUserRoleConnection"
@@ -16471,6 +17311,7 @@ export interface $ContentNode {
   Page?: Page;
   Post?: Post;
   Project?: Project;
+  SocialMedia?: SocialMedia;
   Testimonial?: Testimonial;
 }
 
@@ -16497,6 +17338,7 @@ export interface $DatabaseIdentifier {
   Post?: Post;
   PostFormat?: PostFormat;
   Project?: Project;
+  SocialMedia?: SocialMedia;
   Tag?: Tag;
   Testimonial?: Testimonial;
   User?: User;
@@ -16545,6 +17387,7 @@ export interface $Node {
   Post?: Post;
   PostFormat?: PostFormat;
   Project?: Project;
+  SocialMedia?: SocialMedia;
   Tag?: Tag;
   Taxonomy?: Taxonomy;
   Testimonial?: Testimonial;
@@ -16558,6 +17401,7 @@ export interface $NodeWithAuthor {
   Page?: Page;
   Post?: Post;
   Project?: Project;
+  SocialMedia?: SocialMedia;
   Testimonial?: Testimonial;
 }
 
@@ -16596,6 +17440,7 @@ export interface $NodeWithTemplate {
   Page?: Page;
   Post?: Post;
   Project?: Project;
+  SocialMedia?: SocialMedia;
   Testimonial?: Testimonial;
 }
 
@@ -16604,6 +17449,7 @@ export interface $NodeWithTitle {
   Page?: Page;
   Post?: Post;
   Project?: Project;
+  SocialMedia?: SocialMedia;
   Testimonial?: Testimonial;
 }
 
@@ -16625,6 +17471,7 @@ export interface $UniformResourceIdentifiable {
   Post?: Post;
   PostFormat?: PostFormat;
   Project?: Project;
+  SocialMedia?: SocialMedia;
   Tag?: Tag;
   Testimonial?: Testimonial;
   User?: User;
@@ -16672,6 +17519,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   PostStatusEnum: PostStatusEnum | undefined;
   ProjectIdType: ProjectIdType | undefined;
   RelationEnum: RelationEnum | undefined;
+  SocialMediaIdType: SocialMediaIdType | undefined;
   TagIdType: TagIdType | undefined;
   TaxonomyEnum: TaxonomyEnum | undefined;
   TaxonomyIdTypeEnum: TaxonomyIdTypeEnum | undefined;
