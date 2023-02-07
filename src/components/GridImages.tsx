@@ -5,10 +5,10 @@ import Heading, { HeadingProps } from './Heading';
 
 interface Props {
     title: string;
-    images?: array;
+    images?: Array<string>;
     headingLevel?: HeadingProps['level'];
-    pt?: int;
-    pb?: int;
+    pt?: string;
+    pb?: string;
 }
 
 
@@ -16,8 +16,8 @@ function GridImages({
     title,
     images,
     headingLevel = 'h2',
-    pt = 0,
-    pb = 0,
+    pt = 't1',
+    pb = 'b1',
   }: Props): JSX.Element {
     const paddingVariant = {
       t1: 'pt-2', t2: 'pt-4', t3: 'pt-6', t4: 'pt-8', t5: 'pt-10', t6: 'pt-12', t7: 'pt-14', t8: 'pt-16',
