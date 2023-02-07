@@ -7,8 +7,8 @@ interface Props {
     title: string;
     images?: Array<string>;
     headingLevel?: HeadingProps['level'];
-    pt?: int;
-    pb?: int;
+    pt?: string;
+    pb?: string;
 }
 
 

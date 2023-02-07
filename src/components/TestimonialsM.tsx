@@ -4,8 +4,8 @@ import styles from 'scss/components/TestimonialsM.module.scss';
 interface Props {
     title: string;
     testimonialsA?: array;
-    pt?: int;
-    pb?: int;
+    pt?: string;
+    pb?: string;
 }
 
 
