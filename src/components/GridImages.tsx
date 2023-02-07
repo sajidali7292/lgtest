@@ -2,6 +2,7 @@ import React from 'react';
 import styles from 'scss/components/GridImages.module.scss';
 import Link from 'next/link';
 import Heading, { HeadingProps } from './Heading';
+import Image from 'next/image';
 
 interface Props {
     title: string;
@@ -35,7 +36,7 @@ function GridImages({
             {images?.map((image, index) => (
               <div
               key={`${index}$-image`}  className="image_cont basis-1/2 md:basis-1/4 lg:basis-1/7 p-3">
-                <img src={image.url} alt={image.alt} className="h-24 object-contain"/>
+                <Image src={image.url} alt={image.alt} className="h-24 object-contain"/>
               </div>
             ))}
           </div>

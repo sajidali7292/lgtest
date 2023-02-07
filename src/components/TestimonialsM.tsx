@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from 'scss/components/TestimonialsM.module.scss';
+import Image from 'next/image';
 
 interface Props {
     title?: string;
@@ -26,19 +27,19 @@ function TestimonialsM({
             {testimonialsA?.map((testimonial, index) => (
               <div className="flex flex-row flex-wrap" key={`${index}$-testimonial`} >
                 <div className={styles.message}>
-                  <img className="quote w-16 mx-auto object-contain"
+                  <Image className="quote w-16 mx-auto object-contain"
                   src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/unnamed-file.png`} alt="quote"/>
                   <p className="text-center">{testimonial.message}</p>
                 </div>
                 <div className={`${styles.testiBottom} flex flex-row flex-wrap justify-center`}>
                   <div className={styles.fimage}>
-                    <img src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Mask-Group11.png`} alt="" />
+                    <Image src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Mask-Group11.png`} alt="" />
                   </div>
                   <div className={styles.details}>
                     <h5>- {testimonial.name}</h5>
                     <h6>{testimonial.title}</h6>
                     <div className={styles.stars}>
-                      <img className={styles.stars} src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/5stars.png`} alt="stars"/>
+                      <Image className={styles.stars} src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/5stars.png`} alt="stars"/>
                     </div>
                   </div>
                 </div>
