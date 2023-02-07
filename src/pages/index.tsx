@@ -3,7 +3,7 @@ import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { CTA, Footer, Header, Hero, Posts } from 'components';
+import { CTA, Footer, Header, Hero, Posts, BasicText, GridImages, TestimonialsM } from 'components';
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 
@@ -43,6 +43,57 @@ export default function Page() {
           we build new beginnings. Together, we can turn your family law matter into the fresh start you deserve. 
           </span>
         </Hero>
+        
+        <BasicText 
+          pt="t6"
+          pb="b3"
+          descriptions={
+            [
+              'At LinkGraph, our goal is simple: help companies scale their organic traffic and revenue with white-glove <a class="hg1" href="/services/" data-wpel-link="internal">marketing services</a> and <a class="hg0" href="/searchatlas-seo-software/" data-wpel-link="internal">cutting-edge SEO software</a>. Our clients range from startups to enterprise companies in verticals like Saas, Healthcare, Ecommerce, and more. If you’re looking for a <a class="hg2" href="/case-studies-and-results/" data-wpel-link="internal">results-based agency</a> to scale your company to the next level, <a class="hg1" href="https://meetings.linkgraph.io/meetings/link-graph/linkgraph-initial-consultation" data-wpel-link="external" rel="follow">we should talk</a>.',
+              'P.S. If you’re an agency, you’re in luck– our <a class="hg-0" href="/white-label-link-building/" data-wpel-link="internal">white label services and software</a> can help you 10x your ability to deliver for your clients.'
+            ]
+          }
+        >
+        </BasicText>
+        
+        <GridImages
+          pt="t6"
+          pb="b8"
+          title="800+ organizations trust LinkGraph to drive growth"
+          images={
+            [
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/305/bd703d50-bb83-3d6e-91ec-cb40313ed16f.jpg`, alt: 'Sample1'},
+              {url: '/images/headless_hero_background.jpg', alt: 'Sample2'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/305/bd703d50-bb83-3d6e-91ec-cb40313ed16f.jpg`, alt: 'Sample3'},
+              {url: '/images/headless_hero_background.jpg', alt: 'Sample4'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/326/22dd1f93-438c-3c6f-ba29-10754a43b669.jpg`, alt: 'Sample5'},
+              {url: '/images/headless_hero_background.jpg', alt: 'Sample6'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/305/bd703d50-bb83-3d6e-91ec-cb40313ed16f.jpg`, alt: 'Sample7'},
+              {url: '/images/headless_hero_background.jpg', alt: 'Sample8'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/326/22dd1f93-438c-3c6f-ba29-10754a43b669.jpg`, alt: 'Sample9'},
+              {url: '/images/headless_hero_background.jpg', alt: 'Sample10'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/305/bd703d50-bb83-3d6e-91ec-cb40313ed16f.jpg`, alt: 'Sample11'},
+              {url: '/images/headless_hero_background.jpg', alt: 'Sample12'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/326/22dd1f93-438c-3c6f-ba29-10754a43b669.jpg`, alt: 'Sample13'},
+            ]
+          }
+        >
+        </GridImages>
+
+        <TestimonialsM 
+          pt="t3"
+          pb="b8"
+          testimonialsA={
+            [
+              {
+                name: 'Brad Brenner', title: 'Co-Founder & CEO, Therapy Group of DC',
+                message: 'Our organic search traffic has increased 53% since we started to work with LinkGraph and we have risen to the 3-5 position on high volume search terms. For other more niche search terms, we are routinely in the 1-2 spots.'
+              }
+            ]
+          }
+        >
+        </TestimonialsM>
+
         <section className={styles.explore}>
           <div className="wrap">
             <h2>Explore this Example Project</h2>
@@ -140,6 +191,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+
         <Posts
           posts={posts.nodes}
           heading="Latest Posts"
@@ -148,6 +200,7 @@ export default function Page() {
           postTitleLevel="h3"
           id={styles.post_list}
         />
+        
         <CTA
           title="Questions or comments?"
           buttonText="Join the discussion on GitHub"
