@@ -53,8 +53,7 @@ export default function Page() {
               'P.S. If you’re an agency, you’re in luck– our <a class="hg-0" href="/white-label-link-building/" data-wpel-link="internal">white label services and software</a> can help you 10x your ability to deliver for your clients.'
             ]
           }
-        >
-        </BasicText>
+        />
         
         <GridImages
           pt="t6"
@@ -77,8 +76,7 @@ export default function Page() {
               {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/326/22dd1f93-438c-3c6f-ba29-10754a43b669.jpg`, alt: 'Sample13'},
             ]
           }
-        >
-        </GridImages>
+        />
 
         <TestimonialsM 
           pt="t3"
@@ -91,8 +89,7 @@ export default function Page() {
               }
             ]
           }
-        >
-        </TestimonialsM>
+        />
 
         <section className={styles.explore}>
           <div className="wrap">
