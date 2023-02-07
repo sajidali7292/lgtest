@@ -1,0 +1,50 @@
+
+.wrap_testimonials{
+    padding: 0;
+}
+.message p{
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0;
+    color: #000;
+    margin-top: 30px;
+    @media(max-width: 767px){
+        font-size: 18px;
+    }
+}
+.testiBottom{
+    width: 402px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 24px;
+}
+.fimage img {
+    width: 45px;
+}
+.details{
+    margin-left: 11px;
+    position: relative;
+    h5, h6{
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0;
+        text-align: left;
+        color: #6C6E72;
+        margin-bottom: 0;
+        @media(max-width: 767px){
+            font-size: 15px;
+        }
+    }
+}
+
+.stars{
+    position: absolute;
+    width: 80px;
+    height: fit-content;
+    right: 0;
+    top: 0;
+}
