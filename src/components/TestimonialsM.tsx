@@ -24,7 +24,7 @@ function TestimonialsM({
         <div className={styles.wrap}>
           <div className={`${styles.wrap_testimonials} wrap_content wrap_content-small px-0 flex flex-row flex-wrap justify-center`} >
             {testimonialsA?.map((testimonial, index) => (
-              <div className="flex flex-row flex-wrap">
+              <div className="flex flex-row flex-wrap" key={`${index}$-testimonial`} >
                 <div className={styles.message}>
                   <img className="quote w-16 mx-auto object-contain"
                   src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/unnamed-file.png`} alt="quote"/>
