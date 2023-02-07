@@ -3,7 +3,7 @@ import styles from 'scss/components/TestimonialsM.module.scss';
 
 interface Props {
     title: string;
-    testimonialsA?: array;
+    testimonialsA?: Array<any>;
     pt?: string;
     pb?: string;
 }
