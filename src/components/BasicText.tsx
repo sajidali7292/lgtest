@@ -5,7 +5,7 @@ import Heading, { HeadingProps } from './Heading';
 
 interface Props {
     title: string;
-    descriptions?: Array[];
+    descriptions?: Array<String>;
     headingLevel?: HeadingProps['level'];
     pt?: string;
     pb?: string;
