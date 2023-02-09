@@ -3,7 +3,7 @@ import { getNextStaticProps } from '@faustjs/next';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { CTA, Footer, Header, Hero, Posts, BasicText, GridImages, TestimonialsM } from 'components';
+import { CTA, Footer, FooterNew, Header, Hero, Posts, BasicText, GridImages, TestimonialsM } from 'components';
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 
@@ -214,9 +214,9 @@ export default function Page() {
         </CTA>
       </main>
       
-      <Footer 
+      <FooterNew 
       logoImg = {
-        {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/footer-logo.svg`, alt: ''}
+        {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/footer-logo.svg`, alt: 'test'}
       }
       
       phrase = 'Link your Google Search Console account and get smarter SEO insights in 1 easy click.'
@@ -225,7 +225,8 @@ export default function Page() {
         targetBlank: true
       }}
       rateText = {{
-        image: {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/star.webp`, alt: ''}, title: '5 star rated &', text: 'Trusted by 100+ companies'
+        image: {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/star.webp`, alt: ''},
+        title: '5 star rated &', text: 'Trusted by 100+ companies'
       }}
       partner = {{url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Partner-RGB.webp`, alt: ''}}
       copyrightHolder={generalSettings.title}
