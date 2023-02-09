@@ -71,35 +71,39 @@ img{
 	}
 }
 
-.content .button {
-	background-color: $color-primary;
-	border-radius: 13px;
-	color: #ffffff;
-	letter-spacing: 2px;
-	cursor: pointer;
-	display: inline-block;
-	float: left;
-	font-family: $font-family;
-	font-weight: $font-weight-bold;
-	padding: 12px 24px;
+.button {
+	display: block;
+	background: $color-lg;
+    margin-left: 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: $color-white;
+    width: 213px;
+    max-width: 100%;
 	text-align: center;
-	text-decoration: none;
-	margin-right: 8px;
-}
+    letter-spacing: -0.02em;
+    border: 1px solid $color-lg;
+	padding: 11px;
+	&:focus,
+	&:hover {
+		background-color: darken($color-lg, 10);
+	}
 
-.content .button:focus,
-.content .button:hover {
-	background-color: lighten($color-primary, 10);
-}
+	&.rounded{
+		border-radius: 1000px;
+	}
 
-.content .button-secondary {
-	background-color: $color-white;
-	color: $color-black;
-}
-
-.content .button-secondary:focus,
-.content .button-secondary:hover {
-	background-color: darken($color-white, 10);
+	&.button-secondary {
+		background-color: $color-hg1;
+		border-color: $color-hg1;
+		color: $color-white;
+		&:focus,
+		&:hover {
+			background-color: darken($color-hg1, 10);
+		}
+	}
 }
 
 .pagination ul {
