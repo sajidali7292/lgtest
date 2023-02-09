@@ -2,25 +2,47 @@
 
 @import "scss/variables";
 
-.wrap {
-	margin: 0 auto;
-	max-width: $content-width-extended;
-	padding: 0 10px;
+.mainW{
+	padding-top: 100px;
+	background-color: $color-semi-white;
 }
 
-@media screen and (min-width: $content-width-extended) {
-	.wrap {
-		padding: 0;
+.phraseFooter{
+    margin: 30px 0;
+    font-size: 21px;
+    line-height: 33px;
+    font-family: $Gordita;
+    width: 67%;
+}
+
+.buttonFooter{
+	padding: 13px 30px;
+}
+
+.rated{
+	margin: 40px 0 32px;
+    flex-wrap: wrap;
+	.ratedText{
+		margin-left: 20px;
+		.ratedH{
+			font-family: $f37ginger;
+			font-weight: 400;
+			font-size: 18px;
+			max-width: 100%;
+			line-height: 23px;
+			margin-bottom: 0;
+			color: $color-navy-blue;
+		}
+		.ratedT{
+			font-family: $Gordita;
+			font-weight: 400;
+			font-size: 16px;
+			margin-bottom: 0;
+			color: $color-light-gray;
+		}
 	}
 }
 
-footer.main {
-	background: $color-light-gray;
-	height: 100px;
-}
-
-footer.main p {
-	color: $color-dark-gray;
-	line-height: 100px;
-	margin: 0;
+.wrapBottom{
+	border-top: 1px solid darken($color-semi-white, 10);
 }

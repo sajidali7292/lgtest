@@ -213,7 +213,23 @@ export default function Page() {
           </p>
         </CTA>
       </main>
-      <Footer copyrightHolder={generalSettings.title} />
+      
+      <Footer 
+      logoImg = {
+        {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/footer-logo.svg`, alt: ''}
+      }
+      
+      phrase = 'Link your Google Search Console account and get smarter SEO insights in 1 easy click.'
+      button = {{
+        label: 'Get started for free', url: 'https://api.searchatlas.com/account/google/oauth/start',
+        targetBlank: true
+      }}
+      rateText = {{
+        image: {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/star.webp`, alt: ''}, title: '5 star rated &', text: 'Trusted by 100+ companies'
+      }}
+      partner = {{url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Partner-RGB.webp`, alt: ''}}
+      copyrightHolder={generalSettings.title}
+      />
     </>
   );
 }
