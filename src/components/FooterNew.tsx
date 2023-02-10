@@ -2,6 +2,8 @@ import React from 'react';
 import styles from 'scss/components/Footer.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import { client } from 'client';
+
 
 interface Props {
   logoImg?: any;
@@ -22,6 +24,8 @@ function Footer({
 }: Props): JSX.Element {
   const year = new Date().getFullYear();
   console.log({rateText});
+  const { useQuery } = client;
+  const generalSettings = useQuery().generalSettings;
   return (
     <footer className={`${styles.mainW}`}>
       <div className={`wrap_content wrap_content-extended`}>
@@ -46,7 +50,7 @@ function Footer({
           </div>
         </div>
         <div className={styles.wrapBottom}>
-          <p>{`© ${year} ${copyrightHolder}. All rights reserved.`}</p>
+          <p>{`© ${year} ${copyrightHolder=generalSettings.title}. All rights reserved.`}</p>
         </div>
       </div>
     </footer>
