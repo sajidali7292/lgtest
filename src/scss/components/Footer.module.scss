@@ -46,3 +46,47 @@
 .wrapBottom{
 	border-top: 1px solid darken($color-semi-white, 10);
 }
+
+.menu_footer .FParentLink{
+    font-family: $f37ginger;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	> a{
+		display: block;
+		margin-bottom: 22px;
+		line-height: 1.22;
+	}
+}
+.menu_footer .FCLink{
+	font-family: $Gordita;
+	font-size: 14px;
+	line-height: 1.2;
+	font-weight: 400;
+	a{
+		display: block;
+		color: $color-light-gray;
+		margin-bottom: 10px;
+		line-height: 1.87;
+		&:focus, &:hover{
+			color: $color-lg;
+		}
+	}
+}
+
+.wrapBottom{
+	padding: 35px 0;
+	p{
+		margin-bottom: 0;
+	}
+	.loc{
+		font-family: $Gordita;
+		color: $color-light-gray;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 26px;
+	}
+	.list_social i{
+		color: $color-light-gray;
+	}
+}
