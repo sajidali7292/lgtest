@@ -79,7 +79,7 @@ function Footer({
             <ul className={`${styles.list_social} flex flex-wrap flex-row justify-end align-middle items-center`}>
               {socialLinks?.map((socialLink, index) => { 
                 return (
-                  <li><a href={socialLink.url}><i className={`dashicons ${socialLink.ico} text-2xl ml-2 `}></i></a></li>
+                  <li key={`icons-${index}`}><a href={socialLink.url}><i className={`dashicons ${socialLink.ico} text-2xl ml-2 `}></i></a></li>
                 );
               })}
             </ul>
