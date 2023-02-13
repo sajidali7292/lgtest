@@ -2,14 +2,15 @@ import React from 'react';
 import styles from 'scss/components/Header.module.scss';
 import Link from 'next/link';
 import { client, MenuLocationEnum } from 'client';
+import Head from 'next/head';
 
 interface Props {
   title?: string;
   description?: string;
 }
 
+
 function Header({
-  title = 'Headless by WP Engine',
   description,
 }: Props): JSX.Element {
   const { menuItems } = client.useQuery()
@@ -17,13 +18,22 @@ function Header({
     where: { location: MenuLocationEnum.PRIMARY },
   }).nodes;
 
+
+  const { useQuery } = client;
+  const generalSettings = useQuery().generalSettings;
+  
   return (
     <header>
+      <Head>
+        <title>
+          {generalSettings.title} - {generalSettings.description}
+        </title>
+      </Head>
       <div className={styles.wrap}>
         <div className={styles['title-wrap']}>
           <p className={styles['site-title']}>
             <Link href="/">
-              <a>{title}</a>
+              <a>{generalSettings.title}</a>
             </Link>
           </p>
           {description && <p className={styles.description}>{description}</p>}
@@ -51,6 +61,7 @@ function Header({
       </div>
     </header>
   );
+  
 }
 
 export default Header;

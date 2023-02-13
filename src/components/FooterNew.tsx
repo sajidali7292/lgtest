@@ -34,6 +34,8 @@ function Footer({
   }).nodes;
   const year = new Date().getFullYear();
   // console.log({links1});
+  const { useQuery } = client;
+  const generalSettings = useQuery().generalSettings;
   return (
     <footer className={`${styles.mainW}`}>
       <div className={`wrap_content wrap_content-extended`}>
@@ -71,7 +73,7 @@ function Footer({
         <div className={`${styles.wrapBottom} flex flex-row flex-wrap`}>
           <div className="basis-1/2">
             <Image src={logoPink.url} alt={logoPink.alt} className={`${styles.logoPink} w-100 object-contain`} width="120" height="28"/>
-            <p className={styles.copyright}>{`© All copyrights reserved, ${copyrightHolder} ${year}.`}</p>
+            <p className={styles.copyright}>{`© All copyrights reserved, ${copyrightHolder=generalSettings.title} ${year}.`}</p>
           </div>
           <div className="basis-1/2">
             <ul className={`${styles.list_social} flex flex-wrap flex-row justify-end align-middle items-center`}>
