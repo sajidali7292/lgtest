@@ -14,8 +14,7 @@ export function PageComponent({ page }: PageProps) {
 
   return (
     <>
-      
-
+     
       <Head>
         <title>
           {page?.title()} - {generalSettings.title}
