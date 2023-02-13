@@ -1,9 +1,9 @@
 //RENDER SUBMENU
-const SubMenu = ({ submenus, classAChild }) => {
+const SubMenu = ({ keyI, submenus, classAChild }) => {
     return (
       <ul className="sub-menu">
         {submenus.map((submenu, index) => (
-          <li key={index} className={`${classAChild} submenu-items`}>
+          <li key={`${submenu.label}-childlist${keyI}`} className={`${classAChild} submenu-items`}>
             <a className={`submenu-link`} href={submenu.url}>{submenu.label}</a>
           </li>
         ))}
