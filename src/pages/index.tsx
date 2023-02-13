@@ -234,10 +234,10 @@ export default function Page() {
       }
       socialLinks={[
         {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-facebook-alt'},
-        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-instagram'},
-        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-linkedin'},
-        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-twitter'},
-        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-youtube'}
+        {url: 'https://www.instagram.com/linkgraph.io/', ico: 'dashicons-instagram'},
+        {url: 'https://www.linkedin.com/company/linkgraph-io', ico: 'dashicons-linkedin'},
+        {url: 'https://twitter.com/Linkgraphio', ico: 'dashicons-twitter'},
+        {url: 'https://www.youtube.com/channel/UCgEUbExBbcVEv8cj-EGD4hA', ico: 'dashicons-youtube'}
       ]}
       locationsLG= 'New York • Las Vegas • Bogotá • Belgrade'
       copyrightHolder={generalSettings.title}
