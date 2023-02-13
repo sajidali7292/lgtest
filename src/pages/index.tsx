@@ -28,6 +28,7 @@ export default function Page() {
         <title>
           {generalSettings.title} - {generalSettings.description}
         </title>
+        <link rel="stylesheet" href="https://unpkg.com/@icon/dashicons/dashicons.css" />
       </Head>
 
       <main className="content">
@@ -218,7 +219,6 @@ export default function Page() {
       logoImg = {
         {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/footer-logo.svg`, alt: 'test'}
       }
-      
       phrase = 'Link your Google Search Console account and get smarter SEO insights in 1 easy click.'
       button = {{
         label: 'Get started for free', url: 'https://api.searchatlas.com/account/google/oauth/start',
@@ -229,6 +229,17 @@ export default function Page() {
         title: '5 star rated &', text: 'Trusted by 100+ companies'
       }}
       partner = {{url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Partner-RGB.webp`, alt: ''}}
+      logoPink ={
+        {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/logo.svg`, alt: 'test'}
+      }
+      socialLinks={[
+        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-facebook-alt'},
+        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-instagram'},
+        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-linkedin'},
+        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-twitter'},
+        {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-youtube'}
+      ]}
+      locationsLG= 'New York • Las Vegas • Bogotá • Belgrade'
       copyrightHolder={generalSettings.title}
       />
     </>
