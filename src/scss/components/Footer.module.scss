@@ -76,15 +76,18 @@
 
 .wrapBottom{
 	padding: 35px 0;
+	font-family: $Gordita;
+	font-size: 14px;
+	line-height: 26px;
+	.copyright{
+		color: rgba(18, 18, 18, 0.8);
+	}
 	p{
 		margin-bottom: 0;
 	}
 	.loc{
-		font-family: $Gordita;
 		color: $color-light-gray;
 		font-weight: 500;
-		font-size: 14px;
-		line-height: 26px;
 	}
 	.list_social i{
 		color: $color-light-gray;
