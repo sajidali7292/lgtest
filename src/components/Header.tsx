@@ -36,7 +36,7 @@ function Header({
               <a>{generalSettings.title}</a>
             </Link>
           </p>
-          {description && <p className={styles.description}>{description}</p>}
+          {generalSettings.description && <p className={styles.description}>{generalSettings.description}</p>}
         </div>
         <div className={styles.menu}>
           <ul>
