@@ -8,5 +8,8 @@ import Pagination from './Pagination';
 import BasicText from './BasicText'
 import GridImages from './GridImages'
 import TestimonialsM from './TestimonialsM'
+import MenuItems from './Menus/MenuItems';
+import SubMenu from './Menus/SubMenu';
+import MenuBuilder from './Menus/MenuBuilder';
 
 export { CTA, Footer, FooterNew, Header, Hero, Posts, Pagination, BasicText, GridImages, TestimonialsM };

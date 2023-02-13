@@ -31,6 +31,13 @@ img{
 	height: auto;
 }
 
+a{
+	&:hover, &:focus{
+		text-decoration: unset;
+	}
+}
+
+a:hover, a:focus,
 .hg0{
 	color: $color-lg;
 }
