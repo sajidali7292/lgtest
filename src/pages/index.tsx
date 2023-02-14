@@ -2,7 +2,7 @@ import { getNextStaticProps } from '@faustjs/next';
 import Head from 'next/head';
 import { GetStaticPropsContext } from 'next';
 import React from 'react';
-import { CTA, Hero, Posts, BasicText, GridImages, TestimonialsM } from 'components';
+import { CTA, HeroHome, Posts, BasicText, GridImages, TestimonialsM } from 'components';
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 
@@ -22,18 +22,13 @@ export default function Page() {
       </Head>
 
       <main className="content">
-        <Hero
-          buttonText="SCHEDULE YOUR INITIAL CASE ASSESSMENT"
-          buttonURL="https://faustjs.org"
-          bgImage="/images/headless_hero_background.jpg"
+        
+        <HeroHome
+          text="Award winning services and cutting-edge software to grow your traffic. Start with a FREE and Instant Site Audit."
+          placeholder="Enter your website"
+          buttonText="Analyze My Site"
           id={styles.home_hero}
-        >
-          <h1>We <strong>Create</strong> New Beginnings</h1>
-          <span>
-          We are Z Family Law, and we don’t write endings — 
-          we build new beginnings. Together, we can turn your family law matter into the fresh start you deserve. 
-          </span>
-        </Hero>
+        />
         
         <BasicText 
           pt="t6"

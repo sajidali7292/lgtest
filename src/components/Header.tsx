@@ -23,7 +23,7 @@ function Header({
   const generalSettings = useQuery().generalSettings;
   
   return (
-    <header>
+    <header className={styles.header}>
       <Head>
         <title>
           {generalSettings.title} - {generalSettings.description}
@@ -33,7 +33,7 @@ function Header({
         <div className={styles['title-wrap']}>
           <p className={styles['site-title']}>
             <Link href="/">
-              <a>{generalSettings.title}</a>
+              <img className={styles.logo} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/logo-1.svg'} />
             </Link>
           </p>
           {generalSettings.description && <p className={styles.description}>{generalSettings.description}</p>}
