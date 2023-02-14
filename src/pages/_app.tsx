@@ -6,6 +6,7 @@ import 'scss/main.scss';
 import { client } from 'client';
 import type { AppProps } from 'next/app';
 import { FooterNew, Header } from 'components';
+import Head from 'next/head';
 
 
 
@@ -42,6 +43,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         ]}
         locationsLG= 'New York • Las Vegas • Bogotá • Belgrade'
         />
+
+        
+        <link rel="stylesheet" href="https://unpkg.com/@icon/dashicons/dashicons.css" />
       </FaustProvider>
     </>
   );
