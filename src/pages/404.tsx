@@ -8,7 +8,7 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-      {/* <Header
+      <Header
         title={generalSettings?.title}
         description={generalSettings?.description}
       />
@@ -25,7 +25,7 @@ export default function Page(): JSX.Element {
           </div>
         </div>
       </main>
-      <Footer copyrightHolder={generalSettings?.title} /> */}
+      <Footer copyrightHolder={generalSettings?.title} />
     </>
   );
 }

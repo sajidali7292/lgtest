@@ -2,7 +2,7 @@ import { getNextStaticProps } from '@faustjs/next';
 
 import { GetStaticPropsContext } from 'next';
 import React from 'react';
-import { CTA, Hero, Posts, BasicText, GridImages, TestimonialsM } from 'components';
+import { CTA, HeroHome, Posts, BasicText, GridImages, TestimonialsM } from 'components';
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 
@@ -20,7 +20,7 @@ export default function Page() {
 
       <main className="content">
         
-        <Hero
+        <HeroHome
           text="Award winning services and cutting-edge software to grow your traffic. Start with a FREE and Instant Site Audit."
           placeholder="Enter your website"
           buttonText="Analyze My Site"

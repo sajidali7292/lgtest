@@ -2,7 +2,8 @@ import CTA from './CTA';
 import Footer from './Footer';
 import FooterNew from './FooterNew';
 import Header from './Header';
-import Hero from './Hero';
+import HeroHome from './HeroHome';
+import Hero from './Hero'
 import Posts from './Posts';
 import Pagination from './Pagination';
 import BasicText from './BasicText'
@@ -12,4 +13,4 @@ import MenuItems from './Menus/MenuItems';
 import SubMenu from './Menus/SubMenu';
 import MenuBuilder from './Menus/MenuBuilder';
 
-export { CTA, Footer, FooterNew, Header, Hero, Posts, Pagination, BasicText, GridImages, TestimonialsM };
+export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM };

@@ -21,7 +21,7 @@ export function PageComponent({ page }: PageProps) {
         </title>
       </Head>
 
-      {/* <Hero
+      <Hero
         title={page?.title()}
         bgImage={page?.featuredImage?.node.sourceUrl()}
       />
@@ -32,7 +32,7 @@ export function PageComponent({ page }: PageProps) {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} /> */}
+      <Footer copyrightHolder={generalSettings.title} />
     </>
   );
 }
