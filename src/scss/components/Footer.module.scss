@@ -92,4 +92,7 @@
 	.list_social i{
 		color: $color-light-gray;
 	}
+	@media(max-width: $content-width-small){
+		padding: 10px 0;
+	}
 }
