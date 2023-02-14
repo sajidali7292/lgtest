@@ -31,7 +31,7 @@
 			max-width: 100%;
 			line-height: 23px;
 			margin-bottom: 0;
-			color: $color-navy-blue;
+			color: $color-primary;
 		}
 		.ratedT{
 			font-family: $Gordita;
@@ -69,7 +69,7 @@
 		margin-bottom: 10px;
 		line-height: 1.87;
 		&:focus, &:hover{
-			color: $color-lg;
+			color: $color-lg-pink;
 		}
 	}
 }
@@ -91,5 +91,8 @@
 	}
 	.list_social i{
 		color: $color-light-gray;
+	}
+	@media(max-width: $content-width-small){
+		padding: 10px 0;
 	}
 }

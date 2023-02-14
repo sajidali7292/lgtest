@@ -4,18 +4,15 @@
 
 .cta {
 	background-color: $color-dark-gray;
-	color: $color-white;
-	padding: 10em 0 12em;
+	color: $color-white
 }
 
-.cta a {
-	color: $color-white;
-}
 
-.wrap {
-	margin: 0 auto;
-	max-width: $content-width;
-	text-align: center;
+.title{
+	font-weight: 700;
+}
+.description{
+	font-size: 24px;
 }
 
 .children a:focus,
@@ -23,15 +20,6 @@
 	color: darken($color-white, 25);
 }
 
-.title {
-	margin: 0 auto;
-	max-width: 80%;
-}
-
-.intro {
-	max-width: 80%;
-	margin: 0 auto;
-}
 
 .button-wrap {
 	display: block;

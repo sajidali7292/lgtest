@@ -44,7 +44,7 @@ a{
 
 a:hover, a:focus,
 .hg0{
-	color: $color-lg;
+	color: $color-lg-pink;
 }
 .hg1{
 	color: $color-hg1;
@@ -52,15 +52,30 @@ a:hover, a:focus,
 .hg2{
 	color: $color-hg2;
 }
+.color-yellow{
+	color: $color-yellow;
+}
+.bg-yellow{
+	background-color: $color-yellow;
+}
+.color-semi_dark{
+	color: $color-semi-dark;
+}
+.bg-semi_dark{
+	background-color: $color-semi-dark
+}
 
 .wrap_content{
 	width: $content-width;
     max-width: 100%;
     margin: auto;
 	overflow: hidden;
-	@media(max-width: 991px){
+	@media(max-width: $breakpoint-semi_medium){
 		padding-left: 1rem;
 		padding-right: 1rem;
+	}
+	@media(max-width: $breakpoint-small){
+		width: $content-width_sm;
 	}
 }
 .wrap_content-small{
@@ -68,6 +83,9 @@ a:hover, a:focus,
 }
 .wrap_content-extended{
     width: $content-width-extended;
+	@media(max-width: $breakpoint-medium){
+		width: $content-width-extended_md;
+	}
 }
 
 @media screen and (min-width: $content-width) {
@@ -85,35 +103,68 @@ a:hover, a:focus,
 
 .button {
 	display: block;
-	background: $color-lg;
+	background: $color-lg-pink;
     border-radius: 6px;
     font-size: 16px;
-    font-weight: 600;
+	font-family: $Gordita;
+    font-weight: 400;
     line-height: 20px;
     color: $color-white;
-    width: 213px;
+    width: fit-content;
     max-width: 100%;
 	text-align: center;
     letter-spacing: -0.02em;
-    border: 1px solid $color-lg;
-	padding: 11px;
+    border: 1px solid $color-lg-pink;
+	padding: 11px 13px;
+	transition: 0.2s ease-out all;
 	&:focus,
 	&:hover {
-		background-color: darken($color-lg, 10);
+		background-color: darken($color-lg-pink, 10);
 	}
-
-	&.rounded{
-		border-radius: 1000px;
+	&.icon{
+		display: flex;
+		align-items: center;
+		.ico{
+			margin-left: 12px;
+			svg {
+				width: 15px;
+				height: 15px;
+				*{
+					fill: $color-white;
+				}
+			}
+		}
 	}
 
 	&.button-secondary {
 		background-color: $color-hg1;
 		border-color: $color-hg1;
-		color: $color-white;
 		&:focus,
 		&:hover {
 			background-color: darken($color-hg1, 10);
 		}
+	}
+	&.button-third {
+		background-color: $color-hg3;
+		border-color: $color-hg3;
+		&:focus,
+		&:hover {
+			color: $color-hg3;
+			background-color: $color-transparent;
+			svg *{
+				fill: $color-hg3;
+			}
+		}
+	}
+
+	&.rounded{
+		border-radius: 1000px;
+	}
+	&.medium{
+		padding: 11px 30px;
+	}
+	&.big{
+		padding: 16px 50px;
 	}
 }
 

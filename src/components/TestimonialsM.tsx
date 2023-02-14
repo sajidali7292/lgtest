@@ -21,8 +21,8 @@ function TestimonialsM({
       b1: 'pb-2', b2: 'pb-4', b3: 'pb-6', b4: 'pb-8', b5: 'pb-10', b6: 'pb-12', b7: 'pb-14', b8: 'pb-16',
     }
     return (
-      <section className={`${styles.wrapper} ${paddingVariant[pt]} ${paddingVariant[pb]} wrap_content wrap_content-extended`}>
-        <div className={styles.wrap}>
+      <section className={`${styles.wrapper} ${paddingVariant[pt]} ${paddingVariant[pb]}`}>
+        <div className={`${styles.wrap}`}>
           <div className={`${styles.wrap_testimonials} wrap_content wrap_content-small px-0 flex flex-row flex-wrap justify-center`} >
             {testimonialsA?.map((testimonial, index) => (
               <div className="flex flex-row flex-wrap" key={`${index}$-testimonial`} >
