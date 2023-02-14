@@ -83,32 +83,65 @@ a:hover, a:focus,
 	background: $color-lg;
     border-radius: 6px;
     font-size: 16px;
-    font-weight: 600;
+	font-family: $Gordita;
+    font-weight: 400;
     line-height: 20px;
     color: $color-white;
-    width: 213px;
+    width: fit-content;
     max-width: 100%;
 	text-align: center;
     letter-spacing: -0.02em;
     border: 1px solid $color-lg;
-	padding: 11px;
+	padding: 11px 13px;
+	transition: 0.2s ease-out all;
 	&:focus,
 	&:hover {
 		background-color: darken($color-lg, 10);
 	}
-
-	&.rounded{
-		border-radius: 1000px;
+	&.icon{
+		display: flex;
+		align-items: center;
+		.ico{
+			margin-left: 12px;
+			svg {
+				width: 15px;
+				height: 15px;
+				*{
+					fill: $color-white;
+				}
+			}
+		}
 	}
 
 	&.button-secondary {
 		background-color: $color-hg1;
 		border-color: $color-hg1;
-		color: $color-white;
 		&:focus,
 		&:hover {
 			background-color: darken($color-hg1, 10);
 		}
+	}
+	&.button-third {
+		background-color: $color-hg3;
+		border-color: $color-hg3;
+		&:focus,
+		&:hover {
+			color: $color-hg3;
+			background-color: $color-transparent;
+			svg *{
+				fill: $color-hg3;
+			}
+		}
+	}
+
+	&.rounded{
+		border-radius: 1000px;
+	}
+	&.medium{
+		padding: 11px 30px;
+	}
+	&.big{
+		padding: 16px 50px;
 	}
 }
 
