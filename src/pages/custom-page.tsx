@@ -12,7 +12,7 @@ export default function Page() {
     <>
 
 
-      <Hero title="Custom Page" />
+      {/* <Hero title="Custom Page" />
 
       <main className="content content-single">
         <div className="wrap">
@@ -30,7 +30,7 @@ export default function Page() {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
+      <Footer copyrightHolder={generalSettings.title} /> */}
     </>
   );
 }
