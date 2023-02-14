@@ -1,5 +1,5 @@
 import { getNextStaticProps } from '@faustjs/next';
-
+import Head from 'next/head';
 import { GetStaticPropsContext } from 'next';
 import React from 'react';
 import { CTA, Hero, Posts, BasicText, GridImages, TestimonialsM } from 'components';
@@ -17,6 +17,9 @@ export default function Page() {
 
   return (
     <>
+      <Head>
+        <title>LinkGraph | Enterprise SEO and Link Building | #1 Search Agency of 2022</title>
+      </Head>
 
       <main className="content">
         <Hero
@@ -187,19 +190,21 @@ export default function Page() {
         />
         
         <CTA
-          title="Questions or comments?"
-          buttonText="Join the discussion on GitHub"
-          buttonURL="https://github.com/wpengine/faustjs/discussions"
+          title="New subscribers get 30% off"
+          description="Level up your SEO with our cutting-edge software suite."
+          button = {{
+            label: 'Get your Discount Now', url: 'https://dashboard.linkgraph.io/onboarding?promo_code=SEOPIONEERS',
+            type: 'third', rounded: true, size: 'big', icon: true
+          }}
           headingLevel="h2"
-        >
-          <p>
-            We welcome feature requests, bug reports and questions in the{' '}
-            <a href="https://github.com/wpengine/faustjs">
-              Headless Framework GitHub repository
-            </a>
-            .
-          </p>
-        </CTA>
+          pt="xl"
+          pb="xl"
+          colorBg="yellow"
+          imageBg= {
+            {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/New-subscribers.webp`, alt: '',
+            position: '115% 50%', size: '821px', repeat: 'no-repeat'}
+          }
+        />
       </main>
     </>
   );
