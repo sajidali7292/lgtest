@@ -10,14 +10,7 @@ export default function Page() {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
 
-      <Head>
-        <title>Custom Page - {generalSettings.title}</title>
-      </Head>
 
       <Hero title="Custom Page" />
 
