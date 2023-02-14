@@ -383,6 +383,8 @@ export enum ContentTypeEnum {
   /** The Type of Content object */
   SOCIALMEDIA = "SOCIALMEDIA",
   /** The Type of Content object */
+  TEAMMEMBER = "TEAMMEMBER",
+  /** The Type of Content object */
   TESTIMONIAL = "TESTIMONIAL",
 }
 
@@ -665,6 +667,28 @@ export interface CreateTagInput {
   slug?: InputMaybe<Scalars["String"]>;
 }
 
+/** Input for the createTeamMember mutation */
+export interface CreateTeamMemberInput {
+  /** The userId to assign as the author of the object */
+  authorId?: InputMaybe<Scalars["ID"]>;
+  bio?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  fullName?: InputMaybe<Scalars["String"]>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Input for the createTestimonial mutation */
 export interface CreateTestimonialInput {
   /** The userId to assign as the author of the object */
@@ -848,6 +872,16 @@ export interface DeleteTagInput {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars["String"]>;
   /** The ID of the tag to delete */
+  id: Scalars["ID"];
+}
+
+/** Input for the deleteTeamMember mutation */
+export interface DeleteTeamMemberInput {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: InputMaybe<Scalars["Boolean"]>;
+  /** The ID of the teamMember to delete */
   id: Scalars["ID"];
 }
 
@@ -1091,6 +1125,10 @@ export interface MenuItemToMenuItemConnectionWhereArgs {
 export enum MenuLocationEnum {
   /** Put the menu in the footer location */
   FOOTER = "FOOTER",
+  /** Put the menu in the footer-2 location */
+  FOOTER_2 = "FOOTER_2",
+  /** Put the menu in the footer-3 location */
+  FOOTER_3 = "FOOTER_3",
   /** Put the menu in the primary location */
   PRIMARY = "PRIMARY",
 }
@@ -2651,6 +2689,52 @@ export interface RootQueryToTagConnectionWhereArgs {
   updateTermMetaCache?: InputMaybe<Scalars["Boolean"]>;
 }
 
+/** Arguments for filtering the RootQueryToTeamMemberConnection connection */
+export interface RootQueryToTeamMemberConnectionWhereArgs {
+  /** The user that's connected as the author of the object. Use the userId for the author object. */
+  author?: InputMaybe<Scalars["Int"]>;
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: InputMaybe<Scalars["String"]>;
+  /** Find objects NOT connected to author(s) in the array of author's userIds */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the RootQueryToTermNodeConnection connection */
 export interface RootQueryToTermNodeConnectionWhereArgs {
   /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
@@ -2935,6 +3019,18 @@ export enum TaxonomyIdTypeEnum {
   ID = "ID",
   /** The name of the taxonomy */
   NAME = "NAME",
+}
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum TeamMemberIdType {
+  /** Identify a resource by the Database ID. */
+  DATABASE_ID = "DATABASE_ID",
+  /** Identify a resource by the (hashed) Global ID. */
+  ID = "ID",
+  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
+  SLUG = "SLUG",
+  /** Identify a resource by the URI. */
+  URI = "URI",
 }
 
 /** The Type of Identifier used to fetch a single resource. Default is "ID". To be used along with the "id" field. */
@@ -3255,6 +3351,30 @@ export interface UpdateTagInput {
   name?: InputMaybe<Scalars["String"]>;
   /** If this argument exists then the slug will be checked to see if it is not an existing valid term. If that check succeeds (it is not a valid term), then it is added and the term id is given. If it fails, then a check is made to whether the taxonomy is hierarchical and the parent argument is not empty. If the second check succeeds, the term will be inserted and the term id will be given. If the slug argument is empty, then it will be calculated from the term name. */
   slug?: InputMaybe<Scalars["String"]>;
+}
+
+/** Input for the updateTeamMember mutation */
+export interface UpdateTeamMemberInput {
+  /** The userId to assign as the author of the object */
+  authorId?: InputMaybe<Scalars["ID"]>;
+  bio?: InputMaybe<Scalars["String"]>;
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars["String"]>;
+  fullName?: InputMaybe<Scalars["String"]>;
+  /** The ID of the teamMember object */
+  id: Scalars["ID"];
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars["Int"]>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars["String"]>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars["String"]>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars["String"]>;
 }
 
 /** Input for the updateTestimonial mutation */
@@ -3703,6 +3823,52 @@ export interface UserToSocialMediaConnectionWhereArgs {
   title?: InputMaybe<Scalars["String"]>;
 }
 
+/** Arguments for filtering the UserToTeamMemberConnection connection */
+export interface UserToTeamMemberConnectionWhereArgs {
+  /** The user that's connected as the author of the object. Use the userId for the author object. */
+  author?: InputMaybe<Scalars["Int"]>;
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: InputMaybe<Scalars["String"]>;
+  /** Find objects NOT connected to author(s) in the array of author's userIds */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars["Boolean"]>;
+  /** Specific ID of the object */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars["String"]>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars["ID"]>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars["ID"]>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars["String"]>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars["String"]>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars["String"]>;
+}
+
 /** Arguments for filtering the UserToTestimonialConnection connection */
 export interface UserToTestimonialConnectionWhereArgs {
   /** The user that's connected as the author of the object. Use the userId for the author object. */
@@ -3828,6 +3994,7 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   TagIdType: true,
   TaxonomyEnum: true,
   TaxonomyIdTypeEnum: true,
+  TeamMemberIdType: true,
   TermNodeIdTypeEnum: true,
   TermObjectsConnectionOrderbyEnum: true,
   TestimonialIdType: true,
@@ -4548,6 +4715,23 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     tag: { __type: "Tag" },
   },
+  CreateTeamMemberInput: {
+    authorId: { __type: "ID" },
+    bio: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    date: { __type: "String" },
+    fullName: { __type: "String" },
+    menuOrder: { __type: "Int" },
+    password: { __type: "String" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  CreateTeamMemberPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    teamMember: { __type: "TeamMember" },
+  },
   CreateTestimonialInput: {
     authorId: { __type: "ID" },
     clientMutationId: { __type: "String" },
@@ -4714,6 +4898,17 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     deletedId: { __type: "ID" },
     tag: { __type: "Tag" },
+  },
+  DeleteTeamMemberInput: {
+    clientMutationId: { __type: "String" },
+    forceDelete: { __type: "Boolean" },
+    id: { __type: "ID!" },
+  },
+  DeleteTeamMemberPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    deletedId: { __type: "ID" },
+    teamMember: { __type: "TeamMember" },
   },
   DeleteTestimonialInput: {
     clientMutationId: { __type: "String" },
@@ -6628,6 +6823,40 @@ export const generatedSchema = {
     cursor: { __type: "String" },
     node: { __type: "Taxonomy" },
   },
+  RootQueryToTeamMemberConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[RootQueryToTeamMemberConnectionEdge]" },
+    nodes: { __type: "[TeamMember]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  RootQueryToTeamMemberConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "TeamMember" },
+  },
+  RootQueryToTeamMemberConnectionWhereArgs: {
+    author: { __type: "Int" },
+    authorIn: { __type: "[ID]" },
+    authorName: { __type: "String" },
+    authorNotIn: { __type: "[ID]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
   RootQueryToTermNodeConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[RootQueryToTermNodeConnectionEdge]" },
@@ -6995,6 +7224,62 @@ export const generatedSchema = {
     cursor: { __type: "String" },
     node: { __type: "ContentType" },
   },
+  TeamMember: {
+    __typename: { __type: "String!" },
+    author: { __type: "NodeWithAuthorToUserConnectionEdge" },
+    authorDatabaseId: { __type: "Int" },
+    authorId: { __type: "ID" },
+    bio: { __type: "String" },
+    conditionalTags: { __type: "ConditionalTags" },
+    contentType: { __type: "ContentNodeToContentTypeConnectionEdge" },
+    contentTypeName: { __type: "String!" },
+    databaseId: { __type: "Int!" },
+    date: { __type: "String" },
+    dateGmt: { __type: "String" },
+    desiredSlug: { __type: "String" },
+    editingLockedBy: { __type: "ContentNodeToEditLockConnectionEdge" },
+    enclosure: { __type: "String" },
+    enqueuedScripts: {
+      __type: "ContentNodeToEnqueuedScriptConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    enqueuedStylesheets: {
+      __type: "ContentNodeToEnqueuedStylesheetConnection",
+      __args: { after: "String", before: "String", first: "Int", last: "Int" },
+    },
+    featuredImage: { __type: "NodeWithFeaturedImageToMediaItemConnectionEdge" },
+    featuredImageDatabaseId: { __type: "Int" },
+    featuredImageId: { __type: "ID" },
+    fullName: { __type: "String" },
+    guid: { __type: "String" },
+    id: { __type: "ID!" },
+    isContentNode: { __type: "Boolean!" },
+    isPreview: { __type: "Boolean" },
+    isRestricted: { __type: "Boolean" },
+    isTermNode: { __type: "Boolean!" },
+    lastEditedBy: { __type: "ContentNodeToEditLastConnectionEdge" },
+    link: { __type: "String" },
+    modified: { __type: "String" },
+    modifiedGmt: { __type: "String" },
+    preview: { __type: "TeamMemberToPreviewConnectionEdge" },
+    previewRevisionDatabaseId: { __type: "Int" },
+    previewRevisionId: { __type: "ID" },
+    profilePic: { __type: "MediaItem" },
+    slug: { __type: "String" },
+    status: { __type: "String" },
+    teamMemberId: { __type: "Int!" },
+    template: { __type: "ContentTemplate" },
+    templates: { __type: "[String]" },
+    title: {
+      __type: "String",
+      __args: { format: "PostObjectFieldFormatEnum" },
+    },
+    uri: { __type: "String" },
+  },
+  TeamMemberToPreviewConnectionEdge: {
+    __typename: { __type: "String!" },
+    node: { __type: "TeamMember" },
+  },
   Template_Blank: {
     __typename: { __type: "String!" },
     templateName: { __type: "String" },
@@ -7335,6 +7620,24 @@ export const generatedSchema = {
     clientMutationId: { __type: "String" },
     tag: { __type: "Tag" },
   },
+  UpdateTeamMemberInput: {
+    authorId: { __type: "ID" },
+    bio: { __type: "String" },
+    clientMutationId: { __type: "String" },
+    date: { __type: "String" },
+    fullName: { __type: "String" },
+    id: { __type: "ID!" },
+    menuOrder: { __type: "Int" },
+    password: { __type: "String" },
+    slug: { __type: "String" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
+  UpdateTeamMemberPayload: {
+    __typename: { __type: "String!" },
+    clientMutationId: { __type: "String" },
+    teamMember: { __type: "TeamMember" },
+  },
   UpdateTestimonialInput: {
     authorId: { __type: "ID" },
     clientMutationId: { __type: "String" },
@@ -7487,6 +7790,16 @@ export const generatedSchema = {
         first: "Int",
         last: "Int",
         where: "UserToSocialMediaConnectionWhereArgs",
+      },
+    },
+    teamMembers: {
+      __type: "UserToTeamMemberConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "UserToTeamMemberConnectionWhereArgs",
       },
     },
     templates: { __type: "[String]" },
@@ -7788,6 +8101,40 @@ export const generatedSchema = {
     status: { __type: "PostStatusEnum" },
     title: { __type: "String" },
   },
+  UserToTeamMemberConnection: {
+    __typename: { __type: "String!" },
+    edges: { __type: "[UserToTeamMemberConnectionEdge]" },
+    nodes: { __type: "[TeamMember]" },
+    pageInfo: { __type: "WPPageInfo" },
+  },
+  UserToTeamMemberConnectionEdge: {
+    __typename: { __type: "String!" },
+    cursor: { __type: "String" },
+    node: { __type: "TeamMember" },
+  },
+  UserToTeamMemberConnectionWhereArgs: {
+    author: { __type: "Int" },
+    authorIn: { __type: "[ID]" },
+    authorName: { __type: "String" },
+    authorNotIn: { __type: "[ID]" },
+    dateQuery: { __type: "DateQueryInput" },
+    hasPassword: { __type: "Boolean" },
+    id: { __type: "Int" },
+    in: { __type: "[ID]" },
+    mimeType: { __type: "MimeTypeEnum" },
+    name: { __type: "String" },
+    nameIn: { __type: "[String]" },
+    notIn: { __type: "[ID]" },
+    orderby: { __type: "[PostObjectsConnectionOrderbyInput]" },
+    parent: { __type: "ID" },
+    parentIn: { __type: "[ID]" },
+    parentNotIn: { __type: "[ID]" },
+    password: { __type: "String" },
+    search: { __type: "String" },
+    stati: { __type: "[PostStatusEnum]" },
+    status: { __type: "PostStatusEnum" },
+    title: { __type: "String" },
+  },
   UserToTestimonialConnection: {
     __typename: { __type: "String!" },
     edges: { __type: "[UserToTestimonialConnectionEdge]" },
@@ -7888,6 +8235,10 @@ export const generatedSchema = {
       __type: "CreateTagPayload",
       __args: { input: "CreateTagInput!" },
     },
+    createTeamMember: {
+      __type: "CreateTeamMemberPayload",
+      __args: { input: "CreateTeamMemberInput!" },
+    },
     createTestimonial: {
       __type: "CreateTestimonialPayload",
       __args: { input: "CreateTestimonialInput!" },
@@ -7931,6 +8282,10 @@ export const generatedSchema = {
     deleteTag: {
       __type: "DeleteTagPayload",
       __args: { input: "DeleteTagInput!" },
+    },
+    deleteTeamMember: {
+      __type: "DeleteTeamMemberPayload",
+      __args: { input: "DeleteTeamMemberInput!" },
     },
     deleteTestimonial: {
       __type: "DeleteTestimonialPayload",
@@ -8000,6 +8355,10 @@ export const generatedSchema = {
     updateTag: {
       __type: "UpdateTagPayload",
       __args: { input: "UpdateTagInput!" },
+    },
+    updateTeamMember: {
+      __type: "UpdateTeamMemberPayload",
+      __args: { input: "UpdateTeamMemberInput!" },
     },
     updateTestimonial: {
       __type: "UpdateTestimonialPayload",
@@ -8256,6 +8615,24 @@ export const generatedSchema = {
       __type: "Taxonomy",
       __args: { id: "ID!", idType: "TaxonomyIdTypeEnum" },
     },
+    teamMember: {
+      __type: "TeamMember",
+      __args: { asPreview: "Boolean", id: "ID!", idType: "TeamMemberIdType" },
+    },
+    teamMemberBy: {
+      __type: "TeamMember",
+      __args: { id: "ID", slug: "String", teamMemberId: "Int", uri: "String" },
+    },
+    teamMembers: {
+      __type: "RootQueryToTeamMemberConnection",
+      __args: {
+        after: "String",
+        before: "String",
+        first: "Int",
+        last: "Int",
+        where: "RootQueryToTeamMemberConnectionWhereArgs",
+      },
+    },
     termNode: {
       __type: "TermNode",
       __args: {
@@ -8333,6 +8710,7 @@ export const generatedSchema = {
       "Project",
       "SocialMedia",
       "Tag",
+      "TeamMember",
       "Testimonial",
       "User",
     ],
@@ -8356,6 +8734,7 @@ export const generatedSchema = {
       "SocialMedia",
       "Tag",
       "Taxonomy",
+      "TeamMember",
       "Testimonial",
       "Theme",
       "User",
@@ -8372,6 +8751,7 @@ export const generatedSchema = {
       "Project",
       "SocialMedia",
       "Tag",
+      "TeamMember",
       "Testimonial",
       "User",
     ],
@@ -8391,6 +8771,7 @@ export const generatedSchema = {
       "Post",
       "Project",
       "SocialMedia",
+      "TeamMember",
       "Testimonial",
     ],
     HierarchicalContentNode: ["MediaItem", "Page"],
@@ -8400,6 +8781,7 @@ export const generatedSchema = {
       "Post",
       "Project",
       "SocialMedia",
+      "TeamMember",
       "Testimonial",
     ],
     NodeWithComments: ["MediaItem", "Page", "Post"],
@@ -8409,6 +8791,7 @@ export const generatedSchema = {
       "Post",
       "Project",
       "SocialMedia",
+      "TeamMember",
       "Testimonial",
     ],
     NodeWithTitle: [
@@ -8417,11 +8800,12 @@ export const generatedSchema = {
       "Post",
       "Project",
       "SocialMedia",
+      "TeamMember",
       "Testimonial",
     ],
     MenuItemObjectUnion: ["Category", "Page", "Post", "Tag"],
     NodeWithContentEditor: ["Page", "Post"],
-    NodeWithFeaturedImage: ["Page", "Post", "Project"],
+    NodeWithFeaturedImage: ["Page", "Post", "Project", "TeamMember"],
     NodeWithPageAttributes: ["Page"],
     NodeWithRevisions: ["Page", "Post"],
     NodeWithExcerpt: ["Post"],
@@ -9266,6 +9650,7 @@ export interface ContentNode {
     | "Post"
     | "Project"
     | "SocialMedia"
+    | "TeamMember"
     | "Testimonial";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
@@ -9929,6 +10314,21 @@ export interface CreateTagPayload {
 }
 
 /**
+ * The payload for the createTeamMember mutation
+ */
+export interface CreateTeamMemberPayload {
+  __typename?: "CreateTeamMemberPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Post object mutation type.
+   */
+  teamMember?: Maybe<TeamMember>;
+}
+
+/**
  * The payload for the createTestimonial mutation
  */
 export interface CreateTestimonialPayload {
@@ -9974,6 +10374,7 @@ export interface DatabaseIdentifier {
     | "Project"
     | "SocialMedia"
     | "Tag"
+    | "TeamMember"
     | "Testimonial"
     | "User";
   /**
@@ -10163,6 +10564,25 @@ export interface DeleteTagPayload {
    * The deteted term object
    */
   tag?: Maybe<Tag>;
+}
+
+/**
+ * The payload for the deleteTeamMember mutation
+ */
+export interface DeleteTeamMemberPayload {
+  __typename?: "DeleteTeamMemberPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The ID of the deleted object
+   */
+  deletedId?: Maybe<ScalarsEnums["ID"]>;
+  /**
+   * The object before it was deleted
+   */
+  teamMember?: Maybe<TeamMember>;
 }
 
 /**
@@ -11370,6 +11790,7 @@ export interface Node {
     | "SocialMedia"
     | "Tag"
     | "Taxonomy"
+    | "TeamMember"
     | "Testimonial"
     | "Theme"
     | "User"
@@ -11391,6 +11812,7 @@ export interface NodeWithAuthor {
     | "Post"
     | "Project"
     | "SocialMedia"
+    | "TeamMember"
     | "Testimonial";
   /**
    * Connection between the NodeWithAuthor type and the User type
@@ -11472,7 +11894,7 @@ export interface NodeWithExcerpt {
  * A node that can have a featured image set
  */
 export interface NodeWithFeaturedImage {
-  __typename?: "Page" | "Post" | "Project";
+  __typename?: "Page" | "Post" | "Project" | "TeamMember";
   /**
    * @deprecated Deprecated in favor of using Next.js pages
    */
@@ -11691,6 +12113,7 @@ export interface NodeWithTemplate {
     | "Post"
     | "Project"
     | "SocialMedia"
+    | "TeamMember"
     | "Testimonial";
   /**
    * The template assigned to the node
@@ -11709,6 +12132,7 @@ export interface NodeWithTitle {
     | "Post"
     | "Project"
     | "SocialMedia"
+    | "TeamMember"
     | "Testimonial";
   /**
    * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
@@ -14075,6 +14499,40 @@ export interface RootQueryToTaxonomyConnectionEdge {
 }
 
 /**
+ * Connection between the RootQuery type and the teamMember type
+ */
+export interface RootQueryToTeamMemberConnection {
+  __typename?: "RootQueryToTeamMemberConnection";
+  /**
+   * Edges for the RootQueryToTeamMemberConnection connection
+   */
+  edges?: Maybe<Array<Maybe<RootQueryToTeamMemberConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<TeamMember>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface RootQueryToTeamMemberConnectionEdge {
+  __typename?: "RootQueryToTeamMemberConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<TeamMember>;
+}
+
+/**
  * Connection between the RootQuery type and the TermNode type
  */
 export interface RootQueryToTermNodeConnection {
@@ -14923,6 +15381,212 @@ export interface TaxonomyToContentTypeConnectionEdge {
 }
 
 /**
+ * The teamMember type
+ */
+export interface TeamMember {
+  __typename?: "TeamMember";
+  /**
+   * Connection between the NodeWithAuthor type and the User type
+   */
+  author?: Maybe<NodeWithAuthorToUserConnectionEdge>;
+  /**
+   * The database identifier of the author of the node
+   */
+  authorDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * The globally unique identifier of the author of the node
+   */
+  authorId?: Maybe<ScalarsEnums["ID"]>;
+  bio?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  conditionalTags?: Maybe<ConditionalTags>;
+  /**
+   * Connection between the ContentNode type and the ContentType type
+   */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /**
+   * The name of the Content Type the node belongs to
+   */
+  contentTypeName: ScalarsEnums["String"];
+  /**
+   * The unique identifier stored in the database
+   */
+  databaseId: ScalarsEnums["Int"];
+  /**
+   * Post publishing date.
+   */
+  date?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The publishing date set in GMT.
+   */
+  dateGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The desired slug of the post
+   */
+  desiredSlug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds
+   */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /**
+   * The RSS enclosure for the object
+   */
+  enclosure?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedScript type
+   */
+  enqueuedScripts: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /**
+   * Connection between the ContentNode type and the EnqueuedStylesheet type
+   */
+  enqueuedStylesheets: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+  }) => Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /**
+   * Connection between the NodeWithFeaturedImage type and the MediaItem type
+   */
+  featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>;
+  /**
+   * The database identifier for the featured image node assigned to the content node
+   */
+  featuredImageDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Globally unique ID of the featured image assigned to the node
+   */
+  featuredImageId?: Maybe<ScalarsEnums["ID"]>;
+  fullName?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table.
+   */
+  guid?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The globally unique identifier of the teammember object.
+   */
+  id: ScalarsEnums["ID"];
+  /**
+   * Whether the node is a Content Node
+   */
+  isContentNode: ScalarsEnums["Boolean"];
+  /**
+   * Whether the object is a node in the preview state
+   */
+  isPreview?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the object is restricted from the current viewer
+   */
+  isRestricted?: Maybe<ScalarsEnums["Boolean"]>;
+  /**
+   * Whether the node is a Term
+   */
+  isTermNode: ScalarsEnums["Boolean"];
+  /**
+   * The user that most recently edited the node
+   */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /**
+   * The permalink of the post
+   */
+  link?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
+   */
+  modified?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT.
+   */
+  modifiedGmt?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * Connection between the teamMember type and the teamMember type
+   */
+  preview?: Maybe<TeamMemberToPreviewConnectionEdge>;
+  /**
+   * The database id of the preview node
+   */
+  previewRevisionDatabaseId?: Maybe<ScalarsEnums["Int"]>;
+  /**
+   * Whether the object is a node in the preview state
+   */
+  previewRevisionId?: Maybe<ScalarsEnums["ID"]>;
+  profilePic?: Maybe<MediaItem>;
+  /**
+   * The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table.
+   */
+  slug?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The current status of the object
+   */
+  status?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  teamMemberId: ScalarsEnums["Int"];
+  /**
+   * The template assigned to a node of content
+   */
+  template?: Maybe<ContentTemplate>;
+  templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
+  /**
+   * The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made.
+   */
+  title: (args?: {
+    /**
+     * Format of the field output
+     */
+    format?: Maybe<PostObjectFieldFormatEnum>;
+  }) => Maybe<ScalarsEnums["String"]>;
+  /**
+   * The unique resource identifier path
+   */
+  uri?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Connection between the teamMember type and the teamMember type
+ */
+export interface TeamMemberToPreviewConnectionEdge {
+  __typename?: "TeamMemberToPreviewConnectionEdge";
+  /**
+   * The node of the connection, without the edges
+   */
+  node?: Maybe<TeamMember>;
+}
+
+/**
  * The template assigned to the node
  */
 export interface Template_Blank {
@@ -15403,6 +16067,7 @@ export interface UniformResourceIdentifiable {
     | "Project"
     | "SocialMedia"
     | "Tag"
+    | "TeamMember"
     | "Testimonial"
     | "User";
   /**
@@ -15601,6 +16266,21 @@ export interface UpdateTagPayload {
    * The created post_tag
    */
   tag?: Maybe<Tag>;
+}
+
+/**
+ * The payload for the updateTeamMember mutation
+ */
+export interface UpdateTeamMemberPayload {
+  __typename?: "UpdateTeamMemberPayload";
+  /**
+   * If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.
+   */
+  clientMutationId?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The Post object mutation type.
+   */
+  teamMember?: Maybe<TeamMember>;
 }
 
 /**
@@ -15970,6 +16650,31 @@ export interface User {
      */
     where?: Maybe<UserToSocialMediaConnectionWhereArgs>;
   }) => Maybe<UserToSocialMediaConnection>;
+  /**
+   * Connection between the User type and the teamMember type
+   */
+  teamMembers: (args?: {
+    /**
+     * Cursor used along with the "first" argument to reference where in the dataset to get data
+     */
+    after?: Maybe<Scalars["String"]>;
+    /**
+     * Cursor used along with the "last" argument to reference where in the dataset to get data
+     */
+    before?: Maybe<Scalars["String"]>;
+    /**
+     * The number of items to return after the referenced "after" cursor
+     */
+    first?: Maybe<Scalars["Int"]>;
+    /**
+     * The number of items to return before the referenced "before" cursor
+     */
+    last?: Maybe<Scalars["Int"]>;
+    /**
+     * Arguments for filtering the connection
+     */
+    where?: Maybe<UserToTeamMemberConnectionWhereArgs>;
+  }) => Maybe<UserToTeamMemberConnection>;
   templates?: Maybe<Array<Maybe<ScalarsEnums["String"]>>>;
   /**
    * Connection between the User type and the testimonial type
@@ -16349,6 +17054,40 @@ export interface UserToSocialMediaConnectionEdge {
 }
 
 /**
+ * Connection between the User type and the teamMember type
+ */
+export interface UserToTeamMemberConnection {
+  __typename?: "UserToTeamMemberConnection";
+  /**
+   * Edges for the UserToTeamMemberConnection connection
+   */
+  edges?: Maybe<Array<Maybe<UserToTeamMemberConnectionEdge>>>;
+  /**
+   * The nodes of the connection, without the edges
+   */
+  nodes?: Maybe<Array<Maybe<TeamMember>>>;
+  /**
+   * Information about pagination in a connection.
+   */
+  pageInfo?: Maybe<WPPageInfo>;
+}
+
+/**
+ * An edge in a connection
+ */
+export interface UserToTeamMemberConnectionEdge {
+  __typename?: "UserToTeamMemberConnectionEdge";
+  /**
+   * A cursor for use in pagination
+   */
+  cursor?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The item at the end of the edge
+   */
+  node?: Maybe<TeamMember>;
+}
+
+/**
  * Connection between the User type and the testimonial type
  */
 export interface UserToTestimonialConnection {
@@ -16481,6 +17220,9 @@ export interface Mutation {
     input: CreateSocialMediaInput;
   }) => Maybe<CreateSocialMediaPayload>;
   createTag: (args: { input: CreateTagInput }) => Maybe<CreateTagPayload>;
+  createTeamMember: (args: {
+    input: CreateTeamMemberInput;
+  }) => Maybe<CreateTeamMemberPayload>;
   createTestimonial: (args: {
     input: CreateTestimonialInput;
   }) => Maybe<CreateTestimonialPayload>;
@@ -16506,6 +17248,9 @@ export interface Mutation {
     input: DeleteSocialMediaInput;
   }) => Maybe<DeleteSocialMediaPayload>;
   deleteTag: (args: { input: DeleteTagInput }) => Maybe<DeleteTagPayload>;
+  deleteTeamMember: (args: {
+    input: DeleteTeamMemberInput;
+  }) => Maybe<DeleteTeamMemberPayload>;
   deleteTestimonial: (args: {
     input: DeleteTestimonialInput;
   }) => Maybe<DeleteTestimonialPayload>;
@@ -16552,6 +17297,9 @@ export interface Mutation {
     input: UpdateSocialMediaInput;
   }) => Maybe<UpdateSocialMediaPayload>;
   updateTag: (args: { input: UpdateTagInput }) => Maybe<UpdateTagPayload>;
+  updateTeamMember: (args: {
+    input: UpdateTeamMemberInput;
+  }) => Maybe<UpdateTeamMemberPayload>;
   updateTestimonial: (args: {
     input: UpdateTestimonialInput;
   }) => Maybe<UpdateTestimonialPayload>;
@@ -16778,6 +17526,24 @@ export interface Query {
     id: Scalars["ID"];
     idType?: Maybe<TaxonomyIdTypeEnum>;
   }) => Maybe<Taxonomy>;
+  teamMember: (args: {
+    asPreview?: Maybe<Scalars["Boolean"]>;
+    id: Scalars["ID"];
+    idType?: Maybe<TeamMemberIdType>;
+  }) => Maybe<TeamMember>;
+  teamMemberBy: (args?: {
+    id?: Maybe<Scalars["ID"]>;
+    slug?: Maybe<Scalars["String"]>;
+    teamMemberId?: Maybe<Scalars["Int"]>;
+    uri?: Maybe<Scalars["String"]>;
+  }) => Maybe<TeamMember>;
+  teamMembers: (args?: {
+    after?: Maybe<Scalars["String"]>;
+    before?: Maybe<Scalars["String"]>;
+    first?: Maybe<Scalars["Int"]>;
+    last?: Maybe<Scalars["Int"]>;
+    where?: Maybe<RootQueryToTeamMemberConnectionWhereArgs>;
+  }) => Maybe<RootQueryToTeamMemberConnection>;
   termNode: (args: {
     id: Scalars["ID"];
     idType?: Maybe<TermNodeIdTypeEnum>;
@@ -16884,6 +17650,7 @@ export interface SchemaObjectTypes {
   CreateProjectPayload: CreateProjectPayload;
   CreateSocialMediaPayload: CreateSocialMediaPayload;
   CreateTagPayload: CreateTagPayload;
+  CreateTeamMemberPayload: CreateTeamMemberPayload;
   CreateTestimonialPayload: CreateTestimonialPayload;
   CreateUserPayload: CreateUserPayload;
   DefaultTemplate: DefaultTemplate;
@@ -16896,6 +17663,7 @@ export interface SchemaObjectTypes {
   DeleteProjectPayload: DeleteProjectPayload;
   DeleteSocialMediaPayload: DeleteSocialMediaPayload;
   DeleteTagPayload: DeleteTagPayload;
+  DeleteTeamMemberPayload: DeleteTeamMemberPayload;
   DeleteTestimonialPayload: DeleteTestimonialPayload;
   DeleteUserPayload: DeleteUserPayload;
   DiscussionSettings: DiscussionSettings;
@@ -16997,6 +17765,8 @@ export interface SchemaObjectTypes {
   RootQueryToTagConnectionEdge: RootQueryToTagConnectionEdge;
   RootQueryToTaxonomyConnection: RootQueryToTaxonomyConnection;
   RootQueryToTaxonomyConnectionEdge: RootQueryToTaxonomyConnectionEdge;
+  RootQueryToTeamMemberConnection: RootQueryToTeamMemberConnection;
+  RootQueryToTeamMemberConnectionEdge: RootQueryToTeamMemberConnectionEdge;
   RootQueryToTermNodeConnection: RootQueryToTermNodeConnection;
   RootQueryToTermNodeConnectionEdge: RootQueryToTermNodeConnectionEdge;
   RootQueryToTestimonialConnection: RootQueryToTestimonialConnection;
@@ -17021,6 +17791,8 @@ export interface SchemaObjectTypes {
   Taxonomy: Taxonomy;
   TaxonomyToContentTypeConnection: TaxonomyToContentTypeConnection;
   TaxonomyToContentTypeConnectionEdge: TaxonomyToContentTypeConnectionEdge;
+  TeamMember: TeamMember;
+  TeamMemberToPreviewConnectionEdge: TeamMemberToPreviewConnectionEdge;
   Template_Blank: Template_Blank;
   Template_PageLargeHeader: Template_PageLargeHeader;
   Template_PageNoSeparators: Template_PageNoSeparators;
@@ -17042,6 +17814,7 @@ export interface SchemaObjectTypes {
   UpdateSettingsPayload: UpdateSettingsPayload;
   UpdateSocialMediaPayload: UpdateSocialMediaPayload;
   UpdateTagPayload: UpdateTagPayload;
+  UpdateTeamMemberPayload: UpdateTeamMemberPayload;
   UpdateTestimonialPayload: UpdateTestimonialPayload;
   UpdateUserPayload: UpdateUserPayload;
   User: User;
@@ -17064,6 +17837,8 @@ export interface SchemaObjectTypes {
   UserToProjectConnectionEdge: UserToProjectConnectionEdge;
   UserToSocialMediaConnection: UserToSocialMediaConnection;
   UserToSocialMediaConnectionEdge: UserToSocialMediaConnectionEdge;
+  UserToTeamMemberConnection: UserToTeamMemberConnection;
+  UserToTeamMemberConnectionEdge: UserToTeamMemberConnectionEdge;
   UserToTestimonialConnection: UserToTestimonialConnection;
   UserToTestimonialConnectionEdge: UserToTestimonialConnectionEdge;
   UserToUserRoleConnection: UserToUserRoleConnection;
@@ -17114,6 +17889,7 @@ export type SchemaObjectTypesNames =
   | "CreateProjectPayload"
   | "CreateSocialMediaPayload"
   | "CreateTagPayload"
+  | "CreateTeamMemberPayload"
   | "CreateTestimonialPayload"
   | "CreateUserPayload"
   | "DefaultTemplate"
@@ -17126,6 +17902,7 @@ export type SchemaObjectTypesNames =
   | "DeleteProjectPayload"
   | "DeleteSocialMediaPayload"
   | "DeleteTagPayload"
+  | "DeleteTeamMemberPayload"
   | "DeleteTestimonialPayload"
   | "DeleteUserPayload"
   | "DiscussionSettings"
@@ -17227,6 +18004,8 @@ export type SchemaObjectTypesNames =
   | "RootQueryToTagConnectionEdge"
   | "RootQueryToTaxonomyConnection"
   | "RootQueryToTaxonomyConnectionEdge"
+  | "RootQueryToTeamMemberConnection"
+  | "RootQueryToTeamMemberConnectionEdge"
   | "RootQueryToTermNodeConnection"
   | "RootQueryToTermNodeConnectionEdge"
   | "RootQueryToTestimonialConnection"
@@ -17251,6 +18030,8 @@ export type SchemaObjectTypesNames =
   | "Taxonomy"
   | "TaxonomyToContentTypeConnection"
   | "TaxonomyToContentTypeConnectionEdge"
+  | "TeamMember"
+  | "TeamMemberToPreviewConnectionEdge"
   | "Template_Blank"
   | "Template_PageLargeHeader"
   | "Template_PageNoSeparators"
@@ -17272,6 +18053,7 @@ export type SchemaObjectTypesNames =
   | "UpdateSettingsPayload"
   | "UpdateSocialMediaPayload"
   | "UpdateTagPayload"
+  | "UpdateTeamMemberPayload"
   | "UpdateTestimonialPayload"
   | "UpdateUserPayload"
   | "User"
@@ -17294,6 +18076,8 @@ export type SchemaObjectTypesNames =
   | "UserToProjectConnectionEdge"
   | "UserToSocialMediaConnection"
   | "UserToSocialMediaConnectionEdge"
+  | "UserToTeamMemberConnection"
+  | "UserToTeamMemberConnectionEdge"
   | "UserToTestimonialConnection"
   | "UserToTestimonialConnectionEdge"
   | "UserToUserRoleConnection"
@@ -17312,6 +18096,7 @@ export interface $ContentNode {
   Post?: Post;
   Project?: Project;
   SocialMedia?: SocialMedia;
+  TeamMember?: TeamMember;
   Testimonial?: Testimonial;
 }
 
@@ -17340,6 +18125,7 @@ export interface $DatabaseIdentifier {
   Project?: Project;
   SocialMedia?: SocialMedia;
   Tag?: Tag;
+  TeamMember?: TeamMember;
   Testimonial?: Testimonial;
   User?: User;
 }
@@ -17390,6 +18176,7 @@ export interface $Node {
   SocialMedia?: SocialMedia;
   Tag?: Tag;
   Taxonomy?: Taxonomy;
+  TeamMember?: TeamMember;
   Testimonial?: Testimonial;
   Theme?: Theme;
   User?: User;
@@ -17402,6 +18189,7 @@ export interface $NodeWithAuthor {
   Post?: Post;
   Project?: Project;
   SocialMedia?: SocialMedia;
+  TeamMember?: TeamMember;
   Testimonial?: Testimonial;
 }
 
@@ -17424,6 +18212,7 @@ export interface $NodeWithFeaturedImage {
   Page?: Page;
   Post?: Post;
   Project?: Project;
+  TeamMember?: TeamMember;
 }
 
 export interface $NodeWithPageAttributes {
@@ -17441,6 +18230,7 @@ export interface $NodeWithTemplate {
   Post?: Post;
   Project?: Project;
   SocialMedia?: SocialMedia;
+  TeamMember?: TeamMember;
   Testimonial?: Testimonial;
 }
 
@@ -17450,6 +18240,7 @@ export interface $NodeWithTitle {
   Post?: Post;
   Project?: Project;
   SocialMedia?: SocialMedia;
+  TeamMember?: TeamMember;
   Testimonial?: Testimonial;
 }
 
@@ -17473,6 +18264,7 @@ export interface $UniformResourceIdentifiable {
   Project?: Project;
   SocialMedia?: SocialMedia;
   Tag?: Tag;
+  TeamMember?: TeamMember;
   Testimonial?: Testimonial;
   User?: User;
 }
@@ -17523,6 +18315,7 @@ export interface ScalarsEnums extends MakeNullable<Scalars> {
   TagIdType: TagIdType | undefined;
   TaxonomyEnum: TaxonomyEnum | undefined;
   TaxonomyIdTypeEnum: TaxonomyIdTypeEnum | undefined;
+  TeamMemberIdType: TeamMemberIdType | undefined;
   TermNodeIdTypeEnum: TermNodeIdTypeEnum | undefined;
   TermObjectsConnectionOrderbyEnum:
     | TermObjectsConnectionOrderbyEnum

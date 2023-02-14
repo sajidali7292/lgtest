@@ -28,14 +28,19 @@ function Footer({
   locationsLG,
   copyrightHolder = 'Company Name'
 }: Props): JSX.Element {
-  const { menuItems } = client.useQuery()
-  const links = menuItems({
-    where: { location: MenuLocationEnum.FOOTER },
-  }).nodes;
-  const year = new Date().getFullYear();
-  // console.log({links1});
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
+  const { menuItems } =  useQuery();
+  const { menu } = useQuery();
+  const Footercolumn1 = menuItems({
+    where: { location: MenuLocationEnum.FOOTER },
+  }).nodes;
+  const Footercolumn2 = menu({ id: 'dGVybToxNw==' })?.menuItems()?.nodes;
+  const Footercolumn3 = menuItems({
+    where: { location: MenuLocationEnum.FOOTER_3 }
+  })?.nodes;
+  const year = new Date().getFullYear();
+  // console.log({linksTest});
   return (
     <footer className={`${styles.mainW}`}>
       <div className={`wrap_content wrap_content-extended`}>
@@ -58,13 +63,13 @@ function Footer({
           <div className={`basis-7/12`}>
             <div className={`flex flex-row flex-wrap`}>
               <div className={`basis-4/12`}>
-                <MenuBuilder menu={links} keyI='f1' classMenu={styles.menu_footer} classAParent={styles.FParentLink} classAChild={styles.FCLink} />
+                {Footercolumn1 && <MenuBuilder menu={Footercolumn1} keyI='f1' classMenu={styles.menu_footer} classAParent={styles.FParentLink} classAChild={styles.FCLink} />}
               </div>
               <div className={`basis-4/12`}>
-                <MenuBuilder menu={links} keyI='f2' classMenu={styles.menu_footer} classAParent={styles.FParentLink} classAChild={styles.FCLink} />
+                {Footercolumn2 && <MenuBuilder menu={Footercolumn2} keyI='f1' classMenu={styles.menu_footer} classAParent={styles.FParentLink} classAChild={styles.FCLink} />}
               </div>
               <div className={`basis-4/12`}>
-                <MenuBuilder menu={links} keyI='f3' classMenu={styles.menu_footer} classAParent={styles.FParentLink} classAChild={styles.FCLink} />
+                {Footercolumn3 && <MenuBuilder menu={Footercolumn3} keyI='f1' classMenu={styles.menu_footer} classAParent={styles.FParentLink} classAChild={styles.FCLink} />}
                 
               </div>
             </div>
@@ -73,13 +78,14 @@ function Footer({
         <div className={`${styles.wrapBottom} flex flex-row flex-wrap`}>
           <div className="basis-1/2">
             <Image src={logoPink.url} alt={logoPink.alt} className={`${styles.logoPink} w-100 object-contain`} width="120" height="28"/>
-            <p className={styles.copyright}>{`© All copyrights reserved, ${copyrightHolder=generalSettings.title} ${year}.`}</p>
+            <p className={styles.copyright}
+            dangerouslySetInnerHTML={{ __html: `© All copyrights reserved, ${copyrightHolder=generalSettings.title} ${year}. <a href="/terms-of-service/" style="text-decoration: underline;"  data-wpel-link="internal">Terms of Service</a>. <a href="/privacy-policy/" style="text-decoration: underline;" data-wpel-link="internal">Privacy policy</a>` }}></p>
           </div>
           <div className="basis-1/2">
             <ul className={`${styles.list_social} flex flex-wrap flex-row justify-end align-middle items-center`}>
               {socialLinks?.map((socialLink, index) => { 
                 return (
-                  <li key={`icons-${index}`}><a href={socialLink.url}><i className={`dashicons ${socialLink.ico} text-2xl ml-2 `}></i></a></li>
+                  <li key={`icons-${index}`}><a href={socialLink.url}><i className={`dashicons ${socialLink.ico} text-2xl ml-1.5 `}></i></a></li>
                 );
               })}
             </ul>
