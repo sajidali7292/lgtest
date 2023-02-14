@@ -17,9 +17,12 @@ $font-weight-bold: 600;
 $content-width-small: 750px;
 $content-width: 1200px;
 $content-width-extended: 1310px;
+$content-width-extended_md: 700px;
+$content-width_sm: 100%;
 
-$breakpoint-small: 600px;
-$breakpoint-medium: 1000px;
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-semi_medium: 991px;
 
 /*DEFINED LG COLORS FOR GLOBAL USES*/
 $color-primary: #25243E;
@@ -33,6 +36,9 @@ $color-white: #FFFFFF;
 $color-semi-white: #F8F8F8;
 $color-light-gray: #6C6E72;
 $color-transparent: transparent;
+$color-semi-dark: #26262A;
+
+$color-yellow: #FEC725;
 
 /*PLUS JAKARTA*/
 @font-face {

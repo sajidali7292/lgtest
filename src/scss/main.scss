@@ -47,15 +47,30 @@ a:hover, a:focus,
 .hg2{
 	color: $color-hg2;
 }
+.color-yellow{
+	color: $color-yellow;
+}
+.bg-yellow{
+	background-color: $color-yellow;
+}
+.color-semi_dark{
+	color: $color-semi-dark;
+}
+.bg-semi_dark{
+	background-color: $color-semi-dark
+}
 
 .wrap_content{
 	width: $content-width;
     max-width: 100%;
     margin: auto;
 	overflow: hidden;
-	@media(max-width: 991px){
+	@media(max-width: $breakpoint-semi_medium){
 		padding-left: 1rem;
 		padding-right: 1rem;
+	}
+	@media(max-width: $breakpoint-small){
+		width: $content-width_sm;
 	}
 }
 .wrap_content-small{
@@ -63,6 +78,9 @@ a:hover, a:focus,
 }
 .wrap_content-extended{
     width: $content-width-extended;
+	@media(max-width: $breakpoint-medium){
+		width: $content-width-extended_md;
+	}
 }
 
 @media screen and (min-width: $content-width) {
