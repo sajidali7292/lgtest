@@ -2,44 +2,87 @@
 
 @import "scss/variables";
 
-.explore {
-	margin: 5em 0 5em;
-}
-
-#post_list {
-	padding: 5em 0 6em;
-	background-color: $color-semi-white;
+#home_hero {
+	height: auto;
+	min-height: 850px;
+	background-color: #F5F5F5;
+	position: relative;
+	top: -182px;
+	padding-bottom: 45px;
+	z-index: 1;
 }
 
 #home_hero div {
 	text-align: center;
 	display: flex;
     flex-direction: column;
+	width: 1360px;
+	max-width: 100%;
 }
-#home_hero div:first-of-type{
-	width:738px;
-	max-width:100%;
-}
+
 #home_hero h1 {
-	font-size:42px;
-	margin:0;
-	max-width:100%;
+	font-family: 'PlusJakarta';
+	color: #000;
+	font-weight: 800;
+	font-size: 72px;
+	line-height: 84px;
+	margin: 0 auto;
+	text-align: center;
+	width: 1311px;
+	max-width: 100%;
+	padding-top: 233px;
 }
 #home_hero p {
 	place-self: center;
-	max-width:592px;
+	margin: 30px auto 45px;
+	font-family: 'PlusJakarta';
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 34px;
+	text-align: center;
+	color: #353535;
+	width: 745px;
+	max-width: 100%;
 }
 
-#home_hero span {
-	place-self: center;
-	max-width:403px;
-	margin: 10px 0 0 0;
+#home_hero form {
+	position: relative;
 }
 
-#home_hero{
-    padding-right: 25%;
-    padding-top: 22%;
+#home_hero form input {
+	width: 435px;
+	height: 60px;
+	border: 1px solid #B0B0B0;
+	color: #4B4B4B;
+	background: #FFF;
+	border-radius: 6px;
+	padding: 0 115px 0 20px;
+	font-size: 18px;
+	line-height: 22px;
+	max-width: 100%;
 }
+
+
+#home_hero form button {
+	background: #FF258E;
+	border-radius: 6px;
+	font-family: 'PlusJakarta';
+	font-size: 16px;
+	height: 60px;
+	margin-left: 15px;
+	width: 275px;
+	max-width: 100%;
+}
+
+#home_hero form button a {
+	width: 260px;
+	max-width: 100%;
+	height: 25px;
+	color: #FFF;
+	font-weight: 600;
+	display: inherit;
+}
+
 #home_hero .content .button-secondary {
 	background-color: $color-secondary;
 }

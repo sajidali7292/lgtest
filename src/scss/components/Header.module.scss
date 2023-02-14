@@ -2,10 +2,20 @@
 
 @import "scss/variables";
 
-.wrap {
-	background-color:$color-secondary;
-	color:$color-white;
+
+.header {
+	font-family: 'Gordita';
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;
+	z-index: 99999;
 }
+
+// .wrap {
+// 	background-color:$color-secondary;
+// 	color:$color-white;
+// }
 
 .site-title {
 	margin-bottom: 0;
@@ -51,7 +61,7 @@
 	}
 
 	.menu {
-		max-width: 70%;
+		max-width: 80%;
 	}
 }
 
@@ -83,9 +93,9 @@
 }
 
 .menu a {
-	color: $color-black;
-	font-family: $font-family;
-	font-weight: $font-weight-bold;
+	// color: $color-black;
+	// font-family: $font-family;
+	// font-weight: $font-weight-bold;
 	text-decoration: none;
 }
 

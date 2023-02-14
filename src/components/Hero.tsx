@@ -1,54 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from 'scss/components/Hero.module.scss';
 
 interface Props {
   title?: string;
+  text?: string;
   id?: string;
-  bgImage?: string;
-  buttonText?: string;
-  buttonURL?: string;
-  button2Text?: string;
-  button2URL?: string;
-  children?: React.ReactNode;
+  placeholder: string;
+  buttonText: string;
 }
 
 function Hero({
-  title = '',
+  text = '',
   id,
-  bgImage,
+  placeholder,
   buttonText,
-  buttonURL,
-  button2Text,
-  button2URL,
-  children,
 }: Props): JSX.Element {
+
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Perform action with the input value
+    console.log(inputValue);
+  };
+
   return (
     <section
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...(id && { id })}
-      style={{ backgroundImage: bgImage ? `url(${bgImage})` : 'none' }}
       className={styles.hero}>
       <div className={styles.wrap}>
-        <h1>{title}</h1>
-        <div className={styles.intro}>
-          <div className={styles.children}>{children}</div>
-          {buttonText && buttonURL && (
-            <p>
-              <a href={buttonURL} className="button">
-                {buttonText}
-              </a>
-            </p>
-          )}
-          {button2Text && button2URL && (
-            <p>
-              <a href={button2URL} className="button button-secondary">
-                {button2Text}
-              </a>
-            </p>
-          )}
-        </div>
+        <h1><span className={styles.pink}>Grow your Revenue</span> through Transparent <span className={styles.grey}>&</span> Results-Driven SEO</h1>
+        <p>{text}</p>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder={placeholder}
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
+          />
+          <button type="submit"><a className={styles.pulse_animation}>{buttonText}</a></button>
+        </form>
+          <div className={styles.accountCounter}>
+            <p><span><img src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/Vector.svg'} /></span><span className={styles.counter_accounts}>+2425 accounts</span> created in the last 30 days</p>
+          </div>
       </div>
     </section>
+    
   );
 }
 
