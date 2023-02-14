@@ -60,7 +60,7 @@ function Footer({
             </div>
             <Image src={partner.url} alt={partner.alt} className={`w-100 object-contain`} width="150" height="145"/>
           </div>
-          <div className={`basis-full lg:basis7/12`}>
+          <div className={`basis-full lg:basis-7/12`}>
             <div className={`flex flex-row flex-wrap`}>
               <div className={`basis-full lg:basis-4/12`}>
                 {Footercolumn1 && <MenuBuilder menu={Footercolumn1} keyI='f1' classMenu={styles.menu_footer} classAParent={styles.FParentLink} classAChild={styles.FCLink} />}
