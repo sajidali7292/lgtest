@@ -33,7 +33,7 @@ function Header({
         <div className={styles['title-wrap']}>
           <p className={styles['site-title']}>
             <Link href="/">
-              <img src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/logo-1.svg'} />
+              <img className={styles.logo} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/logo-1.svg'} />
             </Link>
           </p>
           {generalSettings.description && <p className={styles.description}>{generalSettings.description}</p>}
