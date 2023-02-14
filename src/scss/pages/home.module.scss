@@ -7,18 +7,10 @@
 	min-height: 850px;
 	background-color: #F5F5F5;
 	position: relative;
-	top: -182px;
 	padding-bottom: 45px;
 	z-index: 1;
 }
 
-#home_hero div {
-	text-align: center;
-	display: flex;
-    flex-direction: column;
-	width: 1360px;
-	max-width: 100%;
-}
 
 #home_hero h1 {
 	font-family: 'PlusJakarta';
@@ -81,6 +73,8 @@
 	color: #FFF;
 	font-weight: 600;
 	display: inherit;
+	position: relative;
+	margin-right: 10px;
 }
 
 #home_hero .content .button-secondary {

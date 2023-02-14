@@ -18,7 +18,12 @@ body {
 	overflow: auto;
 	padding: 0 10px;
 }
-
+.container {
+	margin: 0 auto;
+	max-width: $content-width-large;
+	overflow: auto;
+	padding: 0 10px;
+}
 .content-page .wrap,
 .content-single .wrap,
 .content-index .wrap {

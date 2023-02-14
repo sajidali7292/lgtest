@@ -8,7 +8,8 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 26px;
-	position: relative;
+	position: absolute;
+	width: 100%;
 	z-index: 99999;
 }
 
@@ -31,6 +32,7 @@
 
 .logo {
 	width: 105px;
+	cursor: pointer;
 }
 
 .title-wrap {
@@ -61,7 +63,7 @@
 		flex-wrap: inherit;
 		justify-content: space-between;
 		margin: 0 auto;
-		max-width: $content-width-extended;
+		max-width: $content-width-large;
 	}
 
 	.menu {

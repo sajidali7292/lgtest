@@ -1,0 +1,175 @@
+// // // CSS for the Hero component in components/Hero.tsx.
+
+@import "scss/variables";
+
+.wrap {
+	margin: 0 auto;
+	max-width: $content-width-large;
+    text-align: center;
+	display: flex;
+    flex-direction: column;
+	overflow: auto;
+	padding: 0 10px;
+	position: relative;
+	z-index: 1;
+}
+
+.row {
+    margin-top: 45px;
+}
+
+.awardsContainer {
+    width: 167px;
+    max-width: 100%;
+}
+
+.awardsTitle {
+    font-family: $font-family;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -.01em;
+    text-align: left;
+    color: #151433;
+    width: 128px;
+    max-width: 100%;
+    padding-right: 150px;
+}
+
+.awardImg {
+    width: 76px;
+    height: 33px;
+    object-fit: contain;
+    object-position: left;
+}
+
+.award_row div:nth-child(2) img {
+    width: 39px;
+}
+
+  .award_row div:nth-child(3) img {
+    width: 114px;
+}
+
+  .award_row div:nth-child(4) img {
+    width: 127px;
+}
+
+  .award_row div:nth-child(5) img {
+    width: 71px;
+}
+
+  .award_row div:nth-child(6) img {
+    width: 68px;
+}
+
+
+.awardText {
+    font-family: $font-family;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 12px;
+    letter-spacing: 0;
+    text-align: left;
+    color: #5B5B5B;
+}
+
+.counter_accounts {
+	font-weight: 900;
+	color:$color-lg-pink;
+}
+
+.pink {
+	color: $color-lg-pink;
+}
+
+.grey {
+	color: $color-gray;
+}
+
+.accountCounter {
+	margin-top: 20px;
+}
+
+.accountCounter img {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-right: 16px;
+	margin-top: -10px;
+}
+
+
+@media screen and (min-width: $content-width) {
+	.wrap {
+		padding: 0;
+	}
+}
+
+
+.pulse_animation {
+    box-shadow: 0 0 0 0 rgba(255, 70, 134, 0.5);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+	border-radius: 0;
+}
+.pulse_animation:hover {
+    animation: none;
+    -webkit-animation: none;
+}
+
+@keyframes pulse {
+    0% {
+        /* -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9); */
+    }
+    70% {
+        /* -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1); */
+        box-shadow: 0 0 0 35px rgba(255, 70, 134, 0);
+    }
+    100% {
+        /* -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9); */
+        box-shadow: 0 0 0 0 rgba(255, 70, 134, 0);
+    }
+}
+@-webkit-keyframes pulse {
+    0% {
+        /* -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9); */
+    }
+    70% {
+        /* -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1); */
+        box-shadow: 0 0 0 35px rgba(255, 70, 134, 0);
+    }
+    100% {
+        /* -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9); */
+        box-shadow: 0 0 0 0 rgba(255, 70, 134, 0);
+    }
+}
+
+.pulse_animation span img {
+    width: 15px;
+    filter: grayscale(100%) contrast(20) invert(100%);
+    padding-top: 7.2px;
+    margin-left: 11px;
+    position: absolute;
+    top: 2px;
+    right: 45px;
+}

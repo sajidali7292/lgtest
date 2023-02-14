@@ -6,6 +6,7 @@ import { CTA, HeroHome, Posts, BasicText, GridImages, TestimonialsM } from 'comp
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 
+
 export default function Page() {
   const { usePosts } = client;
   const posts = usePosts({
@@ -14,6 +15,34 @@ export default function Page() {
       categoryName: 'uncategorized',
     },
   });
+
+  const awards = [
+    {
+      text: 'Fastest Growing Agencies 2022',
+      image: '/wp-content/uploads/2023/02/newlogo.svg'
+    },
+    {
+      text: 'Fastest Growing US Companies',
+      image: '/wp-content/uploads/2023/02/Inc-5000-logo.webp'
+    },
+    {
+      text: 'Best Start-Up Agency',
+      image: '/wp-content/uploads/2023/02/Us-search-awards-color-logo.webp'
+    },
+    {
+      text: '#1 Product of the Day',
+      image: '/wp-content/uploads/2023/02/Product-hunt-colored-logo.webp'
+    },
+    {
+      text: 'Top B2B SEO Companies',
+      image: '/wp-content/uploads/2023/02/clutch-color-log.webp'
+    },
+    {
+      text: 'Best B2B Campaign',
+      image: '/wp-content/uploads/2023/02/The-drum-awards-color-logo.webp'
+    },
+    // Add more awards as needed
+  ];
 
   return (
     <>
@@ -25,6 +54,8 @@ export default function Page() {
           placeholder="Enter your website"
           buttonText="Analyze My Site"
           id={styles.home_hero}
+          awardsTitle="Awards & Recognition"
+          awards={awards}
         />
         
         <BasicText 
