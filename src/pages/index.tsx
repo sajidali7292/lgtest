@@ -117,6 +117,19 @@ export default function Page() {
               '<p class="p_1">Google relies on over 200 ranking factors when determining whether to rank web pages. At LinkGraph, we narrow those factors down to four key areas:<span class="bgpur">Authority</span>, <span class="bgpin pink-bg">Content </span>, <span class="bgbl">Page Experience</span>, and <span class="bgpye">Industry ’s</span> standards.</p>',         '<p class="p_2">Our SEO agency works to elevate the quality-signals of your web pages in all of these core areas. Through our data-driven SEO service and proprietary software, we help Google see your content as <span style="color: #b790ff;">more relevant, more valuable, and more authoritative than your competitors.</span></p>'
             ]
           }
+          modalContent={
+            <div>
+              <iframe
+                width="780"
+                height="417"
+                src="https://www.youtube.com/embed/sxgMzxkV5O8"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          }
         />
 
         <CountingNumbers

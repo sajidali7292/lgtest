@@ -11,7 +11,7 @@ import GridImages from './GridImages'
 import TestimonialsM from './TestimonialsM'
 import DataDriven from './DataDriven';
 import CountingNumbers from './CountingNumbers';
-import Modal from './Modal';
+import Modal from './UI/Modal';
 import MenuItems from './Menus/MenuItems';
 import SubMenu from './Menus/SubMenu';
 import MenuBuilder from './Menus/MenuBuilder';
