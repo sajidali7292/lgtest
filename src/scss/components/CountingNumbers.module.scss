@@ -1,0 +1,67 @@
+// CSS for the CosuntingNumbers component in components/CountingNumbers.tsx.
+
+@import "scss/variables";
+
+.countingNumbers_home {
+    padding: 5% 0;
+    background-color: #17171A;
+    color: #E8E8E8;
+}
+
+.counting_numbers {
+    margin: 0 auto;
+	max-width: $content-width-large;
+	overflow: auto;
+}
+
+.countingNumbers_home h2 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 50px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    width: 377px;
+    max-width: 100%;
+    color: #FFFFFF;
+    margin-bottom: 35px;
+}
+
+.numbers {
+    font-family: $f37ginger;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 50px;
+    letter-spacing: -1%;
+}
+
+.labels {
+    font-family: $Gordita;
+    color: #E8E8E8;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 30px;
+    width: 204px;
+    max-width: 100%;
+    padding-bottom: 20px;
+}
+
+.counting_numbers a {
+    width: 270px;
+    height: 60px;
+    font-size: 19px;
+    text-align: center;
+    padding: 16px 55px !important;
+    position: relative;
+    margin-top: 50px;
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      span svg {
+        *{
+            fill: $color-lg-pink !important;
+        }
+      }
+    }
+  }
+  
+

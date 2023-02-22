@@ -182,3 +182,42 @@ a:hover, a:focus,
 	text-align: right;
 }
 
+.p_1 {
+    width: 780px;
+    max-width: 100%;
+    color: #FFF;
+    font-weight: 600;
+	text-align: left;
+	span {
+		color: #fff;
+		font-weight: 600;
+		padding: 4px;
+		border-radius: 1.5px;
+	}
+	.bgpur {
+		background-color: $color-hg1;
+	}
+	.pink-bg {
+		background-color: $color-lg-pink;
+	}
+	.bgbl {
+		background-color: $color-hg2;
+	}
+	.bgpye {
+		background-color: #F1AA3E;
+	}
+}
+
+.p_2 {
+	width: 750px;
+	max-width: 100%;
+	color: #D2D2D2 !important;
+	margin-top: 27px;
+	font-weight: 500;
+	text-align: left;
+	span {
+		font-weight: 600;
+		padding: 4px;
+		border-radius: 1.5px;
+	}
+  }

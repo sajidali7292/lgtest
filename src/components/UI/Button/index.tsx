@@ -3,7 +3,7 @@ import { ReactSVG } from "react-svg";
 
 //RENDER LINK A
 const button = ({ buttonObj }) => {
-    const btnType = buttonObj.type == 'secondary' ? 'button-secondary': buttonObj.type = 'third' ? 'button-third':'';
+    const btnType = buttonObj.type == 'secondary' ? 'button-secondary': buttonObj.type === 'third' ? 'button-third':'';
     return (
         <Link href={buttonObj.url}>
             <a href={buttonObj.url}

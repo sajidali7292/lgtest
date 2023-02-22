@@ -1,0 +1,40 @@
+// CSS for the DataDriven component in components/DataDriven.tsx.
+
+@import "scss/variables";
+
+.container {
+    padding: 9.7% 0 0;
+    background: #17171A no-repeat;
+    background-position: 100% 115%;
+}
+
+.wrap {
+	margin: 0 auto;
+	max-width: $content-width-large;
+    text-align: center;
+	display: flex;
+    flex-direction: column;
+	overflow: auto;
+}
+
+.container h2 {
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFF;
+    width: 695px;
+    max-width: 100%;
+    margin-top: 50px;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.container p {
+    font-family: $font-family;
+    font-size: 24px;
+}
+
+.container img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+}

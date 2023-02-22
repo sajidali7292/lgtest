@@ -9,8 +9,11 @@ import Pagination from './Pagination';
 import BasicText from './BasicText'
 import GridImages from './GridImages'
 import TestimonialsM from './TestimonialsM'
+import DataDriven from './DataDriven';
+import CountingNumbers from './CountingNumbers';
+import Modal from './Modal';
 import MenuItems from './Menus/MenuItems';
 import SubMenu from './Menus/SubMenu';
 import MenuBuilder from './Menus/MenuBuilder';
 
-export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM };
+export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal };
