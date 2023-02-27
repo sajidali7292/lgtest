@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from 'scss/components/DataDriven.module.scss';
 import Modal from './UI/Modal';
+import Image from 'next/image'
 
 interface Props {
   title?: string;
@@ -42,7 +43,13 @@ function DataDriven ({
               </div>
             </div>
             <div className={`basis-2/6`}>
-              <img src={imageUrl} alt="image" onClick={handleImageClick} />
+              <Image
+                  src={imageUrl}
+                  alt="image"
+                  width={438}
+                  height={525}
+                  onClick={handleImageClick}
+                />
             </div>
           </div>
         </div>

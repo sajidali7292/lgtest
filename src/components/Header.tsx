@@ -3,6 +3,7 @@ import styles from 'scss/components/Header.module.scss';
 import Link from 'next/link';
 import { client, MenuLocationEnum } from 'client';
 import Head from 'next/head';
+import Image from 'next/image'
 
 interface Props {
   title?: string;
@@ -33,7 +34,13 @@ function Header({
         <div className={styles['title-wrap']}>
           <p className={styles['site-title']}>
             <Link href="/">
-              <img className={styles.logo} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/logo-1.svg'} />
+              <Image
+                className={styles.logo}
+                src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/logo-1.svg'}
+                alt="Image description"
+                width={115}
+                height={43}
+              />
             </Link>
           </p>
           {generalSettings.description && <p className={styles.description}>{generalSettings.description}</p>}
