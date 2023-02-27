@@ -222,13 +222,63 @@ a:hover, a:focus,
 	}
   }
 
+  .sub span {
+	font-family: 'f37 ginger';
+	font-size: 17px;
+	display: inline-block;
+  }
+
   .services_1 .sub {
 	color: #8860D4;
 	background-color: #EDE7F8;
 	span {
-		font-family: $f37ginger;
-		font-size: 17px;
 		color:rgba(136, 96, 212, 0.5);
-		display: inline-block;
 	}
+  }
+
+  .services_2 .sub {
+	color: #FF258E;
+	background-color: #FFE3ED;
+	span {
+		color: rgba(255, 70, 134, 0.5);
+	}
+  }
+
+  .services_3 .sub {
+	width: 221px;
+	color: #5DA4AF;
+	background-color: #EFF7F8;
+	span {
+		color: rgba(93, 164, 175, 0.5);
+	}
+  }
+
+  .services_4 .sub {
+	color: #F1AA3E;
+	background-color: #FDF2E2;
+	span {
+		color: rgba(241, 170, 62, 0.5);
+	}
+  }
+
+  .services_1 h2 {
+	width: 369px;
+  }
+
+  .services_2 h2,
+  .services_3 h2 {
+	  width: 500px;
+  }
+
+  .services_4 h2 {
+	  width: 566px;
+  }
+
+  .services_1 p {
+	  width: 550px;
+  }
+
+  .services_3 p,
+  .services_4 p {
+	  width: 552px;
   }

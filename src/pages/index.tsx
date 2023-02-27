@@ -59,8 +59,8 @@ export default function Page() {
     },
     {
       sectionClassName: "services_2",
-      subtitle: "02. Content",
-      title: `High-Quality, Top-Ranking Content`,
+      subtitle: "<span>02.</span> Content",
+      title: `High-Quality,</br> Top-Ranking Content`,
       text: "Our 50+ editorial team of SEO professionals can earn your brand more keyword rankings, higher positions, and more organic traffic opportunities. We know what it takes to rank for high-value keywords in your industry.",
       links: [
         { label: "SEO Content Strategy", url: "#" },
@@ -70,8 +70,8 @@ export default function Page() {
     },
     {
       sectionClassName: "services_3",
-      subtitle: "03. Page Experience",
-      title: `Fast & Responsive Technical Performance`,
+      subtitle: "<span>03.</span> Page Experience",
+      title: `Fast & Responsive</br> Technical Performance`,
       text: "Our technical SEO team optimizes the backend of your web pages for improved page speed, load times, and mobile-usability. Then, our CRO team ensures that your web pages turn organic traffic into conversions.",
       links: [
         { label: "Technical SEO Services", url: "#" },
@@ -81,7 +81,7 @@ export default function Page() {
     },
     {
       sectionClassName: "services_4",
-      subtitle: "04. Industry",
+      subtitle: "<span>04.</span> Industry",
       title: `Industry-Specific Approach to Outrank Competitors`,
       text: "We bring an industry-specific approach to every optimization we make so Google sees your brand as a leading authority in your industry. Outrank your competitors in less time with our targeted, data-driven approach.",
       links: [
