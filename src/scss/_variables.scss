@@ -70,15 +70,17 @@ $color-gray: #B7B7B7;
 /*F37 GINGER*/
 @font-face {
     font-family: 'f37ginger';
-    src: url('../assets/f37ginger-regular-webfont.otf');
+    src: url('../assets/f37ginger-regular-webfont.ttf');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'f37ginger';
-    src: url('../assets/f37ginger-bold-webfont.otf');
+    src: url('../assets/f37ginger-bold-webfont.ttf');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
 /*GORDITA*/

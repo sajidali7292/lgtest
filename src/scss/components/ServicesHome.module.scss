@@ -1,0 +1,28 @@
+// CSS for the ServicesHome component in components/ServicesHome.tsx.
+
+@import "scss/variables";
+
+.container {
+    padding: 6% 0 0;
+}
+
+.wrap {
+    margin: 0 auto;
+	max-width: $content-width-large;
+	overflow: auto;
+}
+
+.subtitle {
+    font-family: 'f37ginger';
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 40px;
+    width: 167px;
+    max-width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    margin-bottom: 5.7%;
+    display: block;
+}

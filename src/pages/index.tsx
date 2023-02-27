@@ -2,7 +2,7 @@ import { getNextStaticProps } from '@faustjs/next';
 import Head from 'next/head';
 import { GetStaticPropsContext } from 'next';
 import React from 'react';
-import { CTA, HeroHome, DataDriven, BasicText, GridImages, TestimonialsM, CountingNumbers } from 'components';
+import { CTA, HeroHome, DataDriven, BasicText, GridImages, TestimonialsM, CountingNumbers, ServicesHome } from 'components';
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 
@@ -44,6 +44,60 @@ export default function Page() {
     // Add more awards as needed
   ];
 
+  const servicesData = [
+    {
+      sectionClassName: "services_1",
+      subtitle: `<span>01.</span> Authority`,
+      title: "Authoritative Backlinks at Scale",
+      text: "Backlinks to your website are essential to ranking well in Google. We create original content to earn you high-quality backlinks from reputable, trustworthy publications.",
+      links: [
+        { label: "Link Building Services", url: "#" },
+        { label: "White Label Link Building", url: "#" },
+        { label: "SEO Reputation Management", url: "#" },
+      ],
+      imageUrl: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Group-34442.webp`,
+    },
+    {
+      sectionClassName: "services_2",
+      subtitle: "02. Content",
+      title: `High-Quality, Top-Ranking Content`,
+      text: "Our 50+ editorial team of SEO professionals can earn your brand more keyword rankings, higher positions, and more organic traffic opportunities. We know what it takes to rank for high-value keywords in your industry.",
+      links: [
+        { label: "SEO Content Strategy", url: "#" },
+        { label: "On Page SEO", url: "#" },
+      ],
+      imageUrl: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Group-34381.webp`,
+    },
+    {
+      sectionClassName: "services_3",
+      subtitle: "03. Page Experience",
+      title: `Fast & Responsive Technical Performance`,
+      text: "Our technical SEO team optimizes the backend of your web pages for improved page speed, load times, and mobile-usability. Then, our CRO team ensures that your web pages turn organic traffic into conversions.",
+      links: [
+        { label: "Technical SEO Services", url: "#" },
+        { label: "Conversion Rate Optimization", url: "#" },
+      ],
+      imageUrl: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Group-35461.webp`,
+    },
+    {
+      sectionClassName: "services_4",
+      subtitle: "04. Industry",
+      title: `Industry-Specific Approach to Outrank Competitors`,
+      text: "We bring an industry-specific approach to every optimization we make so Google sees your brand as a leading authority in your industry. Outrank your competitors in less time with our targeted, data-driven approach.",
+      links: [
+        { label: "Enterprise SEO", url: "#" },
+        { label: "Ecommerce SEO", url: "#" },
+        { label: "SaaS Marketing", url: "#" },
+        { label: "White Label SEO", url: "#" },
+        { label: "BigCommerce SEO", url: "#" },
+        { label: "Local SEO", url: "#" },
+      ],
+      imageUrl: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Group-34611.webp`,
+    },
+
+    // Add more data as needed
+  ];
+
   return (
     <>
       <Head>
@@ -67,7 +121,7 @@ export default function Page() {
           descriptions={
             [
               'At LinkGraph, our goal is simple: help companies scale their organic traffic and revenue with white-glove <a class="hg1" href="/services/" data-wpel-link="internal">marketing services</a> and <a class="hg0" href="/searchatlas-seo-software/" data-wpel-link="internal">cutting-edge SEO software</a>. Our clients range from startups to enterprise companies in verticals like Saas, Healthcare, Ecommerce, and more. If you’re looking for a <a class="hg2" href="/case-studies-and-results/" data-wpel-link="internal">results-based agency</a> to scale your company to the next level, <a class="hg1" href="https://meetings.linkgraph.io/meetings/link-graph/linkgraph-initial-consultation" data-wpel-link="external" rel="follow">we should talk</a>.',
-              'P.S. If you’re an agency, you’re in luck– our <a class="hg-0" href="/white-label-link-building/" data-wpel-link="internal">white label services and software</a> can help you 10x your ability to deliver for your clients.'
+              'P.S. If you’re an agency, you’re in luck– our <a class="hg0" href="/white-label-link-building/" data-wpel-link="internal">white label services and software</a> can help you 10x your ability to deliver for your clients.'
             ]
           }
         />
@@ -78,19 +132,19 @@ export default function Page() {
           title="800+ organizations trust LinkGraph to drive growth"
           images={
             [
-              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/305/bd703d50-bb83-3d6e-91ec-cb40313ed16f.jpg`, alt: 'Sample1'},
-              {url: '/images/headless_hero_background.jpg', alt: 'Sample2'},
-              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/305/bd703d50-bb83-3d6e-91ec-cb40313ed16f.jpg`, alt: 'Sample3'},
-              {url: '/images/headless_hero_background.jpg', alt: 'Sample4'},
-              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/326/22dd1f93-438c-3c6f-ba29-10754a43b669.jpg`, alt: 'Sample5'},
-              {url: '/images/headless_hero_background.jpg', alt: 'Sample6'},
-              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/305/bd703d50-bb83-3d6e-91ec-cb40313ed16f.jpg`, alt: 'Sample7'},
-              {url: '/images/headless_hero_background.jpg', alt: 'Sample8'},
-              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/326/22dd1f93-438c-3c6f-ba29-10754a43b669.jpg`, alt: 'Sample9'},
-              {url: '/images/headless_hero_background.jpg', alt: 'Sample10'},
-              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/305/bd703d50-bb83-3d6e-91ec-cb40313ed16f.jpg`, alt: 'Sample11'},
-              {url: '/images/headless_hero_background.jpg', alt: 'Sample12'},
-              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2022/06/acm-blueprint/media/326/22dd1f93-438c-3c6f-ba29-10754a43b669.jpg`, alt: 'Sample13'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Zynga_logo.webp`, alt: 'Zynga'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/IOC.webp`, alt: 'IOC'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Shutterfly.webp`, alt: 'Shutterfly'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/P_G.webp`, alt: 'P&G'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Verkada.webp`, alt: 'Verkada'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/serenalily.webp`, alt: 'Serena&Lily'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/gritgroup.webp`, alt: 'GritGroup'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/hawkemedia.webp`, alt: 'Hawkmedia'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Vendasta.webp`, alt: 'Vendasta'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Cartcom_logo.webp`, alt: 'Cartcom'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/University_of_Cincinnati.webp`, alt: 'University Of Cincinnati'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/image_hi.webp`, alt: 'HealthInsurance'},
+              {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/image-1011.webp`, alt: 'Tinyurl'},
             ]
           }
         />
@@ -147,6 +201,18 @@ export default function Page() {
             icon: true, size: 'big'
           }}
         />
+
+        {servicesData.map((service, index) => (
+          <ServicesHome
+            key={index}
+            sectionClassName={service.sectionClassName}
+            subtitle={service.subtitle}
+            title={service.title}
+            text={service.text}
+            links={service.links}
+            imageUrl={service.imageUrl}
+          />
+        ))}
         
         <CTA
           title="New subscribers get 30% off"

@@ -6,7 +6,19 @@
     font-size: clamp(0.8rem, 2.1vw, 1.5rem);
     line-height: 1.5;
     font-weight: 600;
+    p:first-child {
+        margin-top:15px;
+    }
+    p:last-child{
+        margin-top:-16px;
+    }
     @media(max-width: 767px){
         font-size: clamp(1rem, 2.6vw, 2rem);
     }
+}
+
+.wrap {
+    margin: 0 auto;
+	max-width: $content-width-large;
+	overflow: auto;
 }

@@ -221,3 +221,14 @@ a:hover, a:focus,
 		border-radius: 1.5px;
 	}
   }
+
+  .services_1 .sub {
+	color: #8860D4;
+	background-color: #EDE7F8;
+	span {
+		font-family: $f37ginger;
+		font-size: 17px;
+		color:rgba(136, 96, 212, 0.5);
+		display: inline-block;
+	}
+  }

@@ -1,5 +1,6 @@
+@import "scss/variables";
+
 .title{
-    text-align: center;
     font-size: 25px;
     font-weight: 600;
     line-height: 34px;
@@ -13,4 +14,21 @@
     @media(max-width:576px){
         font-size: 21px;
     }
+}
+
+.wrap {
+    margin: 0 auto;
+	max-width: $content-width-large;
+	overflow: auto;
+}
+
+.wrap_image {
+    margin-top: 65px;
+}
+
+.wrap_image img {
+    max-width: 95% !important;
+    max-height: 90px !important; 
+    object-fit: contain !important;
+    padding: 10px !important;
 }

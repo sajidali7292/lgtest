@@ -25,7 +25,7 @@ function BasicText({
     }
     return (
       <section className={`${styles.cta} ${paddingVariant[pt]} ${paddingVariant[pb]}`}>
-        <div className={`${styles.wrap} wrap_content wrap_content-extended`}>
+        <div className={`${styles.wrap}`}>
           {title && (
             <Heading level={headingLevel} className={styles.title}>
               {title}
