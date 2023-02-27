@@ -48,10 +48,10 @@ function HeroHome({
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
           />
-          <button type="submit"><a className={styles.pulse_animation}>{buttonText}<span><img className={styles.logo} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/Vector9.webp'} /></span></a></button>
+          <button type="submit"><a className={styles.pulse_animation}>{buttonText}<span><img className={styles.logo} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/Vector9.webp'} alt="Arrow" /></span></a></button>
         </form>
         <div className={styles.accountCounter}>
-          <p><span><img src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/Vector.svg'} /></span><span className={styles.counter_accounts}>+2425 accounts</span> created in the last 30 days</p>
+          <p><span><img src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/Vector.svg'} alt="Icon" /></span><span className={styles.counter_accounts}>+2425 accounts</span> created in the last 30 days</p>
         </div>
             <div className={`${styles.row} flex flex-row`}>
               <div className={`${styles.awardsTitle} basis-[23%]`}>
@@ -61,7 +61,7 @@ function HeroHome({
                 {awards.map((item, index) => (
                   <div className={`basis-1/6`} key={index}>
                     <div className={styles.awardsContainer}>
-                      <img className={styles.awardImg} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + item.image} alt="Image" />
+                      <img className={styles.awardImg} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + item.image} alt="Logos" />
                       <div className={styles.awardText}>{item.text}</div>
                     </div>
                   </div>

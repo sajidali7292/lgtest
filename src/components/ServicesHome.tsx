@@ -25,23 +25,22 @@ function ServicesHome({
 }: Props): JSX.Element {
 
   const elements = [  
-
-    <div className={`${styles.wrap}`}>
-      <div className={`${styles.row} flex flex-row`}>
-        <div className={`${styles.column} basis-5/12`}>
-          <div className={`${styles.subtitle} sub`} dangerouslySetInnerHTML={{ __html: subtitle?.toString() }}></div>
-          <h2 className={styles.title}>{title}</h2>
-          <p className={styles.text}>{text}</p>
-          <ul className={`${styles.links} flex flex-row`}>
+    <div key="services-home-wrap" className={`${styles.wrap}`}>
+      <div key="services-home-row" className={`${styles.row} flex flex-row`}>
+        <div key="services-home-column1" className={`${styles.column} basis-5/12`}>
+          <div key="services-home-subtitle" className={`${styles.subtitle} sub`} dangerouslySetInnerHTML={{ __html: subtitle?.toString() }}></div>
+          <h2 key="services-home-title" className={styles.title}>{title}</h2>
+          <p key="services-home-text" className={styles.text}>{text}</p>
+          <ul key="services-home-links" className={`${styles.links} flex flex-row`}>
             {links.map((link, index) => (
-              <li key={`${index}-${link.label} basis-6/12`}>
+              <li key={`services-home-link-${index}-${link.label}`} className="basis-6/12">
                 <a href={link.url}>{link.label}</a>
               </li>
             ))}
           </ul>
         </div>
-        <div className={`basis-2/12`}></div>
-        <div className={`${styles.column} basis-5/12`}>
+        <div key="services-home-column2" className="basis-2/12"></div>
+        <div key="services-home-column3" className={`${styles.column} basis-5/12`}>
           <img src={imageUrl} alt="Service" />
         </div>
       </div>
@@ -49,9 +48,9 @@ function ServicesHome({
   ];
 
   return (
-    <section className={`${styles.container} ${sectionClassName}`}>
+    <section key="services-home-section" className={`${styles.container} ${sectionClassName}`}>
       {elements.map((element, index) => (
-        <React.Fragment key={`element-${index}`}>
+        <React.Fragment key={`services-home-element-${index}`}>
           {element}
         </React.Fragment>
       ))}
