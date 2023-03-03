@@ -13,8 +13,12 @@ import DataDriven from './DataDriven';
 import CountingNumbers from './CountingNumbers';
 import Modal from './UI/Modal';
 import ServicesHome from './ServicesHome';
+import CTA2 from './CTA2';
+import HomeFormSection from './HomeFormSection';
+import ReviewsSlider from './ReviewsSlider';
+import VideoHome from './VideoHome';
 import MenuItems from './Menus/MenuItems';
 import SubMenu from './Menus/SubMenu';
 import MenuBuilder from './Menus/MenuBuilder';
 
-export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome };
+export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome };

@@ -1,0 +1,51 @@
+// CSS for the ReviewsSlider component in components/ReviewsSlider.tsx.
+
+@import "scss/variables";
+
+.reviews {
+    padding-top: 8.7%;
+padding-bottom: 4.9%;
+}
+
+.cardContainer {
+    padding-top: 10px;
+    padding-bottom: 22px;
+    width: 392px;
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+    position: relative;
+    height: 242px;
+}
+
+.photoWrapper {
+    width: 45.1px;
+    position: absolute;
+    top: 9px;
+    left: 20px;
+}
+
+.stars {
+    position: absolute;
+    top: 14px;
+    left: 240px;
+}
+
+.name {
+    width: 220px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: $Gordita;
+    font-size: 16px;
+}
+
+.text {
+    color: #2B2F39;
+    font-size: 14px;
+    line-height: 19px;
+    padding-right: 20px;
+}

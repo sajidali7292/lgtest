@@ -2,9 +2,11 @@ import { getNextStaticProps } from '@faustjs/next';
 import Head from 'next/head';
 import { GetStaticPropsContext } from 'next';
 import React from 'react';
-import { CTA, HeroHome, DataDriven, BasicText, GridImages, TestimonialsM, CountingNumbers, ServicesHome } from 'components';
+import { CTA, HeroHome, DataDriven, BasicText, GridImages, TestimonialsM, CountingNumbers, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome } from 'components';
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
+import $ from 'jquery';
+
 
 
 export default function Page() {
@@ -15,7 +17,7 @@ export default function Page() {
       categoryName: 'uncategorized',
     },
   });
-
+//Props of the Award section at the hero
   const awards = [
     {
       text: 'Fastest Growing Agencies 2022',
@@ -44,6 +46,8 @@ export default function Page() {
     // Add more awards as needed
   ];
 
+
+  //Props of the services section
   const servicesData = [
     {
       sectionClassName: "services_1",
@@ -96,6 +100,152 @@ export default function Page() {
     },
 
     // Add more data as needed
+  ];
+
+
+  //Props of the Hubspot form
+  const hubspotFormProps = {
+    portalId: '7038850',
+    formId: '19865112-5d46-46ff-93f8-3bf9013e7656',
+    css: '',
+    onSubmit: () => console.log('form submitted'),
+    loading: <div>Loading...</div>,
+    onReady: (form: any) => {
+      console.log('form ready', form);
+      //custom code of the form here
+      $('.hs_budget_available_to_spend').wrap('<div class="budget_btn"></div>')
+      $('.hs_services_that_interest_you').wrap('<div class="services_btn"></div>')
+      $('.budget_btn').append('<div id="budget-radio" class="budget-btn">Budget</div>');
+      $('.services_btn').append("<div id='select_btn' class='servicesIntin' value='Services you&#39;re interested in'>Services you&#39;re interested in</div>");
+      $('.hbspt-form input[type=hidden]').closest('fieldset').hide();                                    
+      $('.hs_services_that_interest_you').hide();
+      $('.hs_budget_available_to_spend').hide();
+      $( "#budget-radio" ).click(function(event) {
+          $(this).toggleClass("selected");
+      });
+      $( "#select_btn" ).click(function(event) {
+          $(this).toggleClass("selected");
+      });
+      $("input[type='radio']").wrap('<label class="custom-radio"></label>');
+      $('.custom-radio').append('<span class="checkmark"></span>');
+      $('.hs-form-radio').wrap('<div class="li-bg"></div>');
+      $('.li-bg').click(function(event){                                        
+          $('.li-bg').removeClass('active');
+          $(this).addClass('active');
+          $("#budget-radio").addClass('budactive');
+      });
+      $('.custom-radio').click(function(event) {
+          $('.custom-radio').removeClass('checked');
+          $(this).addClass('checked');
+      });
+      $("input[type='checkbox']").change(function(){
+          if($(this).is(":checked")){
+              $(this).parent().addClass("active");
+
+            }else{
+              $(this).parent().removeClass("active");
+          }
+      });
+      $(document).on('click', "input[type='radio']", function() {
+          var target = $("#budget-radio");
+          target.html($(this).val());                                    
+      });
+
+      $('input[type="checkbox"]').on('change', function() {
+
+          var tags = $('.hs-form-checkbox-display > input[type="checkbox"]:checked')
+          .map(function() {
+              return $(this).val();
+          }).get().join(', ');
+
+          if(tags.length === 0){
+              $("#select_btn").html('Services you&#39;re interested in');
+              $("#select_btn").removeClass('budactive');
+          }else{
+              $("#select_btn").html(tags);
+              $("#select_btn").addClass('budactive');
+          } 
+      });
+
+      $(document).click(function(e){
+          var containerS = $("#select_btn");
+          var dropdownS = $('.hs_services_that_interest_you');
+          if(!containerS.is(e.target) && containerS.has(e.target).length === 0){
+              dropdownS.hide();
+              containerS.removeClass("selected");
+          }else{
+              dropdownS.toggle();
+          }
+          if(!dropdownS.is(e.target) && dropdownS.has(e.target).length === 1){
+              dropdownS.show();
+              containerS.addClass("selected");
+          }                                     
+      });
+
+      $(document).click(function(e){
+          var containerB = $("#budget-radio");
+          var dropdownB = $('.hs_budget_available_to_spend');
+          var submit = $('.hs-button');
+          if(!containerB.is(e.target) && containerB.has(e.target).length === 0){
+              dropdownB.hide();
+              containerB.removeClass("selected");
+          }else{
+              dropdownB.toggle();
+          }
+          if(!dropdownB.is(e.target) && dropdownB.has(e.target).length === 1){
+              dropdownB.show();
+              containerB.addClass("selected");
+          }
+          if(!submit.is(e.target) && submit.has(e.target).length === 1){
+
+          }                                    
+      });
+    },
+  };
+  
+  //Props Of the video block section
+  const videoBlocks = [
+    {
+      Video_Thumbnail: {
+        url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-draft.webp`,
+        width: 574,
+        height: 322,
+      },
+      Video_Title: 'How to Draft a Blog Post with AI (in 90 seconds)',
+      Video_ReadTime: '2 minute watch',
+      modalContent: <div><iframe width="560" height="315" src="https://www.youtube.com/embed/JC4vhPfBX5E" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe></div>,
+    },
+    {
+      Video_Thumbnail: {
+        url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-choose-blog-topics.webp`,
+        width: 574,
+        height: 322,
+      },
+      Video_Title: 'How to Choose Blog Topics for Keywords',
+      Video_ReadTime: '3 minute watch',
+      modalContent: <div><iframe width="560" height="315" src="https://www.youtube.com/embed/ifxdxLOwH8o" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe></div>,
+    },
+    {
+      Video_Thumbnail: {
+        url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-create-content-brief.webp`,
+        width: 574,
+        height: 322,
+      },
+      Video_Title: 'How to Create a Content Brief for Writers',
+      Video_ReadTime: '7 minute watch',
+      modalContent: <div><iframe width="560" height="315" src="https://www.youtube.com/embed/-bCCKbrns30" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe></div>,
+    },
+    {
+      Video_Thumbnail: {
+        url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-do-an-OnPage-SEO.webp`,
+        width: 574,
+        height: 322,
+      },
+      Video_Title: 'How to do an OnPage SEO Audit',
+      Video_ReadTime: '8 minute watch',
+      modalContent: <div><iframe width="560" height="315" src="https://www.youtube.com/embed/S6AIcb35Ab4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe></div>,
+    },
+    //Add as many videos as needed
   ];
 
   return (
@@ -213,6 +363,86 @@ export default function Page() {
             imageUrl={service.imageUrl}
           />
         ))}
+
+        <CTA2
+          title="Are you ready to seriously scale?"
+          text="Choose only the products you need right now from our comprehensive menu. Whether you need a quick authority boost or a comprehensive growth package, we got you covered."
+          button={{
+            label: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder',
+            icon: true, size: 'big'
+          }}
+        />
+
+        <HomeFormSection
+          title="See why the world's best companies choose LinkGraph to drive leads, traffic and revenue."
+          text="“They are dedicated to our success and are a thoughtful sounding board when we run ideas by them - sometimes on ideas and projects that are tangential to our main SEO project with them. Also, I love that they allow for shorter-term contracts compared to the usual 1-year contract with other SEO companies. Lastly, they deliver on their promises.”"
+          photo={{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group11.webp`, alt: "Client Photo" }}
+          client_name="Brad Brenner"
+          client_position="Ph.D, Co-Founder & CEO Therapy Group DC"
+          form_logos={[
+            { client_logo: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/IOC.webp` , alt: "Olympic Comittee" } },
+            { client_logo: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Shutterfly.webp` , alt: "Shutterfly" } },
+            { client_logo: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/P_G.webp` , alt: "P&G" } },
+            { client_logo: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Verkada.webp` , alt: "Verkada" } }
+          ]}
+          hubspotFormProps={hubspotFormProps}
+        />
+
+          <CTA2
+            title="Work with our Award-Winning SEO Strategists"
+            text="The LinkGraph team consists of SEO experts, industry-leading web developers, and editorial experts. With our talent and groundbreaking software suite, it's easy to guarantee results from our managed SEO campaigns."
+            div="Products start as low as $250 / month"
+            button={{
+              label: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder',
+              icon: true, size: 'big'
+            }}
+          />
+
+          <ReviewsSlider
+            reviews={[
+              {
+                photo: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group1.webp`, alt: "Client Photo" },
+                stars: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/review-stars.webp`, alt: "Five Stars" },
+                name: "Ted Hunting,</br>Senior VP of Marketing",
+                text: "“Their creative, strategic approach, and the intelligence of their team members is beyond what other companies in the space can provide. Trust and rely on their expertise, because they know what they’re doing.”",
+              },
+              {
+                photo: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/client-3-e1648673375178.png`, alt: "Client Photo" },
+                stars: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/review-stars.webp`, alt: "Five Stars" },
+                name: "Owner,</br>Digital Agency,</br><span>Clutch Review 2022</span>",
+                text: "“Within the first few months of the campaign being live, we were the number one result for Orlando SEO companies. Since then, they’ve delivered those kinds of results for a number of our client companies as well.”",
+              },
+              {
+                photo: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/client-7-e1648673402753.webp`, alt: "Client Photo" },
+                stars: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/review-stars.webp`, alt: "Five Stars" },
+                name: "Senior Marketing Manager,</br>Financial Services Industry,</br><span>Clutch Review 2022</span>",
+                text: "“From our initial consultation and throughout each month, LinkGraph has delivered results for us. The workflow has been seamless. We're seeing more results and moving forward with more deliverables than we could with just our team alone.”",
+              },
+              {
+                photo: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/client-2-e1648673417952.png`, alt: "Client Photo" },
+                stars: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/review-stars.webp`, alt: "Five Stars" },
+                name: "Chief Information Officer,</br>Ecommerce retailer,</br><span>Clutch Review 2022</span>",
+                text: "“LinkGraph provided education, guidance, expert level assistance, and state of the art tools to allow us to identify and repair several issues with our site. We have become a force to be reckoned with in our market thanks to their team.”",
+              },
+            ]}
+          />
+
+          <CTA2
+            id="guarantee_cta"
+            backgroundImage={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/03/award-3.webp'}
+            title="The LinkGraph Guarantee"
+            text="With every managed SEO campaign, we guarantee measurable results in keyword rankings, organic traffic, or overall search visibility."
+            button={{
+              label: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder',
+              icon: true, size: 'big'
+            }}
+          />
+
+        <VideoHome
+          title="The Most Advanced SEO Software Suite on the Market"
+          text="Do content optimization, backlink analysis, site audits, keyword rank tracking, and more from the convenience of a single platform. "
+          videoBlocks={videoBlocks}
+        />
         
         <CTA
           title="New subscribers get 30% off"

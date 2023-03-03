@@ -6,6 +6,8 @@ import 'scss/main.scss';
 import { client } from 'client';
 import type { AppProps } from 'next/app';
 import { FooterNew, Header } from 'components';
+import 'slick-carousel/slick/slick.scss';
+import 'slick-carousel/slick/slick-theme.scss';
 import Head from 'next/head';
 
 

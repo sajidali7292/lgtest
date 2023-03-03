@@ -20,7 +20,7 @@ function DataDriven ({
 }: Props): JSX.Element {
     const [showModal, setShowModal] = useState(false);
 
-    const handleImageClick = () => {
+    const handleModalButtonClick = () => {
       setShowModal(true);
     }
 
@@ -48,7 +48,7 @@ function DataDriven ({
                   alt="image"
                   width={438}
                   height={525}
-                  onClick={handleImageClick}
+                  onClick={handleModalButtonClick}
                 />
             </div>
           </div>
