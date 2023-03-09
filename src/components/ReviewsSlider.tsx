@@ -75,15 +75,15 @@ function ReviewsSlider({
       <div className={`container`}>
           <Slider {...settings}>
             {reviews?.map((review, index) => (
-              <div key={`review-${index}`} className={`basis-full basis-4/12 ${styles.card}`}>
+              <div key={`review-${index}`} className={`basis-full lg:basis-4/12 ${styles.card}`}>
                 <div className={`${styles.cardContainer}`}>
                   <div className={`flex flex-row`}>
-                    <div className={`basis-full basis-2/12 ${styles.photo}`}>
+                    <div className={`basis-full lg:basis-2/12 ${styles.photo}`}>
                       <div className={`${styles.photoWrapper}`}>
                         <img src={review.photo.url} alt={review.photo.alt} />
                       </div>
                     </div>
-                    <div className={`basis-full basis-10/12 ${styles.info}`}>
+                    <div className={`basis-full lg:basis-10/12 ${styles.info}`}>
                       <div className={`${styles.stars}`}>
                         <img src={review.stars.url} alt={review.stars.alt} />
                       </div>
