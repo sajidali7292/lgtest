@@ -32,6 +32,7 @@ export default function Page() {
         buttonText="Analyze My Site"
         id={styles.home_hero}
       />
+      
         
         <BasicText 
           pt="t6"

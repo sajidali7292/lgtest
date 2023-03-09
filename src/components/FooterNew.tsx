@@ -33,14 +33,14 @@ function Footer({
   const { menuItems } =  useQuery();
   const { menu } = useQuery();
   const Footercolumn1 = menuItems({
-    where: { location: MenuLocationEnum.FOOTER },
+    where: { location: MenuLocationEnum.FOOTER }, first: 50
   }).nodes;
-  const Footercolumn2 = menu({ id: 'dGVybToxNw==' })?.menuItems()?.nodes;
+  const Footercolumn2 = menu({ id: 'dGVybToxNw==' })?.menuItems({first: 50})?.nodes;
   const Footercolumn3 = menuItems({
-    where: { location: MenuLocationEnum.FOOTER_3 }
+    where: { location: MenuLocationEnum.FOOTER_3 }, first: 50
   })?.nodes;
   const year = new Date().getFullYear();
-  // console.log({linksTest});
+  console.log(Footercolumn1);
   return (
     <footer className={`${styles.mainW}`}>
       <div className={`wrap_content wrap_content-extended`}>

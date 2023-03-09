@@ -26,7 +26,7 @@ function LinkBlock ({ index, Link_Thumbnail, Link_Title, Link_URL, Link_ReadTime
                                 src={Link_Thumbnail.url}
                                 width={Link_Thumbnail.width}
                                 height={Link_Thumbnail.height}
-                                alt={Link_Thumbnail.alt}
+                                alt={Link_Thumbnail.alt? Link_Thumbnail.alt: `Image ${Link_Title}`}
                             />
                         </div>
                     </div>

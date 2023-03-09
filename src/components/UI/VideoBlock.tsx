@@ -37,7 +37,7 @@ function VideoBlock ({ index, Video_Thumbnail, Video_Title, Video_ReadTime, moda
                                 src={Video_Thumbnail.url}
                                 width={Video_Thumbnail.width}
                                 height={Video_Thumbnail.height}
-                                alt={Video_Thumbnail.alt}
+                                alt={Video_Thumbnail.alt? Video_Thumbnail.alt: `Image ${Video_Title}`}
                             />
                         </div>
                     </div>
