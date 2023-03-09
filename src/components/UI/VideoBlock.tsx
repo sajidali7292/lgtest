@@ -8,6 +8,7 @@ interface VideoBlockProps {
     url: string;
     width: number;
     height: number;
+    alt: string;
   };
   Video_Title?: string;
   Video_ReadTime?: string;

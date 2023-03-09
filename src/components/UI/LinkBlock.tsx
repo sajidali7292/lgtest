@@ -7,6 +7,7 @@ interface LinkBlockProps {
     url: string;
     width: number;
     height: number;
+    alt: string;
   };
   Link_Title?: string;
   Link_URL: string;
