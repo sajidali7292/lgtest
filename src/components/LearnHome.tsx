@@ -16,6 +16,7 @@ interface Block {
     url: string;
     width: number;
     height: number;
+    alt: string;
   };
   title?: string;
   readTime?: string;
