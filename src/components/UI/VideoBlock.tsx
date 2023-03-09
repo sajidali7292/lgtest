@@ -8,6 +8,7 @@ interface VideoBlockProps {
     url: string;
     width: number;
     height: number;
+    alt: string;
   };
   Video_Title?: string;
   Video_ReadTime?: string;
@@ -36,6 +37,7 @@ function VideoBlock ({ index, Video_Thumbnail, Video_Title, Video_ReadTime, moda
                                 src={Video_Thumbnail.url}
                                 width={Video_Thumbnail.width}
                                 height={Video_Thumbnail.height}
+                                alt={Video_Thumbnail.alt}
                             />
                         </div>
                     </div>
@@ -43,7 +45,7 @@ function VideoBlock ({ index, Video_Thumbnail, Video_Title, Video_ReadTime, moda
                     <div className={`${styles.Video_ReadTime}`}>
                         {Video_ReadTime}
                         <span>
-                            <img src="/wp-content/uploads/2022/08/shape.png" alt="" />
+                            <img src="/wp-content/uploads/2022/08/shape.png" alt="shape" />
                         </span>
                     </div>
                 </div>

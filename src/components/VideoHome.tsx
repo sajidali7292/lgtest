@@ -7,6 +7,7 @@ interface VideoBlock {
     url: string;
     width: number;
     height: number;
+    alt: string;
   };
   Video_Title: string;
   Video_ReadTime: string;
@@ -34,6 +35,7 @@ function VideoHome({ title, text, videoBlocks }: Props): JSX.Element {
           {videoBlocks.map((block, index) => (
             <VideoBlock
               index={index}
+              key={index}
               className={block.className}
               Video_Thumbnail={block.Video_Thumbnail}
               Video_Title={block.Video_Title}

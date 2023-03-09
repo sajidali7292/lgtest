@@ -7,6 +7,7 @@ interface LinkBlockProps {
     url: string;
     width: number;
     height: number;
+    alt: string;
   };
   Link_Title?: string;
   Link_URL: string;
@@ -25,6 +26,7 @@ function LinkBlock ({ index, Link_Thumbnail, Link_Title, Link_URL, Link_ReadTime
                                 src={Link_Thumbnail.url}
                                 width={Link_Thumbnail.width}
                                 height={Link_Thumbnail.height}
+                                alt={Link_Thumbnail.alt}
                             />
                         </div>
                     </div>
@@ -32,7 +34,7 @@ function LinkBlock ({ index, Link_Thumbnail, Link_Title, Link_URL, Link_ReadTime
                     <div className={`${styles.ReadTime}`}>
                         {Link_ReadTime}
                         <span>
-                            <img src="/wp-content/uploads/2022/08/shape.png" alt="" />
+                            <img src="/wp-content/uploads/2022/08/shape.png" alt="shape" />
                         </span>
                     </div>
                 </a>

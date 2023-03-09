@@ -349,6 +349,7 @@ export default function Page() {
                 url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-draft.webp`,
                 width: 574,
                 height: 322,
+                alt: "Most Advanced SEO Software"
               },
               Video_Title: 'How to Draft a Blog Post with AI (in 90 seconds)',
               Video_ReadTime: '2 minute watch',
@@ -359,6 +360,7 @@ export default function Page() {
                 url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-choose-blog-topics.webp`,
                 width: 574,
                 height: 322,
+                alt: "How To Draft a Blog Post"
               },
               Video_Title: 'How to Choose Blog Topics for Keywords',
               Video_ReadTime: '3 minute watch',
@@ -369,6 +371,7 @@ export default function Page() {
                 url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-create-content-brief.webp`,
                 width: 574,
                 height: 322,
+                alt: "How to create content brief"
               },
               Video_Title: 'How to Create a Content Brief for Writers',
               Video_ReadTime: '7 minute watch',
@@ -379,6 +382,7 @@ export default function Page() {
                 url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-do-an-OnPage-SEO.webp`,
                 width: 574,
                 height: 322,
+                alt: "how to do an onpage seo"
               },
               Video_Title: 'How to do an OnPage SEO Audit',
               Video_ReadTime: '8 minute watch',
