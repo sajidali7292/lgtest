@@ -31,7 +31,7 @@ function VideoHome({ title, text, videoBlocks }: Props): JSX.Element {
     }
   return (
     <section className="LaHome_softVid">
-      <div className={styles.container}>
+      <div className={`${styles.container}`}>
         <div className={`${styles.row} flex flex-row`}>
           <div className="basis-full">
             <h2 className={`${styles.title}`}>{title}</h2>
