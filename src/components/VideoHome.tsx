@@ -34,6 +34,7 @@ function VideoHome({ title, text, videoBlocks }: Props): JSX.Element {
           {videoBlocks.map((block, index) => (
             <VideoBlock
               index={index}
+              key={`${index}-${block.Video_Title}`}
               className={block.className}
               Video_Thumbnail={block.Video_Thumbnail}
               Video_Title={block.Video_Title}
