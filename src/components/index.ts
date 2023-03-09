@@ -12,13 +12,20 @@ import TestimonialsM from './TestimonialsM'
 import DataDriven from './DataDriven';
 import CountingNumbers from './CountingNumbers';
 import Modal from './UI/Modal';
+import VideoBlock from './UI/VideoBlock';
+import LinkBlock from './UI/LinkBlock';
 import ServicesHome from './ServicesHome';
 import CTA2 from './CTA2';
 import HomeFormSection from './HomeFormSection';
 import ReviewsSlider from './ReviewsSlider';
 import VideoHome from './VideoHome';
+import PricingTableTab from './PricingTableTab';
+import Paths from './Paths';
+import TextLeftImageRight from './TextLeftImageRight';
+import CaseStudyHome from './CaseStudyHome';
+import LearnHome from './LearnHome';
 import MenuItems from './Menus/MenuItems';
 import SubMenu from './Menus/SubMenu';
 import MenuBuilder from './Menus/MenuBuilder';
 
-export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome };
+export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome, PricingTableTab, Paths, TextLeftImageRight, CaseStudyHome, VideoBlock, LinkBlock, LearnHome };
