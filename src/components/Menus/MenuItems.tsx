@@ -6,7 +6,7 @@ const MenuItems = ({ items, keyI, classAParent, classAChild }) => {
       {items.childItems()?.nodes.length > 0 ? (
         <>
           <a href={items.url} className={`menu-link`}> {items.label}</a>
-          <SubMenu submenus={items.childItems()?.nodes} classAChild={classAChild} keyI={keyI}/>
+          <SubMenu submenus={items.childItems({first: 50})?.nodes} classAChild={classAChild} keyI={keyI}/>
         </>
       ) : (
         <a href={items.url}>{items.label} {items.parentId}</a>
