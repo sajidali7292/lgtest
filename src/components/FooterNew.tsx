@@ -40,7 +40,7 @@ function Footer({
     where: { location: MenuLocationEnum.FOOTER_3 }, first: 50
   })?.nodes;
   const year = new Date().getFullYear();
-  console.log(Footercolumn1);
+  //console.log(Footercolumn1);
   return (
     <footer className={`${styles.mainW}`}>
       <div className={`wrap_content wrap_content-extended`}>
