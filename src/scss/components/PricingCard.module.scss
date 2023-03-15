@@ -1,0 +1,109 @@
+@import "scss/variables";
+
+.card{
+    .plan_cardWrap{
+        min-height: 610px;
+        height: 100%;
+        background-color: #F5F5F5;
+        padding: 0px 30px 15px;
+        border-radius: 8px;
+        font-family: $Gordita;
+        text-align: left;
+        &.noImageCard{
+            padding-top: 32px;
+        }
+        .plan_img_bg{
+            img{
+                margin-left: -10px;
+                margin-bottom: -15px;
+                width: 63%;
+                max-width: 100%;
+            }
+        }
+        .planName_plan{
+            font-size: clamp(1rem, 3vw, 1rem);
+            text-transform: uppercase;
+            line-height: 26px;
+        }
+        .planDesc_plan{
+            font-size: clamp(1rem, 3vw, 0.9rem);
+            margin-top: 15px;
+            margin-bottom: 20px;
+            line-height: 18px;
+            width: 80%;
+            max-width: 100%;
+        }
+        .planPrice_plan{
+            font-family: $f37ginger;
+            font-size: 32px;
+            line-height: 1;
+            font-weight: 700;
+            color: $color-secondary;    
+            margin-top: 17px;
+            span{
+                font-family: $Gordita;
+                font-weight: 400;
+                font-size: 16px;
+            }
+        }
+        .stripBtn{
+            margin-top: 26px;
+            margin-bottom: 26px;
+        }
+        .planLinkst_plan{
+            margin-bottom: 40px;
+            position: relative;
+            &::after{
+                content: '';
+                background: #E6b9F9;
+                width: 40px;
+                height: 1px;
+                position: absolute;
+                bottom: -32px;
+                left: 0;
+            }
+        }
+        .planInclude_plan{  
+            margin-top: 50px;
+            font-size: clamp(1.05rem, 3.2vw, 0.9rem);
+            ul{
+                li{
+                    padding-bottom: 14px;
+                }
+            }
+        }
+        .planOptimization_plan{
+            margin: 20px -20px 0;
+            .planSingleW{
+                &:first-child{
+                    .planSingle{
+                        margin-right: 5px;
+                    }
+                }
+                &:last-child{
+                    .planSingle{
+                        margin-left: 5px;
+                    }
+                }
+                .planSingle{
+                    border-radius: 5px;
+                    padding: 15px 8px;
+                    background: #FFF;
+                    .svgCircle{
+                        width: 30%;
+                        margin-right: 5px;
+                    }
+                    p{
+                        color: #000;
+                        font-weight: 700;
+                        font-size: 12px;
+                        width: 70%;
+                        line-height: 13px;
+                        padding-top: 3px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
