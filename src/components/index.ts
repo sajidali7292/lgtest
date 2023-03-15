@@ -19,7 +19,9 @@ import CTA2 from './CTA2';
 import HomeFormSection from './HomeFormSection';
 import ReviewsSlider from './ReviewsSlider';
 import VideoHome from './VideoHome';
-import PricingTableTab from './PricingTableTab';
+import PricingTab from './PricingTab';
+import PricingCard from './PricingCard';
+import PricingTable from './PricingTable';
 import Paths from './Paths';
 import TextLeftImageRight from './TextLeftImageRight';
 import CaseStudyHome from './CaseStudyHome';
@@ -28,4 +30,4 @@ import MenuItems from './Menus/MenuItems';
 import SubMenu from './Menus/SubMenu';
 import MenuBuilder from './Menus/MenuBuilder';
 
-export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome, PricingTableTab, Paths, TextLeftImageRight, CaseStudyHome, VideoBlock, LinkBlock, LearnHome };
+export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome, PricingTab, PricingCard, PricingTable, Paths, TextLeftImageRight, CaseStudyHome, VideoBlock, LinkBlock, LearnHome };
