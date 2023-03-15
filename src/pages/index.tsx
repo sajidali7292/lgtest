@@ -2,7 +2,7 @@ import { getNextStaticProps } from '@faustjs/next';
 import Head from 'next/head';
 import { GetStaticPropsContext } from 'next';
 import React from 'react';
-import { CTA, HeroHome, DataDriven, BasicText, GridImages, TestimonialsM, CountingNumbers, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome, PricingTableTab, Paths, TextLeftImageRight, CaseStudyHome, LearnHome } from 'components';
+import { CTA, HeroHome, DataDriven, BasicText, GridImages, TestimonialsM, CountingNumbers, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome, PricingTab, Paths, TextLeftImageRight, CaseStudyHome, LearnHome } from 'components';
 import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 import $ from 'jquery';
@@ -289,31 +289,275 @@ export default function Page() {
           }}
         />
 
-        <PricingTableTab
+        <PricingTab
+          isCentered
+          pt = 'md'
+          pb = 'md'
+          tabOpenedID = 'managedSeo' //use same as id below into tab object
           tab={[
             {
               id: 'managedSeo',
               label: 'Managed SEO',
               planTitle: 'SEO Campaigns Tailored to your Website’s Needs',
               content: 'Managed SEO campaigns include a custom combination of on-page SEO, off-site SEO, technical SEO, and content strategy tailored to your website’s needs.',
+              pricingModule: 'table',
+              pricingScrolled: true,
+              tablePricing:[
+                {
+                  serviceName: 'Small Business Boon', servicePrice: '$1,500<span> / M</span>', serviceColor: '#e59e59', serviceTier: 'Bronze', serviceAuthority: 500,
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_bronze.png',
+                  serviceOnsite: 3, serviceWeb: 1,
+                  serviceSoftware: {
+                    serviceSearch: 'Starter plan $48 (without campagin $99) 1 seat', serviceEarly: true, serviceLocked: false
+                  },
+                  serviceSupport: {
+                    serviceAccount: 2, serviceDedicated: false, serviceChat: false, serviceConsultation: false
+                  },
+                  serviceCommunity: {
+                    serviceAccess: true, serviceSEO: true
+                  },
+                  serviceResults: {
+                    serviceMonthly: true, serviceLinkGraphMetric: false
+                  },
+                  serviceTotal: 6, serviceBtn:{url: 'https://buy.stripe.com/9AQ7ui2ls0m401O2ci', label: 'Get Started', size: 'medium', rounded: true, type: 'fourth'}
+                },
+                {
+                  serviceName: 'Business Basic Deal', servicePrice: '$3,000<span> / M</span>', serviceColor: '#afafaf', serviceTier: 'Silver', serviceAuthority: 1000,
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_silver.webp',
+                  serviceOnsite: 9, serviceWeb: 1,
+                  serviceSoftware: {
+                    serviceSearch: 'Growth plan $148 (without campaign $299)', serviceEarly: true, serviceLocked: true
+                  },
+                  serviceSupport: {
+                    serviceAccount: 3, serviceDedicated: true, serviceChat: false, serviceConsultation: false
+                  },
+                  serviceCommunity: {
+                    serviceAccess: true, serviceSEO: true
+                  },
+                  serviceResults: {
+                    serviceMonthly: true, serviceLinkGraphMetric: true
+                  },
+                  serviceTotal: 13, serviceBtn:{url: 'https://buy.stripe.com/bIY7ui6BIb0Ig0M3gn', label: 'Get Started', size: 'medium', rounded: true, type: 'fifth'}
+                },
+                {
+                  serviceName: 'Business Growth Plan', servicePrice: '$6,000<span> / M</span>', serviceColor: '#eeba2b', serviceTier: 'Gold', serviceAuthority: 2700,
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_gold.png',
+                  serviceOnsite: 12, serviceWeb: 3,
+                  serviceSoftware: {
+                    serviceSearch: 'Growth plan $148 (without campaign $299)', serviceEarly: true, serviceLocked: true
+                  },
+                  serviceSupport: {
+                    serviceAccount: 4, serviceDedicated: true, serviceChat: true, serviceConsultation: '1'
+                  },
+                  serviceCommunity: {
+                    serviceAccess: true, serviceSEO: true
+                  },
+                  serviceResults: {
+                    serviceMonthly: true, serviceLinkGraphMetric: true
+                  },
+                  serviceTotal: 20, serviceBtn:{url: 'https://buy.stripe.com/cN23e25xEgl2bKw04c', label: 'Get Started', size: 'medium', rounded: true, type: 'seventh'}
+                },
+                {
+                  serviceName: 'Enterprise-Ready Plan', servicePrice: '$12,000<span> / M</span>', serviceColor: '#d5ecf9', serviceTier: 'Diamond', serviceAuthority: 6000,
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_diamond.png',
+                  serviceOnsite: 26, serviceWeb: 8,
+                  serviceSoftware: {
+                    serviceSearch: 'PRO plan $224 (without campaign $499)', serviceEarly: true, serviceLocked: true
+                  },
+                  serviceSupport: {
+                    serviceAccount: 6, serviceDedicated: true, serviceChat: true, serviceConsultation: '1'
+                  },
+                  serviceCommunity: {
+                    serviceAccess: true, serviceSEO: true
+                  },
+                  serviceResults: {
+                    serviceMonthly: true, serviceLinkGraphMetric: true
+                  },
+                  serviceTotal: 47, serviceBtn:{url: 'https://buy.stripe.com/cN27ui7FM1q84i44kt', label: 'Get Started', size: 'medium', rounded: true, type: 'sixth'}
+                },
+                {
+                  serviceName: 'Custom', servicePrice: '<span>Min&nbsp;</span> $6,000', serviceColor: '#000000', serviceTier: 'Custom', serviceAuthority: 'Custom',
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_custom.png',
+                  serviceOnsite: 'Custom', serviceWeb: 'Custom', serviceFColor: '#FFFFFF',
+                  serviceTotal: 13, serviceBtn:{url: 'https://meetings.linkgraph.io/meetings/link-graph/linkgraph-initial-consultation', label: 'Speak with a Rep', size: 'medium', rounded: true, type: 'black'}
+                }
+              ]
             },
             {
               id: 'linkBuilding',
               label: 'Link Building',
               planTitle: 'Link Building to grow your site’s authority and traffic ',
               content: 'Our link building packages are designed to always be on time and on budget so you can start getting results.',
+              pricingModule: 'card',
+              tablePricing:[
+                {
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/Monticello-7-copy-2.webp',
+                  title: 'MONTICELLO', description: 'Start building with high quality links', price: '$549 <span> / Month</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
+                  linksTotal: '4 links total',
+                  features:[
+                    'DA 20-30: 3 Links',
+                    'DA 30-40: 1 Links'
+                  ]
+                },
+                {
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/Rushmore-7-copy-2.webp',
+                  title: 'RUSHMORE', description: 'Round out your backlink profile', price: '$999 <span> / Month</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
+                  linksTotal: '6 links total',
+                  features:[
+                    'DA 20-30: 3 Links',
+                    'DA 30-40: 2 Links',
+                    'DA 40-50: 1 Link'
+                  ]
+                },
+                {
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/Kilimanjaro-7-copy-2.png',
+                  title: 'KILIMANJARO', description: 'Supercharge your backlink building', price: '$2499 <span> / Month</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
+                  linksTotal: '10 links total',
+                  features:[
+                    'DA 20-30: 4 Links',
+                    'DA 30-40: 2 Links',
+                    'DA 40-50: 2 Links',
+                    'DA 50-60: 1 Link',
+                    'DA 60-70: 1 Link'
+                  ]
+                },
+                {
+                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/Everest-7-copy-2.png',
+                  title: 'EVEREST', description: 'Experience rapid growth in your rankings', price: '$4999 <span> / Month</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
+                  linksTotal: '18 links total',
+                  features:[
+                    'DA 20-30: 6 Links',
+                    'DA 30-40: 4 Links',
+                    'DA 40-50: 4 Links',
+                    'DA 50-60: 2 Links',
+                    'DA 60-70: 1 Links',
+                    'DA 70-79: 1 Link'
+                  ]
+                }
+              ]
             },
             {
               id: 'localSeo',
               label: 'Local SEO',
               planTitle: 'Local SEO to dominate your market',
               content: 'Dominate your market with thousands of hyper-local citations that turn local search into local business.',
+              pricingModule: 'card',
+              tablePricing:[
+                {
+                  title: 'LOCAL SEO FUNDAMENTALS', description: 'Billed quarterly, from:', price: '$20 <span> / Month</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', label: 'Order Now', size: 'medium', type: 'black'},
+                  localSEO: 100,
+                  webSearch: 0,
+                  features:[
+                    'Price Per Location',
+                    '30+ Structured Citations',
+                    'Daily Local SEO Reports',
+                    'Daily Citation Tracker Reporting'
+                  ],
+                  featureCheck: true,
+                  featureCheckColor: 'bronze'
+                },
+                {
+                  title: 'GROWTH CAMPAIGN', description: 'Billed quarterly, from:', price: '$60 <span> / Month</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', label: 'Order Now', size: 'medium', type: 'black'},
+                  localSEO: 100,
+                  webSearch: 55,
+                  features:[
+                    'Price Per Location',
+                    '40+ Structured Citations',
+                    '1 DA 20-40 Geotargeted Backlink',
+                    'Daily Local SEO Reports',
+                    'Daily Citation Tracker Reporting',
+                    'Review Monitoring',
+                    'Everything in Package 1'
+                  ],
+                  featureCheck: true,
+                  featureCheckColor: 'purple'
+                },
+                {
+                  title: 'ASPIRE CAMPAIGN', description: 'Billed quarterly:', price: '$150 <span> / Month</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', label: 'Order Now', size: 'medium', type: 'black'},
+                  localSEO: 100,
+                  webSearch: 100,
+                  features:[
+                    'Price Per Location',
+                    '50+ Structured Citations',
+                    '3 DA 20-40 Geotargeted Backlinks Per Quarter',
+                    'Daily Local SEO Reports',
+                    'Daily Citation Tracker Reporting',
+                    'Review Monitoring',
+                    'Complete Google My Business Audit',
+                    'Everything in Package 1'
+                  ],
+                  featureCheck: true,
+                  featureCheckColor: 'green'
+                },
+                {
+                  title: 'NEED A CUSTOMIZED LOCAL SEO CAMPAIGN?', price: 'LinkGraph can help',
+                  serviceBtn:{url: 'https://www.linkgraph.com/learn-how-we-can-grow-your-business/', label: 'Learn More', size: 'medium', type: 'black'}
+                }
+              ]
             },
             {
               id: 'technicalSeo',
               label: 'Technical SEO',
               planTitle: 'On-site technical SEO for websites of all sizes',
               content: 'Comprehensive technical SEO optimizations to improve crawling, indexing, and keyword rankings for your web pages.',
+              pricingModule: 'card',
+              tablePricing:[
+                {
+                  title: 'FULL SITE <br/>TECHNICAL AUDIT', price: '$500 <span> / Site</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', label: 'Get Started', size: 'medium', type: 'black'},
+                  features:[
+                    'Site size < 100 pages',
+                    'Meta tag analysis',
+                    'Core Web Vitals analysis',
+                    'Broken Link analysis',
+                    'Page Speed analysis'
+                  ],
+                  featureCheck: true,
+                  featureCheckColor: 'bronze'
+                },
+                {
+                  title: 'TOXIC BACKLINK <br/>ANALYSIS', price: '$500 <span> / 50 Pages</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', label: 'Get Started', size: 'medium', type: 'black'},
+                  features:[
+                    'Site size < 500 referring domains',
+                    'Toxic/Spam link identification',
+                    'Toxicity/Spam scores',
+                    'Recommended domains/subdomains for Disavow',
+                    'Disavow .txt file'
+                  ],
+                  featureCheck: true,
+                  featureCheckColor: 'purple'
+                },
+                {
+                  title: 'INTERNAL LINKING <br/>ANALYSIS', price: '$1500 <span> / 50 Pages</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', label: 'Get Started', size: 'medium', type: 'black'},
+                  features:[
+                    'Internal Link Suggestions',
+                    'Orphan page identification',
+                    'Site Structure Visualization',
+                    'PageRank Distribution Analysis'
+                  ],
+                  featureCheck: true,
+                  featureCheckColor: 'green'
+                },
+                {
+                  title: 'IN-DEPTH SEO STRATEGY <br/>CONSULTATION WITH CTO', price: '$1000 <span> / 1 Hour</span>',
+                  serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', label: 'Get Started', size: 'medium', type: 'black'},
+                  features:[
+                    'SEO consultation meeting with LinkGraph’s CTO, Manick Bhan',
+                    '1 hour-long'
+                  ],
+                  featureCheck: true,
+                  featureCheckColor: 'pink'
+                }
+              ]
             },
           ]}
         />
