@@ -1,0 +1,52 @@
+@import "scss/variables";
+
+$widthStroke: 2.5;
+
+.circularChart {
+    .circleBg {
+        fill: none;
+        stroke: $color-light-gray;
+        stroke-width: $widthStroke;
+    }
+    &.green{
+        .circle{
+            stroke: $color-hg2;
+        }
+    }
+    &.orange{
+        .circle{
+            stroke: $color-bronze;
+        }
+    }
+    &.silver{
+        .circle{
+            stroke: $color-bronze;
+        }
+    }
+    &.blue{
+        .circle{
+            stroke: $color-hg1;
+        }
+    }
+}
+
+
+.circle {
+    fill: none;
+    stroke-width: $widthStroke - 0.3;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+
+.percentage {
+    fill: $color-primary;
+    font-family: $Gordita;
+    font-size: 0.5em;
+    text-anchor: middle;
+}
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
