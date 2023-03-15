@@ -1,0 +1,62 @@
+// CSS for the PricingTab component in components/PricingTab.tsx.
+
+@import "scss/variables";
+
+
+.tabTitles{
+    width: $content-width-semi_large;
+    @media(max-width: $breakpoint-semi_medium){
+        padding-bottom: 30px;
+    }
+    h2{
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: clamp(2rem, 3vw, 2.25rem);
+        line-height: 3.2rem;
+        @media(max-width: $breakpoint-semi_medium){
+            font-size: clamp(2.2rem, 3.1vw, 2.35rem);
+        }
+    }
+    p{
+        margin-top: 18px;
+        font-family: $Gordita;
+        font-size: clamp(0.8rem, 4vw, 1.35rem);
+        line-height: 1.9rem;
+    }
+}
+.tabs{
+    .tab{
+        margin-right: 20px;
+        font-family: $Gordita;
+        font-size: clamp(0.9rem, 4.2vw, 1.32rem);
+        line-height: 1.2;
+        font-weight: 400;
+        border-bottom: $color-transparent solid 5px;
+        color: $color-semi-gray;
+        padding: 5px 10px;
+        transition: 0.2s ease-out all;
+        @media(max-width: $breakpoint-small_extra){
+            margin-right: 0;
+            padding: 15px;
+        }
+        &.active{
+            font-weight: 500;
+            color: $color-primary;
+            border-bottom-color: $color-hg2;
+            @media(max-width: $breakpoint-small_extra){
+                background-color: $color-purple-dark;
+                color: $color-white;
+                border: $color-transparent;
+                border-radius: 200px;
+            }
+        }
+    }
+}
+.intro{
+    padding-bottom: 60px;
+    @media(max-width: $breakpoint-semi_medium){
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 30px;
+    }
+}
