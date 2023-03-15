@@ -1,9 +1,11 @@
+
 export const backgroundColors = {
     yellow: "bg-yellow text-black",
     dark: "bg-semi_dark text-white"
 }
 
 export const sectionVariantsTop = {
+    zr: 'pt-0',
     xs: 'pt-7 lg:pt-14',
     sm: 'pt-8 lg:pt-16',
     md: 'pt-8 lg:pt-24',
@@ -12,6 +14,7 @@ export const sectionVariantsTop = {
     xxl: 'pt-14 lg:pt-40',
 }
 export const sectionVariantsBottom = {
+    zr: 'pb-0',
     xs: 'pb-7 lg:pb-14',
     sm: 'pb-8 lg:pb-16',
     md: 'pb-8 lg:pb-24',
