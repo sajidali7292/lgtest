@@ -313,7 +313,7 @@ a:hover {
         background-color: $color-hg2;
     }
     .bgpye {
-        background-color: #F1AA3E;
+        background-color: $color-bronze;
     }
 }
 
@@ -332,41 +332,41 @@ a:hover {
 }
 
 .sub span {
-    font-family: 'f37 ginger';
+    font-family: $f37ginger;
     font-size: 17px;
     display: inline-block;
 }
 
 .services_1 .sub {
-    color: #8860D4;
-    background-color: #EDE7F8;
+    color: $color-hg1;
+    background-color: lighten($color-hg1, 36%);
     span {
-        color: rgba(136, 96, 212, 0.5);
+        color: rgba($color-hg1, 0.5);
     }
 }
 
 .services_2 .sub {
-    color: #FF258E;
-    background-color: #FFE3ED;
+    color: $color-lg-pink;
+    background-color: lighten($color-lg-pink, 36%);
     span {
-        color: rgba(255, 70, 134, 0.5);
+        color: rgba($color-hg1, 0.5);
     }
 }
 
 .services_3 .sub {
     width: 221px;
-    color: #5DA4AF;
-    background-color: #EFF7F8;
+    color: $color-hg2;
+    background-color: lighten($color-hg2, 36%);
     span {
-        color: rgba(93, 164, 175, 0.5);
+        color: rgba($color-hg2, 0.5);
     }
 }
 
 .services_4 .sub {
-    color: #F1AA3E;
-    background-color: #FDF2E2;
+    color: $color-bronze;
+    background-color: lighten($color-bronze, 36%);
     span {
-        color: rgba(241, 170, 62, 0.5);
+        color: rgba($color-bronze, 0.5);
     }
 }
 
@@ -390,4 +390,8 @@ a:hover {
 .services_3 p,
 .services_4 p {
     width: 552px;
+}
+
+.topScrolled{
+    box-shadow: 2px 0px 6px 5px rgba(255, 255, 255, 0.51)
 }
