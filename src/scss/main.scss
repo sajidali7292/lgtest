@@ -7,6 +7,7 @@
 @import "typography";
 
 body {
+    font-family: $font-family;
     color: $color-black;
     font-size: 18px;
     line-height: 1.6;
@@ -122,6 +123,7 @@ a:hover {
     &:focus,
     &:hover {
         background-color: darken($color-lg-pink, 10);
+        color: $color-white;
     }
     &.icon {
         display: flex;
@@ -146,6 +148,7 @@ a:hover {
             background-color: darken($color-hg1, 10);
         }
     }
+
     &.button-third {
         background-color: $color-hg3;
         border-color: $color-hg3;
@@ -158,6 +161,81 @@ a:hover {
             }
         }
     }
+    
+    &.button-fourth {
+        background-color: $color-bronze;
+        border-color: $color-bronze;
+        color: $color-black;
+        &:focus,
+        &:hover {
+            color: $color-white;
+            background-color: $color-black;
+            border-color: $color-black;
+            svg * {
+                fill: $color-white;
+            }
+        }
+    }
+    
+    &.button-fifth {
+        background-color: $color-silver;
+        border-color: $color-silver;
+        color: $color-black;
+        &:focus,
+        &:hover {
+            color: $color-white;
+            background-color: $color-black;
+            border-color: $color-black;
+            svg * {
+                fill: $color-white;
+            }
+        }
+    }
+    
+    &.button-sixth {
+        background-color: $color-diamond;
+        border-color: $color-diamond;
+        color: $color-black;
+        &:focus,
+        &:hover {
+            color: $color-white;
+            background-color: $color-black;
+            border-color: $color-black;
+            svg * {
+                fill: $color-white;
+            }
+        }
+    }
+    
+    &.button-seventh {
+        background-color: $color-yellow;
+        border-color: $color-yellow;
+        color: $color-black;
+        &:focus,
+        &:hover {
+            color: $color-white;
+            background-color: $color-black;
+            border-color: $color-black;
+            svg * {
+                fill: $color-white;
+            }
+        }
+    }
+    
+    &.button-black {
+        background-color: $color-black;
+        border-color: $color-black;
+        color: $color-white;
+        &:focus,
+        &:hover {
+            color: $color-white;
+            background-color: $color-lg-pink;
+            border-color: $color-lg-pink;
+            svg * {
+                fill: $color-white;
+            }
+        }
+    }
 
     &.rounded {
         border-radius: 1000px;
@@ -167,6 +245,35 @@ a:hover {
     }
     &.big {
         padding: 16px 50px;
+    }
+}
+
+
+.checkList{
+    position: relative;
+    margin-left: 18px;
+    font-size: 18px;
+    line-height: 1.4;
+    li{
+        &::before{
+            content: "✓";
+            color: $color-primary;
+            position: absolute;
+            left: -18px;
+            font-size: 14px;
+        }
+    }
+    &.bronzeBefore li::before{
+        color: $color-bronze;
+    }
+    &.purpleBefore li::before{
+        color: $color-hg1;
+    }
+    &.greenBefore li::before{
+        color: $color-hg2;
+    }
+    &.pinkBefore li::before{
+        color: $color-hg3;
     }
 }
 

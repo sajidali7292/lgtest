@@ -1,7 +1,6 @@
 $color-black: #080808;
 $color-dark-gray: #1f1f1f;
 $color-mid-gray: #606060;
-$color-secondary:#5D4464;
 $color-thistle:#C4B4C7;
 $color-cadet:#649A9D;
 $color-accent-blue:#38618C;
@@ -16,8 +15,9 @@ $font-weight-bold: 600;
 
 $content-width-small: 750px;
 $content-width: 1200px;
-$content-width-extended: 1310px;
+$content-width-extended: 1360px;
 $content-width-large: 1360px;
+$content-width-semi_large: 980px;
 $content-width-extended_md: 700px;
 $content-width_sm: 100%;
 
@@ -27,19 +27,27 @@ $breakpoint-semi_medium: 991px;
 
 /*DEFINED LG COLORS FOR GLOBAL USES*/
 $color-primary: #25243E;
+$color-secondary: #131430;
 
 $color-hg1: #8860D4;
 $color-hg2: #5DA4AF;
 $color-hg3: #6B49AB;
 $color-white: #FFFFFF;
+$color-black: #000000;
+
 $color-semi-white: #F8F8F8;
-$color-light-gray: #6C6E72;
+$color-light-gray: #EDEDED;
+$color-semi-gray: #6C6E72;
 $color-transparent: transparent;
 $color-semi-dark: #26262A;
 
 $color-yellow: #FEC725;
 $color-lg-pink: #FF258E;
 $color-gray: #B7B7B7;
+
+$color-bronze: #e59e59;
+$color-silver: #afafaf;
+$color-diamond: #d5ecf9;
 
 /*PLUS JAKARTA*/
 @font-face {
@@ -85,14 +93,15 @@ $color-gray: #B7B7B7;
 
 /*GORDITA*/
 @font-face {
-    font-family: 'f37ginger';
+    font-family: 'Gordita';
     src: url('../assets/gordita-regular.otf');
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
-    font-family: 'f37ginger';
+    font-family: 'Gordita';
     src: url('../assets/gordita-medium.otf');
     font-weight: 500;
+    font-weight: bolder;
     font-style: normal;
 }
