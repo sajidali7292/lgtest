@@ -1,11 +1,11 @@
 
 export const backgroundColors = {
     yellow: "bg-yellow text-black",
-    dark: "bg-semi_dark text-white"
-    bronze: "bg-bronze text-black"
-    silver: "bg-silver text-black"
-    diamond: "bg-diamond text-black"
-    black: "bg-black text-white"
+    dark: "bg-semi_dark text-white",
+    bronze: "bg-bronze text-black",
+    silver: "bg-silver text-black",
+    diamond: "bg-diamond text-black",
+    black: "bg-black text-white",
 }
 
 export const sectionVariantsTop = {
