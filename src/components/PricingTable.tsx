@@ -1,4 +1,4 @@
-import {React,useEffect} from 'react';
+import React, { useEffect } from 'react';
 import PricingTData from './PricingTData';
 import PricingTDataHolder from './PricingTDataHolder';
 import styles from 'scss/components/PricingTable.module.scss';
