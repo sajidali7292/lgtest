@@ -16,9 +16,9 @@ function PricingTable({
     const onScroll = () => {
       let windowH = window.innerHeight / 2.5;
       let pageScroll = document.getElementsByTagName("html")[0].scrollTop;
-      let table = document.querySelector('.table_row');
-      let sectionPos = (table as HTMLElement).offsetTop - 50;
-      let sectionHeight = sectionPos + (table as HTMLElement).offsetHeight - windowH;
+      let tableRow = document.querySelector('.table_row');
+      let sectionPos = (tableRow as HTMLElement).offsetTop - 50;
+      let sectionHeight = sectionPos + (tableRow as HTMLElement).offsetHeight - windowH;
       let posHeader = pageScroll - sectionPos + 25;
       //console.log(posHeader);
       let arrScrolled = Array.from( document.getElementsByClassName('plan_serviceNScroll') );
@@ -27,7 +27,7 @@ function PricingTable({
         if( pageScroll <= sectionHeight ){
           arrScrolled.forEach(element => {
             element.classList.add('topScrolled');
-            element.style.top = posHeader+'px';
+            (element as HTMLElement).style.top = posHeader+'px';
           });
         }
       }else{
