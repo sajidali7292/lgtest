@@ -305,7 +305,7 @@ export default function Page() {
               tablePricing:[
                 {
                   serviceName: 'Small Business Boon', servicePrice: '$1,500<span> / M</span>', serviceColor: '#e59e59', serviceTier: 'Bronze', serviceAuthority: 500,
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_bronze.png',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/icons_table_check_bronze.png`, alt: "Small Business Boon" },
                   serviceOnsite: 3, serviceWeb: 1,
                   serviceSoftware: {
                     serviceSearch: 'Starter plan $48 (without campagin $99) 1 seat', serviceEarly: true, serviceLocked: false
@@ -323,7 +323,7 @@ export default function Page() {
                 },
                 {
                   serviceName: 'Business Basic Deal', servicePrice: '$3,000<span> / M</span>', serviceColor: '#afafaf', serviceTier: 'Silver', serviceAuthority: 1000,
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_silver.webp',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/icons_table_check_silver.webp`, alt: "Business Basic Deal" },
                   serviceOnsite: 9, serviceWeb: 1,
                   serviceSoftware: {
                     serviceSearch: 'Growth plan $148 (without campaign $299)', serviceEarly: true, serviceLocked: true
@@ -341,7 +341,7 @@ export default function Page() {
                 },
                 {
                   serviceName: 'Business Growth Plan', servicePrice: '$6,000<span> / M</span>', serviceColor: '#eeba2b', serviceTier: 'Gold', serviceAuthority: 2700,
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_gold.png',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/icons_table_check_gold.png`, alt: "Business Growth Plan" },
                   serviceOnsite: 12, serviceWeb: 3,
                   serviceSoftware: {
                     serviceSearch: 'Growth plan $148 (without campaign $299)', serviceEarly: true, serviceLocked: true
@@ -359,7 +359,7 @@ export default function Page() {
                 },
                 {
                   serviceName: 'Enterprise-Ready Plan', servicePrice: '$12,000<span> / M</span>', serviceColor: '#d5ecf9', serviceTier: 'Diamond', serviceAuthority: 6000,
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_diamond.png',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/icons_table_check_diamond.png`, alt: "Enterprise-Ready Plan" },
                   serviceOnsite: 26, serviceWeb: 8,
                   serviceSoftware: {
                     serviceSearch: 'PRO plan $224 (without campaign $499)', serviceEarly: true, serviceLocked: true
@@ -377,7 +377,7 @@ export default function Page() {
                 },
                 {
                   serviceName: 'Custom', servicePrice: '<span>Min&nbsp;</span> $6,000', serviceColor: '#000000', serviceTier: 'Custom', serviceAuthority: 'Custom',
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/icons_table_check_custom.png',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/icons_table_check_custom.png`, alt: "Custom Plan" },
                   serviceOnsite: 'Custom', serviceWeb: 'Custom', serviceFColor: '#FFFFFF',
                   serviceTotal: 13, serviceBtn:{url: 'https://meetings.linkgraph.io/meetings/link-graph/linkgraph-initial-consultation', label: 'Speak with a Rep', size: 'medium', rounded: true, type: 'black'}
                 }
@@ -391,7 +391,7 @@ export default function Page() {
               pricingModule: 'card',
               tablePricing:[
                 {
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/Monticello-7-copy-2.webp',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Monticello-7-copy-2.webp`, alt: "Monticello" },
                   title: 'MONTICELLO', description: 'Start building with high quality links', price: '$549 <span> / Month</span>',
                   serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
                   linksTotal: '4 links total',
@@ -401,7 +401,7 @@ export default function Page() {
                   ]
                 },
                 {
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/Rushmore-7-copy-2.webp',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Rushmore-7-copy-2.webp`, alt: "Rushmore" },
                   title: 'RUSHMORE', description: 'Round out your backlink profile', price: '$999 <span> / Month</span>',
                   serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
                   linksTotal: '6 links total',
@@ -412,7 +412,7 @@ export default function Page() {
                   ]
                 },
                 {
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/Kilimanjaro-7-copy-2.png',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Kilimanjaro-7-copy-2.png`, alt: "Kilimanjaro" },
                   title: 'KILIMANJARO', description: 'Supercharge your backlink building', price: '$2499 <span> / Month</span>',
                   serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
                   linksTotal: '10 links total',
@@ -425,7 +425,7 @@ export default function Page() {
                   ]
                 },
                 {
-                  serviceImage: 'https://bplgtest.wpengine.com/wp-content/uploads/2023/03/Everest-7-copy-2.png',
+                  serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Everest-7-copy-2.png`, alt: "Everest" },
                   title: 'EVEREST', description: 'Experience rapid growth in your rankings', price: '$4999 <span> / Month</span>',
                   serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
                   linksTotal: '18 links total',

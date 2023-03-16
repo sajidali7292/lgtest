@@ -21,7 +21,7 @@ function PricingTData({
     <div className={`${classStyle.plan_cardWrap} text-center ${servData.serviceImage ? '': classStyle.noImageCard}`}>
       {servData.serviceImage &&
         <div className={`${classStyle.plan_img_bg}`}>
-            <img src={servData.serviceImage} alt="" />
+            <img src={servData.serviceImage.url} alt={servData.serviceImage.alt} />
         </div>
       }
       <div className={`${classStyle.plan_bg_grey}`}>

@@ -19,7 +19,7 @@ function PricingTable({
       let sectionPos = document.getElementsByClassName('table_row')[0].offsetTop - 50;
       let sectionHeight = sectionPos + document.getElementsByClassName('table_row')[0].offsetHeight - windowH;
       let posHeader = pageScroll - sectionPos + 25;
-      console.log(posHeader);
+      //console.log(posHeader);
       let arrScrolled = Array.from( document.getElementsByClassName('plan_serviceNScroll') );
 
       if( pageScroll >= sectionPos ){
@@ -49,9 +49,9 @@ function PricingTable({
         <PricingTDataHolder classStyle={styles} isScrolled={isScrolled}/>
       </div>
       {servicesData?.map((serviceData, index) => (
-        <div className={`${styles.Table} w-1/2 md:w-5/12 lg:w-1/6 planblock${index}`} style={{backgroundColor: serviceData.serviceColor}}>
-          <PricingTData
-            key={`${index}$-block`} isScrolled={isScrolled}
+        <div key={`${index}$-block`}
+        className={`${styles.Table} w-1/2 md:w-5/12 lg:w-1/6 planblock${index}`} style={{backgroundColor: serviceData.serviceColor}}>
+          <PricingTData isScrolled={isScrolled}
             servData={serviceData} servIndex={index} servColor={serviceData.serviceColor} classStyle={styles}/>
         </div>
       ))}

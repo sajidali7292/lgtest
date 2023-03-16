@@ -12,7 +12,7 @@ function PricingCard({
   return (
     <div className={`${styles.cardRow} flex flex-row flex-wrap overflow-auto`}>
       {servicesData?.map((serviceData, index) => (
-        <div 
+        <div key={`${serviceData.title}-${index}-card`}
         className={`${styles.card} w-full md:w-1/2 lg:w-1/4 py-4 px-0
         ${index % 2 == 0 ? 'md:pr-4 md:pl-0':'md:pr-0 md:pl-4'}
         ${index > 1 ? 'md:pt-4 md:pb-0':'md:pt-0 md:pb-4'}

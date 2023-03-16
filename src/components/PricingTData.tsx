@@ -58,7 +58,7 @@ function PricingTData({
         <p>{servData.serviceName}</p>
       </div>
       <div className={`${classStyle.plan_serviceL}`} style={{backgroundColor: servColor, color: servData.serviceFColor ? servData.serviceFColor : ''}}>
-        <img src={servData.serviceImage} alt="" />
+        <img src={servData.serviceImage.url} alt={servData.serviceImage.alt} />
         <p dangerouslySetInnerHTML={{__html: servData.servicePrice}}></p>
       </div>
       <div className={`${classStyle.plan_serviceT} ${classStyle.smallH}`}>
