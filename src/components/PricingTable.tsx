@@ -33,7 +33,7 @@ function PricingTable({
       }else{
         arrScrolled.forEach(element => {
           element.classList.remove('topScrolled');
-          (element as HTMLElement).style.top = 0;
+          (element as HTMLElement).style.top = '0';
         });
       }
       //console.log(posHeader);
