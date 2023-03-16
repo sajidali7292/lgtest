@@ -40,7 +40,7 @@ function PricingTable({
 
     document.addEventListener('DOMContentLoaded', function() {
       document.addEventListener('scroll', onScroll);
-    }
+    });
     return () => document.removeEventListener('scroll', onscroll)
   })
   
