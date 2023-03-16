@@ -32,7 +32,8 @@ interface Props {
   blocks: Block[];
 }
 function randomNumber(){
-  return Math.random();
+  var randInt = window.crypto.getRandomValues(new Uint8Array(1))[0]
+  return randInt;
 }
 
 function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
