@@ -9,7 +9,7 @@ interface Props {
   bgImage?: string;
   children?: React.ReactNode;
   isCentered?: boolean;
-  tab?: Tab[];
+  tabs?: Tab[];
   tabOpenedID?: string;
   pt?: string;
   pb?: string;
@@ -27,7 +27,7 @@ function PricingTab({
   bgImage,
   children,
   isCentered,
-  tab,
+  tabs,
   tabOpenedID = '1',
   pt = 'md',
   pb = 'md',
@@ -50,7 +50,7 @@ function PricingTab({
       <div className={`${styles.wrap} flex flex-row flex-wrap overflow-hidden`}>
 
         <div className={`${styles.tabTitles} wrap_content md:order-2 lg:order-1`}>
-          {tab.map((tab) => (
+          {tabs.map((tab) => (
             <div
             key={`${tab.id}-title`}
             style={{ display: tab.id === activeTab ? 'block' : 'none' }}
@@ -64,7 +64,7 @@ function PricingTab({
 
         <div className={`${styles.intro} wrap_content wrap_content-small md:order-1 lg:order-2`}>
           <div className={`${styles.tabs} flex flex-row flex-wrap justify-center`}>
-            {tab.map((tab) => (
+            {tabs.map((tab) => (
               <button
                 key={`${tab.id}-button`}
                 className={`${styles.tab} ${activeTab === tab.id ? styles.active : ''} w-1/2 md:w-auto`}
@@ -77,7 +77,7 @@ function PricingTab({
         </div>
 
         <div className={`${styles.tablesTab} order-3 w-full`}>
-          {tab.map((tab) => (
+          {tabs.map((tab) => (
             <div
             key={`${tab.id}-content`}
             style={{ display: tab.id === activeTab ? 'block' : 'none' }}

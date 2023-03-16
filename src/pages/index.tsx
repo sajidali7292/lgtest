@@ -294,7 +294,7 @@ export default function Page() {
           pt = 'md'
           pb = 'md'
           tabOpenedID = 'managedSeo' //use same as id below into tab object
-          tab={[
+          tabs={[
             {
               id: 'managedSeo',
               label: 'Managed SEO',
