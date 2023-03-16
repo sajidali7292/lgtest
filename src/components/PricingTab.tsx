@@ -9,20 +9,10 @@ interface Props {
   bgImage?: string;
   children?: React.ReactNode;
   isCentered?: boolean;
-  tabs?: Tab[];
+  tabs?: Array<any>;
   tabOpenedID?: string;
   pt?: string;
   pb?: string;
-}
-
-interface Tab {
-  id: string;
-  label: string;
-  planTitle: string;
-  content: string;
-  pricingModule?: string;
-  pricingScrolled?: boolean;
-  tablePricing: Array<any>;
 }
 
 function PricingTab({
