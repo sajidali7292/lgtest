@@ -293,7 +293,7 @@ export default function Page() {
           isCentered
           pt = 'md'
           pb = 'md'
-          tabOpenedID = 'managedSeo' //use same as id below into tab object
+          tabOpenedID = 'managedSeo'
           tabs={[
             {
               id: 'managedSeo',

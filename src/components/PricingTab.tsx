@@ -20,6 +20,9 @@ interface Tab {
   label: string;
   planTitle: string;
   content: string;
+  pricingModule?: string;
+  pricingScrolled?: boolean;
+  tablePricing: Array<any>;
 }
 
 function PricingTab({
@@ -78,16 +81,12 @@ function PricingTab({
 
         <div className={`${styles.tablesTab} order-3 w-full`}>
           {tabs.map((tab) => (
-            <div
-            key={`${tab.id}-content`}
-            style={{ display: tab.id === activeTab ? 'block' : 'none' }}
-            className={`${styles.contentTab}`}>
-              {tab.pricingModule == 'table' && (
+            <div key={`${tab.id}-content`} style={{ display: tab.id === activeTab ? 'block' : 'none' }} className={`${styles.contentTab}`}>
+              {tab.pricingModule == 'table' ? (
                 <PricingTable servicesData={tab.tablePricing} isScrolled={tab.pricingScrolled} />
-              )}
-              {tab.pricingModule == 'card' && (
+              ) : tab.pricingModule == 'card' ? (
                 <PricingCard servicesData={tab.tablePricing}/>
-              )}
+              ) : (<div></div>)}
             </div>
           ))}
         </div>
