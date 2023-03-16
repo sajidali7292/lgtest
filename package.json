@@ -18,6 +18,7 @@
   "dependencies": {
     "@faustjs/core": "^0.15.6",
     "@faustjs/next": "^0.15.6",
+    "core-js": "^3.29.1",
     "jquery": "^3.6.3",
     "next": "^12.1.0",
     "normalize.css": "^8.0.1",
