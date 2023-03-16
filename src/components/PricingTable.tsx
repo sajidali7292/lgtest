@@ -38,9 +38,11 @@ function PricingTable({
       //console.log(posHeader);
     };
 
-    document.addEventListener('DOMContentLoaded', function() {
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
       document.addEventListener('scroll', onScroll);
     });
+    
     return () => document.removeEventListener('scroll', onscroll)
   })
   
