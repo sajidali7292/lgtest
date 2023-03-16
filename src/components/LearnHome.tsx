@@ -31,6 +31,9 @@ interface Props {
   links: Link[];
   blocks: Block[];
 }
+function randomNumber(){
+  return Math.random();
+}
 
 function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
   return (
@@ -43,7 +46,7 @@ function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
             <div className={`${styles.links}`}>
               <ul style={{ display: 'flex' }}>
                 {links.map((link, index) => (
-                  <li key={index}>
+                  <li key={`${index}-${link.title}-links`}>
                     <a href={link.url}>{link.title}</a>
                   </li>
                 ))}
@@ -55,6 +58,7 @@ function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
           {blocks.map((block) => (
             block.type === 'video' ? (
               <VideoBlock
+                key={`${block.index}-${block.title}-video${randomNumber()}`}
                 index={block.index}
                 className={block.className}
                 Video_Thumbnail={block.thumbnail}
@@ -64,6 +68,7 @@ function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
               />
             ) : (
               <LinkBlock
+                key={`${block.index}-${block.title}-link${randomNumber()}`}
                 index={block.index}
                 className={block.className}
                 Link_Thumbnail={block.thumbnail}
