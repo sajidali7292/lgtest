@@ -31,10 +31,6 @@ interface Props {
   links: Link[];
   blocks: Block[];
 }
-function randomNumber(){
-  var randInt = window.crypto.getRandomValues(new Uint8Array(1))[0]
-  return randInt;
-}
 
 function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
   return (
@@ -59,7 +55,7 @@ function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
           {blocks.map((block) => (
             block.type === 'video' ? (
               <VideoBlock
-                key={`${block.index}-${block.title}-video${randomNumber()}`}
+                key={`${block.index}-${block.title}-video`}
                 index={block.index}
                 className={block.className}
                 Video_Thumbnail={block.thumbnail}
@@ -69,7 +65,7 @@ function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
               />
             ) : (
               <LinkBlock
-                key={`${block.index}-${block.title}-link${randomNumber()}`}
+                key={`${block.index}-${block.title}-link`}
                 index={block.index}
                 className={block.className}
                 Link_Thumbnail={block.thumbnail}
