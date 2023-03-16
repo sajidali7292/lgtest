@@ -16,8 +16,8 @@ function PricingTable({
     const onScroll = () => {
       let windowH = window.innerHeight / 2.5;
       let pageScroll = document.getElementsByTagName("html")[0].scrollTop;
-      let sectionPos = document.getElementsByClassName('table_row')[0].offsetTop - 50;
-      let sectionHeight = sectionPos + document.getElementsByClassName('table_row')[0].offsetHeight - windowH;
+      let sectionPos = document.querySelector('.table_row').offsetTop - 50;
+      let sectionHeight = sectionPos + document.querySelector('.table_row').offsetHeight - windowH;
       let posHeader = pageScroll - sectionPos + 25;
       //console.log(posHeader);
       let arrScrolled = Array.from( document.getElementsByClassName('plan_serviceNScroll') );
