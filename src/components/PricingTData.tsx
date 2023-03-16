@@ -9,7 +9,7 @@ interface Props {
   servData: any;
   servIndex: number;
   servColor?: string;
-  classStyle?: string;
+  classStyle?: any;
   isScrolled?: boolean;
 }
 

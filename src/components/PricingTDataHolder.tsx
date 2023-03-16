@@ -2,7 +2,7 @@ import React from 'react';
 // import styles from 'scss/components/PricingTDataHolder.module.scss';
 
 interface Props {
-  classStyle?: string;
+  classStyle?: any;
   isScrolled?: boolean;
 }
 

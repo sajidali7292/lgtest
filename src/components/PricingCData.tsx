@@ -7,7 +7,7 @@ import { ReactSVG } from "react-svg";
 
 interface Props {
   servData: any;
-  classStyle?: string;
+  classStyle?: any;
 }
 
 
