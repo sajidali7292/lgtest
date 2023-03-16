@@ -17,7 +17,7 @@ function PricingTable({
       let windowH = window.innerHeight / 2.5;
       let pageScroll = document.getElementsByTagName("html")[0].scrollTop;
       let table = document.querySelector('.table_row');
-      let sectionPos = document.querySelector('.table_row').offsetTop - 50;
+      let sectionPos = (table as HTMLElement).offsetTop - 50;
       let sectionHeight = sectionPos + (table as HTMLElement).offsetHeight - windowH;
       let posHeader = pageScroll - sectionPos + 25;
       //console.log(posHeader);
