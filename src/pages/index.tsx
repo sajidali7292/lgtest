@@ -169,6 +169,7 @@ export default function Page() {
 
 
         <CTA2
+          className="home_cta_1"
           title="Are you ready to seriously scale?"
           text="Choose only the products you need right now from our comprehensive menu. Whether you need a quick authority boost or a comprehensive growth package, we got you covered."
           button={{
@@ -178,6 +179,7 @@ export default function Page() {
         />
 
         <HomeFormSection
+          className="home_hubspot_form"
           title="See why the world's best companies choose LinkGraph to drive leads, traffic and revenue."
           text="“They are dedicated to our success and are a thoughtful sounding board when we run ideas by them - sometimes on ideas and projects that are tangential to our main SEO project with them. Also, I love that they allow for shorter-term contracts compared to the usual 1-year contract with other SEO companies. Lastly, they deliver on their promises.”"
           photo={{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group11.webp`, alt: "Client Photo" }}
@@ -563,6 +565,7 @@ export default function Page() {
         />
 
         <CTA2
+          className="home_cta_2"
           title="Work with our Award-Winning SEO Strategists"
           text="The LinkGraph team consists of SEO experts, industry-leading web developers, and editorial experts. With our talent and groundbreaking software suite, it's easy to guarantee results from our managed SEO campaigns."
           div="Products start as low as $250 / month"
@@ -575,7 +578,7 @@ export default function Page() {
         <ReviewsSlider />
 
         <CTA2
-          id="guarantee_cta"
+          className="home_cta_3"
           backgroundImage={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/03/award-3.webp'}
           title="The LinkGraph Guarantee"
           text="With every managed SEO campaign, we guarantee measurable results in keyword rankings, organic traffic, or overall search visibility."
@@ -640,29 +643,30 @@ export default function Page() {
           title="Choose your path"
           paths={[
             {
-              img: { url: 'path1.jpg' },
+              img: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group12.webp` },
               tag: 'services',
               title: 'Choose the perfect, done-for-you SEO Solution.',
               txt: `From full SEO services like link building, to managed PR campaigns and PPC, LinkGraph's specialists are standing by to help. When you work with us, we bake in our software into our partnership so you get double the marketing power.`,
               button: {
-                label: 'Get your Discount Now', url: 'https://dashboard.linkgraph.io/onboarding?promo_code=SEOPIONEERS',
-                type: 'third', rounded: true, size: 'big', icon: true
+                label: 'View Services', url: 'https://linkgraphstage.wpengine.com/services/',
+                type: 'third', rounded: true, size: 'big'
               }
             },
             {
-              img: { url: 'path2.jpg' },
+              img: { url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group13.webp` },
               tag: 'software',
               title: 'DIY with advanced SEO Software',
               txt: 'Our cutting-edge software suite can be used alone, or with our services, to track your rankings, optimize your content, analyze your competitors and more. You can create watch lists for important keywords and enable notifications so you never miss a move in the SERPs.',
               button: {
-                label: 'Get your Discount Now', url: 'https://dashboard.linkgraph.io/onboarding?promo_code=SEOPIONEERS',
-                type: 'third', rounded: true, size: 'big', icon: true
+                label: 'View Software', url: 'https://linkgraphstage.wpengine.com/searchatlas-seo-software/',
+                type: 'third', rounded: true, size: 'big'
               }
             },
           ]}
         />
 
         <TextLeftImageRight
+          className= "integrations"
           tag= "Integrations"
           title= "Share data and insights across all of your (other) favorite tools by integrating with LinkGraph"
           text= "Explore thousands of keywords and get tailored suggestions for your keyword strategy. Understand the competitive SEO landscape of your industry."
@@ -671,7 +675,8 @@ export default function Page() {
             {
               type: 'primary',
               url: '/button-1',
-              label: 'Button 1',
+              label: 'Get a Proposal',
+              icon: true
             },
           ]}
         />
@@ -681,14 +686,16 @@ export default function Page() {
           title="Trusted by the world’s most customer-centric teams"
           text="LinkGraph has driven growth for hundreds of brands in every industry. Learn more about our strategic approach in our case studies."
           button = {{
-            label: 'Get your Discount Now', url: 'https://dashboard.linkgraph.io/onboarding?promo_code=SEOPIONEERS',
-            type: 'third', rounded: true, size: 'big', icon: true
+            label: 'View SaaS Case Study', url: 'https://linkgraphstage.wpengine.com/case-study-bright-pattern/',
+            type: 'third', size: 'big'
           }}
-          quote="Their creative, strategic approach, and the intelligence of their team members is beyond what other companies in the space can provide. Trust and rely on their expertise, because they know what they’re doing."
+          quote="“Their creative, strategic approach, and the intelligence of their team members is beyond what other companies in the space can provide. Trust and rely on their expertise, because they know what they’re doing.”"
           photo={{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group1.webp`, alt: "Client Photo" }}
           name="Ted Hunting"
           position="Senior VP of Marketing at BrightPattern"
           logo={{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/image-1172.webp`, alt: "Brightpattern logo" }}
+          bgImage1={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Group-3392.png`}
+          bgImage2={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/quotes-1.webp`}
         />
 
         <LearnHome
@@ -696,25 +703,33 @@ export default function Page() {
           text="LinkGraph is committed to driving innovation in the SEO space by producing data science research, free eBooks, thought leadership pieces, webinars and more."
           links={[
             {
-              url: "https://www.linkgraph.io/resources",
-              title: "Resources",
+              url: "https://linkgraphstage.wpengine.com/seo-and-digital-marketing-ebooks/",
+              title: "eBooks",
             },
             {
-              url: "https://www.linkgraph.io/blog",
-              title: "Blog",
+              url: "https://linkgraphstage.wpengine.com/digital-marketing-seo-webinars/",
+              title: "Webinars",
+            },
+            {
+              url: "https://linkgraphstage.wpengine.com/seo-and-digital-marketing-blog/",
+              title: "Blog Posts",
+            },
+            {
+              url: "https://linkgraphstage.wpengine.com/videos/",
+              title: "Videos",
             },
           ]}
           blocks={[
             {
               type: "video",
               index: 1,
-              className: "sm:basis-full md:basis-6/12 basis-3/12",
               thumbnail: {
-                url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-draft.webp`,
+                url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Untitled-280-×-190-px3.webp`,
                 width: 574,
                 height: 322,
                 alt: "Video1",
               },
+              tag: "Video",
               title: "How to Draft a Blog Post with AI (in 90 seconds)",
               readTime: "2 minute watch",
               modalContent: (
@@ -722,7 +737,7 @@ export default function Page() {
                   <iframe
                     width="780"
                     height="417"
-                    src="https://www.youtube.com/embed/JC4vhPfBX5E"
+                    src="https://www.youtube.com/embed/vq0O7d1pqaM"
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -733,36 +748,34 @@ export default function Page() {
             },
             {
               type: "video",
-              index: 1,
-              className: "sm:basis-full md:basis-6/12 basis-3/12",
+              index: 2,              
               thumbnail: {
-                url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-draft.webp`,
+                url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/ExvmwY6WQAA0CQu.webp`,
                 width: 574,
                 height: 322,
                 alt: "video2",
               },
+              tag: "Video",
               title: "How to Draft a Blog Post with AI (in 90 seconds)",
               readTime: "2 minute watch",
               modalContent: (
                 <div>
-                  <iframe
-                    width="780"
-                    height="417"
-                    src="https://www.youtube.com/embed/JC4vhPfBX5E"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
+                  <iframe width="780"
+                  height="417"
+                  src="https://www.youtube.com/embed/gY-t2vbwYoM"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
+                  </iframe>
                 </div>
               ),
             },
             {
+              tag: "Ebook",
               type: "link",
-              index: 2,
-              className: "sm:basis-full md:basis-6/12 basis-3/12",
+              index: 3,
               thumbnail: {
-                url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-draft.webp`,
+                url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group6.webp`,
                 width: 574,
                 height: 322,
                 alt:"Link1",
@@ -772,11 +785,11 @@ export default function Page() {
               link: "https://www.linkgraph.io",
             },
             {
+              tag: "Ebook",
               type: "link",
-              index: 2,
-              className: "sm:basis-full md:basis-6/12 basis-3/12",
+              index: 4,
               thumbnail: {
-                url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/How-to-draft.webp`,
+                url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group7.webp`,
                 width: 574,
                 height: 322,
                 alt:"link2",
@@ -789,6 +802,7 @@ export default function Page() {
         />
 
         <TextLeftImageRight
+          className="Hiring"
           column1="order-last"
           column3="order-first"
           title= "We're here, we're fun, and we're hiring."
@@ -798,12 +812,13 @@ export default function Page() {
             {
               type: 'primary',
               url: '/button-1',
-              label: 'Button 1',
+              label: 'See Open Roles',
             },
           ]}
         />
 
         <TextLeftImageRight
+          className="create_faster"
           column1="order-first"
           column3="order-last"
           title= "Create and publish 6 months of content in 1 week."
@@ -813,13 +828,12 @@ export default function Page() {
             {
               type: 'primary',
               url: '/button-1',
-              label: 'Button 1',
+              label: 'Get Started',
             },
             {
-              type: 'secondary',
+              type: 'primary',
               url: '/button-2',
-              label: 'Button 2',
-              icon: true,
+              label: 'Learn More',
             },
           ]}
         />
