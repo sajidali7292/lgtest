@@ -75,30 +75,30 @@ function PricingTData({
       </div>
       {/* <div className="plan_paidM"><p><b>Paid Media (hours)</b></p></div> */}
       <div className={`${classStyle.plan_softwareA}`}>
-          <p className={`${classStyle.spacerText}`}>&nbsp;</p>
-          <p className={`${classStyle.largeText}`} dangerouslySetInnerHTML={{__html: servData.serviceSoftware?.serviceSearch}}></p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceSoftware?.serviceEarly, servData.serviceName, servColor)}</p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceSoftware?.serviceLocked, servData.serviceName, servColor)}</p>
+          <div className={`${classStyle.spacerText}`}>&nbsp;</div>
+          <div className={`${classStyle.largeText}`} dangerouslySetInnerHTML={{__html: servData.serviceSoftware?.serviceSearch}}></div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceSoftware?.serviceEarly, servData.serviceName, servColor)}</div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceSoftware?.serviceLocked, servData.serviceName, servColor)}</div>
       </div>
       <div className={`${classStyle.plan_supportG}`}>
-          <p className={`${classStyle.spacerText}`}>&nbsp;</p>
-          <p dangerouslySetInnerHTML={{__html: servData.serviceSupport?.serviceAccount}}></p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceSupport?.serviceDedicated, servData.serviceName, servColor)}</p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceSupport?.serviceChat, servData.serviceName, servColor)}</p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceSupport?.serviceConsultation, servData.serviceName, servColor)}</p>
+          <div className={`${classStyle.spacerText}`}>&nbsp;</div>
+          <div dangerouslySetInnerHTML={{__html: servData.serviceSupport?.serviceAccount}}></div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceSupport?.serviceDedicated, servData.serviceName, servColor)}</div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceSupport?.serviceChat, servData.serviceName, servColor)}</div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceSupport?.serviceConsultation, servData.serviceName, servColor)}</div>
       </div>
       <div className={`${classStyle.plan_community}`}>
-          <p className={`${classStyle.spacerText}`}>&nbsp;</p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceCommunity?.serviceAccess, servData.serviceName, servColor)}</p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceCommunity?.serviceSEO, servData.serviceName, servColor)}</p>
+          <div className={`${classStyle.spacerText}`}>&nbsp;</div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceCommunity?.serviceAccess, servData.serviceName, servColor)}</div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceCommunity?.serviceSEO, servData.serviceName, servColor)}</div>
       </div>
       <div className={`${classStyle.plan_result}`}>
-          <p className={`${classStyle.spacerText}`}>&nbsp;</p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceResults?.serviceMonthly, servData.serviceName, servColor)}</p>
-          <p className={`${classStyle.iconW}`}>{stateImage(servData.serviceResults?.serviceLinkGraphMetric, servData.serviceName, servColor)}</p>
+          <div className={`${classStyle.spacerText}`}>&nbsp;</div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceResults?.serviceMonthly, servData.serviceName, servColor)}</div>
+          <div className={`${classStyle.iconW}`}>{stateImage(servData.serviceResults?.serviceLinkGraphMetric, servData.serviceName, servColor)}</div>
       </div>
       <div className={`${classStyle.plan_total}`}>
-          <p className={`${classStyle.spacerText}`}><b dangerouslySetInnerHTML={{__html: servData.serviceTotal}}></b></p>
+          <div className={`${classStyle.spacerText}`}><b dangerouslySetInnerHTML={{__html: servData.serviceTotal}}></b></div>
       </div>
       <div className={`${classStyle.plan_callA}`}>
           <Button buttonObj={servData.serviceBtn}/>

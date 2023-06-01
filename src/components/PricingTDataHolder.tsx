@@ -21,33 +21,33 @@ function PricingTDataHolder({
       <div className={`${classStyle.plan_webD}`}><p><b>Web Development + Technical SEO (hours)</b></p></div>
       {/* <div className="plan_paidM"><p><b>Paid Media (hours)</b></p></div> */}
       <div className={`${classStyle.plan_softwareA}`}>
-          <p className={`${classStyle.different}`}><b>Software Access</b></p>
-          <p>Search Atlas Account</p>
-          <p>Early access to new software features</p>
-          <p>Locked rate</p>
+          <div className={`${classStyle.different}`}><b>Software Access</b></div>
+          <div>Search Atlas Account</div>
+          <div>Early access to new software features</div>
+          <div>Locked rate</div>
       </div>
       <div className={`${classStyle.plan_supportG}`}>
-          <p className={`${classStyle.different}`}><b>Support &amp; Guidance</b></p>
-          <p>Account Manager Support (hours)</p>
-          <p>Dedicated SEO Writer</p>
-          <p>Live chat // Slack private channel</p>
-          <p>1-on-1 Consultation with SEO Specialist</p>
+          <div className={`${classStyle.different}`}><b>Support &amp; Guidance</b></div>
+          <div>Account Manager Support (hours)</div>
+          <div>Dedicated SEO Writer</div>
+          <div>Live chat // Slack private channel</div>
+          <div>1-on-1 Consultation with SEO Specialist</div>
       </div>
       <div className={`${classStyle.plan_community}`}>
-          <p className={`${classStyle.different}`}><b>Community</b></p>
-          <p>Access to Webinars</p>
-          <p>SEO Training Modules</p>
+          <div className={`${classStyle.different}`}><b>Community</b></div>
+          <div>Access to Webinars</div>
+          <div>SEO Training Modules</div>
       </div>
       <div className={`${classStyle.plan_result}`}>
-          <p className={`${classStyle.different}`}><b>Results</b></p>
-          <p>Monthly SEO Reporting</p>
-          <p className={`${classStyle.larg_r}`}>LinkGraph SEO Metrics Improvement Guarantee **</p>
+          <div className={`${classStyle.different}`}><b>Results</b></div>
+          <div>Monthly SEO Reporting</div>
+          <div className={`${classStyle.larg_r}`}>LinkGraph SEO Metrics Improvement Guarantee **</div>
       </div>
       <div className={`${classStyle.plan_total}`}>
-          <p className={`${classStyle.different}`}><b>Total Strategy Hours</b></p>
+          <div className={`${classStyle.different}`}><b>Total Strategy Hours</b></div>
       </div>
       <div className={`${classStyle.plan_callA}`}>
-          <p>&nbsp;</p>
+          <div>&nbsp;</div>
       </div>
     </div>
   );
