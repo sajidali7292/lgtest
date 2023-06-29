@@ -1,4 +1,3 @@
-$color-black: #080808;
 $color-dark-gray: #1f1f1f;
 $color-mid-gray: #606060;
 $color-thistle:#C4B4C7;
@@ -18,7 +17,8 @@ $content-width: 1200px;
 $content-width-extended: 1360px;
 $content-width-large: 1360px;
 $content-width-semi_large: 980px;
-$content-width-extended_md: 755px;
+$content-width-extended_lg: 1000px;
+$content-width-extended_md: 800px;
 $content-width_sm: 100%;
 
 $breakpoint-small: 576px;
@@ -34,11 +34,14 @@ $color-purple-dark: #573E74;
 $color-hg1: #8860D4;
 $color-hg2: #5DA4AF;
 $color-hg3: #6B49AB;
+$color-hg4: #A455AC;
 $color-white: #FFFFFF;
 $color-black: #000000;
+$color-hg4: #65448B;
+$color-light-blue: #B790FF;
 
 $color-semi-white: #F8F8F8;
-$color-light-gray: #EDEDED;
+$color-light-gray: #dddddd;
 $color-semi-gray: #6C6E72;
 $color-transparent: transparent;
 $color-semi-dark: #26262A;
@@ -47,10 +50,13 @@ $color-yellow: #FEC725;
 $color-lg-pink: #FF258E;
 $color-gray: #B7B7B7;
 
-$color-bronze: #e59e59;
+$color-bronze: #d47c24;
 $color-silver: #afafaf;
 $color-gold: #eeba2b;
 $color-diamond: #d5ecf9;
+$color-green: #478064;
+
+$color-red: #EA532A;
 
 /*PLUS JAKARTA*/
 @font-face {
