@@ -5,6 +5,8 @@ import { sectionVariantsTop, sectionVariantsBottom } from './constants';
 
 interface Props {
   data?: any;
+  pt?: string;
+  pb?: string;
 }
 
 function ServicesHome({
