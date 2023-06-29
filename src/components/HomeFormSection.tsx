@@ -26,14 +26,7 @@ interface Props {
   client_name?: string;
   client_position?: string;
   form_logos?: ClientLogo[];
-  hubspotFormProps?: {
-    portalId: string;
-    formId: string;
-    css?: string;
-    onSubmit?: () => void;
-    loading?: JSX.Element;
-    onReady?: (form: Record<string, any>) => void;
-  };
+  hubspotFormProps?: any;
 }
 
 function HomeFormSection({
