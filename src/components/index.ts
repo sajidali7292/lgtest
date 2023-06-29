@@ -23,7 +23,6 @@ import PricingTab from './PricingTab';
 import PricingCard from './PricingCard';
 import PricingTable from './PricingTable';
 import Paths from './Paths';
-import TextLeftImageRight from './TextLeftImageRight';
 import CaseStudyHome from './CaseStudyHome';
 import LearnHome from './LearnHome';
 import ProductHuntBadge from './UI/productHuntBadge';
@@ -31,4 +30,4 @@ import MenuItems from './Menus/MenuItems';
 import SubMenu from './Menus/SubMenu';
 import MenuBuilder from './Menus/MenuBuilder';
 
-export { CTAImage, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA, HomeFormSection, ReviewsSlider, VideoHome, PricingTab, PricingCard, PricingTable, Paths, TextLeftImageRight, CaseStudyHome, VideoBlock, LinkBlock, LearnHome, ProductHuntBadge };
+export { CTAImage, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA, HomeFormSection, ReviewsSlider, VideoHome, PricingTab, PricingCard, PricingTable, Paths, CaseStudyHome, VideoBlock, LinkBlock, LearnHome, ProductHuntBadge };
