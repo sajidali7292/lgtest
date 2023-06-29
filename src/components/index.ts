@@ -1,4 +1,4 @@
-import CTA from './CTA';
+import CTAImage from './CTAImage';
 import Footer from './Footer';
 import FooterNew from './FooterNew';
 import Header from './Header';
@@ -15,7 +15,7 @@ import Modal from './UI/Modal';
 import VideoBlock from './UI/VideoBlock';
 import LinkBlock from './UI/LinkBlock';
 import ServicesHome from './ServicesHome';
-import CTA2 from './CTA2';
+import CTA from './CTA';
 import HomeFormSection from './HomeFormSection';
 import ReviewsSlider from './ReviewsSlider';
 import VideoHome from './VideoHome';
@@ -26,8 +26,9 @@ import Paths from './Paths';
 import TextLeftImageRight from './TextLeftImageRight';
 import CaseStudyHome from './CaseStudyHome';
 import LearnHome from './LearnHome';
+import ProductHuntBadge from './UI/productHuntBadge';
 import MenuItems from './Menus/MenuItems';
 import SubMenu from './Menus/SubMenu';
 import MenuBuilder from './Menus/MenuBuilder';
 
-export { CTA, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA2, HomeFormSection, ReviewsSlider, VideoHome, PricingTab, PricingCard, PricingTable, Paths, TextLeftImageRight, CaseStudyHome, VideoBlock, LinkBlock, LearnHome };
+export { CTAImage, Footer, FooterNew, Header, Hero, HeroHome, Posts, Pagination, BasicText, GridImages, TestimonialsM, DataDriven, CountingNumbers, Modal, ServicesHome, CTA, HomeFormSection, ReviewsSlider, VideoHome, PricingTab, PricingCard, PricingTable, Paths, TextLeftImageRight, CaseStudyHome, VideoBlock, LinkBlock, LearnHome, ProductHuntBadge };
