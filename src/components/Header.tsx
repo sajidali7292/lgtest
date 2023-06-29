@@ -210,7 +210,9 @@ function Header({
                         </div>
                         <div className={`${styles.navNew_phone}`}>
                           <span className={`${styles.footer_phoneAgency}`}>
-                            <a href="/learn-how-we-can-grow-your-business/">Contact sales</a>
+                            <Link href="/learn-how-we-can-grow-your-business/" passHref>
+                              <a href="/learn-how-we-can-grow-your-business/">Contact sales</a>
+                            </Link>
                           </span>
                         </div>
                         </>
@@ -218,7 +220,9 @@ function Header({
                         <>
                         <div className={`${styles.footer_chat}`}>
                           Not sure where to start? 
-                          <a href="/learn-how-we-can-grow-your-business/" rel="follow">Chat with us</a>
+                          <Link href="/learn-how-we-can-grow-your-business/" passHref>
+                            <a href="/learn-how-we-can-grow-your-business/" rel="follow">Chat with us</a>
+                          </Link>
                         </div>
                         <div className={`${styles.navNew_phone}`}>
                           Free  consultation 
