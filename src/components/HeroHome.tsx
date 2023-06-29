@@ -32,7 +32,7 @@ function HeroHome({
     >
       <div className={styles.wrap}>
         <h1>
-          <span className={styles.pink}>Grow your Revenue</span> through Transparent <span className={styles.grey}>&</span> Results-Driven SEO
+          <span className={`color-pink`}>Grow your Revenue</span> through Transparent <span className={`color-gray`}>&</span> Results-Driven SEO
         </h1>
         <p>{text}</p>
         <form onSubmit={handleSubmit}>

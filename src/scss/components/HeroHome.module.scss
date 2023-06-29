@@ -31,36 +31,15 @@
     letter-spacing: -.01em;
     text-align: left;
     color: #151433;
-    width: 128px;
     max-width: 100%;
     padding-right: 150px;
 }
 
 .awardImg {
-    width: 76px;
-    height: 33px;
+    width: 100%;
+    height: 30px;
     object-fit: contain;
     object-position: left;
-}
-
-.award_row div:nth-child(2) img {
-    width: 39px;
-}
-
-  .award_row div:nth-child(3) img {
-    width: 114px;
-}
-
-  .award_row div:nth-child(4) img {
-    width: 127px;
-}
-
-  .award_row div:nth-child(5) img {
-    width: 71px;
-}
-
-  .award_row div:nth-child(6) img {
-    width: 68px;
 }
 
 
@@ -167,9 +146,8 @@
 .pulse_animation span img {
     width: 15px;
     filter: grayscale(100%) contrast(20) invert(100%);
-    padding-top: 7.2px;
-    margin-left: 11px;
     position: absolute;
-    top: 2px;
+    top: 50%;
     right: 45px;
+    transform: translateY(-50%);
 }
