@@ -13,12 +13,16 @@ interface Props {
   photo?: {
     url?: string;
     alt?: string;
+    width?: number;
+    height?: number;
   };
   name?: string;
   position?: string;
   logo?: {
     url?: string;
     alt?: string;
+    width?: number;
+    height?: number;
   };
   button?: any;
   badgeObj?: any;
