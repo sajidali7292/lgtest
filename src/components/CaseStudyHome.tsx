@@ -10,20 +10,10 @@ interface Props {
   title?: string;
   text?: string;
   quote?: string;
-  photo?: {
-    url?: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-  };
+  photo?: any;
   name?: string;
   position?: string;
-  logo?: {
-    url?: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-  };
+  logo?: any;
   button?: any;
   badgeObj?: any;
   bgImage1?: any;
