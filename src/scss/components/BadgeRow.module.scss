@@ -1,0 +1,17 @@
+// CSS for the CaseStudyHome component in components/BadgeRow.tsx.
+
+@import "scss/variables";
+
+.bottom_txt {
+    font-family: $Gordita;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.3;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 35px;
+    padding: 8px 12px;
+    .image_wrap{
+        line-height: 0.5;
+    }
+}
