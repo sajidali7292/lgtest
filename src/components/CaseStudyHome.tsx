@@ -89,8 +89,8 @@ function CaseStudyHome({
               { name &&
                 <div className={`flex flex-row items-center ${styles.caseWrapper}`}>
                   <div className={`flex-none ${styles.photoCaseStudyHome}`}>
-                    <Image className="object-contain object-right"
-                      src={photo.url} alt={photo.alt} className={styles.trust_cPhoto}
+                    <Image className={`${styles.trust_cPhoto} object-contain object-right`}
+                      src={photo.url} alt={photo.alt} className=
                       width={`${photo.width ? photo.width:'77'}`}
                       height={`${photo.height ? photo.height:'77'}`}/>
                   </div>
@@ -98,7 +98,7 @@ function CaseStudyHome({
                     <div className={styles.trust_cName}>{name}</div>
                     <div className={styles.trust_cPosition}>{position}</div>
                     <div className={styles.trust_cLogo}>
-                      <Image className="object-contain object-right"
+                      <Image className={`object-contain object-right`}
                         src={logo.url} alt={logo.alt}
                         width={`${logo.width ? logo.width:'150'}`}
                         height={`${logo.height ? logo.height:'20'}`}/>
