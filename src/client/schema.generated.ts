@@ -1129,6 +1129,14 @@ export enum MenuLocationEnum {
   FOOTER_2 = "FOOTER_2",
   /** Put the menu in the footer-3 location */
   FOOTER_3 = "FOOTER_3",
+  /** Put the menu in the NavMenuTopLeft location */
+  NAVMENUTOPLEFT = "NAVMENUTOPLEFT",
+  /** Put the menu in the nav-menu-left location */
+  NAV_MENU_LEFT = "NAV_MENU_LEFT",
+  /** Put the menu in the nav-menu-right location */
+  NAV_MENU_RIGHT = "NAV_MENU_RIGHT",
+  /** Put the menu in the nav-menu-top location */
+  NAV_MENU_TOP = "NAV_MENU_TOP",
   /** Put the menu in the primary location */
   PRIMARY = "PRIMARY",
 }
@@ -1703,6 +1711,8 @@ export interface PostPostFormatsNodeInput {
 
 /** The status of the object. */
 export enum PostStatusEnum {
+  /** Objects with the acf-disabled status */
+  ACF_DISABLED = "ACF_DISABLED",
   /** Objects with the auto-draft status */
   AUTO_DRAFT = "AUTO_DRAFT",
   /** Objects with the draft status */
@@ -4004,6 +4014,11 @@ export const scalarsEnumsHash: import("gqty").ScalarsEnumsHash = {
   UsersConnectionSearchColumnEnum: true,
 };
 export const generatedSchema = {
+  AcfFieldGroup: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    $on: { __type: "$AcfFieldGroup!" },
+  },
   AtlasContentModelerSettingsSettings: {
     __typename: { __type: "String!" },
     atlasContentModelerUsageTracking: { __type: "String" },
@@ -5319,6 +5334,7 @@ export const generatedSchema = {
     linkRelationship: { __type: "String" },
     locations: { __type: "[MenuLocationEnum]" },
     menu: { __type: "MenuItemToMenuConnectionEdge" },
+    menuFields: { __type: "MenuItem_Menufields" },
     menuItemId: { __type: "Int" },
     order: { __type: "Int" },
     parentDatabaseId: { __type: "Int" },
@@ -5364,6 +5380,14 @@ export const generatedSchema = {
   MenuItemToMenuItemLinkableConnectionEdge: {
     __typename: { __type: "String!" },
     node: { __type: "MenuItemLinkable" },
+  },
+  MenuItem_Menufields: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    haveTitle: { __type: "Boolean" },
+    isReversed: { __type: "Boolean" },
+    newIcon: { __type: "MediaItem" },
+    submenuIsReversed: { __type: "Boolean" },
   },
   MenuToMenuItemConnection: {
     __typename: { __type: "String!" },
@@ -7412,6 +7436,18 @@ export const generatedSchema = {
     themeUri: { __type: "String" },
     version: { __type: "String" },
   },
+  ThemeGeneralSettings: {
+    __typename: { __type: "String!" },
+    lgOptions: { __type: "ThemeGeneralSettings_Lgoptions" },
+    pageSlug: { __type: "String" },
+    pageTitle: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    lgLogo: { __type: "MediaItem" },
+    lgNumber: { __type: "String" },
+  },
   UniformResourceIdentifiable: {
     __typename: { __type: "String!" },
     conditionalTags: { __type: "ConditionalTags" },
@@ -8670,6 +8706,7 @@ export const generatedSchema = {
       },
     },
     theme: { __type: "Theme", __args: { id: "ID!" } },
+    themeGeneralSettings: { __type: "ThemeGeneralSettings" },
     themes: {
       __type: "RootQueryToThemeConnection",
       __args: { after: "String", before: "String", first: "Int", last: "Int" },
@@ -8804,6 +8841,7 @@ export const generatedSchema = {
       "Testimonial",
     ],
     MenuItemObjectUnion: ["Category", "Page", "Post", "Tag"],
+    AcfFieldGroup: ["MenuItem_Menufields", "ThemeGeneralSettings_Lgoptions"],
     NodeWithContentEditor: ["Page", "Post"],
     NodeWithFeaturedImage: ["Page", "Post", "Project", "TeamMember"],
     NodeWithPageAttributes: ["Page"],
@@ -8812,6 +8850,18 @@ export const generatedSchema = {
     NodeWithTrackbacks: ["Post"],
   },
 } as const;
+
+/**
+ * A Field Group registered by ACF
+ */
+export interface AcfFieldGroup {
+  __typename?: "MenuItem_Menufields" | "ThemeGeneralSettings_Lgoptions";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  $on: $AcfFieldGroup;
+}
 
 /**
  * The atlasContentModelerSettings setting type
@@ -11612,6 +11662,10 @@ export interface MenuItem {
    */
   menu?: Maybe<MenuItemToMenuConnectionEdge>;
   /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Menu Fields&quot; was set to Show in GraphQL.
+   */
+  menuFields?: Maybe<MenuItem_Menufields>;
+  /**
    * WP ID of the menu item.
    * @deprecated Deprecated in favor of the databaseId field
    */
@@ -11732,6 +11786,21 @@ export interface MenuItemToMenuItemLinkableConnectionEdge {
    * The node of the connection, without the edges
    */
   node?: Maybe<MenuItemLinkable>;
+}
+
+/**
+ * Field Group
+ */
+export interface MenuItem_Menufields {
+  __typename?: "MenuItem_Menufields";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  haveTitle?: Maybe<ScalarsEnums["Boolean"]>;
+  isReversed?: Maybe<ScalarsEnums["Boolean"]>;
+  newIcon?: Maybe<MediaItem>;
+  submenuIsReversed?: Maybe<ScalarsEnums["Boolean"]>;
 }
 
 /**
@@ -16054,6 +16123,32 @@ export interface Theme {
 }
 
 /**
+ * Settings options.
+ */
+export interface ThemeGeneralSettings {
+  __typename?: "ThemeGeneralSettings";
+  /**
+   * Added to the GraphQL Schema because the ACF Field Group &quot;Theme Options&quot; was set to Show in GraphQL.
+   */
+  lgOptions?: Maybe<ThemeGeneralSettings_Lgoptions>;
+  pageSlug?: Maybe<ScalarsEnums["String"]>;
+  pageTitle?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions {
+  __typename?: "ThemeGeneralSettings_Lgoptions";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  lgLogo?: Maybe<MediaItem>;
+  lgNumber?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
  * Any node that has a URI
  */
 export interface UniformResourceIdentifiable {
@@ -17575,6 +17670,7 @@ export interface Query {
     where?: Maybe<RootQueryToTestimonialConnectionWhereArgs>;
   }) => Maybe<RootQueryToTestimonialConnection>;
   theme: (args: { id: Scalars["ID"] }) => Maybe<Theme>;
+  themeGeneralSettings?: Maybe<ThemeGeneralSettings>;
   themes: (args?: {
     after?: Maybe<Scalars["String"]>;
     before?: Maybe<Scalars["String"]>;
@@ -17688,6 +17784,7 @@ export interface SchemaObjectTypes {
   MenuItemToMenuItemConnection: MenuItemToMenuItemConnection;
   MenuItemToMenuItemConnectionEdge: MenuItemToMenuItemConnectionEdge;
   MenuItemToMenuItemLinkableConnectionEdge: MenuItemToMenuItemLinkableConnectionEdge;
+  MenuItem_Menufields: MenuItem_Menufields;
   MenuToMenuItemConnection: MenuToMenuItemConnection;
   MenuToMenuItemConnectionEdge: MenuToMenuItemConnectionEdge;
   Mutation: Mutation;
@@ -17804,6 +17901,8 @@ export interface SchemaObjectTypes {
   Testimonial: Testimonial;
   TestimonialToPreviewConnectionEdge: TestimonialToPreviewConnectionEdge;
   Theme: Theme;
+  ThemeGeneralSettings: ThemeGeneralSettings;
+  ThemeGeneralSettings_Lgoptions: ThemeGeneralSettings_Lgoptions;
   UpdateCategoryPayload: UpdateCategoryPayload;
   UpdateCommentPayload: UpdateCommentPayload;
   UpdateMediaItemPayload: UpdateMediaItemPayload;
@@ -17927,6 +18026,7 @@ export type SchemaObjectTypesNames =
   | "MenuItemToMenuItemConnection"
   | "MenuItemToMenuItemConnectionEdge"
   | "MenuItemToMenuItemLinkableConnectionEdge"
+  | "MenuItem_Menufields"
   | "MenuToMenuItemConnection"
   | "MenuToMenuItemConnectionEdge"
   | "Mutation"
@@ -18043,6 +18143,8 @@ export type SchemaObjectTypesNames =
   | "Testimonial"
   | "TestimonialToPreviewConnectionEdge"
   | "Theme"
+  | "ThemeGeneralSettings"
+  | "ThemeGeneralSettings_Lgoptions"
   | "UpdateCategoryPayload"
   | "UpdateCommentPayload"
   | "UpdateMediaItemPayload"
@@ -18084,6 +18186,11 @@ export type SchemaObjectTypesNames =
   | "UserToUserRoleConnectionEdge"
   | "WPPageInfo"
   | "WritingSettings";
+
+export interface $AcfFieldGroup {
+  MenuItem_Menufields?: MenuItem_Menufields;
+  ThemeGeneralSettings_Lgoptions?: ThemeGeneralSettings_Lgoptions;
+}
 
 export interface $Commenter {
   CommentAuthor?: CommentAuthor;
