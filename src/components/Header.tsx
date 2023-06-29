@@ -134,7 +134,7 @@ function Header({
                     ${link.menuFields.isReversed ? styles.isReversed:''}
                   `}>
                   { link?.menuFields?.newIcon && (
-                    <Image src={link.menuFields?.newIcon?.mediaItemUrl} alt={`${link.menuFields.newIcon.altText ? child.menuFields.newIcon.altText:'Icon'}`} width="15" height="15"/>
+                    <Image src={link.menuFields?.newIcon?.mediaItemUrl} alt={`${link.menuFields.newIcon.altText ? link.menuFields.newIcon.altText:'Icon'}`} width="15" height="15"/>
                   )}
                   {link.label}
                   {hasChildItems &&(
