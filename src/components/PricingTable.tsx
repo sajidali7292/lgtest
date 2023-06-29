@@ -13,39 +13,35 @@ function PricingTable({
   isScrolled = false,
 }: Props): JSX.Element {
   useEffect(() => {
-    const onScroll = () => {
-      let windowH = window.innerHeight / 2.5;
-      let pageScroll = document.getElementsByTagName("html")[0].scrollTop;
-      let tableRow = document.querySelector('.table_row');
-      let sectionPos = (tableRow as HTMLElement).offsetTop - 50;
-      let sectionHeight = sectionPos + (tableRow as HTMLElement).offsetHeight - windowH;
-      let posHeader = pageScroll - sectionPos + 25;
-      //console.log(posHeader);
-      let arrScrolled = Array.from( document.getElementsByClassName('plan_serviceNScroll') );
+    window.addEventListener('scroll', isStickyTable);
+    return () => {
+        window.removeEventListener('scroll', isStickyTable);
+    };
+  });
+  const isStickyTable = (e) => {
+    let windowH = window.innerHeight / 2.5;
+    let pageScroll = document.getElementsByTagName("html")[0].scrollTop;
+    let tableRow = document.querySelector('.table_row');
+    let sectionPos = (tableRow as HTMLElement).offsetTop - 50;
+    let sectionHeight = sectionPos + (tableRow as HTMLElement).offsetHeight - windowH;
+    let posHeader = pageScroll - sectionPos + 25;
+    //console.log('posHeader: ', posHeader);
+    let arrScrolled = Array.from( document.getElementsByClassName('plan_serviceNScroll') );
 
-      if( pageScroll >= sectionPos ){
-        if( pageScroll <= sectionHeight ){
-          arrScrolled.forEach(element => {
-            element.classList.add('topScrolled');
-            (element as HTMLElement).style.top = posHeader+'px';
-          });
-        }
-      }else{
+    if( pageScroll >= sectionPos ){
+      if( pageScroll <= sectionHeight ){
         arrScrolled.forEach(element => {
-          element.classList.remove('topScrolled');
-          (element as HTMLElement).style.top = '0';
+          element.classList.add('topScrolled');
+          (element as HTMLElement).style.top = posHeader+'px';
         });
       }
-      //console.log(posHeader);
-    };
-
-    
-    document.addEventListener("DOMContentLoaded", function(event) {
-      document.addEventListener('scroll', onScroll);
-    });
-    
-    return () => document.removeEventListener('scroll', onscroll)
-  })
+    }else{
+      arrScrolled.forEach(element => {
+        element.classList.remove('topScrolled');
+        (element as HTMLElement).style.top = '0';
+      });
+    }
+  };
   
 
   return (
