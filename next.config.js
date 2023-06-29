@@ -4,7 +4,8 @@ const { withFaust } = require('@faustjs/next');
 
 const nextConfig = {
     images: {
-        domains: ['bplgtest.wpengine.com'],
+        dangerouslyAllowSVG: true,
+        domains: ['bplgtest.wpengine.com', 'api.producthunt.com'],
     },
 };
 
