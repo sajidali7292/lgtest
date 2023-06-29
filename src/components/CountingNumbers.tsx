@@ -82,8 +82,8 @@ function CountingNumbers ({
           ))}  
         </div>
         {button && (
-                <Button buttonObj={button} />
-              )}
+          <Button buttonObj={button} />
+        )}
       </div>
     </section>
   );
