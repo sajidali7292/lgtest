@@ -6,10 +6,13 @@ export const backgroundColors = {
     silver: "bg-silver text-black",
     diamond: "bg-diamond text-black",
     black: "bg-black text-white",
+    white: "bg-white text-black",
+    red: "bg-red text-white",
 }
 
 export const sectionVariantsTop = {
     zr: 'pt-0',
+    xxs: 'pt-2 lg:pt-5',
     xs: 'pt-7 lg:pt-14',
     sm: 'pt-8 lg:pt-16',
     md: 'pt-9 lg:pt-24',
@@ -19,6 +22,7 @@ export const sectionVariantsTop = {
 }
 export const sectionVariantsBottom = {
     zr: 'pb-0',
+    xxs: 'pb-2 lg:pb-5',
     xs: 'pb-7 lg:pb-14',
     sm: 'pb-8 lg:pb-16',
     md: 'pb-9 lg:pb-24',
