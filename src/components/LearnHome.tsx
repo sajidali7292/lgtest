@@ -2,6 +2,9 @@ import React from 'react';
 import styles from 'scss/components/LearnHome.module.scss';
 import VideoBlock from './UI/VideoBlock';
 import LinkBlock from './UI/LinkBlock';
+import Button from './UI/Button/index';
+import classnames from 'classnames';
+import { backgroundColors, sectionVariantsTop, sectionVariantsBottom } from './constants';
 
 
 interface Link {
@@ -18,6 +21,7 @@ interface Block {
     height: number;
     alt: string;
   };
+  tag?: string;
   title?: string;
   readTime?: string;
   modalContent?: JSX.Element;
@@ -30,18 +34,25 @@ interface Props {
   text: string;
   links: Link[];
   blocks: Block[];
+  button?: any;
+  pt?: string;
+  pb?: string;
+  bg?: string;
 }
 
-function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
+function LearnHome({ title, text, links, blocks, button, pt, pb, bg }: Props): JSX.Element {
+  const ptVariant = sectionVariantsTop[pt];
+  const pBVariant = sectionVariantsBottom[pb];
+  const bgVariant = backgroundColors[bg];
   return (
-    <section className="LaHome_learnS">
-      <div className={styles.container}>
+    <section className={`${styles.learn_section} ${bgVariant} ${ptVariant} ${pBVariant}`}>
+      <div className={`${styles.container} container`}>
         <div className={`${styles.row} flex flex-row`}>
           <div className="basis-full">
             <h2 className={`${styles.title}`}>{title}</h2>
             <div className={`${styles.text}`}>{text}</div>
             <div className={`${styles.links}`}>
-              <ul style={{ display: 'flex' }}>
+              <ul className="flex justify-center gap-28">
                 {links.map((link, index) => (
                   <li key={`${index}-${link.title}-links`}>
                     <a href={link.url}>{link.title}</a>
@@ -49,6 +60,7 @@ function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
                 ))}
               </ul>
             </div>
+            <div className={`${styles.buttonWrap}`}><Button buttonObj={button} /></div>
           </div>
         </div>
         <div className={`${styles.row} ${styles.carrusel} flex flex-row`}>
@@ -57,8 +69,9 @@ function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
               <VideoBlock
                 key={`${block.index}-${block.title}-video`}
                 index={block.index}
-                className={block.className}
+                className={classnames('sm:basis-full', 'md:basis-6/12', 'basis-3/12', styles.custom)}
                 Video_Thumbnail={block.thumbnail}
+                Video_Tag={block.tag}
                 Video_Title={block.title}
                 Video_ReadTime={block.readTime}
                 modalContent={block.modalContent}
@@ -67,7 +80,8 @@ function LearnHome({ title, text, links, blocks }: Props): JSX.Element {
               <LinkBlock
                 key={`${block.index}-${block.title}-link`}
                 index={block.index}
-                className={block.className}
+                className={classnames('sm:basis-full', 'md:basis-6/12', 'basis-3/12', styles.custom)}
+                Link_Tag={block.tag}
                 Link_Thumbnail={block.thumbnail}
                 Link_Title={block.title}
                 Link_URL={block.link}

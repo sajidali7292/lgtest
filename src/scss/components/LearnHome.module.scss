@@ -1,0 +1,81 @@
+// CSS for the LearnHome component in components/LearnHome.tsx.
+
+@import "scss/variables";
+
+.title {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto 24px;
+    color: $color-white;
+    font-size: 36px;
+}
+
+.text {
+    width: $content-width-small;
+    max-width: 100%;
+    font-family: $Gordita;
+    color: $color-white;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.links {
+    margin-top: 35px;
+    position: relative;
+    z-index: 2;
+    ul {
+        width: $content-width-small;
+        max-width: 100%;
+        margin: 0 auto;
+        li a {
+            font-size: 16px;
+            color: $color-white;
+            text-decoration: underline;
+        }
+    }
+}
+
+.buttonWrap {
+    margin-top: 55px;
+    a{
+        margin: 0 auto;
+    }
+}
+
+.carrusel{
+    margin-top: 65px;
+    .custom {
+        :global {
+            .thumbnail_wrapper {
+                display: flex;
+                justify-content: center;
+                cursor: pointer;
+                width: 300px;
+                max-width: 100%;
+                height: 190px;
+                border-radius: 5px;
+                background-repeat: no-repeat;
+                background-size: cover !important;
+                background-position: center;
+                
+            }
+            .img-block-2 .thumbnail_wrapper {
+                background-position: 100% 2%;
+            }
+            .Video_Title,
+            .Link_Title {
+                color: $color-white;
+            }
+    
+            .linkBlocks a {
+                color: $color-white !important;
+            }
+            .Video_ReadTime,
+            .ReadTime{
+                color: $color-white;
+                text-decoration: underline;
+            }
+        }
+    }
+}
