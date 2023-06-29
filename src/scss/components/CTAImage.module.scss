@@ -1,0 +1,31 @@
+// CSS for the CTAImage component in components/CTAImage.tsx.
+
+@import "scss/variables";
+
+.cta {
+	background-color: $color-dark-gray;
+	color: $color-white
+}
+
+
+.title{
+	font-weight: 700;
+}
+.description{
+	font-size: 24px;
+}
+
+.children a:focus,
+.children a:hover {
+	color: darken($color-white, 25);
+}
+
+
+.button-wrap {
+	display: block;
+	text-align: center;
+}
+
+.button-wrap :global(.button) {
+	float: none;
+}

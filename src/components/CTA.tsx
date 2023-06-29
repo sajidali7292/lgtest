@@ -1,66 +1,92 @@
-import React from 'react';
+import React from "react";
+import Image from 'next/image';
 import styles from 'scss/components/CTA.module.scss';
-import Heading, { HeadingProps } from './Heading';
 import Button from './UI/Button/index';
+import BadgeRow from './UI/BadgeRow';
 import { backgroundColors, sectionVariantsTop, sectionVariantsBottom } from './constants';
-// import Link from 'next/link';
+
 
 interface Props {
-  title: string;
-  description?: string;
-  button?: any;
-  colorBg?: string;
+  title?: string;
+  text?: string;
+  textSize? :string;
+  div?: string;
+  buttons?: any;
+  badgeObj?: any;
+  className?: string;
+  tag?: any;
+  isReversed?: boolean;
+  sectionRounded?: boolean;
+  textCenterd?: boolean;
+  fullBg?: boolean;
   imageBg?: any;
-  children?: React.ReactNode;
-  headingLevel?: HeadingProps['level'];
+  secondColumnMiddle?: boolean;
+  secondColumn?: any;
+  id?: string;
   pt?: string;
   pb?: string;
+  bg?: string;
 }
 
-function CTA({
-  title = 'Get in touch',
-  description,
-  button,
-  colorBg,
-  imageBg,
-  children,
-  headingLevel = 'h2',
-  pt = 'md',
-  pb = 'md',
-}: Props): JSX.Element {
-  const inlineStyles={ 
-    backgroundImage: `url(${imageBg.url})`,
-    backgroundPosition: imageBg.position ? imageBg.position:'center',
-    backgroundSize: imageBg.size ? imageBg.size:'cover',
-    backgroundRepeat: imageBg.repeat ? imageBg.repeat:'no-repeat'
-  };
-  const bgColor = backgroundColors[colorBg];
+function CTA({ title, text, textSize, div, buttons, badgeObj, className, tag, sectionRounded, isReversed, textCenterd, fullBg=false, imageBg, secondColumnMiddle, secondColumn, id, pt = 'md', pb = 'md', bg= 'white' }: Props): JSX.Element {
+  
   const ptVariant = sectionVariantsTop[pt];
   const pBVariant = sectionVariantsBottom[pb];
-  return (
-    <section style={ inlineStyles } className={`${bgColor ? bgColor:styles.cta} ${ptVariant} ${pBVariant}`}>
-      <div className={`${styles.wrap} wrap_content wrap_content-extended`}>
-        <div className={`${styles.row} flex flex-wrap flex-row`}>
-          <div className={`${styles.colLeft} basis-full lg:basis-7/12`}>
-            <Heading level={headingLevel} className={styles.title}>
-              {title}
-            </Heading>
-            <div className={`${styles.intro} mt-6`}>
-              {description && (
-                <p dangerouslySetInnerHTML={{__html: description}} className={`${styles.description} mb-12`}></p>
-              )}
-              {button && (
-                <Button buttonObj={button} />
-              )}
-            </div>
-          </div>
-          <div className={`${styles.colRight} basis-full lg:basis-5/12`}>
+  const bgVariant = backgroundColors[bg];
 
+  const inlineStyles={ 
+    backgroundImage: `url(${imageBg?.url})`,
+    backgroundPosition: imageBg?.position ? imageBg.position:'center',
+    backgroundSize: imageBg?.size ? imageBg.size:'cover',
+    backgroundRepeat: imageBg?.repeat ? imageBg.repeat:'no-repeat'
+  };
+
+  return (
+    <section
+    style={ fullBg ? inlineStyles:null }
+    id={id}
+    className={`${styles.container} ${className ? styles[className] : ''} ${fullBg ? bgVariant:''} ${secondColumn ? styles.isSecondC:''}`}>
+      <div
+        style={ fullBg ? null:inlineStyles }
+        className={`container wrap_content wrap_content-extended ${styles.wrap} ${fullBg ? '':bgVariant} ${ptVariant} ${pBVariant} ${sectionRounded ? styles.sectRounded:''}`}>
+        <div className={`flex justify-center ${isReversed ? 'flex-row-reverse':'flex-row'}`}>
+
+          <div className={`flex flex-col ${secondColumnMiddle ? 'basis-5/12 sm:basis-full md:basis-6/12':'flex-1'}`}>
+            { tag && <div className={`${styles.tag} tag tag_${tag.color}`}>{tag.name} {tag.span && <span>{tag.span}</span> }</div>}
+            <h2 className={`${styles.title} ${textCenterd ? 'text-center':''}`}>{title}</h2>
+            {text && <p key="cta-text" className={`${styles.text} ${textCenterd ? 'text-center':''} ${styles[textSize]}`}>{text}</p>}
+            {div && <div className={`${styles.ctaText} ${textCenterd ? 'text-center':''}`}>{div}</div>}
+            {buttons && (
+              <div className={`${textCenterd ? styles.btn_centered:''} ${styles.buttons_wrap} flex flex-row`}>
+                {buttons &&
+                  buttons.map((button, index) => (
+                    <Button buttonObj={button} key={index} />
+                  ))
+                }
+              </div>
+            )}
+            {badgeObj && (
+                <BadgeRow badgeObj={badgeObj}/>
+              )}
           </div>
+
+          {secondColumnMiddle && 
+            <div className={`basis-1/12 hideMob column-2`}></div>
+          }
+
+          {secondColumn && 
+            <div className={`flex flex-col ${secondColumnMiddle ? 'basis-5/12 sm:basis-full md:basis-6/12':'flex-1'}`}>
+              { secondColumn.img && <Image className={`object-contain ${isReversed ? 'object-left':'object-right'}`}
+                src={secondColumn.img.url} alt={secondColumn.img.alt}
+                width={`${secondColumn.img.width ? secondColumn.img.width:'650'}`}
+                height={`${secondColumn.img.height ? secondColumn.img.height:'650'}`}/>}
+            </div>
+          }
+
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default CTA;

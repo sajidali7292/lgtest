@@ -2,30 +2,59 @@
 
 @import "scss/variables";
 
-.cta {
-	background-color: $color-dark-gray;
-	color: $color-white
+.container {
+  &:not(.isSecondC){
+    p{
+      width: $content-width-extended_lg;
+      margin-left: auto;
+      margin-right: auto;
+      &.small{
+        width: 720px;
+      }
+    }
+  }
+  h2 {
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 50px;
+    max-width: 100%;
+    margin: 16px 0;
+  }
+  p {
+    font-family: $Gordita;
+    font-weight: 400;
+    font-size: 21px;
+    max-width: 100%;
+    margin: 0;
+    line-height: 30px;
+  }
+  .btn_centered a {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .buttons_wrap{
+    margin-top: 50px;
+  }
+  .ctaText {
+    width: 400px;
+    max-width: 100%;
+    margin-top: 38px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 22px;
+    text-decoration: underline;
+    pointer-events: none;
+  }
+  .sectRounded{
+    border-radius: 8px;
+  }
 }
 
-
-.title{
-	font-weight: 700;
-}
-.description{
-	font-size: 24px;
-}
-
-.children a:focus,
-.children a:hover {
-	color: darken($color-white, 25);
-}
-
-
-.button-wrap {
-	display: block;
-	text-align: center;
-}
-
-.button-wrap :global(.button) {
-	float: none;
+.home_cta_3 {
+  .wrap {
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position: 100% 0;
+  }
 }
