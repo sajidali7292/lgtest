@@ -90,7 +90,7 @@ function CaseStudyHome({
                 <div className={`flex flex-row items-center ${styles.caseWrapper}`}>
                   <div className={`flex-none ${styles.photoCaseStudyHome}`}>
                     <Image className={`${styles.trust_cPhoto} object-contain object-right`}
-                      src={photo.url} alt={photo.alt} className=
+                      src={photo.url} alt={photo.alt}
                       width={`${photo.width ? photo.width:'77'}`}
                       height={`${photo.height ? photo.height:'77'}`}/>
                   </div>
