@@ -3,11 +3,7 @@ import styles from 'scss/components/HubspotForm.module.scss';
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import $ from 'jquery';
-
-const HubspotForm = dynamic(
-  () => import('react-hubspot-form'),
-  { ssr: false }
-)
+import HubspotForm from 'react-hubspot-form';
 
 interface ClientLogo {
   client_logo?: {
@@ -96,14 +92,16 @@ function HomeFormSection({
                   />
                 </div>
                 <div className={`common_form_wrapper`}>
-                  
-                  <HubspotForm
-                    portalId='7038850'
-                    formId='19865112-5d46-46ff-93f8-3bf9013e7656'
-                    onSubmit={() => console.log('form submitted')}
-                    loading={<div>Loading...</div>}
-                    onReady={(form) => console.log('Form ready!')}
-                  />
+                  {hubspotFormProps && (
+                    <HubspotForm
+                      portalId={hubspotFormProps.portalId}
+                      formId={hubspotFormProps.formId}
+                      css={hubspotFormProps.css}
+                      onSubmit={hubspotFormProps.onSubmit}
+                      loading={hubspotFormProps.loading}
+                      onReady={handleFormReady}
+                    />
+                  )}
                 </div>
               </div>
             </div>
