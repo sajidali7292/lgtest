@@ -3,6 +3,7 @@ import styles from 'scss/components/GridImages.module.scss';
 import Link from 'next/link';
 import Heading, { HeadingProps } from './Heading';
 import Image from 'next/image';
+import { sectionVariantsTop, sectionVariantsBottom } from './constants';
 
 interface Props {
     title: string;
@@ -17,15 +18,13 @@ function GridImages({
     title,
     images,
     headingLevel = 'h2',
-    pt = 't1',
-    pb = 'b1',
+    pt = 'md',
+    pb = 'md',
   }: Props): JSX.Element {
-    const paddingVariant = {
-      t1: 'pt-2', t2: 'pt-4', t3: 'pt-6', t4: 'pt-8', t5: 'pt-10', t6: 'pt-12', t7: 'pt-14', t8: 'pt-16',
-      b1: 'pb-2', b2: 'pb-4', b3: 'pb-6', b4: 'pb-8', b5: 'pb-10', b6: 'pb-12', b7: 'pb-14', b8: 'pb-16',
-    }
+    const ptVariant = sectionVariantsTop[pt];
+    const pBVariant = sectionVariantsBottom[pb];
     return (
-      <section className={`${styles.cta} ${paddingVariant[pt]} ${paddingVariant[pb]}`}>
+      <section className={`${styles.cta} ${ptVariant} ${pBVariant}`}>
         <div className={`${styles.wrap}`}>
           {title && (
             <Heading level={headingLevel} className={styles.title}>
