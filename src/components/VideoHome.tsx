@@ -15,14 +15,14 @@ interface VideoBlock {
   Video_ReadTime: string;
   modalContent?: JSX.Element;
   className?: string;
-  pt?: string;
-  pb?: string;
 }
 
 interface Props {
   title: string;
   text: string;
   videoBlocks: VideoBlock[];
+  pt?: string;
+  pb?: string;
 }
 
 function VideoHome({ 
