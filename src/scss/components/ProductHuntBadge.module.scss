@@ -1,0 +1,46 @@
+.phBadge_banner {
+    background: #EA532A;
+    width: 545px;
+    max-width: 100%;
+    border-radius: 8px;
+    display: flex;
+    padding-right: 15px;
+    height: 53px;
+    margin-top: 35px;
+}
+
+.phBadge_txt {
+    display: flex;
+    margin-left: 7px;
+  }
+
+  .phBadge_txt img {
+    max-width: 13% !important;
+    margin-top: 0 !important;
+    margin-left: 10px;
+  }
+
+  .phBanner_txt {
+    display: grid;
+    margin-left: 15px !important;
+  }
+
+  .pHuntbtn {
+    margin-left: 10px;
+    margin-top: 4px !important;
+    display: inline-block;
+  }
+  .phBanner_txt span:first-child {
+    font-weight: bold;
+    margin-top: 9px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .phBanner_txt span:last-child {
+    font-size: 14px;
+    margin-top: -10px;
+  }
+  .phBanner_txt span {
+    color: #FFF;
+  }
