@@ -22,9 +22,9 @@ interface Props {
   };
   button?: any;
   badgeObj?: any;
-  bgImage1?: string;
+  bgImage1?: any;
   bgColor1?: string;
-  bgImage2?: string;
+  bgImage2?: any;
   bgColor2?: string;
   pt?: string;
   pb?: string;
