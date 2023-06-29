@@ -6,27 +6,35 @@
     padding: 9.7% 0 0;
     background: #17171A no-repeat;
     background-position: 100% 115%;
-    margin-top: 20px;
 }
 
 .wrap {
 	margin: 0 auto;
 	max-width: $content-width-large;
-    text-align: center;
 	display: flex;
     flex-direction: column;
 	overflow: auto;
-}
-
-.container h2 {
-    font-weight: 700;
-    font-size: 36px;
-    color: #FFF;
-    width: 695px;
-    max-width: 100%;
-    margin-top: 50px;
-    margin-bottom: 28px;
-    text-align: left;
+    .description{
+        width: $content-width-small;
+        p{
+            color: white;
+            b{
+                font-weight: 600;
+            }
+            span{
+                padding: 4px;
+            }
+        }
+    }
+    h2 {
+        font-weight: 700;
+        font-size: 36px;
+        color: #FFF;
+        max-width: 100%;
+        margin-top: 50px;
+        margin-bottom: 28px;
+        text-align: left;
+    }
 }
 
 .container p {

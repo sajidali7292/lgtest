@@ -20,7 +20,6 @@
 	line-height: 84px;
 	margin: 0 auto;
 	text-align: center;
-	width: 1311px;
 	max-width: 100%;
 	padding-top: 233px;
 }
@@ -33,7 +32,7 @@
 	line-height: 34px;
 	text-align: center;
 	color: #353535;
-	width: 745px;
+	width: 56%;
 	max-width: 100%;
 }
 
@@ -42,13 +41,12 @@
 }
 
 #home_hero form input {
-	width: 435px;
-	height: 60px;
+	min-height: 60px;
 	border: 1px solid #B0B0B0;
 	color: #4B4B4B;
 	background: #FFF;
 	border-radius: 6px;
-	padding: 0 115px 0 20px;
+	padding: 0 145px 0 20px;
 	font-size: 18px;
 	line-height: 22px;
 	max-width: 100%;
@@ -60,21 +58,17 @@
 	border-radius: 6px;
 	font-family: 'PlusJakarta';
 	font-size: 16px;
-	height: 60px;
 	margin-left: 15px;
-	width: 275px;
 	max-width: 100%;
 }
 
 #home_hero form button a {
-	width: 260px;
 	max-width: 100%;
-	height: 25px;
 	color: #FFF;
 	font-weight: 600;
 	display: inherit;
 	position: relative;
-	margin-right: 10px;
+	padding: 17.5px 80px 17.5px 50px;
 }
 
 #home_hero .content .button-secondary {

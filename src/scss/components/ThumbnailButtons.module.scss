@@ -1,0 +1,61 @@
+@import "scss/variables";
+
+.videoBlocks,
+.linkBlocks {
+  width: 88%;
+  max-width: 100%;
+  margin: 0 auto;
+  .thumbnail_wrapper {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    max-width: 100%;
+    height: 170px;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: relative;
+  }
+  .Video_Tag,
+  .Link_Tag {
+    position: absolute;
+    top: 15px;
+    left: 10px; 
+    font-family: $f37ginger;
+    color: $color-white;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    background: rgba($color-secondary, 0.5);
+    border-radius: 4px;
+    padding: 11px 38px;
+  }
+  .Video_Title,
+  .Link_Title {
+    font-family: $f37ginger;
+    font-size: 22px;
+    line-height: 1.16;
+    max-width: 100%;
+    margin: 18px auto;
+    margin-left: 0;
+    cursor: pointer;
+  }
+  .Video_ReadTime,
+  .ReadTime {
+    font-family: $Gordita;
+    font-size: 16px;
+    color: #6C6E72;
+    position: relative;
+    cursor: pointer;
+    span {
+      img {
+        position: absolute;
+        top: 50%;
+        left: 135px;
+        width: 4%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
