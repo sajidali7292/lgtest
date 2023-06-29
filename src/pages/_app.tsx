@@ -20,30 +20,30 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <Header/>
         <Component {...pageProps} />
         <FooterNew
-        logoImg = {
-          {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/footer-logo.svg`, alt: 'test'}
-        }
-        phrase = 'Link your Google Search Console account and get smarter SEO insights in 1 easy click.'
-        button = {{
-          label: 'Get started for free', url: 'https://api.searchatlas.com/account/google/oauth/start',
-          targetBlank: true
-        }}
-        rateText = {{
-          image: {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/star.webp`, alt: ''},
-          title: '5 star rated &', text: 'Trusted by 100+ companies'
-        }}
-        partner = {{url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Partner-RGB.webp`, alt: ''}}
-        logoPink ={
-          {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/logo.svg`, alt: 'test'}
-        }
-        socialLinks={[
-          {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-facebook-alt'},
-          {url: 'https://www.instagram.com/linkgraph.io/', ico: 'dashicons-instagram'},
-          {url: 'https://www.linkedin.com/company/linkgraph-io', ico: 'dashicons-linkedin'},
-          {url: 'https://twitter.com/Linkgraphio', ico: 'dashicons-twitter'},
-          {url: 'https://www.youtube.com/channel/UCgEUbExBbcVEv8cj-EGD4hA', ico: 'dashicons-youtube'}
-        ]}
-        locationsLG= 'New York • Las Vegas • Bogotá • Belgrade'
+          logoImg = {
+            {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/footer-logo.svg`, alt: 'test'}
+          }
+          phrase = 'Link your Google Search Console account and get smarter SEO insights in 1 easy click.'
+          button = {{
+            label: 'Get started for free', url: 'https://api.searchatlas.com/account/google/oauth/start',
+            targetBlank: true
+          }}
+          rateText = {{
+            image: {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/star.webp`, alt: ''},
+            title: '5 star rated &', text: 'Trusted by 100+ companies'
+          }}
+          partner = {{url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Partner-RGB.webp`, alt: ''}}
+          logoPink ={
+            {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/logo.svg`, alt: 'test'}
+          }
+          socialLinks={[
+            {url: 'https://www.facebook.com/linkgraph.io/', ico: 'dashicons-facebook-alt'},
+            {url: 'https://www.instagram.com/linkgraph.io/', ico: 'dashicons-instagram'},
+            {url: 'https://www.linkedin.com/company/linkgraph-io', ico: 'dashicons-linkedin'},
+            {url: 'https://twitter.com/Linkgraphio', ico: 'dashicons-twitter'},
+            {url: 'https://www.youtube.com/channel/UCgEUbExBbcVEv8cj-EGD4hA', ico: 'dashicons-youtube'}
+          ]}
+          locationsLG= 'New York • Las Vegas • Bogotá • Belgrade'
         />
 
         
