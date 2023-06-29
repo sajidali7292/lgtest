@@ -1,3 +1,75 @@
 // CSS for the HubspotForm component in components/HubspotForm.tsx.
 
 @import "scss/variables";
+
+.home_hubspot_form {
+    color: #fff;
+    text-align: center;
+    .container{
+        overflow: visible;
+    }
+}
+
+.title {
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 50px;
+    margin: 0 auto 25px;
+    max-width: 100%;
+}
+
+.txt {
+    color: $color-gray;
+    font-weight: 400;
+    max-width: 100%;
+    margin: 10px auto 0;
+    font-size: 19.5px;
+    font-family: $Gordita;
+}
+
+.client_wrap {
+    font-family: $Gordita;
+    font-size: 18px;
+    margin-top: 30px;
+    .cliet_txt_wrapper {
+        padding-left: 25px;
+        .mpClientName,
+        .mpClientPosition {
+            text-align: left;
+        }
+        .mpClientName {
+            color: $color-hg2;
+        }
+        .mpClientPosition {
+            color: $color-gray;
+            font-size: 17px;
+            width: 350px;
+        }
+    }
+}
+
+
+.form_logos {
+    width: 90%;
+    margin: 25px auto 0;
+    max-width: 100%;
+    img {
+        filter: hue-rotate(260deg) invert(50%) contrast(100%);
+        object-fit: contain;
+        height: 50px;
+        padding: 0 15px;
+    }
+}
+
+.form_container {
+    background-color: #573E74;
+    border-radius: 8px;
+    padding: 45px;
+    max-width: 90%;
+}
+
+
+.home_hubspot_form {
+    padding: 98px 0 98px;
+}
