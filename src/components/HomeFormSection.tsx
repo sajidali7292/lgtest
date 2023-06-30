@@ -63,7 +63,7 @@ function HomeFormSection({
                 height={22}
             />
             <p className={`${styles.txt}`}>{text}</p>
-            <div className={`flex flex-row justify-center ${styles.client_wrap}`}>
+            <div className={`flex flex-row flex-wrap justify-center ${styles.client_wrap}`}>
               <div className="flex-auto"></div>
               <div className="flex-none">
                 <Image

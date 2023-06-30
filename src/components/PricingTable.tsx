@@ -45,7 +45,7 @@ function PricingTable({
   
 
   return (
-    <div className={`${styles.tableRow} table_row flex flex-row flex-nowrap overflow-auto`}>
+    <div className={`${styles.tableRow} table_row flex flex-row flex-wrap flex-nowrap overflow-auto`}>
       <div className={`${styles.Table} w-1/2 md:w-1/3 lg:w-1/7.5 ${styles.planblock0}`}>
         <PricingTDataHolder classStyle={styles} isScrolled={isScrolled}/>
       </div>

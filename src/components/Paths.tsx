@@ -25,7 +25,7 @@ function Paths({
             <h2 className={styles.paths_title}>{title}</h2>
           </div>
         </div>
-        <div className={`flex flex-row ${styles.img_wrapper}`}>
+        <div className={`flex flex-row flex-wrap ${styles.img_wrapper}`}>
           {paths.map((path, index) => (
             <div className="flex-1" key={`path-${index}`}>
               <div

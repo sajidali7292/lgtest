@@ -37,13 +37,13 @@ function VideoHome({
   return (
     <section className={`videoSection`}>
       <div className={`${styles.container} container ${ptVariant} ${pBVariant}`}>
-        <div className={`${styles.row} flex flex-row ${styles.infosWrap}`}>
+        <div className={`${styles.row} flex flex-row flex-wrap ${styles.infosWrap}`}>
           <div className="basis-full">
             <h2 className={`${styles.title}`}>{title}</h2>
             <div className={`${styles.text}`}>{text}</div>
           </div>
         </div>
-        <div className={`${styles.row} flex flex-row ${styles.videosWrap}`}>
+        <div className={`${styles.row} flex flex-row flex-wrap ${styles.videosWrap}`}>
           {videoBlocks.map((block, index) => (
             <VideoBlock
               index={index}

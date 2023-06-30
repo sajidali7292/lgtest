@@ -19,7 +19,7 @@ export default function Team() {
         <div className="wrap">
           <h2>Team Members</h2>
 
-          <div className="flex flex-row flex-wrap">
+          <div className="flex flex-row flex-wrap flex-wrap">
             {teamMembers.map((teamMember, index) => (
               <TeamMember key={index} teamMember={teamMember} />
             ))}

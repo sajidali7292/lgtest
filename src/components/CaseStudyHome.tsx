@@ -63,7 +63,7 @@ function CaseStudyHome({
   return (
     <section className={`${styles.trustC}`}>
       <div className={`container ${styles.containerCase} ${ptVariant} ${pBVariant}`}>
-        <div className={`flex flex-row ${styles.rowCase}`}>
+        <div className={`flex flex-row flex-wrap ${styles.rowCase}`}>
           <div className={`basis-full lg:basis-6/12 ${styles.bg_trustC} bg-${bgColor1}`} style={bgStyle1}>
             <div className={styles.trust_col1}>
               { tag && <div className={`${styles.int_subHead} tag tag_${tag.color}`}>{tag.name} {tag.span && <span>{tag.span}</span> }</div>}
@@ -81,7 +81,7 @@ function CaseStudyHome({
             <div className={styles.trust_col2}>
               <div className={styles.trust_quote}>{quote}</div>
               { name &&
-                <div className={`flex flex-row items-center ${styles.caseWrapper}`}>
+                <div className={`flex flex-row flex-wrap items-center ${styles.caseWrapper}`}>
                   <div className={`flex-none ${styles.photoCaseStudyHome}`}>
                     <Image className={`${styles.trust_cPhoto} object-contain object-right`}
                       src={photo.url} alt={photo.alt}

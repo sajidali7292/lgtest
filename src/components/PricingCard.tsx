@@ -10,7 +10,7 @@ function PricingCard({
   servicesData
 }: Props): JSX.Element {
   return (
-    <div className={`${styles.cardRow} flex flex-row flex-wrap overflow-auto`}>
+    <div className={`${styles.cardRow} flex flex-row flex-wrap flex-wrap overflow-auto`}>
       {servicesData?.map((serviceData, index) => (
         <div key={`${serviceData.title}-${index}-card`}
         className={`${styles.card} w-full md:w-1/2 lg:w-1/4 py-4 px-0

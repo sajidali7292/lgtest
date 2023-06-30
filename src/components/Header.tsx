@@ -155,7 +155,7 @@ function Header({
                   ${styles.column_container}
                   ${link.menuFields.submenuIsReversed ? styles.isReversed:''}
                 `}>
-                  <div className={`container flex flex-row p-0`}>
+                  <div className={`container flex flex-row flex-wrap p-0`}>
                     {firstChildContent  && (
                       <li key={`firstChild-${Math.random()}`} className={`${styles.column} ${styles.firstChild} ${styles[customLiClass]}`} dangerouslySetInnerHTML={{__html: firstChildContent}}></li>
                     )}
@@ -208,7 +208,7 @@ function Header({
                     ${styles.lastChild}
                     ${customClassName == 'topMenu' ? 'bg-semi_dark '+styles.topMenuBottomText : 'linear_bg-'+link.childItems({first: 1}).nodes[0].cssClasses.toString().replaceAll(',',' ')}
                   `}>
-                    <div className={`container flex flex-row justify-between items-center`}>
+                    <div className={`container flex flex-row flex-wrap justify-between items-center`}>
                       {customClassName == 'topMenu' ? (
                         <>
                         <div className={`${styles.footer_chat}`}>
@@ -333,7 +333,7 @@ function Header({
         </title>
       </Head>
       <div className={`${styles.header_container} flex flex-col container`}>
-        <div className={`${styles.header_row} ${styles.header_row_top} hidden lg:flex flex-row justify-between`}>
+        <div className={`${styles.header_row} ${styles.header_row_top} hidden lg:flex flex-row flex-wrap justify-between`}>
           <div className={`flex-1 flex ${styles.header__order_builder}`}>
             {renderMenuItems(topLevelNavMenuTopLeftItems, 'topMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig)}
           </div>
@@ -352,7 +352,7 @@ function Header({
             {renderMenuItems(topLevelNavMenuTopItems, 'topMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig)}
           </div>
         </div>
-        <div className={`${styles.header_row} ${styles.header_row_bottom} hidden lg:flex flex-row justify-between items-center`}>
+        <div className={`${styles.header_row} ${styles.header_row_bottom} hidden lg:flex flex-row flex-wrap justify-between items-center`}>
           <div className={`${styles.header__menu_left} flex-1`}>
             {renderMenuItems(topLevelNavMenuLeftItems, 'leftMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig)}
           </div>
@@ -391,7 +391,7 @@ function Header({
           </div>
         </div>
         <div className={`container`}>
-          <div className={`flex lg:hidden flex-row justify-between items-center py-5 px-5`}>
+          <div className={`flex lg:hidden flex-row flex-wrap justify-between items-center py-5 px-5`}>
             <div className={`flex flex-col basis-1/4`}>
               <Link href="/" passHref>
                 <a href="/" className="leading-none">
@@ -402,7 +402,7 @@ function Header({
                 </a>
               </Link>
             </div>
-            <div className={`flex flex-row justify-end items-center gap-10 basis-3/4`}>
+            <div className={`flex flex-row flex-wrap justify-end items-center gap-10 basis-3/4`}>
               {lgDashboardMobile &&
                 lgDashboardMobile.map((itemMobile, index) => (
                   <Link key={itemMobile.linkMenu.title} href={`${itemMobile.linkMenu.url}`}>
@@ -427,7 +427,7 @@ function Header({
                     {renderMenuItems(topLevelNavMenuLeftItems, 'leftMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
                     {renderMenuItems(topLevelNavMenuRightItems, 'rightMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
                     {renderMenuItems(topLevelNavMenuTopItems, 'topMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
-                    <div className={`${styles.buttonInside} flex flex-wrap flex-row justify-center items-center gap-x-6 gap-y-8 mt-10`}>
+                    <div className={`${styles.buttonInside} flex flex-wrap flex-row flex-wrap justify-center items-center gap-x-6 gap-y-8 mt-10`}>
                       {lgDashboardMobile &&
                         lgDashboardMobile.map((itemMobile, index) => (
                           <Link key={itemMobile.linkMenu.title} href={`${itemMobile.linkMenu.url}`}>

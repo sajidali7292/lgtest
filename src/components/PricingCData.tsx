@@ -31,7 +31,7 @@ function PricingTData({
         }
         <div className={`${classStyle.planPrice_plan}`} dangerouslySetInnerHTML={{__html: servData.price}}></div>
         {servData.localSEO &&
-          <div className={`${classStyle.planOptimization_plan } flex flex-row flex-wrap items-center`}>
+          <div className={`${classStyle.planOptimization_plan } flex flex-row flex-wrap flex-wrap items-center`}>
             <div className={`${classStyle.planSingleW} basis-1/2`}>
               <div className={`${classStyle.planSingle} flex flex-row`}>
                 <Circle cStyle={classStyle.svgCircle} percentage={servData.localSEO} />
