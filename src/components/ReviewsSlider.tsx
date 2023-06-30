@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from 'scss/components/ReviewsSlider.module.scss';
 import Slider from 'react-slick';
+import Image from 'next/image';
 import { sectionVariantsTop, sectionVariantsBottom } from './constants';
 
 
@@ -49,7 +50,12 @@ function ReviewsSlider({
                   <div className={`flex flex-row flex-wrap`}>
                     <div className={`basis-full lg:basis-2/12 ${styles.photo}`}>
                       <div className={`${styles.photoWrapper}`}>
-                        <img src={review.photo.url} alt={review.photo.alt} />
+                        <Image
+                          src={review.photo.url}
+                          alt={`${review.photo.alt ? review.photo.alt:'Review Image'}`}
+                          className={`object-cover`}
+                          layout='fill'
+                        />
                       </div>
                     </div>
                     <div className={`basis-full lg:basis-10/12 ${styles.info}`}>

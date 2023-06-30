@@ -18,10 +18,13 @@
 
     .photo .photoWrapper {
         width: 45.1px;
+        height: 45.1px;
         margin-left: auto;
         margin-right: 0;
+        position: relative;
         @media(max-width: $breakpoint-semi_medium){
             width: 70px;
+            height: 70px;
             margin-left: 0;
             margin-right: auto;
             padding: 0 15px 15px 10px;
