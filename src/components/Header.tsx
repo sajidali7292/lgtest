@@ -55,7 +55,7 @@ function Header({
   const lgLogo = themeGeneralSettings.lgOptions.lgLogo;
   const lgDashboardMobile = themeGeneralSettings.lgOptions.menuTopItems;
 
-  const [showMobile, setShowMobile] = useState("false");
+  const [showMobile, setShowMobile] = useState(false);
 
   const handleMobile = () => {
     setShowMobile(!showMobile);
