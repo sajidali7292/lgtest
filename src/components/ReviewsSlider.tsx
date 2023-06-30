@@ -1,15 +1,24 @@
 import React from 'react';
 import styles from 'scss/components/ReviewsSlider.module.scss';
 import Slider from 'react-slick';
+import { sectionVariantsTop, sectionVariantsBottom } from './constants';
 
 
 interface Props {
   reviews?: Array<any>;
+  pt?: string;
+  pb?: string;
 }
 
 function ReviewsSlider({
   reviews,
+  pt = 'md',
+  pb = 'md'
   }: Props): JSX.Element {
+    
+  const ptVariant = sectionVariantsTop[pt];
+  const pBVariant = sectionVariantsBottom[pb];
+  
   const settings = {
     autoplay: true,
     autoplaySpeed: 3000,
@@ -35,7 +44,7 @@ function ReviewsSlider({
 
   return (
     <section className={`${styles.reviews} active-highlighted`}>
-      <div className={`container`}>
+      <div className={`container ${ptVariant} ${pBVariant}`}>
           <Slider {...settings}>
             {reviews?.map((review, index) => (
               <div key={`review-${index}`} className={`basis-full lg:basis-4/12 ${styles.card}`}>

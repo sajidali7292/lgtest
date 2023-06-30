@@ -102,6 +102,8 @@ export default function Page() {
             ></iframe>
           </div>
         }
+        pt= 'xl'
+        pb= 'xs'
       />
 
       <CountingNumbers
@@ -118,6 +120,8 @@ export default function Page() {
           label: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder',
           icon: true, size: 'big', hoverTransparent: true
         }}
+        pt= 'xs'
+        pb= 'xs'
       />
 
       <ServicesHome
@@ -314,6 +318,8 @@ export default function Page() {
               });
           },
         }}
+        pt= "md"
+        pb= "md"
       />
 
       <PricingTab
@@ -602,7 +608,7 @@ export default function Page() {
           }
         ]}
         pt= "xs"
-        pb= "sm"
+        pb= "xs"
       />
 
       <ReviewsSlider
@@ -632,6 +638,8 @@ export default function Page() {
             text: "“LinkGraph provided education, guidance, expert level assistance, and state of the art tools to allow us to identify and repair several issues with our site. We have become a force to be reckoned with in our market thanks to their team.”",
           }
         ]}
+        pt = 'xxs'
+        pb = 'xs'
       />
 
       <CTA

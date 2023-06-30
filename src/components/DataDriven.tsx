@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from 'scss/components/DataDriven.module.scss';
 import Modal from './UI/Modal';
 import Image from 'next/image'
+import { sectionVariantsTop, sectionVariantsBottom } from './constants';
 
 interface Props {
   title?: string;
@@ -9,6 +10,8 @@ interface Props {
   imageUrl?: string;
   bgImage?: string;
   modalContent?: JSX.Element;
+  pb?: string;
+  bg?: string;
 }
 
 function DataDriven ({
@@ -17,7 +20,13 @@ function DataDriven ({
     imageUrl,
     bgImage,
     modalContent,
+    pt = 'md',
+    pb = 'md'
 }: Props): JSX.Element {
+
+    const ptVariant = sectionVariantsTop[pt];
+    const pBVariant = sectionVariantsBottom[pb];
+
     const [showModal, setShowModal] = useState(false);
 
     const handleModalButtonClick = () => {
@@ -30,7 +39,7 @@ function DataDriven ({
 
     return (
       <section className={styles.container} style={{ backgroundImage: bgImage ? `url(${bgImage})` : 'none' }}>
-        <div className={`container ${styles.wrap}`}>
+        <div className={`container ${styles.wrap} ${ptVariant} ${pBVariant}`}>
           <div className={`${styles.row} flex flex-row`}>
             <div className={`basis-4/6`}>
               <h2>{title}</h2>

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import styles from 'scss/components/CountingNumbers.module.scss';
 import Button from './UI/Button/index';
+import { sectionVariantsTop, sectionVariantsBottom } from './constants';
 
 
 interface Props {
@@ -9,6 +10,8 @@ interface Props {
     labels?: string[];
     id?: string;
     button?: any;
+    pt?: string;
+    pb?: string;
 }
 
 function CountingNumbers ({
@@ -16,8 +19,14 @@ function CountingNumbers ({
     targets,
     labels,
     id,
-    button
+    button,
+    pt = 'md',
+    pb = 'md'
 }: Props): JSX.Element {
+  
+  const ptVariant = sectionVariantsTop[pt];
+  const pBVariant = sectionVariantsBottom[pb];
+
   const counterRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [inViewport, setInViewport] = useState(false);
   
@@ -63,7 +72,7 @@ function CountingNumbers ({
   return (
     <section {...(id && { id })}
     className={styles.countingNumbers_home}>
-      <div className={`container ${styles.counting_numbers}`}>
+      <div className={`container ${styles.counting_numbers} ${ptVariant} ${pBVariant}`}>
         <h2>{title}</h2>
         <div className={`flex flex-row`}>
           {targets.map((target, index) => (

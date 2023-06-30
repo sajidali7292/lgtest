@@ -4,6 +4,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import $ from 'jquery';
 import HubspotForm from 'react-hubspot-form';
+import { sectionVariantsTop, sectionVariantsBottom } from './constants';
 
 interface ClientLogo {
   client_logo?: {
@@ -24,6 +25,8 @@ interface Props {
   client_position?: string;
   form_logos?: ClientLogo[];
   hubspotFormProps?: any;
+  pt?: string;
+  pb?: string;
 }
 
 function HomeFormSection({
@@ -35,14 +38,20 @@ function HomeFormSection({
   client_position,
   form_logos,
   hubspotFormProps,
+  pt = 'md',
+  pb = 'md'
 }: Props): JSX.Element {
+  
+  const ptVariant = sectionVariantsTop[pt];
+  const pBVariant = sectionVariantsBottom[pb];
+
   const handleFormReady = (form: any) => {
     hubspotFormProps?.onReady && hubspotFormProps.onReady(form);
   };
 
   return (
     <section className={`${styles.LaHome_form} ${className ? styles[className] : ''}`} style={{ backgroundColor: '#3E255A' }}>
-      <div className={`${styles.container} container`}>
+      <div className={`container ${styles.container} ${ptVariant} ${pBVariant}`}>
         <div className="flex flex-row">
           <div className="basis-6/12">
             <h2 className={`${styles.title}`}>{title}</h2>
