@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from 'scss/components/ThumbnailButtons.module.scss';
+import Image from 'next/image';
 import classnames from 'classnames'
 
 
@@ -24,7 +25,13 @@ function LinkBlock({ index, Link_Thumbnail, Link_Title, Link_URL, Link_ReadTime,
       <div className={`${styles.linkBlocks} linkBlocks flex flex-col h-full`}>
         <a className={`flex flex-col justify-between h-full`} href={Link_URL} target="_blank" rel="noopener noreferrer">
           <div className={`${styles.contentTop}`}>
-            <div className={`${classnames(styles.thumbnail_wrapper)} thumbnail_wrapper`} style={{backgroundImage: `url(${Link_Thumbnail.url})`}}>
+            <div className={`${classnames(styles.thumbnail_wrapper)} thumbnail_wrapper`}>
+              <Image
+                src={Link_Thumbnail.url}
+                alt={`${Link_Thumbnail.alt ? Link_Thumbnail.alt:Video_Tag}`}
+                className={`object-cover`}
+                layout='fill'
+              />
               {Link_Tag && <div className={`Link_Tag ${styles.Video_Tag}`}>{Link_Tag}</div>}
             </div>
             <div className={`${styles.Link_Title} Link_Title`}>{Link_Title}</div>

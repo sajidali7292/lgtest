@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from 'scss/components/ThumbnailButtons.module.scss';
 import Modal from './Modal';
+import Image from 'next/image';
 import classnames from 'classnames';
 
 
@@ -36,7 +37,13 @@ function VideoBlock ({ index, Video_Thumbnail, Video_Title, Video_ReadTime, moda
                 <div className={`${styles.modalOpen} flex flex-col justify-between h-full`} onClick={handleModalButtonClick}>
                     <div className={`${styles.contentTop}`}>
                         <div className={`${styles.img} img img-block-${index}`}>
-                            <div className={classnames(styles.thumbnail_wrapper, 'thumbnail_wrapper')} style={{ backgroundImage: `url(${Video_Thumbnail.url})` }}>
+                            <div className={classnames(styles.thumbnail_wrapper, 'thumbnail_wrapper')} >
+                                <Image
+                                    src={Video_Thumbnail.url}
+                                    alt={`${Video_Thumbnail.alt ? Video_Thumbnail.alt:Video_Tag}`}
+                                    className={`object-cover`}
+                                    layout='fill'
+                                />
                                 {Video_Tag && <div className={`Video_Tag ${styles.Video_Tag}`}>{Video_Tag}</div>}
                             </div>
                         </div>

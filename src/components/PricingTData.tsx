@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './UI/Button/index';
 import { ReactSVG } from "react-svg";
 import { backgroundColors, sectionVariantsTop, sectionVariantsBottom } from './constants';
+import Image from 'next/image';
 // import styles from 'scss/components/PricingTData.module.scss';
 import { hexToRgb, luminance, contrastColor } from './common/functions';
 
@@ -58,7 +59,8 @@ function PricingTData({
         <p>{servData.serviceName}</p>
       </div>
       <div className={`${classStyle.plan_serviceL}`} style={{backgroundColor: servColor, color: servData.serviceFColor ? servData.serviceFColor : ''}}>
-        <img src={servData.serviceImage.url} alt={servData.serviceImage.alt} />
+        <Image src={servData.serviceImage.url} alt={servData.serviceImage.alt}
+        width='230' height='100'></Image>
         <p dangerouslySetInnerHTML={{__html: servData.servicePrice}}></p>
       </div>
       <div className={`${classStyle.plan_serviceT} ${classStyle.smallH}`}>
