@@ -82,7 +82,11 @@ function HomeFormSection({
             <div className={`${styles.form_logos} justify-center flex flex-row`}>
               {form_logos.map((clientlogo, index) => (
                 <div className="basis-3/12" key={index}>
-                  <img src={clientlogo.client_logo.url} alt={clientlogo.client_logo.alt} />
+                  <Image
+                    src={clientlogo.client_logo.url}
+                    alt={`${clientlogo.client_logo.alt ? clientlogo.client_logo.alt:'Quote Icon'}`}
+                    layout='fill'
+                  />
                 </div>
               ))}
             </div>

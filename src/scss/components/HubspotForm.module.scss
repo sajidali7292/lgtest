@@ -76,11 +76,14 @@
     width: 90%;
     margin: 25px auto 0;
     max-width: 100%;
+    > div{
+        height: 50px;
+        position: relative;
+        margin: 0 15px;
+    }
     img {
         filter: hue-rotate(260deg) invert(50%) contrast(100%);
         object-fit: contain;
-        height: 50px;
-        padding: 0 15px;
         @media(max-width: $breakpoint-small_extra){
             padding: 0 10px;
         }
