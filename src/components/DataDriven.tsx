@@ -10,8 +10,8 @@ interface Props {
   imageUrl?: string;
   bgImage?: string;
   modalContent?: JSX.Element;
+  pt?: string;
   pb?: string;
-  bg?: string;
 }
 
 function DataDriven ({
