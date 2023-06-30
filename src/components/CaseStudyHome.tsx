@@ -61,8 +61,8 @@ function CaseStudyHome({
     } : {};
 
   return (
-    <section className={`${styles.trustC} ${ptVariant} ${pBVariant}`}>
-      <div className={`container ${styles.containerCase}`}>
+    <section className={`${styles.trustC}`}>
+      <div className={`container ${styles.containerCase} ${ptVariant} ${pBVariant}`}>
         <div className={`flex flex-row ${styles.rowCase}`}>
           <div className={`basis-full lg:basis-6/12 ${styles.bg_trustC} bg-${bgColor1}`} style={bgStyle1}>
             <div className={styles.trust_col1}>

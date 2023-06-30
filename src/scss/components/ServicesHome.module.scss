@@ -3,9 +3,6 @@
 @import "scss/variables";
 
 .wrap {
-    margin: 0 auto;
-	max-width: $content-width-large;
-	overflow: auto;
     &.firstRow{
         padding-bottom: 3.2rem;
     }

@@ -63,7 +63,7 @@ function CountingNumbers ({
   return (
     <section {...(id && { id })}
     className={styles.countingNumbers_home}>
-      <div className={`${styles.counting_numbers}`}>
+      <div className={`container ${styles.counting_numbers}`}>
         <h2>{title}</h2>
         <div className={`flex flex-row`}>
           {targets.map((target, index) => (

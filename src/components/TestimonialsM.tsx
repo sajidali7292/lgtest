@@ -20,8 +20,8 @@ function TestimonialsM({
     const ptVariant = sectionVariantsTop[pt];
     const pBVariant = sectionVariantsBottom[pb];
     return (
-      <section className={`${styles.wrapper} ${ptVariant} ${pBVariant}`}>
-        <div className={`${styles.wrap}`}>
+      <section className={`${styles.wrapper}`}>
+        <div className={`container ${styles.wrap} ${ptVariant} ${pBVariant}`}>
           <div className={`${styles.wrap_testimonials} wrap_content wrap_content-small px-0 flex flex-row flex-wrap justify-center`} >
             {testimonialsA?.map((testimonial, index) => (
               <div className="flex flex-row flex-wrap" key={`${index}$-testimonial`} >

@@ -43,7 +43,7 @@ function Footer({
   //console.log(Footercolumn1);
   return (
     <footer className={`${styles.mainW}`}>
-      <div className={`wrap_content wrap_content-extended`}>
+      <div className={`container`}>
         <div className={`${styles.wrapTop} flex flex-row flex-wrap`}>
           <div className={`basis-full lg:basis-5/12`}>
             <Image src={logoImg.url} alt={logoImg.alt} className={`${styles.logoImg} w-100 object-contain`} width="216" height="60"/>

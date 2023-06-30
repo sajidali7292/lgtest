@@ -24,8 +24,8 @@ function GridImages({
     const ptVariant = sectionVariantsTop[pt];
     const pBVariant = sectionVariantsBottom[pb];
     return (
-      <section className={`${styles.cta} ${ptVariant} ${pBVariant}`}>
-        <div className={`${styles.wrap}`}>
+      <section className={`${styles.cta}`}>
+        <div className={`${styles.wrap} container ${ptVariant} ${pBVariant}`}>
           {title && (
             <Heading level={headingLevel} className={styles.title}>
               {title}

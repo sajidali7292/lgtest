@@ -48,7 +48,7 @@ function CTA({ title, text, textSize, div, buttons, badgeObj, className, tag, se
     className={`${styles.container} ${className ? styles[className] : ''} ${fullBg ? bgVariant:''} ${secondColumn ? styles.isSecondC:''}`}>
       <div
         style={ fullBg ? null:inlineStyles }
-        className={`container wrap_content wrap_content-extended ${styles.wrap} ${fullBg ? '':bgVariant} ${ptVariant} ${pBVariant} ${sectionRounded ? styles.sectRounded:''}`}>
+        className={`container ${styles.wrap} ${fullBg ? '':bgVariant} ${ptVariant} ${pBVariant} ${sectionRounded ? styles.sectRounded:''}`}>
         <div className={`flex justify-center ${isReversed ? 'flex-row-reverse':'flex-row'}`}>
 
           <div className={`flex flex-col ${secondColumnMiddle ? 'basis-5/12 sm:basis-full md:basis-6/12':'flex-1'}`}>

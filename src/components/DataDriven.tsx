@@ -30,7 +30,7 @@ function DataDriven ({
 
     return (
       <section className={styles.container} style={{ backgroundImage: bgImage ? `url(${bgImage})` : 'none' }}>
-        <div className={styles.wrap}>
+        <div className={`container ${styles.wrap}`}>
           <div className={`${styles.row} flex flex-row`}>
             <div className={`basis-4/6`}>
               <h2>{title}</h2>

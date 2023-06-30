@@ -18,7 +18,7 @@ function ServicesHome({
 
   return (
     <section key="services-home-section" className={`services_section`}>
-      <div className={`${styles.container} ${ptVariant} ${pBVariant}`}>
+      <div className={`container ${styles.container} ${ptVariant} ${pBVariant}`}>
         {data.map((item, index, row) => (
           <div key={`services-home-wrap-${item.subtitle?.toString()}`} className={`${styles.wrap} ${item.sectionClassName} ${ index === 0 ? styles.firstRow: index === row.length - 1 ? styles.lastRow : styles.middleRow }`}>
             <div className={`${styles.row} flex ${item.reverSection ? 'flex-row-reverse':' flex-row'}`}>

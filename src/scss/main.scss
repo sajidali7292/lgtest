@@ -19,13 +19,15 @@ body {
     overflow: auto;
     padding: 0 10px;
 }
-.container {
+.container{
     margin: 0 auto;
-    max-width: $content-width-large;
     overflow: auto;
     padding: 0 10px;
-    &.p-0{
-        padding: 0;
+    @media (min-width: $content-width-large){
+        max-width: $content-width-large;
+        &.p-0{
+            padding: 0;
+        }
     }
 }
 .content-index .wrap,

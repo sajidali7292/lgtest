@@ -24,8 +24,8 @@ function BasicText({
       b1: 'pb-2', b2: 'pb-4', b3: 'pb-6', b4: 'pb-8', b5: 'pb-10', b6: 'pb-12', b7: 'pb-14', b8: 'pb-16',
     }
     return (
-      <section className={`${styles.cta} ${paddingVariant[pt]} ${paddingVariant[pb]}`}>
-        <div className={`${styles.wrap}`}>
+      <section className={`${styles.cta}`}>
+        <div className={`container ${styles.wrap} ${paddingVariant[pt]} ${paddingVariant[pb]}`}>
           {title && (
             <Heading level={headingLevel} className={styles.title}>
               {title}

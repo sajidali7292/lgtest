@@ -38,9 +38,9 @@ function PricingTab({
     <section
       {...(id && { id })}
       style={{ backgroundImage: bgImage ? `url(${bgImage})` : 'none' }}
-      className={`${styles.hero} ${isCentered ? 'text-center':''} wrap_content wrap_content-extended ${ptVariant} ${pBVariant}`}
+      className={`${styles.hero} ${isCentered ? 'text-center':''}`}
     >
-      <div className={`${styles.wrap} flex flex-row flex-wrap overflow-hidden`}>
+      <div className={`container ${styles.wrap} flex flex-row flex-wrap overflow-hidden ${ptVariant} ${pBVariant}`}>
 
         <div className={`${styles.tabTitles} wrap_content md:order-2 lg:order-1`}>
           {tabs.map((tab) => (

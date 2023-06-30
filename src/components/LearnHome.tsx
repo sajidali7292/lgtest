@@ -45,8 +45,8 @@ function LearnHome({ title, text, links, blocks, button, pt, pb, bg }: Props): J
   const pBVariant = sectionVariantsBottom[pb];
   const bgVariant = backgroundColors[bg];
   return (
-    <section className={`${styles.learn_section} ${bgVariant} ${ptVariant} ${pBVariant}`}>
-      <div className={`${styles.container} container`}>
+    <section className={`${styles.learn_section} ${bgVariant}`}>
+      <div className={`${styles.container} container ${ptVariant} ${pBVariant}`}>
         <div className={`${styles.row} flex flex-row`}>
           <div className="basis-full">
             <h2 className={`${styles.title}`}>{title}</h2>
