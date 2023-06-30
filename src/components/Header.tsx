@@ -417,7 +417,7 @@ function Header({
                   </Link>
                 ))
               }
-              <div className={`${styles.mobWrapper} ${showMobile ? '':styles.showMenuMob}`}>
+              <div className={`${styles.mobWrapper} ${showMobile ? styles.showMenuMob:''}`}>
                 <button onClick={handleMobile}>
                   <i className={`dashicons dashicons-menu-alt3 text-2xl`}></i>
                 </button>
