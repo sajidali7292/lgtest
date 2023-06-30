@@ -3,13 +3,9 @@
 @import "scss/variables";
 
 .wrap {
-	margin: 0 auto;
-	max-width: $content-width-large;
     text-align: center;
 	display: flex;
     flex-direction: column;
-	overflow: auto;
-	padding: 0 10px;
 	position: relative;
 	z-index: 1;
 }

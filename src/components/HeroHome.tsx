@@ -30,7 +30,7 @@ function HeroHome({
       {...(id && { id })}
       className={styles.hero}
     >
-      <div className={styles.wrap}>
+      <div className={`container ${styles.wrap}`}>
         <h1>
           <span className={`color-pink`}>Grow your Revenue</span> through Transparent <span className={`color-gray`}>&</span> Results-Driven SEO
         </h1>
