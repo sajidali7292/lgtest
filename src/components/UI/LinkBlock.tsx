@@ -28,7 +28,7 @@ function LinkBlock({ index, Link_Thumbnail, Link_Title, Link_URL, Link_ReadTime,
             <div className={`${classnames(styles.thumbnail_wrapper)} thumbnail_wrapper`}>
               <Image
                 src={Link_Thumbnail.url}
-                alt={`${Link_Thumbnail.alt ? Link_Thumbnail.alt:Video_Tag}`}
+                alt={`${Link_Thumbnail.alt ? Link_Thumbnail.alt:Link_Tag}`}
                 className={`object-cover`}
                 layout='fill'
               />
