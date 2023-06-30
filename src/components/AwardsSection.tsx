@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 import styles from 'scss/components/HeroHome.module.scss';
 
 interface Award {
@@ -50,7 +51,14 @@ function AwardsSection({
         {awards?.map((item, index) => (
           <div className={`basis-1/6`} key={index}>
             <div className={styles.awardsContainer}>
-              <img className={styles.awardImg} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + item.image} alt="Logos" />
+              <div className={`relative ${styles.awardImg}`}>
+                <Image
+                  src={process.env.NEXT_PUBLIC_WORDPRESS_URL + item.image}
+                  alt="Logos"
+                  className={`object-contain object-left`}
+                  layout='fill'
+                />
+              </div>
               <div className={styles.awardText}>{item.text}</div>
             </div>
           </div>
