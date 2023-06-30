@@ -30,6 +30,7 @@ function ServicesHome({
             <div className={`
                 ${styles.subToggle}
                 ${item.subtitle.toString() === selectedItem ? styles.selected : ""}
+                md:hidden
               `}
               onClick={() => handleItemClick(item.subtitle.toString())}>
               <div className={`${styles.subtitle} tag sub md:hidden;`} dangerouslySetInnerHTML={{ __html: item.subtitle?.toString() }}></div>

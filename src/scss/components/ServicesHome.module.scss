@@ -28,39 +28,41 @@
             flex-direction: column-reverse;
         }
     }
-    .subToggle{
-        position: relative;
-        &:after{
-            content: "\eb00";
-            position: absolute;
-            top: 50%;
-            right: 0;
-            font-family: "dashicons";
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-style: normal;
-            font-variant: normal;
-            font-weight: normal;
-            speak: none;
-            text-decoration: none;
-            text-transform: none;
-            line-height: 1;
-            transform: translateY(-50%);
-        }
-        &.selected{
-            + .row{
-                max-height: 1000px;
-                opacity: 1;
-            }
+    @media(max-width: $breakpoint-small_extra){
+        .subToggle{
+            position: relative;
             &:after{
-                content: "\eaed";
+                content: "\eb00";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                font-family: "dashicons";
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                speak: none;
+                text-decoration: none;
+                text-transform: none;
+                line-height: 1;
+                transform: translateY(-50%);
             }
-        }
-        + .row{
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: 0.3s ease-out all;
+            &.selected{
+                + .row{
+                    max-height: 1000px;
+                    opacity: 1;
+                }
+                &:after{
+                    content: "\eaed";
+                }
+            }
+            + .row{
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: 0.3s ease-out all;
+            }
         }
     }
     .subtitle {
