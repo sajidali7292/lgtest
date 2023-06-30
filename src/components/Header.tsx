@@ -83,9 +83,9 @@ function Header({
     customLiClasses = {},
     customFirstChildContent = {},
     customMenuConfig = {}, // Add this parameter
+    mobClass='',
     defaultItemsPerColumn = 7,
     defaultTotalColumns = 4,
-    mobClass='',
   ) {
 
     const renderColumnItems = (items, startIndex, itemsPerColumn, icon = false) => {
