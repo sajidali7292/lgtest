@@ -48,6 +48,7 @@
             }
         }
         .path_ttl {
+            position: relative;
             font-weight: 600;
             font-size: 36px;
             line-height: 1.4;
@@ -61,11 +62,13 @@
             }
         }
         .path_txt {
+            position: relative;
             font-family: $Gordita;
             color: $color-white;
             margin-top: 20px;
         }
         .path_btn {
+            position: relative;
             margin-top: 30px;
             a {
                 padding: 14px 30px;
