@@ -48,7 +48,7 @@ function VideoHome({
             <VideoBlock
               index={index}
               key={`${index}-${block.Video_Title}`}
-              className={classnames('sm:basis-full', 'md:basis-6/12', 'basis-3/12', styles.custom)}
+              className={classnames('basis-full', 'md:basis-6/12', 'lg:basis-3/12', styles.custom)}
               Video_Thumbnail={block.Video_Thumbnail}
               Video_Title={block.Video_Title}
               Video_ReadTime={block.Video_ReadTime}

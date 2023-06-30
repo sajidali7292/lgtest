@@ -5,13 +5,63 @@
 .wrap {
     &.firstRow{
         padding-bottom: 3.2rem;
+        @media(max-width: $breakpoint-small_extra){
+            padding-bottom: 1.2rem;
+        }
     }
     &.middleRow{
         padding-top: 3.2rem;
         padding-bottom: 3.2rem;
+        @media(max-width: $breakpoint-small_extra){
+            padding-top: 1.2rem;
+            padding-bottom: 1.2rem;
+        }
     }
     &.lastRow{
         padding-top: 3.2rem;
+        @media(max-width: $breakpoint-small_extra){
+            padding-top: 1.2rem;
+        }
+    }
+    .row{
+        @media(max-width: $breakpoint-small_extra){
+            flex-direction: column-reverse;
+        }
+    }
+    .subToggle{
+        position: relative;
+        &:after{
+            content: "\eb00";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            font-family: "dashicons";
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            speak: none;
+            text-decoration: none;
+            text-transform: none;
+            line-height: 1;
+            transform: translateY(-50%);
+        }
+        &.selected{
+            + .row{
+                max-height: 1000px;
+                opacity: 1;
+            }
+            &:after{
+                content: "\eaed";
+            }
+        }
+        + .row{
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: 0.3s ease-out all;
+        }
     }
     .subtitle {
         font-family: $f37ginger;
@@ -23,29 +73,50 @@
         width: 86%;
         max-width: 100%;
         font-family: $font-family;
-        color: #151433;
+        color: $color-secondary;
         font-weight: 600;
         font-size: 36px;
-        line-height: 50px;
+        line-height: 1.4;
         margin-bottom: 15px;
+        @media(max-width: $breakpoint-semi_medium){
+            width: 100%;
+            font-size: 32px;    
+        }
+        @media(max-width: $breakpoint-small_extra){
+            font-size: 26px;
+        }
     }
     .text {
         font-family: $Gordita;
         font-size: 19px;
-        line-height: 30px;
-        color: #2C3243;
+        line-height: 1.6;
+        color: $color-primary;
         max-width: 100%;
+        @media(max-width: $breakpoint-semi_medium){
+            font-size: 18px;
+        }
     }
     .links {
         margin-top: 30px;
+        li{
+            @media(max-width: $breakpoint-semi_medium){
+                padding: 5px 0;
+            }
+        }
         li:nth-child(n+3) {
             margin-top: 17px;
+            @media(max-width: $breakpoint-semi_medium){
+                margin: 0;
+            }
         }
         a {
             font-family: $Gordita;
             font-weight: 500;
             font-size: 17px;
             text-decoration: underline;
+            @media(max-width: $breakpoint-small_extra){
+                font-size: 16px;
+            }
         }
     }
 }

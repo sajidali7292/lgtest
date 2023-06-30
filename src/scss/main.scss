@@ -21,8 +21,9 @@ body {
 }
 .container{
     margin: 0 auto;
-    overflow: auto;
-    padding: 0 10px;
+    overflow: hidden;
+    padding-right: 10px;
+    padding-left: 10px;
     @media (min-width: $content-width-large){
         max-width: $content-width-large;
         &.p-0{
@@ -281,6 +282,9 @@ body .linear_bg{
 .wrap_content-small {
     width: $content-width-small;
 }
+.wrap_content-medium{
+    width: $breakpoint-medium;
+}
 .wrap_content-extended {
     width: $content-width-extended;
     @media(max-width: $breakpoint-medium) {
@@ -307,7 +311,7 @@ a.button {
     font-size: 16px;
     font-family: $Gordita;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 1.25;
     color: $color-white;
     width: fit-content;
     max-width: 100%;
@@ -536,6 +540,36 @@ a.button {
         padding: 16px 50px;
     }
 }
+    
+.pulse_animation {
+    box-shadow: 0 0 0 0 rgba(255, 70, 134, 0.5);
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 1.5s infinite;
+}
+.pulse_animation:hover {
+    animation: none;
+    -webkit-animation: none;
+}
+@keyframes pulse {
+    0% {
+    }
+    70% {
+        box-shadow: 0 0 0 35px rgba(255, 70, 134, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 70, 134, 0);
+    }
+}
+@-webkit-keyframes pulse {
+    0% {
+    }
+    70% {
+        box-shadow: 0 0 0 35px rgba(255, 70, 134, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 70, 134, 0);
+    }
+}
 
 .checkList {
     position: relative;
@@ -658,6 +692,11 @@ a.button {
 
 .common_form_wrapper fieldset[class*="form-columns-"]{
     margin-bottom: 0.8em;
+    @media(max-width: $breakpoint-small_extra){
+        > div:not(:last-child){
+            margin-bottom: 0.8em;
+        }
+    }
 }
 
 .common_form_wrapper .hs-custom-style fieldset input:not([type="image"]):not([type="submit"]):not([type="button"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]) {
@@ -687,7 +726,7 @@ a.button {
 .common_form_wrapper #budget-radio,
 .common_form_wrapper #select_btn {
     max-width: 98%;
-    line-height: 48px;
+    line-height: 3.2;
     background-color: #FFF;
     border: none;
     border-radius: 5px;
@@ -764,7 +803,7 @@ a.button {
 }
 
 .common_form_wrapper .hs-form-radio-display {
-    line-height: 48px;
+    line-height: 3.2;
 }
 
 .common_form_wrapper .hs-form-radio-display .checked {

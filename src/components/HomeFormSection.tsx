@@ -52,8 +52,8 @@ function HomeFormSection({
   return (
     <section className={`${styles.LaHome_form} ${className ? styles[className] : ''}`} style={{ backgroundColor: '#3E255A' }}>
       <div className={`container ${styles.container} ${ptVariant} ${pBVariant}`}>
-        <div className="flex flex-row">
-          <div className="basis-6/12">
+        <div className="flex flex-row flex-wrap">
+          <div className={`basis-full lg:basis-6/12`}>
             <h2 className={`${styles.title}`}>{title}</h2>
             <Image
                 src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/03/svgexport-13.svg'}
@@ -63,9 +63,9 @@ function HomeFormSection({
                 height={22}
             />
             <p className={`${styles.txt}`}>{text}</p>
-            <div className={`flex flex-row flex-wrap justify-center ${styles.client_wrap}`}>
-              <div className="flex-auto"></div>
-              <div className="flex-none">
+            <div className={`flex flex-row flex-wrap justify-center items-center ${styles.client_wrap}`}>
+              <div className="flex-auto hidden lg:block"></div>
+              <div className="basis-1/4 lg:flex-none">
                 <Image
                     src={photo.url}
                     alt={photo.alt}
@@ -74,21 +74,21 @@ function HomeFormSection({
                     height={62}
                 />
               </div>
-              <div className={`flex-3 ${styles.cliet_txt_wrapper}`}>
+              <div className={`basis-3/4 lg:flex-3 ${styles.cliet_txt_wrapper}`}>
                 <div className={`${styles.mpClientName}`}>{client_name}</div>
                 <div className={`${styles.mpClientPosition}`}>{client_position}</div>
               </div>
             </div>
             <div className={`${styles.form_logos} justify-center flex flex-row`}>
               {form_logos.map((clientlogo, index) => (
-                <div className="basis-auto lg:basis-3/12" key={index}>
+                <div className="basis-3/12" key={index}>
                   <img src={clientlogo.client_logo.url} alt={clientlogo.client_logo.alt} />
                 </div>
               ))}
             </div>
           </div>
-          <div className="basis-1/12"></div>
-          <div className={`basis-5/12`}>
+          <div className="basis-1/12 hidden lg:block"></div>
+          <div className={`basis-full lg:basis-5/12`}>
             <div className={`${styles.wrapper}`}>
               <div className={`${styles.form_container}`}>
                 <div className={`${styles.get_starte_img}`}>

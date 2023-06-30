@@ -9,15 +9,31 @@
         font-size: 36px;
         letter-spacing: -0.8px;
         margin-bottom: 25px;
+        @media(max-width: $breakpoint-semi_medium){
+          font-size: 32px;
+          text-align: center;
+        }
+        @media(max-width: $breakpoint-small_extra){
+            font-size: 26px;
+        }
     }
     .text {
         font-family: $Gordita;
         font-size: 21px;
-        line-height: 34px;
+        line-height: 1.61;
         font-weight: 400;
         width: 70%;
         margin-bottom: 59px;
         max-width: 100%;
+        @media(max-width: $breakpoint-semi_medium){
+          font-size: 20px;
+          width: 100%;
+          text-align: center;
+        }
+        @media(max-width: $breakpoint-small_extra){
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
     }
 }
 

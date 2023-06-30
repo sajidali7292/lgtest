@@ -8,6 +8,12 @@
     margin: 0 auto 24px;
     color: $color-white;
     font-size: 36px;
+    @media(max-width: $breakpoint-semi_medium){
+      font-size: 32px;
+    }
+    @media(max-width: $breakpoint-small_extra){
+        font-size: 26px;
+    }
 }
 
 .text {
@@ -18,6 +24,9 @@
     text-align: center;
     margin: 0 auto;
     line-height: 1.6;
+    @media(max-width: $breakpoint-semi_medium){
+        width: 100%;
+    }
 }
 
 .links {
@@ -28,6 +37,9 @@
         width: $content-width-small;
         max-width: 100%;
         margin: 0 auto;
+        @media(max-width: $breakpoint-semi_medium){
+            width: 100%;
+        }
         li a {
             font-size: 16px;
             color: $color-white;
@@ -38,6 +50,9 @@
 
 .buttonWrap {
     margin-top: 55px;
+    @media(max-width: $breakpoint-small_extra){
+        margin-top: 35px;
+    }
     a{
         margin: 0 auto;
     }
@@ -45,31 +60,14 @@
 
 .carrusel{
     margin-top: 65px;
+    @media(max-width: $breakpoint-semi_medium){
+        margin-top: 25px;
+    }
     .custom {
         :global {
-            .thumbnail_wrapper {
-                display: flex;
-                justify-content: center;
-                cursor: pointer;
-                width: 300px;
-                max-width: 100%;
-                height: 190px;
-                border-radius: 5px;
-                background-repeat: no-repeat;
-                background-size: cover !important;
-                background-position: center;
-                
-            }
-            .img-block-2 .thumbnail_wrapper {
-                background-position: 100% 2%;
-            }
             .Video_Title,
             .Link_Title {
                 color: $color-white;
-            }
-    
-            .linkBlocks a {
-                color: $color-white !important;
             }
             .Video_ReadTime,
             .ReadTime{

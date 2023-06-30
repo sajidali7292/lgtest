@@ -23,13 +23,13 @@
         .planName_plan{
             font-size: clamp(1rem, 3vw, 1rem);
             text-transform: uppercase;
-            line-height: 26px;
+            line-height: 1.5;
         }
         .planDesc_plan{
             font-size: clamp(1rem, 3vw, 0.9rem);
             margin-top: 15px;
             margin-bottom: 20px;
-            line-height: 18px;
+            line-height: 1;
             width: 80%;
             max-width: 100%;
         }
@@ -98,7 +98,7 @@
                         font-weight: 700;
                         font-size: 12px;
                         width: 70%;
-                        line-height: 13px;
+                        line-height: 1.1;
                         padding-top: 3px;
                         margin-bottom: 0;
                     }

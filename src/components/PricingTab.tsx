@@ -40,7 +40,7 @@ function PricingTab({
       style={{ backgroundImage: bgImage ? `url(${bgImage})` : 'none' }}
       className={`${styles.hero} ${isCentered ? 'text-center':''}`}
     >
-      <div className={`container ${styles.wrap} flex flex-row flex-wrap flex-wrap overflow-hidden ${ptVariant} ${pBVariant}`}>
+      <div className={`container ${styles.wrap} flex flex-row flex-wrap overflow-hidden ${ptVariant} ${pBVariant}`}>
 
         <div className={`${styles.tabTitles} wrap_content md:order-2 lg:order-1`}>
           {tabs.map((tab) => (
@@ -55,8 +55,8 @@ function PricingTab({
           ))}
         </div>
 
-        <div className={`${styles.intro} wrap_content wrap_content-small md:order-1 lg:order-2`}>
-          <div className={`${styles.tabs} flex flex-row flex-wrap flex-wrap justify-center`}>
+        <div className={`${styles.intro} wrap_content wrap_content-medium md:order-1 lg:order-2`}>
+          <div className={`${styles.tabs} flex flex-row flex-wrap lg:flex-nowrap justify-center`}>
             {tabs.map((tab) => (
               <button
                 key={`${tab.id}-button`}

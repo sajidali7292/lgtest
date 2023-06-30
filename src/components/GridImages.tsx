@@ -31,7 +31,7 @@ function GridImages({
               {title}
             </Heading>
           )}
-          <div className={`${styles.wrap_image} wrap_content wrap_content-extended flex flex-row flex-wrap flex-wrap justify-center`} >
+          <div className={`${styles.wrap_image} wrap_content wrap_content-extended flex flex-row flex-wrap justify-center`} >
             {images?.map((image, index) => (
               <div
               key={`${index}$-image`}  className="image_cont basis-1/2 md:basis-1/4 lg:basis-1/7 p-3">

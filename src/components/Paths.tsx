@@ -27,7 +27,7 @@ function Paths({
         </div>
         <div className={`flex flex-row flex-wrap ${styles.img_wrapper}`}>
           {paths.map((path, index) => (
-            <div className="flex-1" key={`path-${index}`}>
+            <div className={`basis-full md:basis-1/2 ${index%2 ? 'pt-2 md:pt-0 md:pl-3 lg:pl-0':'pb-2 md:pb-0 md:pr-3 lg:pr-0'}`} key={`path-${index}`}>
               <div
                 className={`${styles.pathimg} bg_img`}
                 style={{ backgroundImage: `url(${path.img.url})` }}

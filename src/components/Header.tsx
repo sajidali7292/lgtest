@@ -85,7 +85,7 @@ function Header({
     customMenuConfig = {}, // Add this parameter
     defaultItemsPerColumn = 7,
     defaultTotalColumns = 4,
-    mobClass,
+    mobClass='',
   ) {
 
     const renderColumnItems = (items, startIndex, itemsPerColumn, icon = false) => {
@@ -390,7 +390,7 @@ function Header({
             {renderMenuItems(topLevelNavMenuRightItems, 'rightMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig)}
           </div>
         </div>
-        <div className={`container`}>
+        <div className={`container ${styles.sectionMobile}`}>
           <div className={`flex lg:hidden flex-row flex-wrap justify-between items-center py-5 px-5`}>
             <div className={`flex flex-col basis-1/4`}>
               <Link href="/" passHref>
@@ -409,7 +409,7 @@ function Header({
                     <a href={`${itemMobile.linkMenu.url}`} target={`${itemMobile.linkMenu.target ? itemMobile.linkMenu.target:'_self'}`}
                       className={`
                         ${itemMobile.isButton ? 'button button-primary rounded-md':''}
-                        ${itemMobile.showMobile ? 'block':'hidden sm:block'}
+                        ${itemMobile.showMobile ? 'block':'hidden sm:block '+styles.hideMobi}
                       `}
                     >
                       {itemMobile.linkMenu.title}
@@ -427,7 +427,7 @@ function Header({
                     {renderMenuItems(topLevelNavMenuLeftItems, 'leftMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
                     {renderMenuItems(topLevelNavMenuRightItems, 'rightMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
                     {renderMenuItems(topLevelNavMenuTopItems, 'topMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
-                    <div className={`${styles.buttonInside} flex flex-wrap flex-row flex-wrap justify-center items-center gap-x-6 gap-y-8 mt-10`}>
+                    <div className={`${styles.buttonInside} flex flex-row flex-wrap justify-center items-center gap-x-6 gap-y-4 md:gap-y-8 mt-10`}>
                       {lgDashboardMobile &&
                         lgDashboardMobile.map((itemMobile, index) => (
                           <Link key={itemMobile.linkMenu.title} href={`${itemMobile.linkMenu.url}`}>

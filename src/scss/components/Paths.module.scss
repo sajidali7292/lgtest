@@ -5,14 +5,21 @@
         color: $color-secondary;
         font-weight: 600;
         font-size: 36px;
-        line-height: 50px;
+        line-height: 1.4;
         text-align: center;
         margin-bottom: 60px;
+        @media(max-width: $breakpoint-semi_medium){
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+        @media(max-width: $breakpoint-small_extra){
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
     }
 }
 
 .img_wrapper {
-
     .pathimg {
         width: 86%;
         max-width: 100%;
@@ -23,16 +30,35 @@
         padding: 215px 60px 0 50px;
         position: relative;
         background-size: cover;
+        @media(max-width: $breakpoint-semi_medium){
+          width: 100%;
+          padding: 30px 45px;
+        }
+        @media(max-width: $breakpoint-small_extra){
+            padding: 40px 25px;
+        }
         .path_sub1 {
             position: absolute;
             top: 50px;
             left: 50px;
+            @media(max-width: $breakpoint-semi_medium){
+                position: relative;
+                top: 0px;
+                left: 0px;
+            }
         }
         .path_ttl {
-            line-height: 50px;
             font-weight: 600;
             font-size: 36px;
+            line-height: 1.4;
             color: $color-white;
+            @media(max-width: $breakpoint-semi_medium){
+                font-size: 32px;
+                margin-top: 25px;
+            }
+            @media(max-width: $breakpoint-small_extra){
+                font-size: 26px;
+            }
         }
         .path_txt {
             font-family: $Gordita;
@@ -51,6 +77,9 @@
             margin-left: auto;
             .path_ttl {
                 width: 499px;
+                @media(max-width: $breakpoint-semi_medium){
+                  width: 100%;
+                }
             }
         }
     }

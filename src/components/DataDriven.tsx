@@ -40,8 +40,8 @@ function DataDriven ({
     return (
       <section className={styles.container} style={{ backgroundImage: bgImage ? `url(${bgImage})` : 'none' }}>
         <div className={`container ${styles.wrap} ${ptVariant} ${pBVariant}`}>
-          <div className={`${styles.row} flex flex-row`}>
-            <div className={`basis-4/6`}>
+          <div className={`${styles.row} flex flex-row flex-wrap`}>
+            <div className={`basis-full md:basis-4/7 lg:basis-4/6 md:pr-4 lg:pr-0`}>
               <h2>{title}</h2>
               <div className={styles.description}>
                 {descriptions?.map((description, index) => (
@@ -51,7 +51,7 @@ function DataDriven ({
                 ))}
               </div>
             </div>
-            <div className={`basis-2/6`}>
+            <div className={`basis-full md:basis-3/7 lg:basis-2/6 md:pl-4 lg:pl-0`}>
               <Image
                   src={imageUrl}
                   alt="image"

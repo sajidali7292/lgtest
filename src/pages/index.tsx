@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { GetStaticPropsContext } from 'next';
 import React from 'react';
 import { CTAImage, HeroHome, DataDriven, BasicText, GridImages, TestimonialsM, CountingNumbers, ServicesHome, CTA, HomeFormSection, ReviewsSlider, VideoHome, PricingTab, Paths, CaseStudyHome, LearnHome } from 'components';
-import styles from 'scss/pages/home.module.scss';
 import { client } from 'client';
 import $ from 'jquery';
 
@@ -30,7 +29,7 @@ export default function Page() {
         text="Award winning services and cutting-edge software to grow your traffic. Start with a FREE and Instant Site Audit."
         placeholder="Enter your website"
         buttonText="Analyze My Site"
-        id={styles.home_hero}
+        id='home_hero'
       />
         
       <BasicText 

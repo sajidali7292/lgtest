@@ -5,17 +5,26 @@
   width: 88%;
   max-width: 100%;
   margin: 0 auto;
+  @media(max-width: $breakpoint-semi_medium){
+    margin: 15px auto;
+  }
+  @media(max-width: $breakpoint-small_extra){
+    margin: 20px auto;
+  }
   .thumbnail_wrapper {
     display: flex;
     justify-content: center;
     cursor: pointer;
     max-width: 100%;
     height: 170px;
-    border-radius: 5px;
+    border-radius: 8px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     position: relative;
+    @media(max-width: $breakpoint-semi_medium){
+      height: 195px;
+    }
   }
   .Video_Tag,
   .Link_Tag {
@@ -40,6 +49,9 @@
     margin: 18px auto;
     margin-left: 0;
     cursor: pointer;
+    @media(max-width: $breakpoint-small_extra){
+      margin: 12px auto;
+    }
   }
   .Video_ReadTime,
   .ReadTime {

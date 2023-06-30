@@ -14,9 +14,15 @@
     font-family: $font-family;
     font-weight: 600;
     font-size: 36px;
-    line-height: 50px;
+    line-height: 1.4;
     margin: 0 auto 25px;
     max-width: 100%;
+    @media(max-width: $breakpoint-semi_medium){
+      font-size: 32px;
+    }
+    @media(max-width: $breakpoint-small_extra){
+        font-size: 26px;
+    }
 }
 
 .txt {
@@ -26,14 +32,26 @@
     margin: 10px auto 0;
     font-size: 19.5px;
     font-family: $Gordita;
+    @media(max-width: $breakpoint-semi_medium){
+      font-size: 18px;
+    }
+    @media(max-width: $breakpoint-small_extra){
+        font-size: 16px;
+    }
 }
 
 .client_wrap {
     font-family: $Gordita;
     font-size: 18px;
     margin-top: 30px;
+    @media(max-width: $breakpoint-small_extra){
+        font-size: 16px;
+    }
     .cliet_txt_wrapper {
         padding-left: 25px;
+        @media(max-width: $breakpoint-small_extra){
+            padding-left: 0;
+        }
         .mpClientName,
         .mpClientPosition {
             text-align: left;
@@ -45,6 +63,10 @@
             color: $color-gray;
             font-size: 17px;
             width: 350px;
+            @media(max-width: $breakpoint-small_extra){
+                width: auto;
+                font-size: 16px;
+            }
         }
     }
 }
@@ -59,12 +81,23 @@
         object-fit: contain;
         height: 50px;
         padding: 0 15px;
+        @media(max-width: $breakpoint-small_extra){
+            padding: 0 10px;
+        }
     }
 }
 
 .form_container {
-    background-color: #573E74;
+    background-color: $color-purple-dark;
     border-radius: 8px;
     padding: 45px;
     max-width: 90%;
+    @media(max-width: $breakpoint-semi_medium){
+      max-width: 65%;
+      margin: 20px auto;
+    }
+    @media(max-width: $breakpoint-small_extra){
+        max-width: 100%;
+        padding: 30px 20px;
+    }
 }

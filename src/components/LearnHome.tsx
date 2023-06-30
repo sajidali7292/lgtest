@@ -47,12 +47,12 @@ function LearnHome({ title, text, links, blocks, button, pt, pb, bg }: Props): J
   return (
     <section className={`${styles.learn_section} ${bgVariant}`}>
       <div className={`${styles.container} container ${ptVariant} ${pBVariant}`}>
-        <div className={`${styles.row} flex flex-row`}>
+        <div className={`${styles.row} flex flex-row flex-wrap`}>
           <div className="basis-full">
             <h2 className={`${styles.title}`}>{title}</h2>
             <div className={`${styles.text}`}>{text}</div>
             <div className={`${styles.links}`}>
-              <ul className="flex justify-center gap-28">
+              <ul className="flex flex-wrap justify-center gap-8 md:gap-28">
                 {links.map((link, index) => (
                   <li key={`${index}-${link.title}-links`}>
                     <a href={link.url}>{link.title}</a>
@@ -63,13 +63,13 @@ function LearnHome({ title, text, links, blocks, button, pt, pb, bg }: Props): J
             <div className={`${styles.buttonWrap}`}><Button buttonObj={button} /></div>
           </div>
         </div>
-        <div className={`${styles.row} ${styles.carrusel} flex flex-row`}>
+        <div className={`${styles.row} ${styles.carrusel} flex flex-row flex-wrap`}>
           {blocks.map((block) => (
             block.type === 'video' ? (
               <VideoBlock
                 key={`${block.index}-${block.title}-video`}
                 index={block.index}
-                className={classnames('sm:basis-full', 'md:basis-6/12', 'basis-3/12', styles.custom)}
+                className={classnames('basis-full', 'md:basis-6/12', 'lg:basis-3/12', styles.custom)}
                 Video_Thumbnail={block.thumbnail}
                 Video_Tag={block.tag}
                 Video_Title={block.title}
@@ -80,7 +80,7 @@ function LearnHome({ title, text, links, blocks, button, pt, pb, bg }: Props): J
               <LinkBlock
                 key={`${block.index}-${block.title}-link`}
                 index={block.index}
-                className={classnames('sm:basis-full', 'md:basis-6/12', 'basis-3/12', styles.custom)}
+                className={classnames('basis-full', 'md:basis-6/12', 'lg:basis-3/12', styles.custom)}
                 Link_Tag={block.tag}
                 Link_Thumbnail={block.thumbnail}
                 Link_Title={block.title}

@@ -11,12 +11,21 @@
     border: 1px solid #D5D5D5;
     border-radius: 8px;
     position: relative;
-    min-height: 242px;
+        min-height: 242px;
+        @media(max-width: $breakpoint-semi_medium){
+        width: 92%;
+        }
 
     .photo .photoWrapper {
         width: 45.1px;
         margin-left: auto;
         margin-right: 0;
+        @media(max-width: $breakpoint-semi_medium){
+            width: 70px;
+            margin-left: 0;
+            margin-right: auto;
+            padding: 0 15px 15px 10px;
+        }
     }
     
     .info {
@@ -25,24 +34,35 @@
             .name {
                 font-weight: 500;
                 color: #000000;
-                line-height: 20px;
+                line-height: 1.25;
                 margin-bottom: 10px;
                 font-family: $Gordita;
                 font-size: 16px;
                 span {
                     font-size: 13px;
                 }
+                @media(max-width: $breakpoint-semi_medium){
+                  font-size: 14px;
+                }
             }
             .stars{
                 width: 70px;
+                @media(max-width: $breakpoint-semi_medium){
+                    position: absolute;
+                    top: 35px;
+                    right: 20px;
+                }
             }
         }
         .text {
             color: #2B2F39;
             font-size: 14px;
             font-family: $Gordita;
-            line-height: 19px;
+            line-height: 1.35;
             padding-right: 20px;
+            @media(max-width: $breakpoint-semi_medium){
+                padding-right: 0px;
+            }
         }
     }
 }

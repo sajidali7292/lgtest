@@ -8,8 +8,14 @@
       width: $content-width-extended_lg;
       margin-left: auto;
       margin-right: auto;
+      @media(max-width: $breakpoint-semi_medium){
+        width: 100%;
+      }
       &.small{
         width: 720px;
+        @media(max-width: $breakpoint-semi_medium){
+          width: 100%;
+        }
       }
     }
   }
@@ -17,9 +23,15 @@
     font-family: $font-family;
     font-weight: 600;
     font-size: 36px;
-    line-height: 50px;
+    line-height: 1.4;
     max-width: 100%;
     margin: 16px 0;
+    @media(max-width: $breakpoint-semi_medium){
+      font-size: 32px;
+    }
+    @media(max-width: $breakpoint-small_extra){
+        font-size: 26px;
+    }
   }
   p {
     font-family: $Gordita;
@@ -27,7 +39,10 @@
     font-size: 21px;
     max-width: 100%;
     margin: 0;
-    line-height: 30px;
+    line-height: 1.42;
+    @media(max-width: $breakpoint-semi_medium){
+      font-size: 20px;
+    }
   }
   .btn_centered a {
     margin-right: auto;
@@ -35,6 +50,9 @@
   }
   .buttons_wrap{
     margin-top: 50px;
+    @media(max-width: $breakpoint-semi_medium){
+      margin-top: 30px;
+    }
   }
   .ctaText {
     width: 400px;
@@ -53,8 +71,9 @@
 
 .home_cta_3 {
   .wrap {
-    background-repeat: no-repeat;
-    background-size: 20%;
-    background-position: 100% 0;
+    @media(max-width: $breakpoint-semi_medium){
+      padding-right: 30px;
+      padding-left: 30px;
+    }
   }
 }

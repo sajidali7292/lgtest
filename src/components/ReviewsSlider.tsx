@@ -33,10 +33,7 @@ function ReviewsSlider({
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          variableWidth: true,
-          centerMode: false,
+          slidesToShow: 1,
         },
       },
     ],
@@ -49,7 +46,7 @@ function ReviewsSlider({
             {reviews?.map((review, index) => (
               <div key={`review-${index}`} className={`basis-full lg:basis-4/12 ${styles.card}`}>
                 <div className={`${styles.cardContainer}`}>
-                  <div className={`flex flex-row`}>
+                  <div className={`flex flex-row flex-wrap`}>
                     <div className={`basis-full lg:basis-2/12 ${styles.photo}`}>
                       <div className={`${styles.photoWrapper}`}>
                         <img src={review.photo.url} alt={review.photo.alt} />

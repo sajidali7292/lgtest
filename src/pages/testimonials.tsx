@@ -20,7 +20,7 @@ export default function Team() {
         <div className="wrap_content wrap_content-extended">
           <h2>Testimonials</h2>
 
-          <div className="flex flex-row flex-wrap flex-wrap">
+          <div className="flex flex-row flex-wrap">
             {testimonialsData.map((testimonial, index) => (
               <TestimonialInfo key={index} testimonial={testimonial} />
             ))}

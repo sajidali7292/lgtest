@@ -74,10 +74,10 @@ function CountingNumbers ({
     className={styles.countingNumbers_home}>
       <div className={`container ${styles.counting_numbers} ${ptVariant} ${pBVariant}`}>
         <h2>{title}</h2>
-        <div className={`flex flex-row`}>
+        <div className={`flex flex-row flex-wrap`}>
           {targets.map((target, index) => (
             <React.Fragment key={index}>
-              <div className="basis-1/4">
+              <div className="basis-1/2 lg:basis-1/4">
                 <div
                   ref={(ref) => counterRefs.current.push(ref)}
                   data-target={target}

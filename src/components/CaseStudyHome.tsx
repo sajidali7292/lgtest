@@ -81,14 +81,14 @@ function CaseStudyHome({
             <div className={styles.trust_col2}>
               <div className={styles.trust_quote}>{quote}</div>
               { name &&
-                <div className={`flex flex-row flex-wrap items-center ${styles.caseWrapper}`}>
+                <div className={`flex flex-row flex-wrap items-center justify-center md:justify-start ${styles.caseWrapper}`}>
                   <div className={`flex-none ${styles.photoCaseStudyHome}`}>
                     <Image className={`${styles.trust_cPhoto} object-contain object-right`}
                       src={photo.url} alt={photo.alt}
                       width={`${photo.width ? photo.width:'77'}`}
                       height={`${photo.height ? photo.height:'77'}`}/>
                   </div>
-                  <div className={`basis-7/12 ${styles.txtCaseStudyHome}`}>
+                  <div className={`basis-8/12 lg:basis-7/12 ${styles.txtCaseStudyHome}`}>
                     <div className={styles.trust_cName}>{name}</div>
                     <div className={styles.trust_cPosition}>{position}</div>
                     <div className={styles.trust_cLogo}>

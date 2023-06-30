@@ -2,16 +2,87 @@
 
 @import "scss/variables";
 
-.wrap {
-    text-align: center;
-	display: flex;
-    flex-direction: column;
+.hero{
+	height: auto;
+	background-color: $color-semi-white;
 	position: relative;
+	padding-bottom: 45px;
 	z-index: 1;
+    .wrap {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+        h1 {
+            color: $color-black;
+            font-weight: 800;
+            font-size: 72px;
+            line-height: 1.16;
+            margin: 0 auto;
+            max-width: 100%;
+            padding-top: 233px;
+            @media(max-width: $breakpoint-semi_medium){
+                font-size: 65px;
+                padding-top: 150px;
+            }
+            @media(max-width: $breakpoint-small_extra){
+                font-size: 38px;
+            }
+        }
+        p {
+            margin: 30px auto 45px;
+            font-size: 22px;
+            line-height: 1.55;
+            width: 56%;
+            max-width: 100%;
+            @media(max-width: $breakpoint-semi_medium){
+                width: 100%;
+            }
+            @media(max-width: $breakpoint-small_extra){
+                font-size: 20px;
+            }
+        }
+        form {
+            input {
+                border: 1px solid $color-semi-gray;
+                color: $color-semi-gray;
+                background: $color-white;
+                border-radius: 6px;
+                min-width: 500px;
+                max-width: 70%;
+                padding: 18px 20px;
+                font-size: 18px;
+                line-height: 1.22;
+                @media(max-width: $breakpoint-semi_medium){
+                    min-width: 50%;
+                }
+                @media(max-width: $breakpoint-small_extra){
+                    min-width:80%;
+                }
+            }
+            button {
+                font-size: 16px;
+                margin-left: 15px;
+                max-width: 100%;
+                background: $color-lg-pink;
+                border-radius: 6px; 
+                color: $color-white;
+                font-weight: 600;
+                position: relative;
+                padding: 17.5px 80px 17.5px 50px;
+                @media(max-width: $breakpoint-small_extra){
+                    min-width: 80%;
+                    margin-top: 20px;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
 }
 
 .row {
-    margin-top: 45px;
+    padding-top: 45px;
 }
 
 .awardsContainer {
@@ -23,7 +94,7 @@
     font-family: $font-family;
     font-size: 22px;
     font-weight: 600;
-    line-height: 32px;
+    line-height: 1.45;
     letter-spacing: -.01em;
     text-align: left;
     color: #151433;
@@ -43,7 +114,7 @@
     font-family: $font-family;
     font-size: 14px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 1.3;
     margin-top: 12px;
     letter-spacing: 0;
     text-align: left;
@@ -75,61 +146,6 @@
 	margin-top: -10px;
 }
 
-.pulse_animation {
-    box-shadow: 0 0 0 0 rgba(255, 70, 134, 0.5);
-    animation: pulse 1.5s infinite;
-    -webkit-animation: pulse 1.5s infinite;
-	border-radius: 0;
-}
-.pulse_animation:hover {
-    animation: none;
-    -webkit-animation: none;
-}
-
-@keyframes pulse {
-    0% {
-        /* -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9); */
-    }
-    70% {
-        /* -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -webkit-transform: scale(1);
-        transform: scale(1); */
-        box-shadow: 0 0 0 35px rgba(255, 70, 134, 0);
-    }
-    100% {
-        /* -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9); */
-        box-shadow: 0 0 0 0 rgba(255, 70, 134, 0);
-    }
-}
-@-webkit-keyframes pulse {
-    0% {
-        /* -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9); */
-    }
-    70% {
-        /* -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -webkit-transform: scale(1);
-        transform: scale(1); */
-        box-shadow: 0 0 0 35px rgba(255, 70, 134, 0);
-    }
-    100% {
-        /* -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9); */
-        box-shadow: 0 0 0 0 rgba(255, 70, 134, 0);
-    }
-}
 
 .pulse_animation span img {
     width: 15px;

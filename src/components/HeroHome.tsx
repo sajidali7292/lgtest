@@ -26,9 +26,7 @@ function HeroHome({
 
   return (
     <section
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...(id && { id })}
-      className={styles.hero}
+      {...(id && { id })} className={styles.hero}
     >
       <div className={`container ${styles.wrap}`}>
         <h1>
@@ -37,13 +35,11 @@ function HeroHome({
         <p>{text}</p>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder={placeholder} value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-          <button type="submit">
-            <a className={styles.pulse_animation}>
-              {buttonText}
-              <span>
-                <img className={styles.logo} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/Vector9.webp'} alt="Arrow" />
-              </span>
-            </a>
+          <button className={`${styles.pulse_animation} pulse_animation`} type="submit">
+            {buttonText}
+            <span>
+              <img className={styles.logo} src={process.env.NEXT_PUBLIC_WORDPRESS_URL + '/wp-content/uploads/2023/02/Vector9.webp'} alt="Arrow" />
+            </span>
           </button>
         </form>
         <div className={styles.accountCounter}>

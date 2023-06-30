@@ -11,33 +11,46 @@
     h2{
         font-family: $font-family;
         font-weight: 600;
-        font-size: clamp(2rem, 3vw, 2.25rem);
-        line-height: 3.2rem;
+        font-size: 36px;
+        line-height: 1.5;
         @media(max-width: $breakpoint-semi_medium){
-            font-size: clamp(2.2rem, 3.1vw, 2.35rem);
+            font-size: 32px;
+        }
+        @media(max-width: $breakpoint-small_extra){
+            font-size: 26px;
         }
     }
     p{
         margin-top: 18px;
         font-family: $Gordita;
-        font-size: clamp(0.8rem, 4vw, 1.35rem);
-        line-height: 1.9rem;
+        font-size: 22px;
+        line-height: 1.9;
+        @media(max-width: $breakpoint-semi_medium){
+            font-size: 20px;
+        }
+        @media(max-width: $breakpoint-small_extra){
+            font-size: 18px;
+        }
     }
 }
 .tabs{
     .tab{
         margin-right: 20px;
         font-family: $Gordita;
-        font-size: clamp(0.9rem, 4.2vw, 1.32rem);
+        font-size: 23px;
         line-height: 1.2;
         font-weight: 400;
         border-bottom: $color-transparent solid 5px;
         color: $color-semi-gray;
         padding: 5px 10px;
         transition: 0.2s ease-out all;
+        @media(max-width: $breakpoint-semi_medium){
+            font-size: 21px;
+        }
         @media(max-width: $breakpoint-small_extra){
             margin-right: 0;
             padding: 15px;
+            font-size: 20px;
         }
         &.active{
             font-weight: 500;

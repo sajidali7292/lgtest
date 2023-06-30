@@ -12,7 +12,7 @@ function BadgeRow({
     }: BadgeRowProps): JSX.Element {
     return (
         <div className={`${styles.bottom_txt} 
-            flex flex-row flex-wrap items-center justify-center gap-4 
+            flex flex-row items-center justify-center gap-2 lg:gap-4 
             bg-${badgeObj.bg} color-${badgeObj.color}
             ${badgeObj.rounded == 'normal' ? 'rounded-md' : badgeObj.rounded == 'pill' ? 'rounded-full':''}`}>
             {badgeObj.badgeRows.map((row, index) => (
