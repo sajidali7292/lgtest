@@ -3,7 +3,7 @@ import styles from 'scss/components/Header.module.scss';
 import Link from 'next/link';
 import { client, MenuLocationEnum } from 'client';
 import Head from 'next/head';
-import Image from 'next/image'
+import Image from 'next/image';
 import classnames from 'classnames'
 
 interface Props {
