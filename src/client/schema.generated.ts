@@ -4019,6 +4019,12 @@ export const generatedSchema = {
     fieldGroupName: { __type: "String" },
     $on: { __type: "$AcfFieldGroup!" },
   },
+  AcfLink: {
+    __typename: { __type: "String!" },
+    target: { __type: "String" },
+    title: { __type: "String" },
+    url: { __type: "String" },
+  },
   AtlasContentModelerSettingsSettings: {
     __typename: { __type: "String!" },
     atlasContentModelerUsageTracking: { __type: "String" },
@@ -7444,9 +7450,18 @@ export const generatedSchema = {
   },
   ThemeGeneralSettings_Lgoptions: {
     __typename: { __type: "String!" },
+    dashboardLogin: { __type: "AcfLink" },
     fieldGroupName: { __type: "String" },
     lgLogo: { __type: "MediaItem" },
     lgNumber: { __type: "String" },
+    menuTopItems: { __type: "[ThemeGeneralSettings_Lgoptions_menuTopItems]" },
+  },
+  ThemeGeneralSettings_Lgoptions_menuTopItems: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    isButton: { __type: "Boolean" },
+    linkMenu: { __type: "AcfLink" },
+    showMobile: { __type: "Boolean" },
   },
   UniformResourceIdentifiable: {
     __typename: { __type: "String!" },
@@ -8841,7 +8856,11 @@ export const generatedSchema = {
       "Testimonial",
     ],
     MenuItemObjectUnion: ["Category", "Page", "Post", "Tag"],
-    AcfFieldGroup: ["MenuItem_Menufields", "ThemeGeneralSettings_Lgoptions"],
+    AcfFieldGroup: [
+      "MenuItem_Menufields",
+      "ThemeGeneralSettings_Lgoptions",
+      "ThemeGeneralSettings_Lgoptions_menuTopItems",
+    ],
     NodeWithContentEditor: ["Page", "Post"],
     NodeWithFeaturedImage: ["Page", "Post", "Project", "TeamMember"],
     NodeWithPageAttributes: ["Page"],
@@ -8855,12 +8874,34 @@ export const generatedSchema = {
  * A Field Group registered by ACF
  */
 export interface AcfFieldGroup {
-  __typename?: "MenuItem_Menufields" | "ThemeGeneralSettings_Lgoptions";
+  __typename?:
+    | "MenuItem_Menufields"
+    | "ThemeGeneralSettings_Lgoptions"
+    | "ThemeGeneralSettings_Lgoptions_menuTopItems";
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums["String"]>;
   $on: $AcfFieldGroup;
+}
+
+/**
+ * ACF Link field
+ */
+export interface AcfLink {
+  __typename?: "AcfLink";
+  /**
+   * The target of the link (_blank, etc)
+   */
+  target?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The title of the link
+   */
+  title?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The url of the link
+   */
+  url?: Maybe<ScalarsEnums["String"]>;
 }
 
 /**
@@ -16140,12 +16181,30 @@ export interface ThemeGeneralSettings {
  */
 export interface ThemeGeneralSettings_Lgoptions {
   __typename?: "ThemeGeneralSettings_Lgoptions";
+  dashboardLogin?: Maybe<AcfLink>;
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums["String"]>;
   lgLogo?: Maybe<MediaItem>;
   lgNumber?: Maybe<ScalarsEnums["String"]>;
+  menuTopItems?: Maybe<
+    Array<Maybe<ThemeGeneralSettings_Lgoptions_menuTopItems>>
+  >;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_menuTopItems {
+  __typename?: "ThemeGeneralSettings_Lgoptions_menuTopItems";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  isButton?: Maybe<ScalarsEnums["Boolean"]>;
+  linkMenu?: Maybe<AcfLink>;
+  showMobile?: Maybe<ScalarsEnums["Boolean"]>;
 }
 
 /**
@@ -17704,6 +17763,7 @@ export interface Subscription {
 }
 
 export interface SchemaObjectTypes {
+  AcfLink: AcfLink;
   AtlasContentModelerSettingsSettings: AtlasContentModelerSettingsSettings;
   Avatar: Avatar;
   Category: Category;
@@ -17903,6 +17963,7 @@ export interface SchemaObjectTypes {
   Theme: Theme;
   ThemeGeneralSettings: ThemeGeneralSettings;
   ThemeGeneralSettings_Lgoptions: ThemeGeneralSettings_Lgoptions;
+  ThemeGeneralSettings_Lgoptions_menuTopItems: ThemeGeneralSettings_Lgoptions_menuTopItems;
   UpdateCategoryPayload: UpdateCategoryPayload;
   UpdateCommentPayload: UpdateCommentPayload;
   UpdateMediaItemPayload: UpdateMediaItemPayload;
@@ -17946,6 +18007,7 @@ export interface SchemaObjectTypes {
   WritingSettings: WritingSettings;
 }
 export type SchemaObjectTypesNames =
+  | "AcfLink"
   | "AtlasContentModelerSettingsSettings"
   | "Avatar"
   | "Category"
@@ -18145,6 +18207,7 @@ export type SchemaObjectTypesNames =
   | "Theme"
   | "ThemeGeneralSettings"
   | "ThemeGeneralSettings_Lgoptions"
+  | "ThemeGeneralSettings_Lgoptions_menuTopItems"
   | "UpdateCategoryPayload"
   | "UpdateCommentPayload"
   | "UpdateMediaItemPayload"
@@ -18190,6 +18253,7 @@ export type SchemaObjectTypesNames =
 export interface $AcfFieldGroup {
   MenuItem_Menufields?: MenuItem_Menufields;
   ThemeGeneralSettings_Lgoptions?: ThemeGeneralSettings_Lgoptions;
+  ThemeGeneralSettings_Lgoptions_menuTopItems?: ThemeGeneralSettings_Lgoptions_menuTopItems;
 }
 
 export interface $Commenter {

@@ -749,7 +749,7 @@ export default function Page() {
         ]}
         secondColumnMiddle
         secondColumn={{
-          img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Group-35472.webp`, alt: "Integrations", width: "407", height: "450" }
+          img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Group-35472.webp`, alt: "Integrations", width: 407, height: 450  }
         }}
         pt="xxs"
         pb="xxs"
@@ -767,7 +767,7 @@ export default function Page() {
         photo={{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Mask-Group1.webp`, alt: "Client Photo" }}
         name="Ted Hunting"
         position="Senior VP of Marketing at BrightPattern"
-        logo={{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/image-1172.webp`, alt: "Brightpattern logo", width: "145", height: "13" }}
+        logo={{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/image-1172.webp`, alt: "Brightpattern logo", width: 145, height: 13 }}
         bgImage1= {{
           url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Group-3392.png`,
           position: '97% 40%', size: '24px', repeat: 'no-repeat'
@@ -922,7 +922,7 @@ export default function Page() {
         ]}
         secondColumnMiddle
         secondColumn={{
-          img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Group-3016.webp`, alt: "We're Hiring", width: "447", height: "473" }
+          img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Group-3016.webp`, alt: "We're Hiring", width: 447, height: 473 }
         }}
         pt="xxl"
         pb="lg"
@@ -969,7 +969,7 @@ export default function Page() {
         }}
         secondColumnMiddle
         secondColumn={{
-          img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/image-108.webp`, alt: "We're Hiring", width: "440", height: "378" }
+          img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/image-108.webp`, alt: "We're Hiring", width: 440, height: 378 }
         }}
         pt="xxl"
         pb="lg"

@@ -53,6 +53,13 @@ function Header({
 
   const lgNumber = themeGeneralSettings.lgOptions.lgNumber;
   const lgLogo = themeGeneralSettings.lgOptions.lgLogo;
+  const lgDashboardMobile = themeGeneralSettings.lgOptions.menuTopItems;
+
+  const [showMobile, setShowMobile] = useState("false");
+
+  const handleMobile = () => {
+    setShowMobile(!showMobile);
+  };
 
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -77,7 +84,8 @@ function Header({
     customFirstChildContent = {},
     customMenuConfig = {}, // Add this parameter
     defaultItemsPerColumn = 7,
-    defaultTotalColumns = 4
+    defaultTotalColumns = 4,
+    mobClass,
   ) {
 
     const renderColumnItems = (items, startIndex, itemsPerColumn, icon = false) => {
@@ -121,8 +129,8 @@ function Header({
           return (
             <li
               key={`${link.label}-menu_${Math.random()}`}
-              onClick={() => hasChildItems && handleItemClick(link)}
-              className={`${link === selectedItem && hasChildItems ? `${styles.selected}` : ""} ${styles[customLiClass]} 
+              onClick={() => hasChildItems && handleItemClick(link.label+'_'+customClassName+'-'+mobClass)}
+              className={`${link.label+'_'+customClassName+'-'+mobClass === selectedItem && hasChildItems ? `${styles.selected}` : ""} ${styles[customLiClass]} 
                         ${hasChildItems ? styles.header_megamenu : styles.header_menu}
                         ${link.menuFields.newIcon ? styles.has_img:''}`}
             >
@@ -166,7 +174,7 @@ function Header({
                                 </>
                               ):(
                                 <>
-                                  <li key={`${submenu.label}-${Math.random()}`} className={`basis-1/4`}>
+                                  <li key={`${submenu.label}-${Math.random()}`} className={`flex basis-full lg:basis-1/4`}>
                                       <Link href={submenu.url ?? ''} passHref>
                                         <a href={submenu.url}>
                                           <span dangerouslySetInnerHTML={{__html: submenu.label}} className={`${styles.contentDesc} ${styles.titleWrap}`}></span>
@@ -325,7 +333,7 @@ function Header({
         </title>
       </Head>
       <div className={`${styles.header_container} flex flex-col container`}>
-        <div className={`${styles.header_row} ${styles.header_row_top} flex flex-row justify-between`}>
+        <div className={`${styles.header_row} ${styles.header_row_top} hidden lg:flex flex-row justify-between`}>
           <div className={`flex-1 flex ${styles.header__order_builder}`}>
             {renderMenuItems(topLevelNavMenuTopLeftItems, 'topMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig)}
           </div>
@@ -344,7 +352,7 @@ function Header({
             {renderMenuItems(topLevelNavMenuTopItems, 'topMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig)}
           </div>
         </div>
-        <div className={`${styles.header_row} ${styles.header_row_bottom} flex flex-row justify-between items-center`}>
+        <div className={`${styles.header_row} ${styles.header_row_bottom} hidden lg:flex flex-row justify-between items-center`}>
           <div className={`${styles.header__menu_left} flex-1`}>
             {renderMenuItems(topLevelNavMenuLeftItems, 'leftMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig)}
           </div>
@@ -380,6 +388,64 @@ function Header({
           </div>
           <div className={`${styles.header__menu_right} flex-1`}>
             {renderMenuItems(topLevelNavMenuRightItems, 'rightMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig)}
+          </div>
+        </div>
+        <div className={`container`}>
+          <div className={`flex lg:hidden flex-row justify-between items-center py-5 px-5`}>
+            <div className={`flex flex-col basis-1/4`}>
+              <Link href="/" passHref>
+                <a href="/" className="leading-none">
+                  <Image
+                    className={styles.logo}
+                    src={lgLogo.mediaItemUrl}
+                    alt={`${lgLogo.altText ? lgLogo.altText:'LinkGraph Logo'}`} width="105" height="38"/>
+                </a>
+              </Link>
+            </div>
+            <div className={`flex flex-row justify-end items-center gap-10 basis-3/4`}>
+              {lgDashboardMobile &&
+                lgDashboardMobile.map((itemMobile, index) => (
+                  <Link key={itemMobile.linkMenu.title} href={`${itemMobile.linkMenu.url}`}>
+                    <a href={`${itemMobile.linkMenu.url}`} target={`${itemMobile.linkMenu.target ? itemMobile.linkMenu.target:'_self'}`}
+                      className={`
+                        ${itemMobile.isButton ? 'button button-primary rounded-md':''}
+                        ${itemMobile.showMobile ? 'block':'hidden sm:block'}
+                      `}
+                    >
+                      {itemMobile.linkMenu.title}
+                    </a>
+                  </Link>
+                ))
+              }
+              <div className={`${styles.mobWrapper} ${showMobile ? '':styles.showMenuMob}`}>
+                <button onClick={handleMobile}>
+                  <i className={`dashicons dashicons-menu-alt3 text-2xl`}></i>
+                </button>
+                <div className={`fixed top-0 left-0 bg-white px-10 pt-16 pb-5 overflow-auto max-h-screen h-screen max-w-full w-full ${styles.menuMobWrap}`}>
+                  <i onClick={handleMobile} className={`absolute top-5 right-9 dashicons dashicons-no-alt text-4xl`}></i>
+                  <div className={`flex flex-col`}>
+                    {renderMenuItems(topLevelNavMenuLeftItems, 'leftMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
+                    {renderMenuItems(topLevelNavMenuRightItems, 'rightMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
+                    {renderMenuItems(topLevelNavMenuTopItems, 'topMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
+                    <div className={`${styles.buttonInside} flex flex-wrap flex-row justify-center items-center gap-x-6 gap-y-8 mt-10`}>
+                      {lgDashboardMobile &&
+                        lgDashboardMobile.map((itemMobile, index) => (
+                          <Link key={itemMobile.linkMenu.title} href={`${itemMobile.linkMenu.url}`}>
+                            <a href={`${itemMobile.linkMenu.url}`} target={`${itemMobile.linkMenu.target ? itemMobile.linkMenu.target:'_self'}`}
+                              className={`
+                                ${itemMobile.isButton ? 'button button-primary rounded-md':''}
+                              `}
+                            >
+                              {itemMobile.linkMenu.title}
+                            </a>
+                          </Link>
+                        ))
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
