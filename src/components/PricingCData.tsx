@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './UI/Button/index';
 import Circle from './UI/circlePercentage';
 import { ReactSVG } from "react-svg";
+import Image from 'next/image';
 // import { backgroundColors, sectionVariantsTop, sectionVariantsBottom } from './constants';
 // import styles from 'scss/components/PricingTData.module.scss';
 
@@ -21,7 +22,12 @@ function PricingTData({
     <div className={`${classStyle.plan_cardWrap} text-center ${servData.serviceImage ? '': classStyle.noImageCard}`}>
       {servData.serviceImage &&
         <div className={`${classStyle.plan_img_bg}`}>
-            <img src={servData.serviceImage.url} alt={servData.serviceImage.alt} />
+          <Image
+            src={servData.serviceImage.url}
+            alt={`${servData.serviceImage.alt ? servData.serviceImage.alt:'Plan Image'}`}
+            className={`object-contain`}
+            width='153' height='165'
+          />
         </div>
       }
       <div className={`${classStyle.plan_bg_grey}`}>
