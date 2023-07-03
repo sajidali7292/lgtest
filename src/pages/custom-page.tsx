@@ -1,6 +1,6 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { client } from 'client';
-import { Footer, Header, Hero } from 'components';
+import { Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -29,8 +29,6 @@ export default function Page() {
           </p>
         </div>
       </main>
-
-      <Footer copyrightHolder={generalSettings.title} />
     </>
   );
 }

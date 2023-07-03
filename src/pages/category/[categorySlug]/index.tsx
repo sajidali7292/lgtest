@@ -1,6 +1,6 @@
 import { getNextStaticProps, is404 } from '@faustjs/next';
 import Head from 'next/head';
-import { Header, Footer, Posts, Pagination } from 'components';
+import { Posts, Pagination } from 'components';
 import { GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
 import { client } from 'client';
@@ -23,10 +23,6 @@ export default function Page() {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
 
       <Head>
         <title>Posts - {generalSettings?.title}</title>
@@ -44,7 +40,6 @@ export default function Page() {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { client } from 'client';
-import { Header, Hero, Footer } from '../components';
+import { Hero } from '../components';
 
 export default function Page(): JSX.Element {
   const { useQuery } = client;
@@ -8,10 +8,6 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-      <Header
-        title={generalSettings?.title}
-        description={generalSettings?.description}
-      />
       <main className="content content-page">
         <Hero title={`Oops! That page can’t be found.`} />
         <div className="wrap">
@@ -25,7 +21,6 @@ export default function Page(): JSX.Element {
           </div>
         </div>
       </main>
-      <Footer copyrightHolder={generalSettings?.title} />
     </>
   );
 }

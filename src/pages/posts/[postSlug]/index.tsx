@@ -1,6 +1,6 @@
 import { getNextStaticProps, is404 } from '@faustjs/next';
 import { client, Post } from 'client';
-import { Footer, Header, Hero } from 'components';
+import { Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 
@@ -14,10 +14,6 @@ export function PostComponent({ post }: PostProps) {
 
   return (
     <>
-      <Header
-        title={generalSettings.title}
-        description={generalSettings.description}
-      />
 
       <Head>
         <title>
@@ -36,7 +32,6 @@ export function PostComponent({ post }: PostProps) {
         </div>
       </main>
 
-      <Footer copyrightHolder={generalSettings.title} />
     </>
   );
 }
