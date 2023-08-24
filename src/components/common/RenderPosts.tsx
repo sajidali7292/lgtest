@@ -60,13 +60,13 @@ function RenderPosts({
             ));
         }else if( type == 'webinar' ){
             return useQuery().videoCategory({id: type, idType: 'SLUG'})?.videos()?.nodes.map((item, index) => (
-                <div className={`${styles.postWrap}`}>
+                <div key={`videoCategory-${index}`} className={`${styles.postWrap}`}>
                     <ModalLinks item={item}/>
                 </div>
             ));
         }else if( type == 'video' ){
             return useQuery().videoCategories({first: 6, where: {excludeTree: "29"}})?.nodes.map((item, index) => (
-                <div className={`${styles.postWrap} ${styles.postCategory}`}>
+                <div key={`videoCategories-${index}-${item.name}`} className={`${styles.postWrap} ${styles.postCategory}`}>
                     <Link href={`${item.uri}`} passHref>
                         <a href={`${item.uri}`}
                         onClick={() => handlePost(item.uri)}
@@ -81,7 +81,7 @@ function RenderPosts({
             ));
         }else if( type == 'ebook' ){
             return useQuery().ebooks({first: 10})?.nodes.map((item, index) => (
-                <div className={`${styles.postWrap}`}>
+                <div key={`eBook-${index}_${item.title({format: 'RENDERED'})}`} className={`${styles.postWrap}`}>
                     <Link href={`${item.uri}`} passHref>
                         <a href={`${item.uri}`}
                         onClick={() => handlePost(item.uri)}
@@ -89,14 +89,14 @@ function RenderPosts({
                         typeToggles ${styles.postList}
                         ${item.uri === selectedPost ? styles.typeSelected : ""}
                         `}>
-                            <span dangerouslySetInnerHTML={{ __html: item?.title({format: 'RENDERED'}) }} ></span>
+                            <span dangerouslySetInnerHTML={{ __html: item.title({format: 'RENDERED'}) }} ></span>
                         </a>
                     </Link>
                 </div>
             ));
         }else if( type.includes("study") ){
             return useQuery().caseStudies({first: 10})?.nodes.map((item, index) => (
-                <div className={`${styles.postWrap}`}>
+                <div key={`${item?.title({format: 'RENDERED'})}-${index}`} className={`${styles.postWrap}`}>
                     <Link href={`${item.uri}`} passHref>
                         <a href={`${item.uri}`}
                         onClick={() => handlePost(item.uri)}

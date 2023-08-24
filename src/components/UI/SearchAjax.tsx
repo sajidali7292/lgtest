@@ -46,6 +46,7 @@ function SearchAjax({
                     <label for={`search`} className={`absolute top-1/2 -translate-y-1/2 left-4 leading-none opacity-50 focus:opacity-1`}>
                         <Image 
                             src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/07/Vector2.png`}
+                            alt={`Magnifying glass`}
                             width='20'
                             height='20'
                         />
@@ -70,7 +71,7 @@ function SearchAjax({
                                             </a>
                                         </Link>
                                     ):(
-                                        <div>Loading...</div>
+                                        <div key={`loadingPost${index}`}>Loading...</div>
                                     )
                                 ))}
                                 </>

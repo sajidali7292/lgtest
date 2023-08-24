@@ -31,7 +31,9 @@ function ToggleButton({
         ${isColumns ? 'flex-row flex-wrap':'flex-col'}
         `}>
             {toggles.map((item, index, row) => (
-                <div className={`
+                <div
+                key={item.title}
+                className={`
                     ${isColumns ? 'w-full md:w-1/2':''}
                     ${index % 2 == 0 && isColumns ? 'pr-0 md:pr-2':'pl-0 md:pl-2'}
                 `}>

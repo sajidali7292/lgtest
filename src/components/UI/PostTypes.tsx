@@ -38,9 +38,6 @@ function PostTypes({
     return (
         <div className={`${styles.typesWrapper}`}>
             {renderToggle(tSections)}
-            {contentTypes.map((item, index) => (
-                //console.log(item.name)
-            ))}
         </div>
     );
 
@@ -55,6 +52,7 @@ function PostTypes({
                     <div className={`${styles.subtitle} relative`}>
                         <Image 
                         src={item.toggleImage.mediaItemUrl}
+                        alt={`${item.toggleImage.alt ? item.toggleImage.alt:item.toggleTitle}`}
                         className={`object-contain object-left p-4`}
                         layout='fill'
                         />

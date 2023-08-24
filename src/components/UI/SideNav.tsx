@@ -11,9 +11,9 @@ interface SideNavProps {
 function SideNav({ 
     postCat,
     }: SideNavProps): JSX.Element {
-    const [isLoading, setLoading] = useState(false);
+    const [isLoadingStatus, setLoadingStatus] = useState(false);
     useEffect(() => {
-        setLoading(true);
+        setLoadingStatus(true);
         headingsFunction();
         window.addEventListener('scroll', isStickyNav);
         return () => {
@@ -66,7 +66,7 @@ function SideNav({
 
         //console.log( headingsElements );
         //console.log( 'tester' );
-        setLoading(false);
+        setLoadingStatus(false);
         
     };
 
@@ -117,7 +117,7 @@ function SideNav({
                         <div className={`${styles.headingTitle}`}><span>RELATED ARTICLES</span></div>
                         <div className={`${styles.postsList} flex flex-col gap-6`}>
                             {postsObj.edges.map((post, index) => (
-                                <Link href={`${post.node.uri}`} passHref>
+                                <Link key={post.node.title({format: 'RENDERED'})} href={`${post.node.uri}`} passHref>
                                     <a className={`${styles.postList}`} href={`${post.node.uri}`}>
                                         <span dangerouslySetInnerHTML={{ __html: post.node?.title({format: 'RENDERED'}) }} ></span>
                                         {renderDate(post.node.date)}

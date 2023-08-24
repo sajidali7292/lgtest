@@ -31,6 +31,7 @@ function Hero({
           <div className={`hidden md:block `}>
             <Image 
               src={bgImage}
+              alt={`Background Image`}
               className={`object-contain object-right lg:object-right-bottom`}
               layout='fill'
             />

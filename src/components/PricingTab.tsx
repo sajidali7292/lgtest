@@ -78,7 +78,9 @@ function PricingTab({
         {
           tabs.map((tab, index) => (
             tab.title && (
-              <div className={`
+              <div
+              key={tab.title}
+              className={`
               ${styles.tabTitles} 
               wrap_content md:order-2 lg:order-1
               text-center

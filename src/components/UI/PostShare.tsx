@@ -23,6 +23,7 @@ function PostShare({
                     <div className={`${styles.authorImg}`}>
                         <Image 
                             src={`https://bplgtest.wpengine.com/wp-content/uploads/2023/02/Vector.svg`}
+                            alt={`LG Icon`}
                             width='40'
                             height='40'
                             className={`object-contain`}
