@@ -1,0 +1,25 @@
+// CSS for the component PostDetail.tsx
+
+@import "scss/variables";
+
+.detailWrap{
+    margin-top: 10px;
+    .authorDetail{
+        color: $color-semi-gray;
+        font-family: $Gordita;
+        font-weight: 400;
+        font-size: 15px;
+        a{
+            text-decoration: underline;
+        }
+    }
+    .shortContent{
+        display: inline;
+        background-color: $color-semi-white;
+        font-family: $Gordita;
+        font-weight: 500;
+        padding: 0 6px;
+        line-height: 1.9;
+        -webkit-box-decoration-break: clone;
+    }
+}
