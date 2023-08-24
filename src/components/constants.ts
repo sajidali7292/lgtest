@@ -8,6 +8,8 @@ export const backgroundColors = {
     black: "bg-black text-white",
     white: "bg-white text-black",
     red: "bg-red text-white",
+    light: "bg-semi_white text-black",
+    pink: "bg-pink text-black",
 }
 
 export const sectionVariantsTop = {
