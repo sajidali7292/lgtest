@@ -9,11 +9,13 @@ import classnames from 'classnames'
 interface Props {
   title?: string;
   description?: string;
+  contentType?: any;
 }
 
 
 function Header({
   description,
+  contentType
 }: Props): JSX.Element {
   const [sticky, setSticky] = useState("");
   useEffect(() => {
@@ -35,19 +37,19 @@ function Header({
   const { useQuery } = client;
   const { menuItems, themeGeneralSettings } =  useQuery();
 
-  const topLevelNavMenuTopLeftItems = menuItems({
-    where: { location: MenuLocationEnum.NAVMENUTOPLEFT, parentDatabaseId: 0 }, first: 50
+  const topLevelNavMenuTopLeftItems = useQuery().menuItems({
+    where: { location: MenuLocationEnum.NAVIGATION_MENU_TOP_LEFT, parentDatabaseId: 0 }, first: 50
   })?.nodes;
 
-  const topLevelNavMenuTopItems = menuItems({
+  const topLevelNavMenuTopItems = useQuery().menuItems({
     where: { location: MenuLocationEnum.NAV_MENU_TOP, parentDatabaseId: 0 }, first: 50
   })?.nodes;
 
-  const topLevelNavMenuLeftItems = menuItems({
+  const topLevelNavMenuLeftItems = useQuery().menuItems({
     where: { location: MenuLocationEnum.NAV_MENU_LEFT, parentDatabaseId: 0 }, first: 50
   })?.nodes;
 
-  const topLevelNavMenuRightItems = menuItems({
+  const topLevelNavMenuRightItems = useQuery().menuItems({
     where: { location: MenuLocationEnum.NAV_MENU_RIGHT, parentDatabaseId: 0 }, first: 50
   })?.nodes;
 
@@ -91,14 +93,14 @@ function Header({
     const renderColumnItems = (items, startIndex, itemsPerColumn, icon = false) => {
       return items.slice(startIndex, startIndex + itemsPerColumn).map((child, index) => (
         <li key={`${child.label}-${Math.random()}`}>
-          {child?.menuFields?.newIcon && (
+          {child.menuFields.newIcon &&
             <Image
               src={child?.menuFields?.newIcon?.mediaItemUrl}
               alt={`${child.menuFields.newIcon.altText ? child.menuFields.newIcon.altText:'Menu Icon'}`}
               width={35}
               height={35}
             />
-          )}
+          }
           <Link href={child.url ?? ''} passHref>
             <a href={child.url}>{child.label}</a>
           </Link>
@@ -117,6 +119,7 @@ function Header({
           }
   
           const hasChildItems = link.childItems()?.nodes?.length > 0;
+          const hasImgItem = link.menuFields.newIcon ? true:false;
           const customLiClass = customLiClasses[link.label] || "";
           const firstChildContent = customFirstChildContent[link.label] || null;
   
@@ -128,11 +131,11 @@ function Header({
   
           return (
             <li
-              key={`${link.label}-menu_${Math.random()}`}
-              onClick={() => hasChildItems && handleItemClick(link.label+'_'+customClassName+'-'+mobClass)}
-              className={`${link.label+'_'+customClassName+'-'+mobClass === selectedItem && hasChildItems ? `${styles.selected}` : ""} ${styles[customLiClass]} 
-                        ${hasChildItems ? styles.header_megamenu : styles.header_menu}
-                        ${link.menuFields.newIcon ? styles.has_img:''}`}
+            key={`${link.label}-menu_${Math.random()}`}
+            onClick={() => hasChildItems && handleItemClick(link.label+'_'+customClassName+'-'+mobClass)}
+            className={`${link.label+'_'+customClassName+'-'+mobClass === selectedItem && hasChildItems ? `${styles.selected}` : ""} ${styles[customLiClass]} 
+            ${hasChildItems ? styles.header_megamenu : styles.header_menu}
+            ${link.menuFields.newIcon ? styles.has_img:''}`}
             >
               <Link href={`${hasChildItems ? '#':link.url}`} passHref>
                 <a href={`${hasChildItems ? '#':link.url}`} 
@@ -141,13 +144,13 @@ function Header({
                     ${link.cssClasses.includes("button") ? styles.button+' gap-2 rounded-md':''}
                     ${link.menuFields.isReversed ? styles.isReversed:''}
                   `}>
-                  { link?.menuFields?.newIcon && (
-                    <Image src={link.menuFields?.newIcon?.mediaItemUrl} alt={`${link.menuFields.newIcon.altText ? link.menuFields.newIcon.altText:'Icon'}`} width="15" height="15"/>
-                  )}
+                  { hasImgItem &&
+                    <Image src={link.menuFields.newIcon?.mediaItemUrl} alt={`${link.menuFields.newIcon.altText ? link.menuFields.newIcon.altText:'Icon'}`} width="15" height="15"/>
+                  }
                   {link.label}
-                  {hasChildItems &&(
+                  {hasChildItems &&
                     <i className={`dashicons dashicons-arrow-down-alt2 text-md`}></i>
-                  )}
+                  }
                 </a>
               </Link>
               {hasChildItems && (
@@ -160,7 +163,7 @@ function Header({
                       <li key={`firstChild-${Math.random()}`} className={`${styles.column} ${styles.firstChild} ${styles[customLiClass]}`} dangerouslySetInnerHTML={{__html: firstChildContent}}></li>
                     )}
                     {Array.from({ length: totalColumns }).map((_, index) => (
-                      <div key={`wrapper-${index}__${Math.random()}`} className={`${styles.column} column-${index + 1} flex-1`}>
+                      <div key={`wrapper-${index}__${Math.random()}`} className={`${styles.column} column-${index + 1} md:flex-1`}>
                         <div className={`${link.menuFields.haveTitle == null ? styles.subMenu+' '+styles.subNoTitle:''}`}>
                           {link.childItems({first: 100})?.nodes.slice( indexT,perColumn( indexT,itemsPerColumn ) ).map((submenu, index) => (
                             <>
@@ -326,7 +329,7 @@ function Header({
       
   
   return (
-    <header id={`mainHeader`} className={`${styles.header} ${classes}`}>
+    <header id={`mainHeader`} className={`${styles.header} ${classes} ${styles.content_} ${styles[contentType]}`}>
       <Head>
         <title>
           {generalSettings.title} - {generalSettings.description}
@@ -391,7 +394,7 @@ function Header({
           </div>
         </div>
         <div className={`container ${styles.sectionMobile}`}>
-          <div className={`flex lg:hidden flex-row flex-wrap justify-between items-center py-5 px-5`}>
+          <div className={`flex lg:hidden flex-row flex-wrap justify-between items-center py-5 px-0 md:px-5`}>
             <div className={`flex flex-col basis-1/4`}>
               <Link href="/" passHref>
                 <a href="/" className="leading-none">
@@ -402,7 +405,7 @@ function Header({
                 </a>
               </Link>
             </div>
-            <div className={`flex flex-row flex-wrap justify-end items-center gap-10 basis-3/4`}>
+            <div className={`flex flex-row flex-wrap justify-end items-center gap-10 basis-3/4 ${styles.menuMobTop}`}>
               {lgDashboardMobile &&
                 lgDashboardMobile.map((itemMobile, index) => (
                   <Link key={itemMobile.linkMenu.title} href={`${itemMobile.linkMenu.url}`}>
@@ -421,8 +424,8 @@ function Header({
                 <button onClick={handleMobile}>
                   <i className={`dashicons dashicons-menu-alt3 text-2xl`}></i>
                 </button>
-                <div className={`fixed top-0 left-0 bg-white px-10 pt-16 pb-5 overflow-auto max-h-screen h-screen max-w-full w-full ${styles.menuMobWrap}`}>
-                  <i onClick={handleMobile} className={`absolute top-5 right-9 dashicons dashicons-no-alt text-4xl`}></i>
+                <div className={`fixed top-0 left-0 bg-white px-5 md:px-10 pt-16 pb-5 overflow-auto max-h-screen h-screen max-w-full w-full ${styles.menuMobWrap}`}>
+                  <i onClick={handleMobile} className={`absolute top-5 right-2 md:right-9 dashicons dashicons-no-alt text-4xl`}></i>
                   <div className={`flex flex-col`}>
                     {renderMenuItems(topLevelNavMenuLeftItems, 'leftMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
                     {renderMenuItems(topLevelNavMenuRightItems, 'rightMenu', customMenuLiClasses, customFirstChildContent, customMenuConfig, 'Mob')}
