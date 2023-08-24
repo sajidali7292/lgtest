@@ -1,6 +1,6 @@
 import { getNextStaticProps } from '@faustjs/next';
 import { client, OrderEnum, PostObjectsConnectionOrderbyEnum } from 'client';
-import { Pagination, Posts } from 'components';
+import { Pagination, Posts, Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -21,6 +21,7 @@ export default function Page() {
     first: !isBefore ? POSTS_PER_PAGE : undefined,
     last: isBefore ? POSTS_PER_PAGE : undefined,
   });
+  const postHero = useQuery().themeGeneralSettings.lgOptions.postHero;
 
   if (useQuery().$state.isLoading) {
     return null;
@@ -35,6 +36,13 @@ export default function Page() {
         </title>
       </Head>
 
+      {postHero && <Hero
+        title={postHero.postHeroTitle}
+        description = {postHero.postHeroDescription}
+        bgImage = {postHero.postHeroImage.mediaItemUrl}
+        buttons={postHero.postLinksObjs}
+      />}
+
       <main className="content content-index">
         <Posts
           posts={posts.nodes}
@@ -43,7 +51,7 @@ export default function Page() {
           postTitleLevel="h3"
           id={styles.post_list}
         />
-        <Pagination pageInfo={posts.pageInfo} basePath="/posts" />
+        <Pagination pageInfo={posts.pageInfo} basePath="/blog" />
       </main>
 
     </>

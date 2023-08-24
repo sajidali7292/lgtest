@@ -23,6 +23,7 @@ function Posts({
   postTitleLevel = 'h2',
   readMoreText = 'Read more',
 }: Props): JSX.Element {
+
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <section className={styles['posts-block']} {...(id && { id })}>
@@ -41,7 +42,7 @@ function Posts({
               id={`post-${post.id}`}>
               <div>
                 <Heading level={postTitleLevel} className={styles.title}>
-                  <Link href={`/posts/${post.slug}`}>
+                  <Link href={`/blog/${post.slug}`}>
                     <a>{post.title()}</a>
                   </Link>
                 </Heading>
@@ -50,7 +51,7 @@ function Posts({
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{ __html: post.excerpt() ?? '' }}
                 />
-                <Link href={`/posts/${post.slug}`}>
+                <Link href={`/blog/${post.slug}`}>
                   <a aria-label={`Read more about ${post.title || 'the post'}`}>
                     {readMoreText}
                   </a>

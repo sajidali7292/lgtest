@@ -1,0 +1,36 @@
+// CSS for the component PostShare.tsx
+
+@import "scss/variables";
+
+
+.authorCard{
+    border: 1px solid $color-light-gray;
+    .authorImg{
+        border: 1px solid $color-light-gray;
+        line-height: 0.8;
+        border-radius: 1000px;
+        overflow: hidden;
+        padding: 4px;
+    }
+    .authorDetail{
+        font-family: $Gordita;
+        .authorTitle{
+            font-size: 12px;
+            line-height: 1.2;
+            display: block;
+            color: $color-lg-pink;
+        }
+        .authorName{
+            font-size: 14px;
+            line-height: 1.2;
+            display: block;
+        }
+    }
+    .authorDescription{
+        font-family: $Gordita;
+        font-size: 16px;
+        line-height: 1.43;
+        font-weight: 500;
+        max-width: 100%;
+    }
+}

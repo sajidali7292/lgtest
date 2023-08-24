@@ -3,8 +3,19 @@
 @import "scss/variables";
 
 
+.wrap{
+    @media(max-width: $breakpoint-semi_medium){
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+    @media(max-width: $breakpoint-small_extra){
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
 .tabTitles{
     width: $content-width-semi_large;
+    padding-bottom: 50px;
     @media(max-width: $breakpoint-semi_medium){
         padding-bottom: 30px;
     }
@@ -20,6 +31,18 @@
             font-size: 26px;
         }
     }
+    h3{
+        font-family: $Gordita;
+        font-weight: 400;
+        font-size: 21px;
+        line-height: 1.1;
+        @media(max-width: $breakpoint-semi_medium){
+            font-size: 20px;
+        }
+        @media(max-width: $breakpoint-small_extra){
+            font-size: 18px;
+        }
+    }
     p{
         margin-top: 18px;
         font-family: $Gordita;
@@ -33,40 +56,179 @@
         }
     }
 }
-.tabs{
-    .tab{
-        margin-right: 20px;
-        font-family: $Gordita;
-        font-size: 23px;
-        line-height: 1.2;
-        font-weight: 400;
-        border-bottom: $color-transparent solid 5px;
-        color: $color-semi-gray;
-        padding: 5px 10px;
-        transition: 0.2s ease-out all;
-        @media(max-width: $breakpoint-semi_medium){
+.v1,
+.v2,
+.v3,
+.v4,
+.v5{
+    .headingsWrap{
+        margin-bottom: 40px;
+        h2{
+            font-family: $Gordita;
+            font-weight: 900;
+            font-size: 36px;
+            line-height: 46px;
+            margin-bottom: 20px;
+        }
+        h3{
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 15px;
+            color: rgba($color-primary, 60%);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    }
+}
+.v1,
+.v2{
+    .tabs{
+        .tab{
+            margin-bottom: 60px;
+            font-family: $Gordita;
             font-size: 21px;
-        }
-        @media(max-width: $breakpoint-small_extra){
-            margin-right: 0;
-            padding: 15px;
-            font-size: 20px;
-        }
-        &.active{
-            font-weight: 500;
-            color: $color-primary;
-            border-bottom-color: $color-hg2;
+            line-height: 1.2;
+            font-weight: 400;
+            border-bottom: $color-transparent solid 5px;
+            color: $color-semi-gray;
+            padding: 5px 10px;
+            transition: 0.2s ease-out all;
+            &.btnToggle{
+                padding: 20px 10px;
+                margin-bottom: 0;
+            }
+            @media(max-width: $breakpoint-semi_medium){
+                font-size: 21px;
+            }
             @media(max-width: $breakpoint-small_extra){
-                background-color: $color-purple-dark;
-                color: $color-white;
-                border: $color-transparent;
-                border-radius: 200px;
+                padding: 15px;
+                font-size: 20px;
+            }
+            &.active{
+                font-weight: 500;
+                color: $color-primary;
+                border-bottom-color: $color-hg2;
+                @media(max-width: $breakpoint-small_extra){
+                    background-color: $color-purple-dark;
+                    color: $color-white;
+                    border: $color-transparent;
+                    border-radius: 200px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+.v2{
+    .tabs{
+        .tab{
+            &.active{
+                border-bottom-color: $color-lg-pink;
+                @media(max-width: $breakpoint-small_extra){
+                    background-color: $color-lg-pink;
+                    color: $color-white;
+                    border: $color-transparent;
+                    border-radius: 200px;
+                }
+            }
+        }
+    }
+}
+.v3,
+.v4{
+    .tabs{
+        .tab{
+            font-family: $f37ginger;
+            font-size: 24px;
+            line-height: 1.05;
+            font-weight: 400;
+            border-right: $color-transparent solid 3px;
+            color: $color-gray;
+            padding: 10px 10px 10px 0px;
+            transition: 0.2s ease-out all;
+            text-align: left;
+            @media(max-width: $breakpoint-small_extra){
+                border-right: none;
+                border-bottom: $color-transparent solid 3px;
+                text-align: center;
+            }
+            &.btnToggle{
+                margin-bottom: 0;
+            }
+            @media(max-width: $breakpoint-semi_medium){
+                font-size: 21px;
+            }
+            @media(max-width: $breakpoint-small_extra){
+                padding: 15px;
+                font-size: 20px;
+            }
+            &.active,
+            &:hover{
+                font-weight: 500;
+                color: $color-primary;
+                border-right-color: $color-hg2;
+                @media(max-width: $breakpoint-small_extra){
+                    border-bottom-color: $color-hg2;
+                }
+            }
+        }
+    }
+    .contentTab{
+        padding-left: 70px;
+        @media(max-width: $breakpoint-semi_medium){
+            padding-left: 30px;
+        }
+        @media(max-width: $breakpoint-medium){
+            padding-left: 0px;
+        }
+    }
+    .intro{
+        border-right: 1px solid $color-light-gray;
+    }
+}
+.v4{
+    .tabs{
+        .tab{
+            &.active,
+            &:hover{
+                border-right-color: $color-lg-pink;
+                @media(max-width: $breakpoint-small_extra){
+                    border-bottom-color: $color-lg-pink;
+                }
+            }
+        }
+    }
+}
+.v5{
+    .tabs{
+        .tab{
+            max-width: 160px;
+            font-family: $f37ginger;
+            font-size: 16px;
+            line-height: 129.5%;
+            font-weight: 400;
+            text-align: center;
+            color: $color-primary;
+            padding: 15px;
+            transition: 0.2s ease-out all;
+            cursor: pointer;
+            margin-bottom: 20px;
+            @media(max-width: $breakpoint-semi_medium){
+
+            }
+            @media(max-width: $breakpoint-small_extra){
+                max-width: 100%;
+            }
+            &.active,
+            &:hover{
+                box-shadow: 0 4px 20px rgba(0,12,41,.15);
+                border-radius: 5px;
+                color: $color-lg-pink;
             }
         }
     }
 }
 .intro{
-    padding-bottom: 60px;
     @media(max-width: $breakpoint-semi_medium){
         padding-left: 0;
         padding-right: 0;

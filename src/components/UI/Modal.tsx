@@ -22,11 +22,18 @@ function Modal({ isOpen, closeModal, title, content }: Props): JSX.Element {
         <div className={styles.overlay} onClick={handleOverlayClick}>
           <div className={styles.modal}>
             <button className={styles.closeButton} onClick={closeModal}>
-              X
+              <i className={`dashicons dashicons-no-alt text-4xl`}></i>
             </button>
             <div className={styles.content}>
-              <h3>{title}</h3>
-              {content}
+              {title && <h3>{title}</h3>}
+              {content.includes('iframe') ? (
+                content
+                ) : (
+                <iframe width="720" height="405" src={`${content}`}
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+              )}
             </div>
           </div>
         </div>

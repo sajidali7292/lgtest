@@ -33,17 +33,17 @@ function ServicesHome({
                 md:hidden
               `}
               onClick={() => handleItemClick(item.subtitle.toString())}>
-              <div className={`${styles.subtitle} tag sub md:hidden;`} dangerouslySetInnerHTML={{ __html: item.subtitle?.toString() }}></div>
+              <div className={`${styles.subtitle} tag sub`} dangerouslySetInnerHTML={{ __html: item.subtitle?.toString() }}></div>
             </div>
             <div className={`${styles.row} flex flex-wrap ${item.reverSection ? 'flex-row-reverse':'flex-row'}`}>
               <div className={`${styles.column} basis-full md:basis-1/2 lg:basis-5/12 md:pr-4 lg:pr-0`}>
-                <div className={`${styles.subtitle} tag sub hidden md:block;`} dangerouslySetInnerHTML={{ __html: item.subtitle?.toString() }}></div>
+                <div className={`${styles.subtitle} tag sub hidden md:block`} dangerouslySetInnerHTML={{ __html: item.subtitle?.toString() }}></div>
                 <h2 className={styles.title} dangerouslySetInnerHTML={{ __html: item.title?.toString() }}></h2>
                 <p className={styles.text}>{item.text}</p>
                 <ul className={`${styles.links} grid grid-cols-1 lg:grid-cols-2`}>
                   {item.links?.map((link, linkIndex) => (
-                    <li key={`services-home-link-${index}-${link.label}`} className={styles.cols}>
-                      <a href={link.url}>{link.label}</a>
+                    <li key={`services-home-link-${index}-${link.title}`} className={styles.cols}>
+                      <a href={link.url}>{link.title}</a>
                     </li>
                   ))}
                 </ul>

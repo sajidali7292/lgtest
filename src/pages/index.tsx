@@ -116,7 +116,7 @@ export default function Page() {
           'Keywords indexed in our database',
         ]}
         button={{
-          label: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder',
+          linkSingle:{title: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder'},
           icon: true, size: 'big', hoverTransparent: true
         }}
         pt= 'xs'
@@ -131,9 +131,9 @@ export default function Page() {
             title: "Authoritative Backlinks at Scale",
             text: "Backlinks to your website are essential to ranking well in Google. We create original content to earn you high-quality backlinks from reputable, trustworthy publications.",
             links: [
-              { label: "Link Building Services", url: "#" },
-              { label: "White Label Link Building", url: "#" },
-              { label: "SEO Reputation Management", url: "#" },
+              { title: "Link Building Services", url: "#" },
+              { title: "White Label Link Building", url: "#" },
+              { title: "SEO Reputation Management", url: "#" },
             ],
             image: {
               url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Group-34442.webp`,
@@ -146,8 +146,8 @@ export default function Page() {
             title: `High-Quality,</br> Top-Ranking Content`,
             text: "Our 50+ editorial team of SEO professionals can earn your brand more keyword rankings, higher positions, and more organic traffic opportunities. We know what it takes to rank for high-value keywords in your industry.",
             links: [
-              { label: "SEO Content Strategy", url: "#" },
-              { label: "On Page SEO", url: "#" },
+              { title: "SEO Content Strategy", url: "#" },
+              { title: "On Page SEO", url: "#" },
             ],
             image: {
               url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Group-34381.webp`,
@@ -160,8 +160,8 @@ export default function Page() {
             title: `Fast & Responsive</br> Technical Performance`,
             text: "Our technical SEO team optimizes the backend of your web pages for improved page speed, load times, and mobile-usability. Then, our CRO team ensures that your web pages turn organic traffic into conversions.",
             links: [
-              { label: "Technical SEO Services", url: "#" },
-              { label: "Conversion Rate Optimization", url: "#" },
+              { title: "Technical SEO Services", url: "#" },
+              { title: "Conversion Rate Optimization", url: "#" },
             ],
             image: {
               url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Group-35461.webp`,
@@ -174,12 +174,12 @@ export default function Page() {
             title: `Industry-Specific Approach to Outrank Competitors`,
             text: "We bring an industry-specific approach to every optimization we make so Google sees your brand as a leading authority in your industry. Outrank your competitors in less time with our targeted, data-driven approach.",
             links: [
-              { label: "Enterprise SEO", url: "#" },
-              { label: "Ecommerce SEO", url: "#" },
-              { label: "SaaS Marketing", url: "#" },
-              { label: "White Label SEO", url: "#" },
-              { label: "BigCommerce SEO", url: "#" },
-              { label: "Local SEO", url: "#" },
+              { title: "Enterprise SEO", url: "#" },
+              { title: "Ecommerce SEO", url: "#" },
+              { title: "SaaS Marketing", url: "#" },
+              { title: "White Label SEO", url: "#" },
+              { title: "BigCommerce SEO", url: "#" },
+              { title: "Local SEO", url: "#" },
             ],
             image: {
               url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/Group-34611.webp`,
@@ -198,7 +198,7 @@ export default function Page() {
         textCenterd
         buttons={[
           {
-            label: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder',
+            linkSingle:{title: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder'},
             icon: true, size: 'big', hoverTransparent: true
           }
         ]}
@@ -330,9 +330,9 @@ export default function Page() {
           {
             id: 'managedSeo',
             label: 'Managed SEO',
-            planTitle: 'SEO Campaigns Tailored to your Website’s Needs',
+            title: 'SEO Campaigns Tailored to your Website’s Needs',
             content: 'Managed SEO campaigns include a custom combination of on-page SEO, off-site SEO, technical SEO, and content strategy tailored to your website’s needs.',
-            pricingModule: 'table',
+            typeModule: 'table',
             pricingScrolled: true,
             tablePricing:[
               {
@@ -351,7 +351,7 @@ export default function Page() {
                 serviceResults: {
                   serviceMonthly: true, serviceLinkGraphMetric: false
                 },
-                serviceTotal: 6, serviceBtn:{url: 'https://buy.stripe.com/9AQ7ui2ls0m401O2ci', label: 'Get Started', size: 'medium', pill: true, type: 'fourth'}
+                serviceTotal: 6, serviceBtn:{linkSingle:{url: 'https://buy.stripe.com/9AQ7ui2ls0m401O2ci', title: 'Get Started'}, size: 'medium', pill: true, type: 'fourth'}
               },
               {
                 serviceName: 'Business Basic Deal', servicePrice: '$3,000<span> / M</span>', serviceColor: '#afafaf', serviceTier: 'Silver', serviceAuthority: 1000,
@@ -369,7 +369,7 @@ export default function Page() {
                 serviceResults: {
                   serviceMonthly: true, serviceLinkGraphMetric: true
                 },
-                serviceTotal: 13, serviceBtn:{url: 'https://buy.stripe.com/bIY7ui6BIb0Ig0M3gn', label: 'Get Started', size: 'medium', pill: true, type: 'fifth'}
+                serviceTotal: 13, serviceBtn:{linkSingle:{url: 'https://buy.stripe.com/bIY7ui6BIb0Ig0M3gn', title: 'Get Started'}, size: 'medium', pill: true, type: 'fifth'}
               },
               {
                 serviceName: 'Business Growth Plan', servicePrice: '$6,000<span> / M</span>', serviceColor: '#eeba2b', serviceTier: 'Gold', serviceAuthority: 2700,
@@ -387,7 +387,7 @@ export default function Page() {
                 serviceResults: {
                   serviceMonthly: true, serviceLinkGraphMetric: true
                 },
-                serviceTotal: 20, serviceBtn:{url: 'https://buy.stripe.com/cN23e25xEgl2bKw04c', label: 'Get Started', size: 'medium', pill: true, type: 'seventh'}
+                serviceTotal: 20, serviceBtn:{linkSingle:{url: 'https://buy.stripe.com/cN23e25xEgl2bKw04c', title: 'Get Started'}, size: 'medium', pill: true, type: 'seventh'}
               },
               {
                 serviceName: 'Enterprise-Ready Plan', servicePrice: '$12,000<span> / M</span>', serviceColor: '#d5ecf9', serviceTier: 'Diamond', serviceAuthority: 6000,
@@ -405,27 +405,27 @@ export default function Page() {
                 serviceResults: {
                   serviceMonthly: true, serviceLinkGraphMetric: true
                 },
-                serviceTotal: 47, serviceBtn:{url: 'https://buy.stripe.com/cN27ui7FM1q84i44kt', label: 'Get Started', size: 'medium', pill: true, type: 'sixth'}
+                serviceTotal: 47, serviceBtn:{linkSingle:{url: 'https://buy.stripe.com/cN27ui7FM1q84i44kt', title: 'Get Started'}, size: 'medium', pill: true, type: 'sixth'}
               },
               {
                 serviceName: 'Custom', servicePrice: '<span>Min&nbsp;</span> $6,000', serviceColor: '#000000', serviceTier: 'Custom', serviceAuthority: 'Custom',
                 serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/icons_table_check_custom.png`, alt: "Custom Plan" },
                 serviceOnsite: 'Custom', serviceWeb: 'Custom', serviceFColor: '#FFFFFF',
-                serviceTotal: 13, serviceBtn:{url: 'https://meetings.linkgraph.io/meetings/link-graph/linkgraph-initial-consultation', label: 'Speak with a Rep', size: 'medium', pill: true, type: 'black'}
+                serviceTotal: 13, serviceBtn:{linkSingle:{url: 'https://meetings.linkgraph.io/meetings/link-graph/linkgraph-initial-consultation', title: 'Speak with a Rep'}, size: 'medium', pill: true, type: 'black'}
               }
             ]
           },
           {
             id: 'linkBuilding',
             label: 'Link Building',
-            planTitle: 'Link Building to grow your site’s authority and traffic ',
+            title: 'Link Building to grow your site’s authority and traffic ',
             content: 'Our link building packages are designed to always be on time and on budget so you can start getting results.',
-            pricingModule: 'card',
+            typeModule: 'card',
             tablePricing:[
               {
                 serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Monticello-7-copy-2.webp`, alt: "Monticello" },
                 title: 'MONTICELLO', description: 'Start building with high quality links', price: '$549 <span> / Month</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', title: 'Get Started'}, size: 'medium', type: 'black'},
                 linksTotal: '4 links total',
                 features:[
                   'DA 20-30: 3 Links',
@@ -435,7 +435,7 @@ export default function Page() {
               {
                 serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Rushmore-7-copy-2.webp`, alt: "Rushmore" },
                 title: 'RUSHMORE', description: 'Round out your backlink profile', price: '$999 <span> / Month</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', title: 'Get Started'}, size: 'medium', type: 'black'},
                 linksTotal: '6 links total',
                 features:[
                   'DA 20-30: 3 Links',
@@ -446,7 +446,7 @@ export default function Page() {
               {
                 serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Kilimanjaro-7-copy-2.png`, alt: "Kilimanjaro" },
                 title: 'KILIMANJARO', description: 'Supercharge your backlink building', price: '$2499 <span> / Month</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', title: 'Get Started'}, size: 'medium', type: 'black'},
                 linksTotal: '10 links total',
                 features:[
                   'DA 20-30: 4 Links',
@@ -459,7 +459,7 @@ export default function Page() {
               {
                 serviceImage:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Everest-7-copy-2.png`, alt: "Everest" },
                 title: 'EVEREST', description: 'Experience rapid growth in your rankings', price: '$4999 <span> / Month</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', label: 'Get Started', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=link-building-packages', title: 'Get Started'}, size: 'medium', type: 'black'},
                 linksTotal: '18 links total',
                 features:[
                   'DA 20-30: 6 Links',
@@ -475,13 +475,13 @@ export default function Page() {
           {
             id: 'localSeo',
             label: 'Local SEO',
-            planTitle: 'Local SEO to dominate your market',
+            title: 'Local SEO to dominate your market',
             content: 'Dominate your market with thousands of hyper-local citations that turn local search into local business.',
-            pricingModule: 'card',
+            typeModule: 'card',
             tablePricing:[
               {
                 title: 'LOCAL SEO FUNDAMENTALS', description: 'Billed quarterly, from:', price: '$20 <span> / Month</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', label: 'Order Now', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', title: 'Order Now'}, size: 'medium', type: 'black'},
                 localSEO: 100,
                 webSearch: 0,
                 features:[
@@ -495,7 +495,7 @@ export default function Page() {
               },
               {
                 title: 'GROWTH CAMPAIGN', description: 'Billed quarterly, from:', price: '$60 <span> / Month</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', label: 'Order Now', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', title: 'Order Now'}, size: 'medium', type: 'black'},
                 localSEO: 100,
                 webSearch: 55,
                 features:[
@@ -512,7 +512,7 @@ export default function Page() {
               },
               {
                 title: 'ASPIRE CAMPAIGN', description: 'Billed quarterly:', price: '$150 <span> / Month</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', label: 'Order Now', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=local-seo-package', title: 'Order Now'}, size: 'medium', type: 'black'},
                 localSEO: 100,
                 webSearch: 100,
                 features:[
@@ -530,20 +530,20 @@ export default function Page() {
               },
               {
                 title: 'NEED A CUSTOMIZED LOCAL SEO CAMPAIGN?', price: 'LinkGraph can help',
-                serviceBtn:{url: 'https://www.linkgraph.com/learn-how-we-can-grow-your-business/', label: 'Learn More', size: 'medium', type: 'black'}
+                serviceBtn:{linkSingle:{url: 'https://www.linkgraph.com/learn-how-we-can-grow-your-business/', title: 'Learn More'}, size: 'medium', type: 'black'}
               }
             ]
           },
           {
             id: 'technicalSeo',
             label: 'Technical SEO',
-            planTitle: 'On-site technical SEO for websites of all sizes',
+            title: 'On-site technical SEO for websites of all sizes',
             content: 'Comprehensive technical SEO optimizations to improve crawling, indexing, and keyword rankings for your web pages.',
-            pricingModule: 'card',
+            typeModule: 'card',
             tablePricing:[
               {
                 title: 'FULL SITE <br/>TECHNICAL AUDIT', price: '$500 <span> / Site</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', label: 'Get Started', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', title: 'Get Started'}, size: 'medium', type: 'black'},
                 features:[
                   'Site size < 100 pages',
                   'Meta tag analysis',
@@ -556,7 +556,7 @@ export default function Page() {
               },
               {
                 title: 'TOXIC BACKLINK <br/>ANALYSIS', price: '$500 <span> / 50 Pages</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', label: 'Get Started', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', title: 'Get Started'}, size: 'medium', type: 'black'},
                 features:[
                   'Site size < 500 referring domains',
                   'Toxic/Spam link identification',
@@ -569,7 +569,7 @@ export default function Page() {
               },
               {
                 title: 'INTERNAL LINKING <br/>ANALYSIS', price: '$1500 <span> / 50 Pages</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', label: 'Get Started', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', title: 'Get Started'}, size: 'medium', type: 'black'},
                 features:[
                   'Internal Link Suggestions',
                   'Orphan page identification',
@@ -581,7 +581,7 @@ export default function Page() {
               },
               {
                 title: 'IN-DEPTH SEO STRATEGY <br/>CONSULTATION WITH CTO', price: '$1000 <span> / 1 Hour</span>',
-                serviceBtn:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', label: 'Get Started', size: 'medium', type: 'black'},
+                serviceBtn:{linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder?product_slug=full-site-technical-audit', title: 'Get Started'}, size: 'medium', type: 'black'},
                 features:[
                   'SEO consultation meeting with LinkGraph’s CTO, Manick Bhan',
                   '1 hour-long'
@@ -602,7 +602,7 @@ export default function Page() {
         div="Products start as low as $250 / month"
         buttons={[
           {
-            label: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder',
+            linkSingle:{title: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder'},
             icon: true, size: 'big', hoverTransparent: true
           }
         ]}
@@ -654,7 +654,7 @@ export default function Page() {
         }
         buttons={[
           {
-            label: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder',
+            linkSingle:{title: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder'},
             icon: true, size: 'big'
           }
         ]}
@@ -723,7 +723,7 @@ export default function Page() {
             title: 'Choose the perfect, done-for-you SEO Solution.',
             txt: `From full SEO services like link building, to managed PR campaigns and PPC, LinkGraph's specialists are standing by to help. When you work with us, we bake in our software into our partnership so you get double the marketing power.`,
             button: {
-              label: 'View Services', url: 'https://linkgraphstage.wpengine.com/services/',
+              linkSingle:{title: 'View Services', url: 'https://linkgraphstage.wpengine.com/services/'},
               type: 'white', pill: false, size: 'small'
             }
           },
@@ -733,7 +733,7 @@ export default function Page() {
             title: 'DIY with advanced SEO Software',
             txt: 'Our cutting-edge software suite can be used alone, or with our services, to track your rankings, optimize your content, analyze your competitors and more. You can create watch lists for important keywords and enable notifications so you never miss a move in the SERPs.',
             button: {
-              label: 'View Software', url: 'https://linkgraphstage.wpengine.com/searchatlas-seo-software/',
+              linkSingle:{title: 'View Software', url: 'https://linkgraphstage.wpengine.com/searchatlas-seo-software/'},
               type: 'white', pill: false, size: 'small'
             }
           },
@@ -750,8 +750,8 @@ export default function Page() {
         textSize="small"
         buttons={[
           {
-            type: 'primary', url: 'https://dashboard.linkgraph.io/order-builder',
-            label: 'Get a Proposal', icon: true, hoverTransparent: true
+            type: 'primary', linkSingle:{url: 'https://dashboard.linkgraph.io/order-builder',
+            title: 'Get a Proposal'}, icon: true, hoverTransparent: true
           }
         ]}
         secondColumnMiddle
@@ -767,7 +767,7 @@ export default function Page() {
         title="Trusted by the world’s most customer-centric teams"
         text="LinkGraph has driven growth for hundreds of brands in every industry. Learn more about our strategic approach in our case studies."
         button = {{
-          label: 'View SaaS Case Study', url: 'https://linkgraphstage.wpengine.com/case-study-bright-pattern/',
+          linkSingle:{title: 'View SaaS Case Study', url: 'https://linkgraphstage.wpengine.com/case-study-bright-pattern/'},
           type: 'dark', size: 'big'
         }}
         quote="“Their creative, strategic approach, and the intelligence of their team members is beyond what other companies in the space can provide. Trust and rely on their expertise, because they know what they’re doing.”"
@@ -810,8 +810,8 @@ export default function Page() {
         title="Keep Learning with Us"
         text="LinkGraph is committed to driving innovation in the SEO space by producing data science research, free eBooks, thought leadership pieces, webinars and more."
         button={{
-          type: 'primary', url: '/explore/',
-          label: 'See All Free Resources', hoverTransparent: true
+          type: 'primary', linkSingle:{url: '/explore/',
+          title: 'See All Free Resources'}, hoverTransparent: true
         }}
         links={[
           {
@@ -923,8 +923,8 @@ export default function Page() {
         text= "At LinkGraph, you’ll work with team members that value one another’s skills and expertise. Our philosophy is simple – hire diverse, driven individuals who foster a culture that empowers great work for our clients."
         buttons={[
           {
-            type: 'dark', url: '/button-1',
-            label: 'See Open Roles', hoverTransparent: true
+            type: 'dark', linkSingle:{url: '/button-1',
+            title: 'See Open Roles'}, hoverTransparent: true
           }
         ]}
         secondColumnMiddle
@@ -941,15 +941,15 @@ export default function Page() {
         text= "We combined content optimization with AI text generation to build the most useful SEO content suite on the market. Write faster, rank higher, and dominate the SERPs."
         buttons={[
           {
-            type: 'dark', url: '/button-1',
-            label: 'Get Started', hoverTransparent: true
+            type: 'dark', linkSingle:{url: '/button-1',
+            title: 'Get Started'}, hoverTransparent: true
           },
           {
             type: 'dark',
             isLink: true,
             isUnderline: true,
-            url: '/button-2',
-            label: 'Learn More',
+            linkSingle:{url: '/button-2',
+            title: 'Learn More'},
           }
         ]}
         badgeObj={{
@@ -988,8 +988,8 @@ export default function Page() {
         text= "Level up your SEO with our cutting-edge software suite."
         buttons={[
           {
-            label: 'Get your Discount Now', url: 'https://dashboard.linkgraph.io/onboarding?promo_code=SEOPIONEERS',
-          type: 'third', pill: true, size: 'big', icon: true, target: true
+            linkSingle:{title: 'Get your Discount Now', url: 'https://dashboard.linkgraph.io/onboarding?promo_code=SEOPIONEERS', target: true},
+          type: 'third', pill: true, size: 'big', icon: true
           }
         ]}
         secondColumnMiddle

@@ -1,0 +1,55 @@
+// CSS for the component SearchAjax.tsx
+
+@import "scss/variables";
+
+.searchWrap{
+    form{
+        border: 1px solid $color-gray;
+    }
+    &.saerchedWrap{
+        form{
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: 0;
+            &:after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                height: 1px;
+                background: $color-gray;
+            }
+        }
+    }
+    .searchedWrap{
+        border: 1px solid $color-gray;
+        border-top: none;
+        .searchedTitle{
+            font-family: 'Gordita';
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.46;
+            text-transform: uppercase;
+            color: $color-semi-dark;
+        }
+        a{
+            display: flex;
+            flex-direction: column;
+            font-family: $Gordita;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 23px;
+            color: $color-hg1;
+            .postDate{
+                font-family: $Gordita;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 19px;
+                letter-spacing: 0;
+                color: $color-gray;
+            }
+        }
+    }
+}

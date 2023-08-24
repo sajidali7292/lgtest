@@ -25,6 +25,10 @@ export default function Preview() {
       return <PostComponent post={post} />;
     }
     // Add custom post types here as needed
+    case 'eBook': {
+      const post = node as Post;
+      return <PostComponent post={post} />;
+    }
     default: {
       throw new Error(`Unknown post type: ${typeName}`);
     }

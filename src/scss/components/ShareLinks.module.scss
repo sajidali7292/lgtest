@@ -1,0 +1,17 @@
+// CSS for the component PostShare.tsx
+
+@import "scss/variables";
+
+.iconsWrap{
+    display: flex;
+    gap: 18px;
+    .iconLink{
+        display: block;
+        height: fit-content;
+        border: 2px solid $color-light-gray;
+        line-height: 1;
+        padding: 15px 15px 13px;
+        border-radius: 1000px;
+        font-size: 20px;
+    }
+}

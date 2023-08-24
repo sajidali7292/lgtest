@@ -1,0 +1,65 @@
+// CSS for the SideNav Component
+
+@import "scss/variables";
+
+
+.listWrap{
+    border: 1px solid $color-light-gray;
+    .postsList{
+        .postList{
+            font-family: $Gordita;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-align: left;
+            span{
+                display: block;
+                line-height: 1.2;
+            }
+            .postDate{
+                font-size: 13px;
+                color: $color-gray;
+                margin-top: 5px;
+            }
+        }
+    }
+    .navList{
+        a{
+            display: block;
+            font-family: $Gordita;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.4;
+            letter-spacing: 0;
+        }
+    }
+    .headingTitle{
+        font-family: $Gordita;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.45;
+        text-align: left;
+        color: $color-gray;
+        margin-bottom: 20px;
+        position: relative;
+        &:after{
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1px;
+            width: 100%;
+            background: $color-light-gray;
+            z-index: 0;
+        }
+        span{
+            display: block;
+            position: relative;
+            z-index: 1;
+            padding: 0 15px 0 0;
+            background: $color-white;
+            width: fit-content;
+        }
+    }
+}
