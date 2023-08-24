@@ -2,6 +2,49 @@
 
 @import "scss/variables";
 
+.header.post{
+	&:not(.is-sticky){
+		> .header_container{
+			li.header_megamenu,
+			li.header_menu{
+				> a{
+					@media(min-width: $breakpoint-medium){
+						&:not(.button){
+							color: $color-white;
+						}
+					}
+					@media(max-width: $breakpoint-small_extra){
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+					}
+					&.button{
+						background-image: none;
+						border: 1px solid white;
+						&:hover, &:focus{
+							color: $color-white;
+						}
+						img{
+							filter: invert(0);
+						}
+					}
+				}
+			}
+			.header_row{
+				.numberWrap{
+					.numberP{
+						a{
+							color: $color-white;
+							img{
+								filter: invert(0);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 .header {
 	font-family: 'Gordita';
@@ -325,7 +368,7 @@ header .header_container .header_row.header_row_top{
 			width: auto;
 			span {
 				img {
-					filter: grayscale(100%) contrast(3);
+					filter: grayscale(100%) contrast(0);
 					transition: all linear;
 				}
 			}
@@ -496,12 +539,18 @@ header .header_container .header_row.header_row_top{
 	overflow: hidden;
 	box-shadow: 0px 13px 34px rgba(0, 0, 0, 0.35);
 	padding: 36px 20px 0px;
+	@media(max-width: $breakpoint-medium){
+		padding: 20px 20px 0px;
+	}
 }
   
 .column {
 	display: flex;
 	flex-direction: column;
 	padding: 0 12px;
+	@media(max-width: $breakpoint-medium){
+		padding: 5px 0;
+	}
 }
 
 .header_megamenu {
@@ -627,9 +676,24 @@ header .header_container .header_row.header_row_top{
 
 header{
 	.sectionMobile{
+		@media(max-width: $breakpoint-medium){
+			padding: 0;
+		}
 		.hideMobi{
 			@media(max-width: $breakpoint-small_extra){
 				display: none;
+			}
+		}
+	}
+	&.post:not(.is-sticky){
+		.sectionMobile{
+			.menuMobTop{
+				> a{
+					color: $color-white;
+				}
+				.mobWrapper >  button > i{
+					filter: invert(1) brightness(1);
+				}
 			}
 		}
 	}
