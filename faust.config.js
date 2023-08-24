@@ -1,4 +1,5 @@
 import { config as coreConfig } from '@faustjs/core';
+import templates from './wp-templates';
 
 if (!process.env.NEXT_PUBLIC_WORDPRESS_URL) {
   console.error(
@@ -10,6 +11,7 @@ if (!process.env.NEXT_PUBLIC_WORDPRESS_URL) {
  * @type {import("@faustjs/core").Config}
  */
 export default coreConfig({
+  templates,
   wpUrl: process.env.NEXT_PUBLIC_WORDPRESS_URL,
   apiClientSecret: process.env.FAUSTWP_SECRET_KEY,
 });
