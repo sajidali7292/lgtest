@@ -12,21 +12,30 @@ import Head from 'next/head';
 
 
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  
+export default function MyApp({ Component, pageProps, seedData }: AppProps) {
+  const { usePosts, useQuery } = client;
+
+  const propsObj = pageProps?.__CLIENT_CACHE_PROP;
+  //console.log(propsObj);
+  const urlObj = propsObj ? JSON.parse(propsObj).cache:null;
+  //console.log(urlObj);
+  const urlType = urlObj ? Object.values(urlObj).at(0).contentTypeName:'page';
+  //console.log(urlType);
+  console.log( useQuery().contentType )
+
   return (
     <>
       <FaustProvider client={client} pageProps={pageProps}>
-        <Header/>
+        <Header contentType={`${urlType ? urlType:'page'}`}/>
         <Component {...pageProps} />
         <FooterNew
           logoImg = {
             {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/footer-logo.svg`, alt: 'test'}
           }
           phrase = 'Link your Google Search Console account and get smarter SEO insights in 1 easy click.'
-          button = {{
-            label: 'Get started for free', url: 'https://api.searchatlas.com/account/google/oauth/start',
-            targetBlank: true
+          button={{
+            linkSingle:{title: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder'},
+            size: 'medium', type: 'secondary'
           }}
           rateText = {{
             image: {url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/star.webp`, alt: ''},
