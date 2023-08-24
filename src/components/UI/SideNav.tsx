@@ -19,7 +19,7 @@ function SideNav({
         return () => {
             window.removeEventListener('scroll', isStickyNav);
         };
-    });
+    }, []);
 
     const { useQuery } = client;
     const postsObj = useQuery().posts({where: {categoryId: postCat}, first: 4});
@@ -100,7 +100,7 @@ function SideNav({
         }
     }
 
-    if (isLoading) return <p>Loading...</p>
+    if (isLoadingStatus) return <p>Loading...</p>
     
     
     return (

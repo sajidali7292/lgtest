@@ -30,7 +30,7 @@ function BuildPerfect({
                 <div className={`${styles.buttonWrap} flex flex-row flex-wrap gap-3`}>
                     {buildPerfect.linksObjs &&
                         buildPerfect.linksObjs.map((button, index) => (
-                            <Button key={`${button.linkSingle.title}`} buttonObj={button} key={index} />
+                            <Button key={`${button.linkSingle.title}`} buttonObj={button} />
                         ))
                     }
                 </div>
