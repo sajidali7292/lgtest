@@ -3,6 +3,7 @@ import styles from 'scss/components/Footer.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import MenuBuilder from './Menus/MenuBuilder';
+import Button from './UI/Button/index';
 import { client, MenuLocationEnum } from 'client';
 
 interface Props {
@@ -31,13 +32,14 @@ function Footer({
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
   const { menuItems } =  useQuery();
-  const { menu } = useQuery();
   const Footercolumn1 = menuItems({
     where: { location: MenuLocationEnum.FOOTER }, first: 50
   }).nodes;
-  const Footercolumn2 = menu({ id: 'dGVybToxNw==' })?.menuItems({first: 50})?.nodes;
+  const Footercolumn2 = menuItems({
+    where: { location: MenuLocationEnum.FOOTER_COLUMN_2 }, first: 50
+  })?.nodes;
   const Footercolumn3 = menuItems({
-    where: { location: MenuLocationEnum.FOOTER_3 }, first: 50
+    where: { location: MenuLocationEnum.FOOTER_COLUMN_3 }, first: 50
   })?.nodes;
   const year = new Date().getFullYear();
   //console.log(Footercolumn1);
@@ -48,9 +50,7 @@ function Footer({
           <div className={`basis-full lg:basis-5/12`}>
             <Image src={logoImg.url} alt={logoImg.alt} className={`${styles.logoImg} w-100 object-contain`} width="216" height="60"/>
             <p className={`${styles.phraseFooter}`}>{phrase}</p>
-            <Link href={button.url ?? ''}>
-              <a className={`${styles.buttonFooter} button button-secondary rounded`} href={button.url} target={`${button.targetBlank ? '_blank':''}`}>{button.label}</a>
-            </Link>
+            <Button buttonObj={button} />
             <div className={`${styles.rated} flex flex-row flex-wrap`}>
               <Image src={rateText.image.url} alt={rateText.image.alt} className={`${styles.ratedImg} w-100 object-contain object-left`} width="45" height="45"/>
               <div className={`${styles.ratedText}`}>
