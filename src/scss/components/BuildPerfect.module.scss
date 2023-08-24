@@ -1,0 +1,17 @@
+// CSS for the Build Perfect component
+
+@import "scss/variables";
+
+.buildWrap{
+    .buildContainer{
+        padding: 30px 40px;
+        background: lighten( $color-light-blue, 18% );
+        .buildTitle{
+            font-family: $f37ginger;
+            font-weight: 700;
+            font-size: 26px;
+            color: $color-hg4;
+            line-height: 1.3;
+        }
+    }
+}
