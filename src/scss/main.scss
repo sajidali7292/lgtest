@@ -13,6 +13,22 @@ body {
     line-height: 1.6;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+body .sectionToScroll{
+    position: relative; 
+}
+body .sectionToScroll:before {
+    content: "";
+    display:block;
+    height: 100px; /* fixed header height*/
+    margin: -80px 0 0; /* negative fixed header height */
+    visibility: hidden;
+    pointer-events: none;
+
+}
+
 .wrap {
     margin: 0 auto;
     max-width: $content-width;
@@ -37,7 +53,8 @@ body {
     padding: 55px 10px;
 }
 
-img {
+img,
+figure{
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -176,6 +193,9 @@ body .bg{
     }
     &-gray{
         background-color: $color-semi-gray;
+    }
+    &-light_gray{
+        background-color: $color-light-gray;
     }
     &-royal, &-hg4{
         background-color: $color-hg4;
@@ -527,6 +547,10 @@ a.button {
         }
     }
 
+    &.x-small{
+        font-size: 13px;
+        padding: 4px 18px;
+    }
     &.small{
         font-size: 16px;
         padding: 5px 10px;
@@ -619,6 +643,34 @@ a.button {
     display: inline-block;
 }
 
+.tag-full{
+    &_1 div:before{
+        background-color: $color-light-blue;
+    }
+    &_2 div:before{
+        background-color: $color-gold;
+    }
+    &_3 div:before{
+        background-color: $color-lg-pink;
+    }
+    &_4 div:before{
+        background-color: $color-hg2;
+    }
+    &_5 div:before{
+        background-color: $color-hg3;
+    }
+    &_6 div:before{
+        background-color: $color-bronze;
+    }
+    &_7 div:before{
+        background-color: $color-hg5;
+    }
+    &_8 div:before{
+        background-color: $color-hg4;
+    }
+}
+    
+
 .services,
 .tag{
     font-family: $Gordita;
@@ -630,6 +682,16 @@ a.button {
     max-width: 100%;
     text-transform: uppercase;
     text-align: center;
+    color: $color-white;
+    background-color: rgba($color-lg-pink, 85%);
+    &:hover{
+        color: $color-white;
+        background-color: rgba($color-lg-pink, 65%);
+    }
+    &.small{
+        font-size: 12px;
+        padding: 8px 12px;
+    }
     &.tag_semi-white{
         color: $color-semi-gray;
         background-color: rgba($color-semi-gray, 8%);
@@ -637,7 +699,8 @@ a.button {
             color: rgba($color-semi-gray, 0.5);
         }
     }
-    &_1 .sub {
+    &_1 .sub,
+    &.tag_link-building{
         color: $color-hg1;
         background-color: rgba($color-hg1, 15%);
         span {
@@ -645,14 +708,15 @@ a.button {
         }
     }
     &_2 .sub,
-    &.tag_primary {
+    &.tag_primary,
+    &.tag_seo{
         color: $color-lg-pink;
         background-color: rgba($color-lg-pink, 15%);
         span {
             color: rgba($color-lg-pink, 0.5);
         }
     }
-    &_3 .sub {
+    &_3 .sub{
         color: $color-hg2;
         background-color: rgba($color-hg2, 12%);
         span {
@@ -660,18 +724,62 @@ a.button {
         }
     }
     &_4 .sub,
-    &.tag_bronze {
+    &.tag_bronze,
+    &.tag_local-seo{
         color: $color-bronze;
         background-color: rgba($color-gold, 15%);
         span {
             color: rgba($color-bronze, 0.5);
         }
     }
-    &.tag_light-blue {
+    &.tag_light-blue{
         color: $color-light-blue;
         background-color: rgba($color-light-blue, 20%);
         span {
             color: rgba($color-light-blue, 0.5);
+        }
+    }
+    &.tag_content-marketing{
+        color: $color-primary;
+        background-color: rgba($color-diamond, 40%);
+        span {
+            color: rgba($color-diamond, 0.5);
+        }
+    }
+    &.tag_digital-marketing{
+        color: $color-hg3;
+        background-color: rgba($color-hg3, 15%);
+        span {
+            color: rgba($color-hg3, 0.5);
+        }
+    }
+}
+
+.list{
+    a{
+        position: relative;
+        &.active{
+            color: $color-lg-pink;
+            &:before{
+                background: $color-lg-pink;
+                width: 28px;
+            }
+        }
+        &:hover, &:focus{
+            &:before{
+                background: $color-lg-pink;
+                width: 28px;
+            }
+        }
+        &:before{
+            content: "";
+            position: absolute;
+            left: -36px;
+            top: 0.5em;
+            height: 2px;
+            background: $color-transparent;
+            width: 0;
+            transition: 0.3s ease-out all;
         }
     }
 }
