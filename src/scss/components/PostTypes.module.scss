@@ -1,0 +1,133 @@
+// CSS for the component PostTypes.tsx
+
+@import "scss/variables";
+
+$offToggle: 48px;
+
+.typesWrapper{
+    .typesWrap{
+        .typeToggle{
+            font-family: $Gordita;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 16px 18px 16px $offToggle / 2.5;
+            background: linear-gradient(239.04deg, transparent -10.84%, transparent 103.93%);
+            border-radius: 6px;
+            transition: 0.3s ease-out all;
+            cursor: pointer;
+            span{
+                padding-left: calc( $offToggle / 1.2 )
+            }
+            img{
+                transition: 0.2s ease-out all;
+            }
+            + .typeContent{
+                max-height: 0;
+                overflow-y: auto;
+                overflow-x: hidden;
+                transition: 0.3s ease-out all;
+                direction: rtl;
+                .postWrap{ 
+                    direction: ltr;
+                    a{
+                        display: flex;
+                        position: relative;
+                        font-size: 13px;
+                        font-style: italic;
+                        font-weight: 500;
+                        padding-top: 10px;
+                        padding-right: 18px;
+                        padding-bottom: 10px;
+                        padding-left: calc( $offToggle - 25px );
+                        border-radius: 6px;
+                        &.typeSelected{
+                            color: $color-lg-pink;
+                            background-color: rgba($color-lg-pink, 12%);
+                            &:after{
+                                width: 100%;
+                            }
+                        }
+                        &:after{
+                            content: "";
+                            position: absolute;
+                            bottom: -0px;
+                            left: 0;
+                            width: 0;
+                            height: 2px;
+                            background-color: $color-lg-pink;
+                            transition: 6s ease-out all;
+                        }
+                    }
+                }
+                .noTitle{
+                    .postWrap{
+                        a{
+                            padding-left: calc( $offToggle + 25px );
+                        }
+                    }
+                    .postCategory{
+                        a{
+                            font-style: normal;
+                        }
+                    }
+                }
+            }
+            &.typeSelected{
+                background: linear-gradient(239.04deg, $color-hg1 -10.84%, $color-hg3 103.93%);
+                color: $color-white;
+                img{
+                    filter: brightness(0) invert(1);
+                }
+                + .typeContent{
+                    margin-top: 10px;
+                    max-height: 10000px;
+                    &::-webkit-scrollbar {
+                        width: 2px;
+                        background: #D9D9D9;
+                        border-radius: 6px;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        height: 70px;
+                        background: #6F7073;
+                        opacity: 0.5;
+                        border-radius: 6px;
+                    }
+                }
+            }
+            &.typeToggleChild{
+                position: relative;
+                padding: 14px 18px 14px $offToggle;
+                direction: ltr;
+                &.typeSelected{
+                    background: $color-diamond;
+                    color: $color-purple-dark;
+                    &:before{
+                        background: $color-hg1;
+                        opacity: 1;
+                    }
+                    + .typeContent{
+                        max-height: 30vh;
+
+                    }
+                }
+                + .typeContent{
+                    padding-left: calc( $offToggle - 15px );
+                    .typesWrapper{
+                        padding-bottom: 25px;
+                    }
+                }
+                &:before{
+                    content: "";
+                    position: absolute;
+                    left: calc( $offToggle / 2 );
+                    top: 50%;
+                    width: 8px;
+                    height: 8px;
+                    transform: translateY(-50%);
+                    border-radius: 1000px;
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
