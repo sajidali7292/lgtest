@@ -21,7 +21,7 @@ function HeroHome({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Perform action with the input value
-    console.log(inputValue);
+    //console.log(inputValue);
   };
 
   return (
