@@ -39,7 +39,7 @@ function PostTypes({
         <div className={`${styles.typesWrapper}`}>
             {renderToggle(tSections)}
             {contentTypes.map((item, index) => (
-                console.log(item.name)
+                //console.log(item.name)
             ))}
         </div>
     );

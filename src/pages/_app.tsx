@@ -21,7 +21,7 @@ export default function MyApp({ Component, pageProps, seedData }: AppProps) {
   //console.log(urlObj);
   const urlType = urlObj ? Object.values(urlObj).at(0).contentTypeName:'page';
   //console.log(urlType);
-  console.log( useQuery().contentType )
+  //console.log( useQuery().contentType )
 
   return (
     <>
