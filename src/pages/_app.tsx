@@ -15,7 +15,7 @@ import Head from 'next/head';
 export default function MyApp({ Component, pageProps }: AppProps) {
   const { usePosts, useQuery } = client;
 
-  const propsObj = pageProps?.__CLIENT_CACHE_PROP;
+  const propsObj = pageProps?.__CLIENT_CACHE_PROP ? pageProps?.__CLIENT_CACHE_PROP:null;
   //console.log(propsObj);
   const urlObj = propsObj ? JSON.parse(propsObj).cache:null;
   //console.log(urlObj);
