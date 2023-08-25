@@ -16,8 +16,8 @@ function BreadCrumb({
 
     const blogPageID = allSettings.readingSettingsPageForPosts.toString();
     //const blogPageObj = pageBy({pageId: blogPageID});
-    const blogType = 'ID';
-    const blogPageObj = page({id: blogPageID, idType: 'DATABASE_ID'});
+    const blogType = 'DATABASE_ID';
+    const blogPageObj = page({id: blogPageID, idType: blogType});
 
     const pageCategory = pageObj?.categories({first:1}).edges[0].node;
     const isPost = pageObj.contentTypeName == 'post' ? true:false;
