@@ -14,7 +14,7 @@ function BreadCrumb({
     const { useQuery } = client;
     const { allSettings, page, pageBy } =  useQuery();
 
-    const blogPageID = allSettings.readingSettingsPageForPosts;
+    const blogPageID = allSettings.readingSettingsPageForPosts.toString();
     //const blogPageObj = pageBy({pageId: blogPageID});
     const blogType = 'ID';
     const blogPageObj = page({id: blogPageID, idType: 'DATABASE_ID'});
