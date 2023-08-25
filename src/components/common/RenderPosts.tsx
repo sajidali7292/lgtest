@@ -25,15 +25,6 @@ function RenderPosts({
         setSelectedPost(item === selectedPost ? null : item);
     }
 
-    const currentPost = (event: React.MouseEvent<HTMLDivElement>) => {
-        var toggles = document.getElementsByClassName('typeToggles');
-        const { target } = event
-        for (var i = 0; i < toggles.length; i++) {
-            console.log( toggles[i].classList.remove('currentPost') );
-        }
-        target.parentElement.classList.add('currentPost');
-    };
-
     return (
         <div className={`${styles.typesWrapper}`}>
             {type === 'blog' && 
