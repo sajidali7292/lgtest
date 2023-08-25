@@ -2,7 +2,7 @@
 
 @import "scss/variables";
 
-.header.post{
+.header.blog{
 	&:not(.is-sticky){
 		> .header_container{
 			li.header_megamenu,
@@ -685,7 +685,7 @@ header{
 			}
 		}
 	}
-	&.post:not(.is-sticky){
+	&.blog:not(.is-sticky){
 		.sectionMobile{
 			.menuMobTop{
 				> a{

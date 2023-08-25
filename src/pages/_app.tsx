@@ -14,19 +14,13 @@ import Head from 'next/head';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const { usePosts, useQuery } = client;
-
-  const propsObj = pageProps?.__CLIENT_CACHE_PROP ? pageProps?.__CLIENT_CACHE_PROP:null;
-  //console.log(propsObj);
-  const urlObj = propsObj ? JSON.parse(propsObj).cache:null;
-  //console.log(urlObj);
-  const urlType = urlObj ? Object.values(urlObj).at(0).contentTypeName:'page';
-  //console.log(urlType);
-  //console.log( useQuery().contentType )
+  const urlType = window.location.pathname.split('/').at(-2);
+  console.log(urlType);
 
   return (
     <>
       <FaustProvider client={client} pageProps={pageProps}>
-        <Header contentType={`${urlType ? urlType:'page'}`}/>
+        <Header contentType={`${urlType !== '' ? urlType:'page'}`}/>
         <Component {...pageProps} />
         <FooterNew
           logoImg = {
