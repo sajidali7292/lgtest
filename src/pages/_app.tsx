@@ -12,7 +12,7 @@ import Head from 'next/head';
 
 
 
-export default function MyApp({ Component, pageProps, seedData }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   const { usePosts, useQuery } = client;
 
   const propsObj = pageProps?.__CLIENT_CACHE_PROP;
