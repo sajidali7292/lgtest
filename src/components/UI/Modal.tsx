@@ -5,7 +5,7 @@ interface Props {
   isOpen: boolean;
   closeModal: () => void;
   title?: string;
-  content?: JSX.Element;
+  content?: any;
 }
 
 function Modal({ isOpen, closeModal, title, content }: Props): JSX.Element {
