@@ -13,21 +13,20 @@ function SearchAjax({
     
     const { useQuery } = client;
     const usedQuery = useQuery();
-    const [postsObj, setpostsObj] = useState(false);
+    const [postsObj, setpostsObj] = useState("");
     const [isSearched, setisSearched] = useState(false);
     const [isMapping, setisMapping] = useState(true);
 
-    const searchAjax = event => {
-        //console.log(event.target.value);
+    const searchAjax = (event) => {
         if(event.target.value.length > 2){
+            setisSearched(true);
             setTimeout(() => {
-                setpostsObj ( usedQuery.posts({where: {search: event.target.value}, first: 8}) );
-                setisSearched(true);
+                setpostsObj( usedQuery.posts({where: {search: event.target.value}, first: 8}) );
             }, 200);
         }else{
             setisSearched(false);
         }
-    };
+    }
 
     return (
         <div className={`${styles.searchWrap} flex flex-row flex-wrap items-center gap-2 ${isSearched ? styles.saerchedWrap:''}`}>
@@ -57,17 +56,17 @@ function SearchAjax({
                     />
                 </form>
                 {isSearched && 
-                    <div className={`${styles.searchedWrap} flex flex-col gap-5 px-5 pt-6 pb-8 w-full bg-white absolute top-full rounded-b-md`}>
-                        {postsObj.edges.length > 0 ?
+                    <div className={`${styles.searchedWrap} flex flex-col gap-5 px-5 pt-6 pb-8 w-full z-10 bg-white absolute top-full rounded-b-md`}>
+                        {postsObj.nodes ?
                             (
                                 <>
                                 <div className={`${styles.searchedTitle}`}>Post Blogs</div>
-                                {postsObj.edges.map((post, index) => (
-                                    post.node.uri ? (
-                                        <Link key={`${post.node.uri}`} href={`${post.node.uri}`} passHref>
-                                            <a className={`${styles.postList}`} href={`${post.node.uri}`}>
-                                                <span dangerouslySetInnerHTML={{ __html: post.node?.title({format: 'RENDERED'}) }} ></span>
-                                                {renderDate(post.node.date)}
+                                {postsObj.nodes.map((post, index) => (
+                                    post.uri ? (
+                                        <Link key={`${post.uri}`} href={`${post.uri}`} passHref>
+                                            <a className={`${styles.postList}`} href={`${post.uri}`}>
+                                                <span dangerouslySetInnerHTML={{ __html: post?.title() }} ></span>
+                                                {renderDate(post.date)}
                                             </a>
                                         </Link>
                                     ):(
