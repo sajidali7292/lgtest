@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from 'scss/components/PostTypes.module.scss';
 import ModalLinks from 'components/UI/ModalLinks';
-import RenderCat from 'components/common/RenderCat.tsx';
-import RenderPosts from 'components/common/RenderPosts.tsx';
+import RenderCat from 'components/common/RenderCat';
+import RenderPosts from 'components/common/RenderPosts';
 import Modal from './Modal';
 import { client } from 'client';
 
