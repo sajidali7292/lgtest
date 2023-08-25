@@ -30,7 +30,7 @@ function ModalLinks({
         <div className={`${styles.postWrap}`}>
             <Link href="#" passHref>
                 <a onClick={handleModalButtonClick}>
-                    <span dangerouslySetInnerHTML={{ __html: item?.title({format: 'RENDERED'}) }}></span>
+                    <span dangerouslySetInnerHTML={{ __html: item?.title() }}></span>
                 </a>
             </Link>
             <Modal

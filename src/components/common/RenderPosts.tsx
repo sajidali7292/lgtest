@@ -66,7 +66,7 @@ function RenderPosts({
                     typeToggles ${styles.postList}
                     ${item.uri === selectedPost ? styles.typeSelected : ""}
                     `}>
-                        <span dangerouslySetInnerHTML={{ __html: item?.title({format: 'RENDERED'}) }} ></span>
+                        <span dangerouslySetInnerHTML={{ __html: item?.title() }} ></span>
                     </a>
                 </Link>
             </div>
@@ -98,7 +98,7 @@ function RenderPosts({
     }
     function RenderBooks(type='',catID=0) {
         return useQuery().ebooks({first: 10})?.nodes.map((item, index) => (
-            <div key={`eBook-${index}_${item.title({format: 'RENDERED'})}`} className={`${styles.postWrap}`}>
+            <div key={`eBook-${index}_${item.title()}`} className={`${styles.postWrap}`}>
                 <Link href={`${item.uri}`} passHref>
                     <a href={`${item.uri}`}
                     onClick={() => handlePost(item.uri)}
@@ -106,7 +106,7 @@ function RenderPosts({
                     typeToggles ${styles.postList}
                     ${item.uri === selectedPost ? styles.typeSelected : ""}
                     `}>
-                        <span dangerouslySetInnerHTML={{ __html: item.title({format: 'RENDERED'}) }} ></span>
+                        <span dangerouslySetInnerHTML={{ __html: item.title() }} ></span>
                     </a>
                 </Link>
             </div>
@@ -114,7 +114,7 @@ function RenderPosts({
     }
     function RenderCases(type='',catID=0) {
         return useQuery().caseStudies({first: 10})?.nodes.map((item, index) => (
-            <div key={`${item?.title({format: 'RENDERED'})}-${index}`} className={`${styles.postWrap}`}>
+            <div key={`${item?.title()}-${index}`} className={`${styles.postWrap}`}>
                 <Link href={`${item.uri}`} passHref>
                     <a href={`${item.uri}`}
                     onClick={() => handlePost(item.uri)}
@@ -122,7 +122,7 @@ function RenderPosts({
                     typeToggles ${styles.postList}
                     ${item.uri === selectedPost ? styles.typeSelected : ""}
                     `}>
-                        <span dangerouslySetInnerHTML={{ __html: item?.title({format: 'RENDERED'}) }} ></span>
+                        <span dangerouslySetInnerHTML={{ __html: item?.title() }} ></span>
                     </a>
                 </Link>
             </div>

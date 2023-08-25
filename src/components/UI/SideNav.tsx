@@ -117,9 +117,9 @@ function SideNav({
                         <div className={`${styles.headingTitle}`}><span>RELATED ARTICLES</span></div>
                         <div className={`${styles.postsList} flex flex-col gap-6`}>
                             {postsObj.edges.map((post, index) => (
-                                <Link key={post.node.title({format: 'RENDERED'})} href={`${post.node.uri}`} passHref>
+                                <Link key={post.node.title()} href={`${post.node.uri}`} passHref>
                                     <a className={`${styles.postList}`} href={`${post.node.uri}`}>
-                                        <span dangerouslySetInnerHTML={{ __html: post.node?.title({format: 'RENDERED'}) }} ></span>
+                                        <span dangerouslySetInnerHTML={{ __html: post.node?.title() }} ></span>
                                         {renderDate(post.node.date)}
                                     </a>
                                 </Link>
