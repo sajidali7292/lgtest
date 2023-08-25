@@ -25,7 +25,7 @@ function SideNav({
     const postsObj = useQuery().posts({where: {categoryId: postCat}, first: 4});
     //const postsObj = useQuery().posts({first: 4});
 
-    const headingsFunction = (e) => {
+    const headingsFunction = () => {
         let headingsElements = Array.from( document.getElementById('singleContent').getElementsByTagName('h2') );
         let sideElements = document.getElementById('navSide');
         sideElements.innerHTML = '';
