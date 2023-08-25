@@ -30,7 +30,7 @@ function BreadCrumb({
             {isPost &&
             <>
                 <Link href={`${blogPageObj?.uri}`} passHref>
-                    <a href={`${blogPageObj?.uri}`} dangerouslySetInnerHTML={{ __html: blogPageObj?.title({format: 'RENDERED'}) }} ></a>
+                    <a href={`${blogPageObj?.uri}`} dangerouslySetInnerHTML={{ __html: blogPageObj.title() }} ></a>
                 </Link>
                 <i className={`dashicons dashicons-arrow-right-alt2 text-md`}></i>
             </>
@@ -44,7 +44,7 @@ function BreadCrumb({
                 <i className={`dashicons dashicons-arrow-right-alt2 text-md`}></i>
             </>
             }
-            <p dangerouslySetInnerHTML={{ __html: pageObj?.title({format: 'RENDERED'}) }} ></p>
+            <p dangerouslySetInnerHTML={{ __html: pageObj?.title() }} ></p>
         </div>
     );
 }
