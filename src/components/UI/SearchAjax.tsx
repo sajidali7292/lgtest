@@ -42,7 +42,7 @@ function SearchAjax({
                         className={`w-full py-3 pl-14 pr-2 rounded-md focus:outline-none`}
                         onChange = {searchAjax}
                     />
-                    <label for={`search`} className={`absolute top-1/2 -translate-y-1/2 left-4 leading-none opacity-50 focus:opacity-1`}>
+                    <label htmlFor={`search`} className={`absolute top-1/2 -translate-y-1/2 left-4 leading-none opacity-50 focus:opacity-1`}>
                         <Image 
                             src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/07/Vector2.png`}
                             alt={`Magnifying glass`}
