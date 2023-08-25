@@ -27,10 +27,11 @@ function RenderPosts({
 
     const currentPost = (event: React.MouseEvent<HTMLDivElement>) => {
         var toggles = document.getElementsByClassName('typeToggles');
+        const { target } = event
         for (var i = 0; i < toggles.length; i++) {
             console.log( toggles[i].classList.remove('currentPost') );
         }
-        event.target.parentElement.classList.add('currentPost');
+        target.parentElement.classList.add('currentPost');
     };
 
     return (
