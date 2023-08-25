@@ -72,7 +72,7 @@ function RenderPosts({
         ))
     }
     function RenderCategories(type='',catID=0) {
-        return useQuery().videoCategories({first: 6, where: {excludeTree: "29"}})?.nodes.map((item, index) => (
+        return useQuery().videoCategories({first: 6, where: {excludeTree: ["29"]}})?.nodes.map((item, index) => (
             <div key={`videoCategories-${index}-${item.name}`} className={`${styles.postWrap} ${styles.postCategory}`}>
                 <Link href={`${item.uri}`} passHref>
                     <a href={`${item.uri}`}
