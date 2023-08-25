@@ -35,81 +35,98 @@ function RenderPosts({
 
     return (
         <div className={`${styles.typesWrapper}`}>
-            {RenderPosts(type,catID)}
+            {type === 'blog' && 
+                RenderPosts(type,catID)
+            }
+            {type === 'webinar' && 
+                RenderCategory(type,catID)
+            }
+            {type === 'video' && 
+                RenderCategories(type,catID)
+            }
+            {type === 'ebook' && 
+                RenderBooks(type,catID)
+            }
+            {type.includes("study") &&
+                RenderCases(type,catID)
+            }
         </div>
     );
 
     function RenderPosts(type='',catID=0) {
-        if( type === 'blog' ){
-            return usePosts({where: {categoryId: catID}, first: 5}).nodes.map((item, index) => (
-                <div key={`${item.uri}`}
-                className={`${styles.postWrap}
-                `}
-                >
-                    <Link href={`${item.uri}`} passHref>
-                        <a href={`${item.uri}`}
-                        onClick={() => handlePost(item.uri)}
-                        className={`
-                        typeToggles ${styles.postList}
-                        ${item.uri === selectedPost ? styles.typeSelected : ""}
-                        `}>
-                            <span dangerouslySetInnerHTML={{ __html: item?.title({format: 'RENDERED'}) }} ></span>
-                        </a>
-                    </Link>
-                </div>
-            ))
-        }else if( type == 'webinar' ){
-            return useQuery().videoCategory({id: type, idType: 'SLUG'})?.videos()?.nodes.map((item, index) => (
-                <div key={`videoCategory-${index}`} className={`${styles.postWrap}`}>
-                    <ModalLinks item={item}/>
-                </div>
-            ))
-        }else if( type == 'video' ){
-            return useQuery().videoCategories({first: 6, where: {excludeTree: "29"}})?.nodes.map((item, index) => (
-                <div key={`videoCategories-${index}-${item.name}`} className={`${styles.postWrap} ${styles.postCategory}`}>
-                    <Link href={`${item.uri}`} passHref>
-                        <a href={`${item.uri}`}
-                        onClick={() => handlePost(item.uri)}
-                        className={`
-                        typeToggles ${styles.postList}
-                        ${item.uri === selectedPost ? styles.typeSelected : ""}
-                        `}>
-                            <span dangerouslySetInnerHTML={{ __html: item?.name }} ></span>
-                        </a>
-                    </Link>
-                </div>
-            ))
-        }else if( type == 'ebook' ){
-            return useQuery().ebooks({first: 10})?.nodes.map((item, index) => (
-                <div key={`eBook-${index}_${item.title({format: 'RENDERED'})}`} className={`${styles.postWrap}`}>
-                    <Link href={`${item.uri}`} passHref>
-                        <a href={`${item.uri}`}
-                        onClick={() => handlePost(item.uri)}
-                        className={`
-                        typeToggles ${styles.postList}
-                        ${item.uri === selectedPost ? styles.typeSelected : ""}
-                        `}>
-                            <span dangerouslySetInnerHTML={{ __html: item.title({format: 'RENDERED'}) }} ></span>
-                        </a>
-                    </Link>
-                </div>
-            ))
-        }else if( type.includes("study") ){
-            return useQuery().caseStudies({first: 10})?.nodes.map((item, index) => (
-                <div key={`${item?.title({format: 'RENDERED'})}-${index}`} className={`${styles.postWrap}`}>
-                    <Link href={`${item.uri}`} passHref>
-                        <a href={`${item.uri}`}
-                        onClick={() => handlePost(item.uri)}
-                        className={`
-                        typeToggles ${styles.postList}
-                        ${item.uri === selectedPost ? styles.typeSelected : ""}
-                        `}>
-                            <span dangerouslySetInnerHTML={{ __html: item?.title({format: 'RENDERED'}) }} ></span>
-                        </a>
-                    </Link>
-                </div>
-            ))
-        }
+        return usePosts({where: {categoryId: catID}, first: 5}).nodes.map((item, index) => (
+            <div key={`${item.uri}`}
+            className={`${styles.postWrap}
+            `}
+            >
+                <Link href={`${item.uri}`} passHref>
+                    <a href={`${item.uri}`}
+                    onClick={() => handlePost(item.uri)}
+                    className={`
+                    typeToggles ${styles.postList}
+                    ${item.uri === selectedPost ? styles.typeSelected : ""}
+                    `}>
+                        <span dangerouslySetInnerHTML={{ __html: item?.title({format: 'RENDERED'}) }} ></span>
+                    </a>
+                </Link>
+            </div>
+        ))
+    }
+    function RenderCategory(type='',catID=0) {
+        return useQuery().videoCategory({id: type, idType: 'SLUG'})?.videos()?.nodes.map((item, index) => (
+            <div key={`videoCategory-${index}`} className={`${styles.postWrap}`}>
+                <ModalLinks item={item}/>
+            </div>
+        ))
+    }
+    function RenderCategories(type='',catID=0) {
+        return useQuery().videoCategories({first: 6, where: {excludeTree: "29"}})?.nodes.map((item, index) => (
+            <div key={`videoCategories-${index}-${item.name}`} className={`${styles.postWrap} ${styles.postCategory}`}>
+                <Link href={`${item.uri}`} passHref>
+                    <a href={`${item.uri}`}
+                    onClick={() => handlePost(item.uri)}
+                    className={`
+                    typeToggles ${styles.postList}
+                    ${item.uri === selectedPost ? styles.typeSelected : ""}
+                    `}>
+                        <span dangerouslySetInnerHTML={{ __html: item?.name }} ></span>
+                    </a>
+                </Link>
+            </div>
+        ))
+        
+    }
+    function RenderBooks(type='',catID=0) {
+        return useQuery().ebooks({first: 10})?.nodes.map((item, index) => (
+            <div key={`eBook-${index}_${item.title({format: 'RENDERED'})}`} className={`${styles.postWrap}`}>
+                <Link href={`${item.uri}`} passHref>
+                    <a href={`${item.uri}`}
+                    onClick={() => handlePost(item.uri)}
+                    className={`
+                    typeToggles ${styles.postList}
+                    ${item.uri === selectedPost ? styles.typeSelected : ""}
+                    `}>
+                        <span dangerouslySetInnerHTML={{ __html: item.title({format: 'RENDERED'}) }} ></span>
+                    </a>
+                </Link>
+            </div>
+        ))
+    }
+    function RenderCases(type='',catID=0) {
+        return useQuery().caseStudies({first: 10})?.nodes.map((item, index) => (
+            <div key={`${item?.title({format: 'RENDERED'})}-${index}`} className={`${styles.postWrap}`}>
+                <Link href={`${item.uri}`} passHref>
+                    <a href={`${item.uri}`}
+                    onClick={() => handlePost(item.uri)}
+                    className={`
+                    typeToggles ${styles.postList}
+                    ${item.uri === selectedPost ? styles.typeSelected : ""}
+                    `}>
+                        <span dangerouslySetInnerHTML={{ __html: item?.title({format: 'RENDERED'}) }} ></span>
+                    </a>
+                </Link>
+            </div>
+        ))
     }
 }
 
