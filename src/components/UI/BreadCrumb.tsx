@@ -12,10 +12,11 @@ function BreadCrumb({
     pageObj
     }: BreadCrumbProps): JSX.Element {
     const { useQuery } = client;
-    const { allSettings, page } =  useQuery();
+    const { allSettings, page, pageBy } =  useQuery();
 
-    const blogPageID = allSettings.readingSettingsPageForPosts.toString();
-    const blogPageObj = page({id: "5", idType: "DATABASE_ID"});
+    const blogPageID = allSettings.readingSettingsPageForPosts;
+    const blogPageObj = pageBy({pageId: blogPageID});
+    console.log( blogPageObj )
 
     const pageCategory = pageObj?.categories({first:1}).edges[0].node;
     const isPost = pageObj.contentTypeName == 'post' ? true:false;
