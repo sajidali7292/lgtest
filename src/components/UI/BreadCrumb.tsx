@@ -26,13 +26,13 @@ function BreadCrumb({
             <Link href={`/`} passHref>
                 <a href={`/`}>Home</a>
             </Link>
-            <i class="dashicons dashicons-arrow-right-alt2 text-md"></i>
+            <i className={`dashicons dashicons-arrow-right-alt2 text-md`}></i>
             {isPost &&
             <>
                 <Link href={`${blogPageObj?.uri}`} passHref>
                     <a href={`${blogPageObj?.uri}`} dangerouslySetInnerHTML={{ __html: blogPageObj?.title({format: 'RENDERED'}) }} ></a>
                 </Link>
-                <i class="dashicons dashicons-arrow-right-alt2 text-md"></i>
+                <i className={`dashicons dashicons-arrow-right-alt2 text-md`}></i>
             </>
             }
             
@@ -41,7 +41,7 @@ function BreadCrumb({
                 <Link href={`${ pageCategory.uri }`} passHref>
                     <a href={`${pageCategory.uri}`} dangerouslySetInnerHTML={{ __html: pageCategory.name }} ></a>
                 </Link>
-                <i class="dashicons dashicons-arrow-right-alt2 text-md"></i>
+                <i className={`dashicons dashicons-arrow-right-alt2 text-md`}></i>
             </>
             }
             <p dangerouslySetInnerHTML={{ __html: pageObj?.title({format: 'RENDERED'}) }} ></p>
