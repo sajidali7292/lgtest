@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from 'scss/components/PostTypes.module.scss';
 import ModalLinks from 'components/UI/ModalLinks';
-import Modal from './Modal';
+import Modal from 'components/UI/Modal';
 import { client } from 'client';
 
 
