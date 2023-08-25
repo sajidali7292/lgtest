@@ -65,7 +65,8 @@ function RenderPosts({
         ))
     }
     function RenderCategory(type='',catID=0) {
-        return useQuery().videoCategory({id: type, idType: 'SLUG'})?.videos()?.nodes.map((item, index) => (
+        let vType = 'SLUG';
+        return useQuery().videoCategory({id: type, idType: vType})?.videos()?.nodes.map((item, index) => (
             <div key={`videoCategory-${index}`} className={`${styles.postWrap}`}>
                 <ModalLinks item={item}/>
             </div>
