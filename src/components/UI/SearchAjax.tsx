@@ -32,13 +32,13 @@ function SearchAjax({
         <div className={`${styles.searchWrap} flex flex-row flex-wrap items-center gap-2 ${isSearched ? styles.saerchedWrap:''}`}>
             <div className={`${styles.searchForm} w-full relative`}>
                 <form
-                    action="#" autocomplete="off" aria-label="Search form 2 rounded-md"
+                    action="#" autoComplete="off" aria-label="Search form 2 rounded-md"
                     data-hs-cf-bound="true" data-gtm-form-interact-id="0"
                     className={`w-full relative rounded-md`}>
                     <input
                         type="search" id="search" placeholder="Search blog..."
                         name="search" aria-label="Search input 2"
-                        autocomplete="off" data-gtm-form-interact-field-id="0"
+                        autoComplete="off" data-gtm-form-interact-field-id="0"
                         className={`w-full py-3 pl-14 pr-2 rounded-md focus:outline-none`}
                         onChange = {searchAjax}
                     />
