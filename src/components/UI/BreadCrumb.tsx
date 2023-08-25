@@ -15,7 +15,9 @@ function BreadCrumb({
     const { allSettings, page, pageBy } =  useQuery();
 
     const blogPageID = allSettings.readingSettingsPageForPosts;
-    const blogPageObj = pageBy({pageId: blogPageID});
+    //const blogPageObj = pageBy({pageId: blogPageID});
+    const blogType = 'ID';
+    const blogPageObj = page({id: blogPageID, idType: 'DATABASE_ID'});
 
     const pageCategory = pageObj?.categories({first:1}).edges[0].node;
     const isPost = pageObj.contentTypeName == 'post' ? true:false;
@@ -30,7 +32,7 @@ function BreadCrumb({
             {isPost &&
             <>
                 <Link href={`${blogPageObj?.uri}`} passHref>
-                    <a href={`${blogPageObj?.uri}`} dangerouslySetInnerHTML={{ __html: blogPageObj.title() }} ></a>
+                    <a href={`${blogPageObj?.uri}`} dangerouslySetInnerHTML={{ __html: blogPageObj?.title() }} ></a>
                 </Link>
                 <i className={`dashicons dashicons-arrow-right-alt2 text-md`}></i>
             </>
