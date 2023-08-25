@@ -13,7 +13,7 @@ function SearchAjax({
     
     const { useQuery } = client;
     const usedQuery = useQuery();
-    const [postsObj, setpostsObj] = useState(any);
+    const [postsObj, setpostsObj] = useState(useQuery().posts);
     const [isSearched, setisSearched] = useState(false);
     const [isMapping, setisMapping] = useState(true);
 
