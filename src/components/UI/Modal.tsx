@@ -32,7 +32,7 @@ function Modal({ isOpen, closeModal, title, content }: Props): JSX.Element {
                 <iframe width="720" height="405" src={`${content}`}
                 title="YouTube video player" frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+                allowFullscreen></iframe>
               )}
             </div>
           </div>
