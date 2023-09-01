@@ -25,6 +25,7 @@ export default function Team() {
               <TestimonialInfo key={index} testimonial={testimonial} />
             ))}
           </div>
+          <div>Test text</div>
         </div>
       </main>
 
