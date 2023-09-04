@@ -4,10 +4,14 @@
 
 .container {
   &:not(.isSecondC){
-    p{
-      width: $content-width-extended_lg;
-      margin-left: auto;
-      margin-right: auto;
+    .text{
+      &.reduced{
+        width: $content-width-extended_lg;
+      }
+      &.centerDiv{
+        margin-left: auto;
+        margin-right: auto;
+      }
       @media(max-width: $breakpoint-semi_medium){
         width: 100%;
       }
@@ -18,6 +22,9 @@
         }
       }
     }
+  }
+  p{
+    margin-bottom: 0;
   }
   h2 {
     font-family: $font-family;
@@ -33,7 +40,7 @@
         font-size: 26px;
     }
   }
-  p {
+  .text {
     font-family: $Gordita;
     font-weight: 400;
     font-size: 21px;
@@ -49,9 +56,9 @@
     margin-left: auto;
   }
   .buttons_wrap{
-    margin-top: 50px;
+    padding-top: 40px;
     @media(max-width: $breakpoint-semi_medium){
-      margin-top: 30px;
+      padding-top: 25px;
     }
   }
   .ctaText {
