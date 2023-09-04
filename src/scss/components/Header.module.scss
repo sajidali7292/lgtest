@@ -18,7 +18,7 @@
 						flex-direction: row;
 						justify-content: space-between;
 					}
-					&.button{
+					&.button:not(.extra){
 						background-image: none;
 						border: 1px solid white;
 						&:hover, &:focus{
@@ -66,6 +66,14 @@
 				.button{
 					background-color: $color-hg3;
 					border-color: $color-hg3;
+					&:hover, &:focus{
+						color: $color-white;
+						background-color: darken($color-hg3, 20);
+						border-color: darken($color-hg3, 20);
+						span{
+							filter: invert(1);
+						}
+					}
 				}
 			}
 		}

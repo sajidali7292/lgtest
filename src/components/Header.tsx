@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { client, MenuLocationEnum } from 'client';
 import Head from 'next/head';
 import Image from 'next/image';
-import classnames from 'classnames'
+import classnames from 'classnames';
+import HeaderMenu from './Menus/HeaderMenu';
 
 interface Props {
   title?: string;
@@ -17,13 +18,13 @@ function Header({
   description,
   contentType
 }: Props): JSX.Element {
-  const [sticky, setSticky] = useState("");
   useEffect(() => {
     window.addEventListener('scroll', isSticky);
     return () => {
         window.removeEventListener('scroll', isSticky);
     };
   });
+  const [sticky, setSticky] = useState("");
   const isSticky = (e) => {
     const header = document.getElementById('mainHeader');
     const scrollTop = window.scrollY;
@@ -33,6 +34,11 @@ function Header({
   const classes = `${styles[sticky]}`;
   const isStickied = sticky ? true:false;
 
+  const [selectedItem, setSelectedItem] = useState(null);
+  function handleItemClick(item) {
+    setSelectedItem(item === selectedItem ? null : item);
+  }
+
 
   const { useQuery } = client;
   const { menuItems, themeGeneralSettings } =  useQuery();
@@ -40,7 +46,7 @@ function Header({
   const topLevelNavMenuTopLeftItems = useQuery().menuItems({
     where: { location: MenuLocationEnum.NAVIGATION_MENU_TOP_LEFT, parentDatabaseId: 0 }, first: 50
   })?.nodes;
-
+  
   const topLevelNavMenuTopItems = useQuery().menuItems({
     where: { location: MenuLocationEnum.NAV_MENU_TOP, parentDatabaseId: 0 }, first: 50
   })?.nodes;
@@ -63,11 +69,6 @@ function Header({
     setShowMobile(!showMobile);
   };
 
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  function handleItemClick(item) {
-    setSelectedItem(item === selectedItem ? null : item);
-  }
   function perColumn(num1, num2){
     if( !num2 ){
       num2 = 1;
@@ -89,7 +90,6 @@ function Header({
     defaultItemsPerColumn = 7,
     defaultTotalColumns = 4,
   ) {
-
     const renderColumnItems = (items, startIndex, itemsPerColumn, icon = false) => {
       return items.slice(startIndex, startIndex + itemsPerColumn).map((child, index) => (
         <li key={`${child.label}-${Math.random()}`}>
@@ -110,25 +110,25 @@ function Header({
         </li>
       ));
     };
-  
+
     return (
       <ul className={`${customClassName ? styles[customClassName] : ""}`}>
         {menuItems?.map((link) => {
           if (!link.label) {
             return null;
           }
-  
+
           const hasChildItems = link.childItems()?.nodes?.length > 0;
           const hasImgItem = link.menuFields.newIcon ? true:false;
           const customLiClass = customLiClasses[link.label] || "";
           const firstChildContent = customFirstChildContent[link.label] || null;
-  
+
           // Update itemsPerColumn and totalColumns based on customMenuConfig
           const itemsPerColumn = customMenuConfig[link.label]?.itemsPerColumn || defaultItemsPerColumn;
           const totalColumns = customMenuConfig[link.label]?.totalColumns || defaultTotalColumns;
 
           var indexT = 0;
-  
+
           return (
             <li
             key={`${link.label}-menu_${Math.random()}`}
@@ -141,7 +141,7 @@ function Header({
                 <a href={`${hasChildItems ? '#':link.url}`} 
                   className={`
                     ${link.cssClasses.toString().replaceAll(',',' ')}
-                    ${link.cssClasses.includes("button") ? styles.button+' gap-2 rounded-md':''}
+                    ${link.cssClasses.includes("button") ? styles.button+' gap-2 rounded-md '+styles.extra:''}
                     ${link.menuFields.isReversed ? styles.isReversed:''}
                   `}>
                   { hasImgItem &&
@@ -154,7 +154,7 @@ function Header({
                 </a>
               </Link>
               {hasChildItems && (
-                <ul className={`
+                <ul className={`menu_container
                   ${styles.column_container}
                   ${link.menuFields.submenuIsReversed ? styles.isReversed:''}
                 `}>
@@ -329,7 +329,7 @@ function Header({
       
   
   return (
-    <header id={`mainHeader`} className={`${styles.header} ${classes} ${styles.content_} ${styles[contentType]}`}>
+    <header id={`mainHeader`} className={`${styles.header} ${classes} ${styles.content_} ${styles[contentType]} ${contentType}`}>
       <Head>
         <title>
           {generalSettings.title} - {generalSettings.description}
