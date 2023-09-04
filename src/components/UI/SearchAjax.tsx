@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from 'scss/components/SearchAjax.module.scss';
 import { client } from 'client';
+import Loading from './Loading';
 
 
 interface SearchAjaxProps {
@@ -42,7 +43,7 @@ function SearchAjax({
                         className={`w-full py-3 pl-14 pr-2 rounded-md focus:outline-none`}
                         onChange = {searchAjax}
                     />
-                    <label htmlFor={`search`} className={`absolute top-1/2 -translate-y-1/2 left-4 leading-none opacity-50 focus:opacity-1`}>
+                    <label htmlFor={`search`} className={`absolute top-1/2 -translate-y-1/2 left-4 leading-none opacity-50 hover:opacity-1 focus:opacity-1`}>
                         <Image 
                             src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/07/Vector2.png`}
                             alt={`Magnifying glass`}
@@ -57,7 +58,7 @@ function SearchAjax({
                 </form>
                 {isSearched && 
                     <div className={`${styles.searchedWrap} flex flex-col gap-5 px-5 pt-6 pb-8 w-full z-10 bg-white absolute top-full rounded-b-md`}>
-                        {postsObj.nodes ?
+                        {postsObj.nodes.length > 0 ?
                             (
                                 <>
                                 <div className={`${styles.searchedTitle}`}>Post Blogs</div>
@@ -70,7 +71,7 @@ function SearchAjax({
                                             </a>
                                         </Link>
                                     ):(
-                                        <div key={`loadingPost${index}`}>Loading...</div>
+                                        <Loading />
                                     )
                                 ))}
                                 </>

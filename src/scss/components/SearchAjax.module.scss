@@ -24,8 +24,11 @@
         }
     }
     .searchedWrap{
+        max-height: 600px;
+        overflow: auto;
         border: 1px solid $color-gray;
         border-top: none;
+        box-shadow: 2px 16px 10px -5px rgba($color-black, .15);
         .searchedTitle{
             font-family: 'Gordita';
             font-size: 13px;
