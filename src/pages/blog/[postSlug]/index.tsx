@@ -40,7 +40,7 @@ export function PostComponent({ post }: PostProps) {
         title={postHero.postHeroTitle}
         description = {postHero.postHeroDescription}
         bgImage = {postHero.postHeroImage.mediaItemUrl}
-        buttons={postHero.postLinksObjs}
+        buttons={postHero.linksObjs}
       />}
 
       <section className={`${styles.contentSingle}`}>
