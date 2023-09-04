@@ -40,7 +40,7 @@ export default function Page() {
         title={postHero.postHeroTitle}
         description = {postHero.postHeroDescription}
         bgImage = {postHero.postHeroImage.mediaItemUrl}
-        buttons={postHero.postLinksObjs}
+        buttons={postHero.linksObjs}
       />}
 
       <main className="content content-index">
