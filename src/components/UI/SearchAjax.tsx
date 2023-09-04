@@ -71,7 +71,7 @@ function SearchAjax({
                                             </a>
                                         </Link>
                                     ):(
-                                        <Loading />
+                                        <Loading key={`post_${index}`} />
                                     )
                                 ))}
                                 </>
