@@ -9,7 +9,7 @@ import Heading, { HeadingProps } from '../Heading';
 
 
 interface Props {
-    titile?: string;
+    title?: string;
     description?: string;
     headingLevel?: string;
     form?: any;
