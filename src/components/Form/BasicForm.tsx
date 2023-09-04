@@ -11,7 +11,7 @@ import Heading, { HeadingProps } from '../Heading';
 interface Props {
     title?: string;
     description?: string;
-    headingLevel?: string;
+    headingLevel?: HeadingProps['level'];
     form?: any;
     submitBtn?: any;
     pt?: string;
