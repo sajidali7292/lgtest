@@ -10,6 +10,7 @@ export const backgroundColors = {
     red: "bg-red text-white",
     light: "bg-semi_white text-black",
     pink: "bg-pink text-black",
+    navy: "bg-navy text-white",
 }
 
 export const sectionVariantsTop = {
@@ -31,4 +32,19 @@ export const sectionVariantsBottom = {
     lg: 'pb-10 lg:pb-28',
     xl: 'pb-11 lg:pb-32',
     xxl: 'pb-14 lg:pb-40',
+}
+
+export const widthVariations = {
+    10 : 'w-full md:w-1/12',
+    20 : 'w-full md:w-1/5',
+    25 : 'w-full md:w-3/12',
+    33 : 'w-full md:w-4/12',
+    40 : 'w-full md:w-2/5',
+    50 : 'w-full md:w-1/2',
+    60 : 'w-full md:w-3/5',
+    66 : 'w-full md:w-2/3',
+    75 : 'w-full md:w-3/4',
+    80 : 'w-full md:w-4/5',
+    90 : 'w-full md:w-11/12',
+    100 : 'w-full',
 }
