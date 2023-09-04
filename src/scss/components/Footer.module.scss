@@ -5,6 +5,9 @@
 .mainW{
 	padding-top: 100px;
 	background-color: $color-semi-white;
+	@media(max-width: $breakpoint-medium){
+		padding-top: 50px;
+	}
 }
 
 .phraseFooter{
