@@ -1,0 +1,50 @@
+// CSS for the component Loading.tsx
+
+@import "scss/variables";
+
+.loading{
+    .spiner{
+        width: 30px;
+        height: 30px;
+        animation: rotate-simple 0.8s infinite linear;
+        -webkit-animation: rotate-simple 0.8s infinite linear;
+        border: 4px solid $color-hg1;
+        border-right-color: transparent;
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+}
+
+@-webkit-keyframes rotate-simple {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rotate-simple {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
