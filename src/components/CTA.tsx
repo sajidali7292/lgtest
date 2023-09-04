@@ -74,7 +74,7 @@ function CTA({ title, text, textSize, div, buttons, images, badgeObj, className,
               <div className={`flex flex-row flex-wrap justify-between pt-16`}>
                 {images &&
                   images.map((imageCTA, index) => (
-                    <div className={`${imageCTA.imageDisplay == 'mobile' ? 'block md:hidden':'hidden md:block'} w-full relative h-128`}>
+                    <div key={`${index}-${imageCTA.image.altText}`} className={`${imageCTA.imageDisplay == 'mobile' ? 'block md:hidden':'hidden md:block'} w-full relative h-128`}>
                       <Image className={`object-contain`}
                       src={imageCTA.image.sourceUrl()} alt={`${imageCTA.image.altText ? imageCTA.image.altText:'Image loop #'+index}`}
                       layout='fill'/>
