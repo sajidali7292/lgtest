@@ -75,11 +75,12 @@ function PricingTab({
             {sTitle && <h3 dangerouslySetInnerHTML={{__html: sTitle}}></h3>}
           </div>
         }
-        {
+        {tabs && (
           tabs.map((tab, index) => (
             tab.title && (
               <div
               key={tab.title}
+              style={{ display: tab.label === activeTab ? 'block' : 'none' }}
               className={`
               ${styles.tabTitles} 
               wrap_content md:order-2 lg:order-1
@@ -88,7 +89,6 @@ function PricingTab({
               `}>
                   <div
                   key={`${index}-title-${tab.label}`}
-                  style={{ display: tab.label === activeTab ? 'block' : 'none' }}
                   className={styles.tabTitle}
                   >
                     {tab.title && <h2>{tab.title}</h2>}
@@ -97,7 +97,7 @@ function PricingTab({
               </div>
             )
           ))
-        }
+        )}
 
         <div className={`
         ${styles.intro} 
@@ -139,7 +139,7 @@ function PricingTab({
         </div>
 
         <div className={`${styles.tablesTab}
-        order-3 w-full 
+        order-3 w-full container
         ${bgVariant}
         ${version == 'v3' || version == 'v4' ? 'w-full md:w-3/4':'py-5 md:pt-10 md:pb-20'}
         `}>
