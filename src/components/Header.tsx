@@ -5,7 +5,6 @@ import { client, MenuLocationEnum } from 'client';
 import Head from 'next/head';
 import Image from 'next/image';
 import classnames from 'classnames';
-import HeaderMenu from './Menus/HeaderMenu';
 
 interface Props {
   title?: string;
