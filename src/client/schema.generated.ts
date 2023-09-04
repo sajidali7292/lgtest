@@ -9353,12 +9353,15 @@ export const generatedSchema = {
     buildPerfectSeo: {
       __type: "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo",
     },
+    category: { __type: "ThemeGeneralSettings_Lgoptions_Category" },
     dashboardLogin: { __type: "AcfLink" },
     fieldGroupName: { __type: "String" },
+    formGroup: { __type: "ThemeGeneralSettings_Lgoptions_FormGroup" },
     lgLogo: { __type: "MediaItem" },
     lgNumber: { __type: "String" },
     menuTopItems: { __type: "[ThemeGeneralSettings_Lgoptions_menuTopItems]" },
     postHero: { __type: "ThemeGeneralSettings_Lgoptions_PostHero" },
+    siteOwner: { __type: "ThemeGeneralSettings_Lgoptions_SiteOwner" },
     tabs: { __type: "ThemeGeneralSettings_Lgoptions_Tabs" },
     toggleLeftSection: {
       __type: "ThemeGeneralSettings_Lgoptions_ToggleLeftSection",
@@ -9391,17 +9394,199 @@ export const generatedSchema = {
     size: { __type: "String" },
     type: { __type: "String" },
   },
+  ThemeGeneralSettings_Lgoptions_Category: {
+    __typename: { __type: "String!" },
+    cta: { __type: "ThemeGeneralSettings_Lgoptions_Category_Cta" },
+    fieldGroupName: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_Category_Cta: {
+    __typename: { __type: "String!" },
+    bgVariant: { __type: "String" },
+    columnsSize: { __type: "String" },
+    ctaDescription: { __type: "String" },
+    ctaImages: {
+      __type: "[ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages]",
+    },
+    ctaTitle: { __type: "String" },
+    fieldGroupName: { __type: "String" },
+    fullBg: { __type: "Boolean" },
+    imageBg: { __type: "ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg" },
+    imageSecondColumn: { __type: "MediaItem" },
+    isReversed: { __type: "Boolean" },
+    linksObjs: {
+      __type: "[ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs]",
+    },
+    pbVariant: { __type: "String" },
+    ptVariant: { __type: "String" },
+    secondColumn: { __type: "Boolean" },
+    secondColumnButtons: {
+      __type: "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons",
+    },
+    sectionRounded: { __type: "Boolean" },
+    textCentered: { __type: "Boolean" },
+  },
+  ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    image: { __type: "MediaItem" },
+    position: { __type: "String" },
+    repeat: { __type: "String" },
+    size: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    linksObjs: {
+      __type:
+        "[ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs]",
+    },
+  },
+  ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    icon: { __type: "Boolean" },
+    isLink: { __type: "Boolean" },
+    linkSingle: { __type: "AcfLink" },
+    pill: { __type: "Boolean" },
+    size: { __type: "String" },
+    type: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    image: { __type: "MediaItem" },
+    imageDisplay: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    icon: { __type: "Boolean" },
+    isLink: { __type: "Boolean" },
+    linkSingle: { __type: "AcfLink" },
+    pill: { __type: "Boolean" },
+    size: { __type: "String" },
+    type: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_FormGroup: {
+    __typename: { __type: "String!" },
+    bgVariant: { __type: "String" },
+    customSubmit: { __type: "String" },
+    description: { __type: "String" },
+    fielTypes: {
+      __type: "[ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes]",
+    },
+    fieldGroupName: { __type: "String" },
+    pbVariant: { __type: "String" },
+    ptVariant: { __type: "String" },
+    submitType: {
+      __type: "ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType",
+    },
+    title: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    icon: { __type: "Boolean" },
+    isLink: { __type: "Boolean" },
+    pill: { __type: "Boolean" },
+    size: { __type: "String" },
+    type: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes: {
+    __typename: { __type: "String!" },
+    ffieldForm: { __type: "String" },
+    ffieldLabel: { __type: "String" },
+    ffieldPlaceholder: { __type: "String" },
+    ffieldRequired: { __type: "Boolean" },
+    ffieldWidth: { __type: "String" },
+    fieldGroupName: { __type: "String" },
+    fieldLegend: { __type: "String" },
+  },
   ThemeGeneralSettings_Lgoptions_PostHero: {
     __typename: { __type: "String!" },
     fieldGroupName: { __type: "String" },
+    linksObjs: {
+      __type: "[ThemeGeneralSettings_Lgoptions_PostHero_linksObjs]",
+    },
     postHeroDescription: { __type: "String" },
     postHeroImage: { __type: "MediaItem" },
     postHeroTitle: { __type: "String" },
-    postLinksObjs: {
-      __type: "[ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs]",
+  },
+  ThemeGeneralSettings_Lgoptions_PostHero_linksObjs: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    icon: { __type: "Boolean" },
+    isLink: { __type: "Boolean" },
+    linkSingle: { __type: "AcfLink" },
+    pill: { __type: "Boolean" },
+    size: { __type: "String" },
+    type: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_SiteOwner: {
+    __typename: { __type: "String!" },
+    cta: { __type: "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta" },
+    fieldGroupName: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta: {
+    __typename: { __type: "String!" },
+    bgVariant: { __type: "String" },
+    columnsSize: { __type: "String" },
+    ctaDescription: { __type: "String" },
+    ctaImages: {
+      __type: "[ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages]",
+    },
+    ctaTitle: { __type: "String" },
+    fieldGroupName: { __type: "String" },
+    fullBg: { __type: "Boolean" },
+    imageBg: { __type: "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg" },
+    imageSecondColumn: { __type: "MediaItem" },
+    isReversed: { __type: "Boolean" },
+    linksObjs: {
+      __type: "[ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs]",
+    },
+    pbVariant: { __type: "String" },
+    ptVariant: { __type: "String" },
+    secondColumn: { __type: "Boolean" },
+    secondColumnButtons: {
+      __type:
+        "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons",
+    },
+    sectionRounded: { __type: "Boolean" },
+    textCentered: { __type: "Boolean" },
+  },
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    image: { __type: "MediaItem" },
+    position: { __type: "String" },
+    repeat: { __type: "String" },
+    size: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    linksObjs: {
+      __type:
+        "[ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs]",
     },
   },
-  ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs: {
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    icon: { __type: "Boolean" },
+    isLink: { __type: "Boolean" },
+    linkSingle: { __type: "AcfLink" },
+    pill: { __type: "Boolean" },
+    size: { __type: "String" },
+    type: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages: {
+    __typename: { __type: "String!" },
+    fieldGroupName: { __type: "String" },
+    image: { __type: "MediaItem" },
+    imageDisplay: { __type: "String" },
+  },
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs: {
     __typename: { __type: "String!" },
     fieldGroupName: { __type: "String" },
     icon: { __type: "Boolean" },
@@ -11561,8 +11746,25 @@ export const generatedSchema = {
       "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo",
       "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_imagesReview",
       "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_linksObjs",
+      "ThemeGeneralSettings_Lgoptions_Category",
+      "ThemeGeneralSettings_Lgoptions_Category_Cta",
+      "ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg",
+      "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons",
+      "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs",
+      "ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages",
+      "ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs",
+      "ThemeGeneralSettings_Lgoptions_FormGroup",
+      "ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType",
+      "ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes",
       "ThemeGeneralSettings_Lgoptions_PostHero",
-      "ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs",
+      "ThemeGeneralSettings_Lgoptions_PostHero_linksObjs",
+      "ThemeGeneralSettings_Lgoptions_SiteOwner",
+      "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta",
+      "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg",
+      "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons",
+      "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs",
+      "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages",
+      "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs",
       "ThemeGeneralSettings_Lgoptions_Tabs",
       "ThemeGeneralSettings_Lgoptions_Tabs_tabsContent",
       "ThemeGeneralSettings_Lgoptions_Tabs_tabsContent_faqToggles",
@@ -11613,8 +11815,25 @@ export interface AcfFieldGroup {
     | "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo"
     | "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_imagesReview"
     | "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_linksObjs"
+    | "ThemeGeneralSettings_Lgoptions_Category"
+    | "ThemeGeneralSettings_Lgoptions_Category_Cta"
+    | "ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg"
+    | "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons"
+    | "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs"
+    | "ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages"
+    | "ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs"
+    | "ThemeGeneralSettings_Lgoptions_FormGroup"
+    | "ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType"
+    | "ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes"
     | "ThemeGeneralSettings_Lgoptions_PostHero"
-    | "ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs"
+    | "ThemeGeneralSettings_Lgoptions_PostHero_linksObjs"
+    | "ThemeGeneralSettings_Lgoptions_SiteOwner"
+    | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta"
+    | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg"
+    | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons"
+    | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs"
+    | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages"
+    | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs"
     | "ThemeGeneralSettings_Lgoptions_Tabs"
     | "ThemeGeneralSettings_Lgoptions_Tabs_tabsContent"
     | "ThemeGeneralSettings_Lgoptions_Tabs_tabsContent_faqToggles"
@@ -20057,17 +20276,20 @@ export interface ThemeGeneralSettings {
 export interface ThemeGeneralSettings_Lgoptions {
   __typename?: "ThemeGeneralSettings_Lgoptions";
   buildPerfectSeo?: Maybe<ThemeGeneralSettings_Lgoptions_BuildPerfectSeo>;
+  category?: Maybe<ThemeGeneralSettings_Lgoptions_Category>;
   dashboardLogin?: Maybe<AcfLink>;
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  formGroup?: Maybe<ThemeGeneralSettings_Lgoptions_FormGroup>;
   lgLogo?: Maybe<MediaItem>;
   lgNumber?: Maybe<ScalarsEnums["String"]>;
   menuTopItems?: Maybe<
     Array<Maybe<ThemeGeneralSettings_Lgoptions_menuTopItems>>
   >;
   postHero?: Maybe<ThemeGeneralSettings_Lgoptions_PostHero>;
+  siteOwner?: Maybe<ThemeGeneralSettings_Lgoptions_SiteOwner>;
   tabs?: Maybe<ThemeGeneralSettings_Lgoptions_Tabs>;
   toggleLeftSection?: Maybe<ThemeGeneralSettings_Lgoptions_ToggleLeftSection>;
 }
@@ -20123,25 +20345,321 @@ export interface ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_linksObjs {
 /**
  * Field Group
  */
-export interface ThemeGeneralSettings_Lgoptions_PostHero {
-  __typename?: "ThemeGeneralSettings_Lgoptions_PostHero";
+export interface ThemeGeneralSettings_Lgoptions_Category {
+  __typename?: "ThemeGeneralSettings_Lgoptions_Category";
+  cta?: Maybe<ThemeGeneralSettings_Lgoptions_Category_Cta>;
   /**
    * The name of the ACF Field Group
    */
   fieldGroupName?: Maybe<ScalarsEnums["String"]>;
-  postHeroDescription?: Maybe<ScalarsEnums["String"]>;
-  postHeroImage?: Maybe<MediaItem>;
-  postHeroTitle?: Maybe<ScalarsEnums["String"]>;
-  postLinksObjs?: Maybe<
-    Array<Maybe<ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs>>
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_Category_Cta {
+  __typename?: "ThemeGeneralSettings_Lgoptions_Category_Cta";
+  bgVariant?: Maybe<ScalarsEnums["String"]>;
+  columnsSize?: Maybe<ScalarsEnums["String"]>;
+  ctaDescription?: Maybe<ScalarsEnums["String"]>;
+  ctaImages?: Maybe<
+    Array<Maybe<ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages>>
+  >;
+  ctaTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  fullBg?: Maybe<ScalarsEnums["Boolean"]>;
+  imageBg?: Maybe<ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg>;
+  imageSecondColumn?: Maybe<MediaItem>;
+  isReversed?: Maybe<ScalarsEnums["Boolean"]>;
+  linksObjs?: Maybe<
+    Array<Maybe<ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs>>
+  >;
+  pbVariant?: Maybe<ScalarsEnums["String"]>;
+  ptVariant?: Maybe<ScalarsEnums["String"]>;
+  secondColumn?: Maybe<ScalarsEnums["Boolean"]>;
+  secondColumnButtons?: Maybe<ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons>;
+  sectionRounded?: Maybe<ScalarsEnums["Boolean"]>;
+  textCentered?: Maybe<ScalarsEnums["Boolean"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg {
+  __typename?: "ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  image?: Maybe<MediaItem>;
+  position?: Maybe<ScalarsEnums["String"]>;
+  repeat?: Maybe<ScalarsEnums["String"]>;
+  size?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons {
+  __typename?: "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  linksObjs?: Maybe<
+    Array<
+      Maybe<ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs>
+    >
   >;
 }
 
 /**
  * Field Group
  */
-export interface ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs {
-  __typename?: "ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs";
+export interface ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs {
+  __typename?: "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  icon?: Maybe<ScalarsEnums["Boolean"]>;
+  isLink?: Maybe<ScalarsEnums["Boolean"]>;
+  linkSingle?: Maybe<AcfLink>;
+  pill?: Maybe<ScalarsEnums["Boolean"]>;
+  size?: Maybe<ScalarsEnums["String"]>;
+  type?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages {
+  __typename?: "ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  image?: Maybe<MediaItem>;
+  imageDisplay?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs {
+  __typename?: "ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  icon?: Maybe<ScalarsEnums["Boolean"]>;
+  isLink?: Maybe<ScalarsEnums["Boolean"]>;
+  linkSingle?: Maybe<AcfLink>;
+  pill?: Maybe<ScalarsEnums["Boolean"]>;
+  size?: Maybe<ScalarsEnums["String"]>;
+  type?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_FormGroup {
+  __typename?: "ThemeGeneralSettings_Lgoptions_FormGroup";
+  bgVariant?: Maybe<ScalarsEnums["String"]>;
+  customSubmit?: Maybe<ScalarsEnums["String"]>;
+  description?: Maybe<ScalarsEnums["String"]>;
+  fielTypes?: Maybe<
+    Array<Maybe<ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes>>
+  >;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  pbVariant?: Maybe<ScalarsEnums["String"]>;
+  ptVariant?: Maybe<ScalarsEnums["String"]>;
+  submitType?: Maybe<ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType>;
+  title?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType {
+  __typename?: "ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  icon?: Maybe<ScalarsEnums["Boolean"]>;
+  isLink?: Maybe<ScalarsEnums["Boolean"]>;
+  pill?: Maybe<ScalarsEnums["Boolean"]>;
+  size?: Maybe<ScalarsEnums["String"]>;
+  type?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes {
+  __typename?: "ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes";
+  ffieldForm?: Maybe<ScalarsEnums["String"]>;
+  ffieldLabel?: Maybe<ScalarsEnums["String"]>;
+  ffieldPlaceholder?: Maybe<ScalarsEnums["String"]>;
+  ffieldRequired?: Maybe<ScalarsEnums["Boolean"]>;
+  ffieldWidth?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  fieldLegend?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_PostHero {
+  __typename?: "ThemeGeneralSettings_Lgoptions_PostHero";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  linksObjs?: Maybe<
+    Array<Maybe<ThemeGeneralSettings_Lgoptions_PostHero_linksObjs>>
+  >;
+  postHeroDescription?: Maybe<ScalarsEnums["String"]>;
+  postHeroImage?: Maybe<MediaItem>;
+  postHeroTitle?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_PostHero_linksObjs {
+  __typename?: "ThemeGeneralSettings_Lgoptions_PostHero_linksObjs";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  icon?: Maybe<ScalarsEnums["Boolean"]>;
+  isLink?: Maybe<ScalarsEnums["Boolean"]>;
+  linkSingle?: Maybe<AcfLink>;
+  pill?: Maybe<ScalarsEnums["Boolean"]>;
+  size?: Maybe<ScalarsEnums["String"]>;
+  type?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_SiteOwner {
+  __typename?: "ThemeGeneralSettings_Lgoptions_SiteOwner";
+  cta?: Maybe<ThemeGeneralSettings_Lgoptions_SiteOwner_Cta>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_SiteOwner_Cta {
+  __typename?: "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta";
+  bgVariant?: Maybe<ScalarsEnums["String"]>;
+  columnsSize?: Maybe<ScalarsEnums["String"]>;
+  ctaDescription?: Maybe<ScalarsEnums["String"]>;
+  ctaImages?: Maybe<
+    Array<Maybe<ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages>>
+  >;
+  ctaTitle?: Maybe<ScalarsEnums["String"]>;
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  fullBg?: Maybe<ScalarsEnums["Boolean"]>;
+  imageBg?: Maybe<ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg>;
+  imageSecondColumn?: Maybe<MediaItem>;
+  isReversed?: Maybe<ScalarsEnums["Boolean"]>;
+  linksObjs?: Maybe<
+    Array<Maybe<ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs>>
+  >;
+  pbVariant?: Maybe<ScalarsEnums["String"]>;
+  ptVariant?: Maybe<ScalarsEnums["String"]>;
+  secondColumn?: Maybe<ScalarsEnums["Boolean"]>;
+  secondColumnButtons?: Maybe<ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons>;
+  sectionRounded?: Maybe<ScalarsEnums["Boolean"]>;
+  textCentered?: Maybe<ScalarsEnums["Boolean"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg {
+  __typename?: "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  image?: Maybe<MediaItem>;
+  position?: Maybe<ScalarsEnums["String"]>;
+  repeat?: Maybe<ScalarsEnums["String"]>;
+  size?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons {
+  __typename?: "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  linksObjs?: Maybe<
+    Array<
+      Maybe<ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs>
+    >
+  >;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs {
+  __typename?: "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  icon?: Maybe<ScalarsEnums["Boolean"]>;
+  isLink?: Maybe<ScalarsEnums["Boolean"]>;
+  linkSingle?: Maybe<AcfLink>;
+  pill?: Maybe<ScalarsEnums["Boolean"]>;
+  size?: Maybe<ScalarsEnums["String"]>;
+  type?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages {
+  __typename?: "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages";
+  /**
+   * The name of the ACF Field Group
+   */
+  fieldGroupName?: Maybe<ScalarsEnums["String"]>;
+  image?: Maybe<MediaItem>;
+  imageDisplay?: Maybe<ScalarsEnums["String"]>;
+}
+
+/**
+ * Field Group
+ */
+export interface ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs {
+  __typename?: "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs";
   /**
    * The name of the ACF Field Group
    */
@@ -23109,8 +23627,25 @@ export interface SchemaObjectTypes {
   ThemeGeneralSettings_Lgoptions_BuildPerfectSeo: ThemeGeneralSettings_Lgoptions_BuildPerfectSeo;
   ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_imagesReview: ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_imagesReview;
   ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_linksObjs: ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_linksObjs;
+  ThemeGeneralSettings_Lgoptions_Category: ThemeGeneralSettings_Lgoptions_Category;
+  ThemeGeneralSettings_Lgoptions_Category_Cta: ThemeGeneralSettings_Lgoptions_Category_Cta;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg: ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons: ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs: ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages: ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs: ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs;
+  ThemeGeneralSettings_Lgoptions_FormGroup: ThemeGeneralSettings_Lgoptions_FormGroup;
+  ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType: ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType;
+  ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes: ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes;
   ThemeGeneralSettings_Lgoptions_PostHero: ThemeGeneralSettings_Lgoptions_PostHero;
-  ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs: ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs;
+  ThemeGeneralSettings_Lgoptions_PostHero_linksObjs: ThemeGeneralSettings_Lgoptions_PostHero_linksObjs;
+  ThemeGeneralSettings_Lgoptions_SiteOwner: ThemeGeneralSettings_Lgoptions_SiteOwner;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs;
   ThemeGeneralSettings_Lgoptions_Tabs: ThemeGeneralSettings_Lgoptions_Tabs;
   ThemeGeneralSettings_Lgoptions_Tabs_tabsContent: ThemeGeneralSettings_Lgoptions_Tabs_tabsContent;
   ThemeGeneralSettings_Lgoptions_Tabs_tabsContent_faqToggles: ThemeGeneralSettings_Lgoptions_Tabs_tabsContent_faqToggles;
@@ -23429,8 +23964,25 @@ export type SchemaObjectTypesNames =
   | "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo"
   | "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_imagesReview"
   | "ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_linksObjs"
+  | "ThemeGeneralSettings_Lgoptions_Category"
+  | "ThemeGeneralSettings_Lgoptions_Category_Cta"
+  | "ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg"
+  | "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons"
+  | "ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs"
+  | "ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages"
+  | "ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs"
+  | "ThemeGeneralSettings_Lgoptions_FormGroup"
+  | "ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType"
+  | "ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes"
   | "ThemeGeneralSettings_Lgoptions_PostHero"
-  | "ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs"
+  | "ThemeGeneralSettings_Lgoptions_PostHero_linksObjs"
+  | "ThemeGeneralSettings_Lgoptions_SiteOwner"
+  | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta"
+  | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg"
+  | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons"
+  | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs"
+  | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages"
+  | "ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs"
   | "ThemeGeneralSettings_Lgoptions_Tabs"
   | "ThemeGeneralSettings_Lgoptions_Tabs_tabsContent"
   | "ThemeGeneralSettings_Lgoptions_Tabs_tabsContent_faqToggles"
@@ -23521,8 +24073,25 @@ export interface $AcfFieldGroup {
   ThemeGeneralSettings_Lgoptions_BuildPerfectSeo?: ThemeGeneralSettings_Lgoptions_BuildPerfectSeo;
   ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_imagesReview?: ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_imagesReview;
   ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_linksObjs?: ThemeGeneralSettings_Lgoptions_BuildPerfectSeo_linksObjs;
+  ThemeGeneralSettings_Lgoptions_Category?: ThemeGeneralSettings_Lgoptions_Category;
+  ThemeGeneralSettings_Lgoptions_Category_Cta?: ThemeGeneralSettings_Lgoptions_Category_Cta;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg?: ThemeGeneralSettings_Lgoptions_Category_Cta_ImageBg;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons?: ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs?: ThemeGeneralSettings_Lgoptions_Category_Cta_SecondColumnButtons_linksObjs;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages?: ThemeGeneralSettings_Lgoptions_Category_Cta_ctaImages;
+  ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs?: ThemeGeneralSettings_Lgoptions_Category_Cta_linksObjs;
+  ThemeGeneralSettings_Lgoptions_FormGroup?: ThemeGeneralSettings_Lgoptions_FormGroup;
+  ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType?: ThemeGeneralSettings_Lgoptions_FormGroup_SubmitType;
+  ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes?: ThemeGeneralSettings_Lgoptions_FormGroup_fielTypes;
   ThemeGeneralSettings_Lgoptions_PostHero?: ThemeGeneralSettings_Lgoptions_PostHero;
-  ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs?: ThemeGeneralSettings_Lgoptions_PostHero_postLinksObjs;
+  ThemeGeneralSettings_Lgoptions_PostHero_linksObjs?: ThemeGeneralSettings_Lgoptions_PostHero_linksObjs;
+  ThemeGeneralSettings_Lgoptions_SiteOwner?: ThemeGeneralSettings_Lgoptions_SiteOwner;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta?: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg?: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ImageBg;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons?: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs?: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_SecondColumnButtons_linksObjs;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages?: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_ctaImages;
+  ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs?: ThemeGeneralSettings_Lgoptions_SiteOwner_Cta_linksObjs;
   ThemeGeneralSettings_Lgoptions_Tabs?: ThemeGeneralSettings_Lgoptions_Tabs;
   ThemeGeneralSettings_Lgoptions_Tabs_tabsContent?: ThemeGeneralSettings_Lgoptions_Tabs_tabsContent;
   ThemeGeneralSettings_Lgoptions_Tabs_tabsContent_faqToggles?: ThemeGeneralSettings_Lgoptions_Tabs_tabsContent_faqToggles;
