@@ -1,0 +1,18 @@
+// CSS for the Posts page in components/category.tsx.
+
+@import "scss/variables";
+
+
+.searchContainer{
+    overflow: visible;
+}
+.catTitle{
+	font-family: $f37ginger;
+    font-size: 48px;
+    line-height: 1.45;
+    font-weight: 400;
+    margin-top: 0;
+    color: $color-secondary;
+    border-bottom: 3px solid $color-light-blue;
+    margin-bottom: 1em;
+}
