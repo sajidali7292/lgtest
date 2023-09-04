@@ -325,7 +325,7 @@ body .linear_bg{
     }
 }
 
-a.button {
+.button {
     display: block;
     background: $color-lg-pink;
     font-size: 16px;
@@ -338,8 +338,10 @@ a.button {
     text-align: center;
     letter-spacing: -0.02em;
     border: 1px solid $color-lg-pink;
-    padding: 11px 13px;
     transition: 0.3s ease-out all;
+    &:not(.icon){
+        padding: 11px 13px;
+    }
     &:focus,
     &:hover {
         background-color: darken($color-lg-pink, 10);
@@ -377,18 +379,24 @@ a.button {
         &:focus,
         &:hover {
             background-color: darken($color-hg1, 10);
+            svg * {
+                fill: darken($color-hg1, 10);
+            }
         }
     }
 
     &.button-third {
         background-color: $color-hg3;
         border-color: $color-hg3;
+        &.icon svg * {
+            fill: $color-hg3;
+        }
         &:focus,
         &:hover {
             color: $color-hg3;
             background-color: $color-transparent;
             svg * {
-                fill: $color-hg3;
+                fill: darken($color-hg3, 10);
             }
         }
     }
@@ -538,6 +546,9 @@ a.button {
 
         &.button-dark{
             color: $color-semi-dark;
+            &:hover, &:focus{
+                color: darken($color-semi-dark, 10);
+            }
         }
 
         &:hover, &:focus{
@@ -545,23 +556,34 @@ a.button {
             background-color: $color-transparent;
             border: $color-transparent;
         }
+
+        &.button-third{
+            color: $color-hg3;
+            &:hover, &:focus{
+                color: darken($color-hg3, 10);
+            }
+        }
     }
 
     &.x-small{
         font-size: 13px;
-        padding: 4px 18px;
+        padding: 4px 13px;
     }
     &.small{
         font-size: 16px;
-        padding: 5px 10px;
+        padding: 5px 16px;
     }
     &.medium {
         font-size: 17px;
-        padding: 11px 30px;
+        padding: 11px 35px;
     }
     &.big {
         font-size: 18px;
-        padding: 16px 50px;
+        padding: 16px 60px;
+    }
+    &.xbig {
+        font-size: 19px;
+        padding: 20px 80px;
     }
 }
     
