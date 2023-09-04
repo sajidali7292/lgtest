@@ -196,6 +196,7 @@ export default function Page() {
         title="Are you ready to seriously scale?"
         text="Choose only the products you need right now from our comprehensive menu. Whether you need a quick authority boost or a comprehensive growth package, we got you covered."
         textCenterd
+        textSize="reduced"
         buttons={[
           {
             linkSingle:{title: 'Get a Proposal', url: 'https://dashboard.linkgraph.io/order-builder'},
@@ -325,13 +326,14 @@ export default function Page() {
         isCentered
         pt = 'md'
         pb = 'md'
+        version = 'v1'
         tabOpenedID = 'managedSeo'
         tabs={[
           {
             id: 'managedSeo',
             label: 'Managed SEO',
             title: 'SEO Campaigns Tailored to your Website’s Needs',
-            content: 'Managed SEO campaigns include a custom combination of on-page SEO, off-site SEO, technical SEO, and content strategy tailored to your website’s needs.',
+            subtitle: 'Managed SEO campaigns include a custom combination of on-page SEO, off-site SEO, technical SEO, and content strategy tailored to your website’s needs.',
             typeModule: 'table',
             pricingScrolled: true,
             tablePricing:[
@@ -419,7 +421,7 @@ export default function Page() {
             id: 'linkBuilding',
             label: 'Link Building',
             title: 'Link Building to grow your site’s authority and traffic ',
-            content: 'Our link building packages are designed to always be on time and on budget so you can start getting results.',
+            subtitle: 'Our link building packages are designed to always be on time and on budget so you can start getting results.',
             typeModule: 'card',
             tablePricing:[
               {
@@ -476,7 +478,7 @@ export default function Page() {
             id: 'localSeo',
             label: 'Local SEO',
             title: 'Local SEO to dominate your market',
-            content: 'Dominate your market with thousands of hyper-local citations that turn local search into local business.',
+            subtitle: 'Dominate your market with thousands of hyper-local citations that turn local search into local business.',
             typeModule: 'card',
             tablePricing:[
               {
@@ -538,7 +540,7 @@ export default function Page() {
             id: 'technicalSeo',
             label: 'Technical SEO',
             title: 'On-site technical SEO for websites of all sizes',
-            content: 'Comprehensive technical SEO optimizations to improve crawling, indexing, and keyword rankings for your web pages.',
+            subtitle: 'Comprehensive technical SEO optimizations to improve crawling, indexing, and keyword rankings for your web pages.',
             typeModule: 'card',
             tablePricing:[
               {
@@ -754,7 +756,7 @@ export default function Page() {
             title: 'Get a Proposal'}, icon: true, hoverTransparent: true
           }
         ]}
-        secondColumnMiddle
+        columnsSize='first'
         secondColumn={{
           img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Group-35472.webp`, alt: "Integrations", width: 407, height: 450  }
         }}
@@ -927,7 +929,7 @@ export default function Page() {
             title: 'See Open Roles'}, hoverTransparent: true
           }
         ]}
-        secondColumnMiddle
+        columnsSize='first'
         secondColumn={{
           img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/Group-3016.webp`, alt: "We're Hiring", width: 447, height: 473 }
         }}
@@ -974,7 +976,7 @@ export default function Page() {
             },
           ]
         }}
-        secondColumnMiddle
+        columnsSize='first'
         secondColumn={{
           img:{ url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/03/image-108.webp`, alt: "We're Hiring", width: 440, height: 378 }
         }}
@@ -992,7 +994,7 @@ export default function Page() {
           type: 'third', pill: true, size: 'big', icon: true
           }
         ]}
-        secondColumnMiddle
+        columnsSize='first'
         secondColumn={{}}
         fullBg
         imageBg= {{url: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2023/02/New-subscribers.webp`, alt: '',
