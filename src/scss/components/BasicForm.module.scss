@@ -1,0 +1,21 @@
+// CSS for the CTA component in components/BasicForm.tsx.
+
+@import "scss/variables";
+
+
+.formSection{
+    .title{
+        font-family: $f37ginger;
+    }
+    .description{
+        font-size: 21px;
+    }
+    .fieldForm{
+        + span{
+            font-size: 14px;
+            font-family: $Gordita;
+            color: $color-lg-pink;
+            display: none;
+        }
+    }
+}
