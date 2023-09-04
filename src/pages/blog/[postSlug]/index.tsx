@@ -70,9 +70,9 @@ export function PostComponent({ post }: PostProps) {
                 />
               </div>
               <div className={`flex flex-row flex-wrap gap-2`}>
-                {post?.categories({first:5})?.edges?.map((category, index) => (
-                  <Link key={category.node.name} href={`${category.node.uri}`} passHref>
-                    <a className={`tag tag_${category?.node?.name?.toLowerCase().replace(' ','-')} small`} href={`${category.node.uri}`}>{category.node.name}</a>
+                {post?.categories({first:5})?.nodes?.map((category, index) => (
+                  <Link key={category.name} href={`${category.uri}`} passHref>
+                    <a className={`tag tag_${category.name?.toLowerCase().replace(' ','-')} small`} href={`${category.uri}`}>{category.name}</a>
                   </Link>
                 ))}
               </div>

@@ -2,6 +2,7 @@ import 'faust.config';
 import { FaustProvider } from '@faustjs/next';
 import 'normalize.css/normalize.css';
 import React, {useEffect, useState} from 'react';
+import { useRouter } from 'next/router';
 import 'scss/main.scss';
 import { client } from 'client';
 import type { AppProps } from 'next/app';
@@ -15,10 +16,13 @@ import Head from 'next/head';
 export default function MyApp({ Component, pageProps }: AppProps) {
   const { usePosts, useQuery } = client;
   const [urlType, setUrlType] = useState("");
+
+  const router = useRouter();
   useEffect(() => {
-    setUrlType (window.location.pathname.split('/').at(-2));
-    console.log(urlType);
-  });
+      setUrlType (window.location.pathname.split('/').at(-2));
+      console.log('route change with dependency', router.pathname);
+  }, [router]);
+  
 
   return (
     <>
