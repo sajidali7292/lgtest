@@ -21,7 +21,7 @@ interface Props {
   textCenterd?: boolean;
   fullBg?: boolean;
   imageBg?: any;
-  columnsSize?: boolean;
+  columnsSize?: string;
   secondColumn?: any;
   sColumnButtons?: any;
   id?: string;
