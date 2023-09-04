@@ -72,8 +72,8 @@ function BasicForm({
                                 </label>
                                 {field?.ffieldForm == 'text' && (
                                     <input
-                                        type={field?.ffieldLabel?.replace(' ', '')} id={field?.ffieldLabel?.replace(' ', '')} placeholder={field?.ffieldPlaceholder}
-                                        name={field?.ffieldLabel?.replace(' ', '')} aria-label={field?.ffieldLabel} data-gtm-form-interact-field-id="0"
+                                        type="text" placeholder={field?.ffieldPlaceholder} name={field?.ffieldLabel?.replace(' ', '')}
+                                        aria-label={field?.ffieldLabel} data-gtm-form-interact-field-id="0"
                                         required={field?.ffieldRequired ? true:false} className={`${styles.fieldForm} w-full focus:outline-none bg-transparent border-b border-white py-2 md:py-3`}
                                         onChange = {checkInput}
                                     />
@@ -81,7 +81,7 @@ function BasicForm({
                                 )}
                                 {field?.ffieldForm == 'textarea' && (
                                     <textarea
-                                        type={field?.ffieldLabel?.replace(' ', '')} id={field?.ffieldLabel?.replace(' ', '')} placeholder={field?.ffieldPlaceholder}
+                                        placeholder={field?.ffieldPlaceholder}
                                         name={field?.ffieldLabel?.replace(' ', '')} aria-label={field?.ffieldLabel} data-gtm-form-interact-field-id="0"
                                         required={field?.ffieldRequired ? true:false} className={`${styles.fieldForm} w-full focus:outline-none bg-transparent border-b border-white py-2 md:py-3`}
                                         onChange = {checkInput}
