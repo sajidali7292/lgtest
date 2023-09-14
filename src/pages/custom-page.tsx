@@ -3,32 +3,30 @@ import { client } from 'client';
 import { Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import PricingTab from 'components/PricingTab';
 
 export default function Page() {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
+  const faqToggle = useQuery().themeGeneralSettings.lgOptions.tabs;
 
   return (
     <>
 
-
       <Hero title="Custom Page" />
+      <PricingTab
+        pt = 'md'
+        pb = 'md'
+        version={'v5'}
+        title={faqToggle.title}
+        sTitle={faqToggle.subtitle}
+        isOutside={faqToggle.titleOutside}
+        isCenter={faqToggle.titleCenter}
+        isInverted={faqToggle.titleReversed}
+        bgC={'faqToggle.backgroundContent'}
+        tabs={faqToggle.tabsContent}
+      />
 
-      <main className="content content-single">
-        <div className="wrap">
-          <p>
-            You can still create pages just as you would in{' '}
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              target="_blank"
-              rel="noreferrer">
-              Next.js
-            </a>
-            . Take a look at <code>src/pages/custom-page.tsx</code> for an
-            example.
-          </p>
-        </div>
-      </main>
     </>
   );
 }
