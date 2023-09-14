@@ -44,7 +44,7 @@ export function PostComponent({ post }: PostProps) {
       />}
 
       <section className={`${styles.contentSingle}`}>
-        {/* <PricingTab
+        <PricingTab
           pt = 'md'
           pb = 'md'
           version={'v5'}
@@ -55,7 +55,7 @@ export function PostComponent({ post }: PostProps) {
           isInverted={faqToggle.titleReversed}
           bgC={'faqToggle.backgroundContent'}
           tabs={faqToggle.tabsContent}
-        /> */}
+        />
 
         <div className={`container ${styles.singleContainer}`}>
           <div className={`flex flex-row flex-wrap lg:flex-nowrap gap-4 md:gap-0 lg:gap-8`}>
