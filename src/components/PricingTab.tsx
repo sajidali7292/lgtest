@@ -41,14 +41,14 @@ function PricingTab({
   pb = 'md',
 }: Props): JSX.Element {
   const [activeTab, setActiveTab] = useState(tabs[0].label); // set the initial active tab to 'managedSeo'
-  
+
   const ptVariant = sectionVariantsTop[pt];
   const pBVariant = sectionVariantsBottom[pb];
   const bgVariant = backgroundColors[bgC]
 
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
-  };  
+  };
 
   return (
     <section
@@ -57,12 +57,12 @@ function PricingTab({
       className={`${styles.hero} ${isCentered ? 'text-center':''}`}
     >
       <div className={`
-      ${styles.wrap} 
-      flex flex-row flex-wrap overflow-hidden 
+      ${styles.wrap}
+      flex flex-row flex-wrap overflow-hidden
       ${version == 'v3' || version == 'v4' ? 'wrap_content wrap_content-extended':''}
       ${ptVariant} ${pBVariant} ${styles[version]}
       `}>
-        
+
         {isOutside &&
           <div
           className={`
@@ -82,7 +82,7 @@ function PricingTab({
               key={tab.title}
               style={{ display: tab.label === activeTab ? 'block' : 'none' }}
               className={`
-              ${styles.tabTitles} 
+              ${styles.tabTitles}
               wrap_content md:order-2 lg:order-1
               text-center
               ${version == 'v3' || version == 'v4' ? 'basis-full':''}
@@ -100,7 +100,7 @@ function PricingTab({
         )}
 
         <div className={`
-        ${styles.intro} 
+        ${styles.intro}
         ${version == 'v3' || version == 'v4' ? 'w-full md:w-1/4':'wrap_content'}
         md:order-1 lg:order-2
         `}>
@@ -117,7 +117,7 @@ function PricingTab({
             </div>
           }
 
-          <div className={`${styles.tabs} 
+          <div className={`${styles.tabs}
           flex gap-0 md:gap-5
           ${version == 'v3' || version == 'v4' ? 'flex-row md:flex-col flex-nowrap overflow-auto justify-start md:justify-center':' flex-row flex-wrap lg:flex-nowrap justify-center'}
           `}>
@@ -138,7 +138,7 @@ function PricingTab({
           </div>
         </div>
 
-        <div className={`${styles.tablesTab}
+        <div itemscope="" itemtype="https://schema.org/FAQPage" className={`${styles.tablesTab}
         order-3 w-full container
         ${bgVariant}
         ${version == 'v3' || version == 'v4' ? 'w-full md:w-3/4':'py-5 md:pt-10 md:pb-20'}

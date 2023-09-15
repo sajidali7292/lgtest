@@ -10,15 +10,15 @@ interface ToggleButtonProps {
     toggles?: any;
 }
 
-function ToggleButton({ 
+function ToggleButton({
     isColumns,
     version,
     toggles
-    
+
     }: ToggleButtonProps): JSX.Element {
 
     const [selectedItem, setSelectedItem] = useState(null);
-    
+
     function handleItemClick(item) {
         setSelectedItem(item === selectedItem ? null : item);
     }
@@ -43,7 +43,7 @@ function ToggleButton({
                     ${styles[version]}
                     tag-full_${index+1}
                     `}>
-                        <div className={`
+                        <div itemprop="mainEntity" itemscope="" itemtype="https://schema.org/Question" className={`
                             ${styles.toggleTitle}
                             ${item.title === selectedItem ? styles.typeSelected : ""}
                             flex flex-row justify-between`}
@@ -52,7 +52,7 @@ function ToggleButton({
                             {version == 'v1' && <i className={`dashicons ${item.title === selectedItem ? 'dashicons-minus':'dashicons-plus'}`}></i>}
                             {version == 'v3' && <i className={`dashicons ${item.title === selectedItem ? 'dashicons-arrow-up-alt2':'dashicons-arrow-down-alt2'}`}></i>}
                         </div>
-                        <div className={`${styles.answer} flex flex-col`}>
+                        <div itemprop="acceptedAnswer" itemscope="" itemtype="https://schema.org/Answer" className={`${styles.answer} flex flex-col`}>
                             <div className={`${styles.content}`} dangerouslySetInnerHTML={{ __html: item.answer }}></div>
                         </div>
                     </div>
