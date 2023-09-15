@@ -5,6 +5,14 @@ import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import PricingTab from 'components/PricingTab';
 
+const source = {
+  html: `<p style="color: purple; font-size: 2rem;">
+  <span style="text-align: center; text-decoration-line: underline;">
+    Hello world!
+  </span>
+</p>`
+};
+
 export default function Page() {
   const { useQuery } = client;
   const generalSettings = useQuery().generalSettings;
@@ -26,7 +34,9 @@ export default function Page() {
         bgC={'faqToggle.backgroundContent'}
         tabs={faqToggle.tabsContent}
       />
-
+      <RenderHtml
+        source={source}
+      />
     </>
   );
 }
