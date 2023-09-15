@@ -1,5 +1,8 @@
 @import "scss/variables";
 
+header, footer{
+  display: none !important;
+}
 .tableRow{
     .Table{
         display: flex;

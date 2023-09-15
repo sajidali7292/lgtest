@@ -4,7 +4,6 @@ import { Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import PricingTab from 'components/PricingTab';
-import styles from 'scss/components/PricingTabTemp.module.scss';
 
 export default function Page() {
   const { useQuery } = client;
