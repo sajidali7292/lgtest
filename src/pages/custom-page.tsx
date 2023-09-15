@@ -6,12 +6,16 @@ import Head from 'next/head';
 import PricingTab from 'components/PricingTab';
 import RenderHtml from 'react-native-render-html';
 
-const source = {
-  html: `<p style="color: purple; font-size: 2rem;">
-  <span style="text-align: center; text-decoration-line: underline;">
-    Hello world!
-  </span>
-</p>`
+const MyComponent = () => {
+  const customStyle = `
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      color: #333;
+    }
+  `
 };
 
 export default function Page() {
@@ -38,7 +42,13 @@ export default function Page() {
       <RenderHtml
         source={source}
       />
+      <View>
+        <style>{customStyle}</style>
+        <Text>Hello, World!</Text>
+        <Text>This is some text with custom styles applied.</Text>
+      </View>
     </>
+
   );
 }
 
