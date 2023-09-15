@@ -38,29 +38,45 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   });
 }
 
-
-import React from 'react';
-import { View, Text } from 'react-native';
-
-// Define a function
-const myFunction = () => {
-  // Your JavaScript code here
-  // Create a style element and set its content
-  const styleElement = document.createElement('style');
-  styleElement.innerHTML = 'body { display: none; }';
-
-  // Append the style element to the document's head
-  document.head.appendChild(styleElement);
-};
+import React, { useRef } from 'react';
+import { WebView } from 'react-native-webview';
 
 const MyComponent = () => {
-  // Call the function
-  myFunction();
+  const webViewRef = useRef<WebView | null>(null);
+
+  const styleContent = `
+    body {
+      background-color: lightblue;
+    }
+    h1 {
+      color: red;
+    }
+  `;
+
+  const updateStyle = () => {
+    const newStyleContent = `
+      body {
+        background-color: green;
+      }
+    `;
+
+    // Inject JavaScript to update the style
+    const script = `
+      const styleElement = document.createElement('style');
+      styleElement.textContent = \`${newStyleContent}\`;
+      document.head.appendChild(styleElement);
+    `;
+
+    webViewRef.current?.injectJavaScript(script);
+  };
 
   return (
-    <View>
-      <Text>Hello, world!</Text>
-    </View>
+    <WebView
+      ref={webViewRef}
+      originWhitelist={['*']}
+      source={{ html: `<html><body><h1>Hello World</h1></body></html>` }}
+    />
+    <button onPress={updateStyle}>Change Style</button>
   );
 };
 
