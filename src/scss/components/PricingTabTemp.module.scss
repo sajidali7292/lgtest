@@ -1,0 +1,8 @@
+// CSS for the PricingTab component in components/PricingTab.tsx.
+
+@import "scss/variables";
+
+
+header, footer{
+  display: none !important;
+}
