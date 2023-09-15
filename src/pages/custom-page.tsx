@@ -4,6 +4,7 @@ import { Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import PricingTab from 'components/PricingTab';
+import RenderHtml from 'react-native-render-html';
 
 const source = {
   html: `<p style="color: purple; font-size: 2rem;">
