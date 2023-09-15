@@ -4,19 +4,6 @@ import { Hero } from 'components';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import PricingTab from 'components/PricingTab';
-import RenderHtml from 'react-native-render-html';
-
-const MyComponent = () => {
-  const customStyle = `
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f0f0;
-    }
-    h1 {
-      color: #333;
-    }
-  `
-};
 
 export default function Page() {
   const { useQuery } = client;
@@ -39,16 +26,8 @@ export default function Page() {
         bgC={'faqToggle.backgroundContent'}
         tabs={faqToggle.tabsContent}
       />
-      <RenderHtml
-        source={source}
-      />
-      <View>
-        <style>{customStyle}</style>
-        <Text>Hello, World!</Text>
-        <Text>This is some text with custom styles applied.</Text>
-      </View>
-    </>
 
+    </>
   );
 }
 
@@ -58,3 +37,31 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     client,
   });
 }
+
+
+import React from 'react';
+import { View, Text } from 'react-native';
+
+// Define a function
+const myFunction = () => {
+  // Your JavaScript code here
+  // Create a style element and set its content
+  const styleElement = document.createElement('style');
+  styleElement.innerHTML = 'body { display: none; }';
+
+  // Append the style element to the document's head
+  document.head.appendChild(styleElement);
+};
+
+const MyComponent = () => {
+  // Call the function
+  myFunction();
+
+  return (
+    <View>
+      <Text>Hello, world!</Text>
+    </View>
+  );
+};
+
+export default MyComponent;
